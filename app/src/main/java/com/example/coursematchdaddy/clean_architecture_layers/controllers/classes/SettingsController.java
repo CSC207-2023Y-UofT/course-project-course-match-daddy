@@ -1,6 +1,6 @@
 package com.example.coursematchdaddy.clean_architecture_layers.controllers.classes;
 
-import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.updatesettings_class_imports.CollectSettingsDataInterface;
+import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.updatesettings_class_imports_implementations.CollectSettingsDataInterface;
 
 public class SettingsController implements CollectSettingsDataInterface {
 }

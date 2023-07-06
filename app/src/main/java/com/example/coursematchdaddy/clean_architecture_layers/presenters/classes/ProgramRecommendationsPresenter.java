@@ -1,6 +1,6 @@
 package com.example.coursematchdaddy.clean_architecture_layers.presenters.classes;
 
-import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.recommendationalgorithm_class_imports.ViewProgramsRecommendationsInterface;
+import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.recommendationalgorithm_class_imports_implementations.ViewProgramsRecommendationsInterface;
 
 public class ProgramRecommendationsPresenter implements ViewProgramsRecommendationsInterface {
 }

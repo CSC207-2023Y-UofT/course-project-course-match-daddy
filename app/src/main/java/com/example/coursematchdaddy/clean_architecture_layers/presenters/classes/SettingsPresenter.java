@@ -1,6 +1,6 @@
 package com.example.coursematchdaddy.clean_architecture_layers.presenters.classes;
 
-import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.updatesettings_class_imports.ViewSettingsDataInterface;
+import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.updatesettings_class_imports_implementations.ViewSettingsDataInterface;
 
 public class SettingsPresenter implements ViewSettingsDataInterface {
 }
