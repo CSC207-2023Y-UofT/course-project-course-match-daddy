@@ -1,7 +1,11 @@
 # Course Match Daddy
+![freestocks-hRVrvH9-dG0-unsplash](https://github.com/CSC207-2023Y-UofT/course-project-course-match-daddy/assets/80941606/0c791a3e-ef8b-475d-97d0-b2bc526618b8)
+_____
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Front-End (Android) Development Technologies
+![Android Studio](https://img.shields.io/badge/Android%20Studio-3DDC84.svg?style=for-the-badge&logo=android-studio&logoColor=white)
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
 
 ## Back-End (Web) Development Technologies [Coming Soon]
@@ -24,6 +28,7 @@
 ![Matplotlib](https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white)
 ![Spark](https://img.shields.io/badge/Apache_Spark-FFFFFF?style=for-the-badge&logo=apachespark&logoColor=#E35A16)
+
 _____
 
 <a name="description"></a>
