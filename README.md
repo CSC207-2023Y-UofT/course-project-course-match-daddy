@@ -38,7 +38,7 @@ Our software application’s domain is a course-matching application for student
 _____
 
 <a name="web-app-link"></a>
-**Design Document**: [Coming Soon]
+**Design Document Link**: [Coming Soon]
 
 **GitHub Repository Link**: https://github.com/CSC207-2023Y-UofT/course-project-course-match-daddy
 
@@ -104,23 +104,23 @@ _____
 ## Team, Roles, and Contributions
 The following individuals were involved in the development of this software application:
 * Dev Vora
- * **Role**:
- * **Contributions**:
+  * **Role**: [Coming Soon]
+  * **Contributions**: [Coming Soon]
 * Gagandeep Singh Lubana
- * **Role**:
- * **Contributions**:
+  * **Role**: [Coming Soon]
+  * **Contributions**: [Coming Soon]
 * Jaspreet Khela
- * **Role**:
- * **Contributions**:
+  * **Role**: [Coming Soon]
+  * **Contributions**: [Coming Soon]
 * Lavya Vaishno
- * **Role**:
- * **Contributions**:
+  * **Role**: [Coming Soon]
+  * **Contributions**: [Coming Soon]
 * Manav Singh
- * **Role**:
- * **Contributions**:
+  * **Role**: [Coming Soon]
+  * **Contributions**: [Coming Soon]
 * Uyiosa Iyekekpolor
- * **Role**:
- * **Contributions**:
+  * **Role**: [Coming Soon]
+  * **Contributions**: [Coming Soon]
 
 _____
 
