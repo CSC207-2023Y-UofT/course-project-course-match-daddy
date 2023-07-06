@@ -1,0 +1,7 @@
+package com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes;
+
+import com.example.coursematchdaddy.clean_architecture_layers.entities.interfaces.survey_class_imports.GenericDataInterface;
+import com.example.coursematchdaddy.clean_architecture_layers.entities.interfaces.survey_class_imports.UserDataInterface;
+
+public class UpdateSettings implements UserDataInterface, GenericDataInterface {
+}

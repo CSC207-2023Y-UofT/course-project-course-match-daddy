@@ -1,0 +1,6 @@
+package com.example.coursematchdaddy.clean_architecture_layers.gateways.classes;
+
+import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.swipecarousel_class_imports.ExtractProgramDataInterface;
+
+public class DBProgramsGateway implements ExtractProgramDataInterface {
+}
