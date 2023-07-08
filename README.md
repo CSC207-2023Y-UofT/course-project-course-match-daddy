@@ -70,7 +70,7 @@ _____
 
 <a name="info"></a>
 ## General Information
-### Software Specification
+### Software Usage Scenarios Specification
 First, the user will create an account using a provided (valid) email address and password. The creation of an account ensures that user-generated data within the application can persist beyond the user’s current application usage session. Additionally, the user can also view course reviews written by other users of the application.
 
 Next, the user will complete a brief survey specifying their academic history, preferences, and desired learning outcomes in order to streamline course and program recommendations for them. Once the user has completed the survey, the user will be presented with a carousel of course cards that may be of interest to the user; a graphic representation of the course’s content, a text-based description, and course-related metadata will be viewable to the user. If the user is interested in taking the course that is currently in view, the user may swipe right on the course’s card; otherwise, the user can discard the course recommendation by swiping left on the course’s card.
@@ -78,6 +78,7 @@ Next, the user will complete a brief survey specifying their academic history, p
 Lastly, the tabs at the bottom of the application will begin to populate with academic recommendations for the user. For example, ‘Courses’ and ‘Programs’ tabs will specify recommended courses and programs, respectively, that the user has saved or are most congruent with the user’s indicated courses of interest. Courses and programs within these tabs may be selected to view additional information about them including course reviews. Moreover, the user may also manually adjust previously-specified course recommendation preferences within a ‘Settings’ tab.
 
 ### User Stories
+The following user stories breakdown the software usage scenario specifications into discrete development objectives:
 1. As a user, I want to be able to create an account so that my application-related metadata persists between application usage sessions. 
 2. As a user, I want to be able to complete an initial survey that briefly specifies my academic history, preferences, and desired learning outcomes so that I may streamline course and program recommendations for me.
 3. As a user, upon completion of the initial survey, I want to be able to view a carousel of recommended course cards for me that I may swipe right on to indicate interest in the course or swipe left to indicate disinterest in the course so that I can receive relevant course and program recommendations.
