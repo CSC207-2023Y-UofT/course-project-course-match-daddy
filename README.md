@@ -152,13 +152,10 @@ _____
 ## Installation
 To install the application, first, clone the repository to your machine using the following Git commands within your command-line interface:
 
-`
-git cd <desired-project-directory-pathway>
+`git cd <desired-project-directory-pathway>`
+`git clone https://github.com/CSC207-2023Y-UofT/course-project-course-match-daddy.git`
+`git cd "course-project-course-match-daddy"`
 
-git clone https://github.com/CSC207-2023Y-UofT/course-project-course-match-daddy.git
-
-git cd "course-project-course-match-daddy"
-`
 Then, open your project folder in [Android Studio](https://developer.android.com/studio) and run the Android smartphone emulator.
 _____
 
