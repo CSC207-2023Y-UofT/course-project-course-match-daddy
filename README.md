@@ -11,6 +11,7 @@ _____
 ## [Coming Soon] Back-End (Web) Development Technologies
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
 ![Sequelize ORM](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
@@ -18,7 +19,6 @@ _____
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![Jest](https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white)
 ![Heroku](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)
-![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
 
 ## [Coming Soon] Data Engineering, Analytics, and Science Technologies
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
@@ -70,7 +70,7 @@ _____
 
 <a name="info"></a>
 ## General Information
-### Software Usage Scenarios Specification
+### Software Usage Scenarios Specifications
 First, the user will create an account using a provided (valid) email address and password. The creation of an account ensures that user-generated data within the application can persist beyond the user’s current application usage session. Additionally, the user can also view course reviews written by other users of the application.
 
 Next, the user will complete a brief survey specifying their academic history, preferences, and desired learning outcomes in order to streamline course and program recommendations for them. Once the user has completed the survey, the user will be presented with a carousel of course cards that may be of interest to the user; a graphic representation of the course’s content, a text-based description, and course-related metadata will be viewable to the user. If the user is interested in taking the course that is currently in view, the user may swipe right on the course’s card; otherwise, the user can discard the course recommendation by swiping left on the course’s card.
@@ -78,7 +78,7 @@ Next, the user will complete a brief survey specifying their academic history, p
 Lastly, the tabs at the bottom of the application will begin to populate with academic recommendations for the user. For example, ‘Courses’ and ‘Programs’ tabs will specify recommended courses and programs, respectively, that the user has saved or are most congruent with the user’s indicated courses of interest. Courses and programs within these tabs may be selected to view additional information about them including course reviews. Moreover, the user may also manually adjust previously-specified course recommendation preferences within a ‘Settings’ tab.
 
 ### User Stories
-The following user stories breakdown the software usage scenario specifications into discrete development objectives:
+The following user stories breakdown the software usage scenarios specifications into discrete development objectives:
 1. As a user, I want to be able to create an account so that my application-related metadata persists between application usage sessions. 
 2. As a user, I want to be able to complete an initial survey that briefly specifies my academic history, preferences, and desired learning outcomes so that I may streamline course and program recommendations for me.
 3. As a user, upon completion of the initial survey, I want to be able to view a carousel of recommended course cards for me that I may swipe right on to indicate interest in the course or swipe left to indicate disinterest in the course so that I can receive relevant course and program recommendations.
@@ -133,7 +133,7 @@ _____
 <a name="android"></a>
 ## Android Software Application Specifications
 ### Wireframes
-[Coming Soon]
+![Application Wireframes](https://github.com/CSC207-2023Y-UofT/course-project-course-match-daddy/assets/80941606/3266b79c-7666-4d85-a523-6187841d6a90)
 
 ### Screenshots
 [Coming Soon]
@@ -154,9 +154,9 @@ _____
 To install the application, first, clone the repository to your machine using the following Git commands within your command-line interface:
 
 ```
-git cd <desired-project-directory-pathway>
+cd <desired-project-directory-pathway>
 git clone https://github.com/CSC207-2023Y-UofT/course-project-course-match-daddy.git
-git cd "course-project-course-match-daddy"
+cd "course-project-course-match-daddy"
 ```
 
 Then, open your project folder in [Android Studio](https://developer.android.com/studio) and run the Android smartphone emulator.
