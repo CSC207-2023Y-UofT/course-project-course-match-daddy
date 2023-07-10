@@ -2,7 +2,7 @@ package com.example.coursematchdaddy.clean_architecture_layers.entities.classes;
 
 import java.util.HashMap;
 
-public class Course {
+public abstract class Course {
     private String courseTitle;
     private String courseCode;
     private String courseDescription;
