@@ -33,6 +33,33 @@ public abstract class Course {
     public HashMap<String, Object> getMiscellaneousCourseData() {
         return this.miscellaneousCourseData;
     }
+    public String getProgramArea() {
+        return (String)this.getMiscellaneousCourseData().get("ProgramArea");
+    }
+    public String getBreadth() {
+        return (String)this.getMiscellaneousCourseData().get("Breadth");
+    }
+    public String getDistribution() {
+        return (String)this.getMiscellaneousCourseData().get("Distribution");
+    }
+    public int getRemainingSeats() {
+        try {
+            int seats = (int)this.getMiscellaneousCourseData().get("RemainingSeats");
+            return seats;
+        } catch (NullPointerException e) {
+            return 0;
+        }
+    }
+    public abstract boolean enroll(User userData);
+    public boolean unenroll(User userData) {
+        try {
+            this.getMiscellaneousCourseData().put("RemainingSeats", (int)this.
+                    getMiscellaneousCourseData().get("RemainingSeats") + 1);
+        } catch (NullPointerException e) {
+            return false;
+        }
+        return userData.getSelectedCourses().remove(this.getCourseTitle);
+    }
 
 
 }
