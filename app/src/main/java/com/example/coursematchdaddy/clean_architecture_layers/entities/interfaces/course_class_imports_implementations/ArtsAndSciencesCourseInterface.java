@@ -4,13 +4,5 @@ import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.C
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
 
 public interface ArtsAndSciencesCourseInterface {
-
-    public String getProgramArea();
-    public String getBreadth();
-    public int getRemainingSeats();
-    public String getDistribution();
     public boolean enroll(User user);
-
-    public boolean unenroll(User user);
-
 }
