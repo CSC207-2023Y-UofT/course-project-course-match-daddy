@@ -6,5 +6,4 @@ import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.U
 public interface ClosedEnrollmentCourseInterface {
     public boolean meetsPrerequisites(User user);
     public boolean enroll(User user);
-    public boolean updateSeats(int amount);
 }
