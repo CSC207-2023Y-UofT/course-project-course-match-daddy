@@ -5,4 +5,15 @@ import java.util.HashMap;
 public interface UserDataInterface {
     HashMap<String, Object> getUserSurveyData();
 
+    String getUsername();
+
+    String getPassword();
+
+    String getEmail();
+
+    String setPassword();
+
+    String setUsername();
+
+    String setEmail();
 }
