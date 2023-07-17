@@ -8,8 +8,10 @@ public class Type1Program extends Program {
         return true;
     }
     public boolean unenroll(User userData) {
-        userData.getSelectedPrograms().remove(getProgramTitle());
-        return true;
+        if (userData.getSelectedPrograms().remove(getProgramTitle())) {
+            return true;
+        }
+        return false;
     }
 
 }
