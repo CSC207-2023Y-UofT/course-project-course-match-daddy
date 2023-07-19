@@ -3,5 +3,4 @@ package com.example.coursematchdaddy.clean_architecture_layers.entities.interfac
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
 
 public interface OpenEnrollmentCourseInterface {
-    public boolean enroll(User user);
 }
