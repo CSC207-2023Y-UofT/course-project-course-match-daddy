@@ -3,16 +3,14 @@ package com.example.coursematchdaddy.clean_architecture_layers.entities.classes.
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Course;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
 
-import java.util.ArrayList;
-import java.util.Map;
-
 public class ClosedEnrollmentCourse extends Course {
-    public boolean meetsPrerequisites(User user) {
-        return this.getMiscellaneousCourseData.get("PrerequisitesMet");
+    public boolean hasPrerequisites(User user) {
+        // placeholder method to show if prerequisites exist or not (will almost always return true)
+        return this.getMiscellaneousCourseData.get("PrerequisitesMet") != "";
     }
     public boolean enroll(User userData) {
-        // if prerequisites are met and seats are available
-        if (meetsPrerequisites(userData) && getRemainingSeats() > 0) {
+        // if user has prerequisites and seats are available
+        if (hasPrerequisites(userData) && getRemainingSeats() > 0) {
             // enroll user
             userData.getSelectedCourses().put(getCourseTitle(), this);
             // subtract from remaining seats
@@ -22,6 +20,7 @@ public class ClosedEnrollmentCourse extends Course {
         return false;
     }
     private void updateSeats(int amount) {
+        // update the seats by adding in the amount to the RemainingSeats key-pair in misc data
         this.getMiscellaneousCourseData.put("RemainingSeats", this.getMiscellaneousCourseData.
                 get("RemainingSeats") + amount);
     }
