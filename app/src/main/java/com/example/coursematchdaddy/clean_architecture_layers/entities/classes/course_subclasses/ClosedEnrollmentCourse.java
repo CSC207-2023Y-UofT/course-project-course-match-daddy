@@ -33,6 +33,24 @@ public class ClosedEnrollmentCourse extends Course {
     }
 
     /**
+     * unenroll a student from this course
+     * @param userData
+     * @return boolean
+     */
+    public boolean unenroll(User userData) {
+        try {
+            // incrementing this course's seats by 1
+            this.getMiscellaneousCourseData().put("RemainingSeats", getRemainingSeats() + 1);
+
+            // removing this course from the user's selected courses
+            return userData.getSelectedCourses().remove(this.getCourseTitle());
+
+        } catch (NullPointerException e) {
+            return false;
+        }
+    }
+
+    /**
      * Update the course's seats by amount
      * @param amount: int
      */

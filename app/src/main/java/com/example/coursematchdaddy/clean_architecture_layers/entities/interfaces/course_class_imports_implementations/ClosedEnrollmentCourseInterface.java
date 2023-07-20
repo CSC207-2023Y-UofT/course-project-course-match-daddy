@@ -18,4 +18,11 @@ public interface ClosedEnrollmentCourseInterface {
      * @return boolean
      */
     public boolean enroll(User userData);
+
+    /**
+     * unenroll a student from this course
+     * @param userData
+     * @return boolean
+     */
+    public boolean unenroll(User userData);
 }
