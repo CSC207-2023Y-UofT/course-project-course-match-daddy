@@ -7,9 +7,9 @@ public class Type2Program extends Program {
 
     /**
      * Enroll userData in this program only if they have fulfilled the requirements
-     * @param userData
-     * @param hasRequirements
-     * @return
+     * @param userData: User
+     * @param hasRequirements: boolean
+     * @return boolean
      */
     public boolean enroll(User userData, boolean hasRequirements) {
         if (hasRequirements) {
@@ -22,8 +22,8 @@ public class Type2Program extends Program {
 
     /**
      * Unenroll userData
-     * @param userData
-     * @return
+     * @param userData: User
+     * @return boolean
      */
     public boolean unenroll(User userData) {
         if (userData.getSelectedPrograms().remove(getProgramTitle())) {
