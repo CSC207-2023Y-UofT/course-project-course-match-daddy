@@ -5,7 +5,7 @@ import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.C
 public interface ViewCourseDataInterface {
     /**
      * return the course associated with courseCode
-     * @param courseCode
+     * @param courseCode: String
      * @return Course
      */
     public Course getCourseData(String courseCode);
