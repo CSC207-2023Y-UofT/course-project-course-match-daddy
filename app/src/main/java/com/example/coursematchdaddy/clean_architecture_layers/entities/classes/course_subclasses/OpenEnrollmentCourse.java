@@ -25,7 +25,7 @@ public class OpenEnrollmentCourse extends Course {
 
     /**
      * unenroll a student from this course
-     * @param userData
+     * @param userData: User
      * @return boolean
      */
     public boolean unenroll(User userData) {
