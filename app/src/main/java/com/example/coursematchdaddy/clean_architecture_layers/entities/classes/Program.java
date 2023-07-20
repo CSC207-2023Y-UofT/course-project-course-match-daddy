@@ -1,14 +1,14 @@
 package com.example.coursematchdaddy.clean_architecture_layers.entities.classes;
 
 public class Program {
-    private String programTitle;
-    private String programCode;
-    private String programDescription;
+    private final String programTitle;
+    private final String programCode;
+    private final String programDescription;
 
     /**
-     * @param programTitle
-     * @param programCode
-     * @param programDescription
+     * @param programTitle: String
+     * @param programCode: String
+     * @param programDescription: String
      */
     public Program(String programTitle, String programCode, String programDescription) {
         this.programTitle = programTitle;
