@@ -6,8 +6,8 @@ import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.U
 public class ClosedEnrollmentCourse extends Course {
     /**
      * Check if user has the prerequisite courses completed for this course
-     * @param user
-     * @return
+     * @param user: User
+     * @return boolean
      */
     public boolean hasPrerequisites(User user) {
         // placeholder method to show if prerequisites exist or not (will almost always return true)
@@ -17,8 +17,8 @@ public class ClosedEnrollmentCourse extends Course {
     /**
      * Enroll user into this course if they have met the prerequisites and the course has seats
      * available
-     * @param userData
-     * @return
+     * @param userData: User
+     * @return boolean
      */
     public boolean enroll(User userData) {
         // if user has prerequisites and seats are available
@@ -34,7 +34,7 @@ public class ClosedEnrollmentCourse extends Course {
 
     /**
      * Update the course's seats by amount
-     * @param amount
+     * @param amount: int
      */
     private void updateSeats(int amount) {
         // update the seats by adding in the amount to the RemainingSeats key-pair in misc data
