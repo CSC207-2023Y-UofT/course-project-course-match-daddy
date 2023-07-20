@@ -24,6 +24,24 @@ public class OpenEnrollmentCourse extends Course {
     }
 
     /**
+     * unenroll a student from this course
+     * @param userData
+     * @return boolean
+     */
+    public boolean unenroll(User userData) {
+        try {
+            // incrementing this course's seats by 1
+            this.getMiscellaneousCourseData().put("RemainingSeats", getRemainingSeats() + 1);
+
+            // removing this course from the user's selected courses
+            return userData.getSelectedCourses().remove(this.getCourseTitle());
+
+        } catch (NullPointerException e) {
+            return false;
+        }
+    }
+
+    /**
      * update the number of seats in this course by amount
      * @param amount: int
      */
