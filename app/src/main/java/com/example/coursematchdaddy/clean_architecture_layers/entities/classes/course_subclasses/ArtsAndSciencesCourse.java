@@ -7,8 +7,8 @@ public class ArtsAndSciencesCourse extends Course {
 
     /**
      * enroll a User into this course if there are seats available
-     * @param userData
-     * @return
+     * @param userData: User
+     * @return boolean
      */
     public boolean enroll(User userData) {
         if (this.getRemainingSeats() > 0) {
@@ -22,7 +22,7 @@ public class ArtsAndSciencesCourse extends Course {
 
     /**
      * update the number of seats in this course by amount
-     * @param amount
+     * @param amount: int
      */
     private void updateSeats(int amount) {
         // update the seats by adding in the amount to the RemainingSeats key-pair in misc data
