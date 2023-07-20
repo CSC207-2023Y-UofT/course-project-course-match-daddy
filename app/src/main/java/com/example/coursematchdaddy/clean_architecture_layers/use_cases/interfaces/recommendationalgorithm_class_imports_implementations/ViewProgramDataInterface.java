@@ -5,7 +5,7 @@ import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.P
 public interface ViewProgramDataInterface {
     /**
      * return the program associated with the program code
-     * @param programCode
+     * @param programCode: String
      * @return Program
      */
     public Program getProgramData(String programCode);
