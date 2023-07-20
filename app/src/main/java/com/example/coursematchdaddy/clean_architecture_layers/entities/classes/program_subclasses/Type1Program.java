@@ -7,8 +7,8 @@ public class Type1Program extends Program {
 
     /**
      * Add this user to their selected programs
-     * @param userData
-     * @return
+     * @param userData: User
+     * @return boolean
      */
     public boolean enroll(User userData) {
         userData.getSelectedPrograms().put(getProgramTitle(), this);
@@ -17,8 +17,8 @@ public class Type1Program extends Program {
 
     /**
      * Remove this user from their selected programs
-     * @param userData
-     * @return
+     * @param userData: User
+     * @return boolean
      */
     public boolean unenroll(User userData) {
         if (userData.getSelectedPrograms().remove(getProgramTitle())) {
