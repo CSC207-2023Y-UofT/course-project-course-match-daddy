@@ -3,7 +3,7 @@ package com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfa
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Program;
 
 public interface ExtractProgramDataInterface {
-    
+
     /**
      * return program title from the database
      * @param programData: Program
