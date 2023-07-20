@@ -3,18 +3,18 @@ package com.example.coursematchdaddy.clean_architecture_layers.entities.classes;
 import java.util.HashMap;
 
 public abstract class Course {
-    private String courseTitle;
-    private String courseCode;
-    private String courseDescription;
-    private String courseImageURL;
-    private HashMap<String, Object> miscellaneousCourseData;
+    private final String courseTitle;
+    private final String courseCode;
+    private final String courseDescription;
+    private final String courseImageURL;
+    private final HashMap<String, Object> miscellaneousCourseData;
 
     /**
-     * @param courseTitle
-     * @param courseCode
-     * @param courseDescription
-     * @param courseImageURL
-     * @param miscellaneousCourseData
+     * @param courseTitle: String
+     * @param courseCode: String
+     * @param courseDescription: String
+     * @param courseImageURL: String
+     * @param miscellaneousCourseData: HashMap<String, Object>
      */
     public Course(String courseTitle, String courseCode,
                   String courseDescription, String courseImageURL,
@@ -28,7 +28,7 @@ public abstract class Course {
 
     /**
      * return course title (ex. Introduction to Computer Science)
-     * @return
+     * @return String
      */
     public String getCourseTitle() {
         return this.courseTitle;
@@ -36,7 +36,7 @@ public abstract class Course {
 
     /**
      * return course code (ex. CSC148)
-     * @return
+     * @return String
      */
     public String getCourseCode() {
         return this.courseCode;
@@ -44,7 +44,7 @@ public abstract class Course {
 
     /**
      * return course description (ex. This course introduces students to...)
-     * @return
+     * @return String
      */
     public String getCourseDescription() {
         return this.courseDescription;
@@ -52,7 +52,7 @@ public abstract class Course {
 
     /**
      * return course image URL
-     * @return
+     * @return String
      */
     public String getCourseImageURL() {
         return this.courseImageURL;
@@ -60,7 +60,7 @@ public abstract class Course {
 
     /**
      * return miscellaneous course data (in key-pair format)
-     * @return
+     * @return HashMap<String, Object>
      */
     public HashMap<String, Object> getMiscellaneousCourseData() {
         return this.miscellaneousCourseData;
@@ -68,7 +68,7 @@ public abstract class Course {
 
     /**
      * return program area of this course (ex. Computer Science)
-     * @return
+     * @return String
      */
     public String getProgramArea() {
         return (String)this.getMiscellaneousCourseData().get("ProgramArea");
@@ -76,7 +76,7 @@ public abstract class Course {
 
     /**
      * return breadth (ex. The Physical and Mathematical Universes (5))
-     * @return
+     * @return String
      */
     public String getBreadth() {
         return (String)this.getMiscellaneousCourseData().get("Breadth");
@@ -84,7 +84,7 @@ public abstract class Course {
 
     /**
      * return distribution (ex. Science)
-     * @return
+     * @return String
      */
     public String getDistribution() {
         return (String)this.getMiscellaneousCourseData().get("Distribution");
@@ -92,7 +92,7 @@ public abstract class Course {
 
     /**
      * return seats available in this course
-     * @return
+     * @return int
      */
     public int getRemainingSeats() {
         try {
@@ -108,25 +108,14 @@ public abstract class Course {
     /**
      * enroll a user into a course
      * @param userData
-     * @return
+     * @return boolean
      */
     public abstract boolean enroll(User userData);
 
     /**
      * unenroll a student from this course
      * @param userData
-     * @return
+     * @return boolean
      */
-    public boolean unenroll(User userData) {
-        try {
-            // incrementing this course's seats by 1
-            this.getMiscellaneousCourseData().put("RemainingSeats", getRemainingSeats() + 1);
-
-            // removing this course from the user's selected courses
-            return userData.getSelectedCourses().remove(this.getCourseTitle);
-
-        } catch (NullPointerException e) {
-            return false;
-        }
-    }
+    public abstract boolean unenroll(User userData);
 }
