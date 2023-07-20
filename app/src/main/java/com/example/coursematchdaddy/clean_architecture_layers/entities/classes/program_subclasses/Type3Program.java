@@ -16,8 +16,8 @@ public class Type3Program extends Program {
     /**
      * Enroll userData into the program if there are seats remaining, and requirements are
      * fulfilled
-     * @param userData
-     * @param hasRequirements
+     * @param userData: User
+     * @param hasRequirements: boolean
      * @return boolean
      */
     public boolean enroll(User userData, boolean hasRequirements) {
@@ -32,8 +32,8 @@ public class Type3Program extends Program {
 
     /**
      * Unenroll userData from program
-     * @param userData
-     * @return boolean
+     * @param userData: User
+     * @return boolean: boolean
      */
     public boolean unenroll(User userData) {
         // remove program from user's selections
