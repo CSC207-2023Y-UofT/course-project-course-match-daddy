@@ -28,6 +28,23 @@ public class CoursePresenter implements ViewCourseDataInterface {
 
     /**
      * return the data associated with a selected course
+     * @param courseCode Course code associated with a course
+     * @return Map<String, String> the data that needs to be displayed
+     */
+    public Map<String, String> getCourseData(String courseCode) {
+        HashMap<String, String> data = new HashMap<String, String>();
+        for (Course c : courseList) {
+            if (c.getCourseCode() == courseCode) {
+                data.put("CourseCode", c.getCourseCode());
+                data.put("CourseDescription", c.getCourseDescription());
+                data.put("CourseTitle", c.getCourseTitle());
+            }
+        }
+        return data;
+    }
+
+    /**
+     * return the data associated with a selected course
      * @param course Course object that is selected
      * @return Map<String, String> the data that needs to be displayed
      */
