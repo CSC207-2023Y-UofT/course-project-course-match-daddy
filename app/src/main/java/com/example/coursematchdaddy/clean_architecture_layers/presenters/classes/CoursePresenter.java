@@ -32,6 +32,7 @@ public class CoursePresenter implements ViewCourseDataInterface {
      * @return Map<String, String> the data that needs to be displayed
      */
     public Map<String, String> getCourseData(String courseCode) {
+        // adding all data from the course with the same code as courseCode (String)
         HashMap<String, String> data = new HashMap<String, String>();
         for (Course c : courseList) {
             if (c.getCourseCode() == courseCode) {
@@ -49,6 +50,7 @@ public class CoursePresenter implements ViewCourseDataInterface {
      * @return Map<String, String> the data that needs to be displayed
      */
     public Map<String, String> getCourseData(Course course) {
+        // adding all data from the course matching with course (Course object)
         HashMap<String, String> data = new HashMap<String, String>();
         for (Course c : courseList) {
             if (c.getCourseCode() == course.getCourseCode()) {
