@@ -22,15 +22,15 @@ public abstract class User {
      * @param email This is the email of a user; this is a unique identifier for the user.
      * @param password This is the password of a user.
      */
-    public User(String username, String email, String password){
-        // Initialize the private variables.
+    public User(String username, String email, String password) {
+        // Initialize the private attributes.
         this.email = email;
         this.password = password;
         this.selectedCourses = new HashMap<>();
         this.selectedPrograms = new HashMap<>();
         this.userSurvey = new Survey();
 
-        // Initialize the public variable.
+        // Initialize the public attributes.
         this.username = username;
     }
 

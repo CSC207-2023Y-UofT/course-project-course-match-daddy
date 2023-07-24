@@ -2,7 +2,7 @@ package com.example.coursematchdaddy.clean_architecture_layers.entities.classes.
 
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
 
-public class AdministrationUser extends User {
+public class AdministrationUser extends LoggedInUser {
     /**
      * Constructor method for the User class.
      *
