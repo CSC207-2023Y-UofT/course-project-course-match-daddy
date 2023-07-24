@@ -24,11 +24,4 @@ public interface ExtractProgramDataInterface {
      * @return String
      */
     public String getDescription(Program programData);
-
-    /**
-     * return program image url from the database
-     * @param programData: Program
-     * @return String
-     */
-    public String getImageURL(Program programData);
 }
