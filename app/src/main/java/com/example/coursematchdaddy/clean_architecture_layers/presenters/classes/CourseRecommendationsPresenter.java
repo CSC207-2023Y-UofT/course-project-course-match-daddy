@@ -1,6 +1,7 @@
 package com.example.coursematchdaddy.clean_architecture_layers.presenters.classes;
 
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Course;
+import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Program;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.recommendationalgorithm_class_imports_implementations.ViewCoursesRecommendationsInterface;
 
@@ -23,7 +24,7 @@ public class CourseRecommendationsPresenter implements ViewCoursesRecommendation
      */
     public List<Course> getCourseRecommendations(User userData) {
         // TEMPORARILY RETURNING THE COURSE LIST ONLY
-        return this.courseList;
+        return ((HashMap<String, Program>) userData.getSelectedCourses()).values();
     }
 
     /**
