@@ -30,20 +30,20 @@ public class ProgramActivity extends AppCompatActivity implements RecycleViewInt
         setContentView(R.layout.activity_program);
 
         // for testing purposes
-        programList.add("John");
-        programList.add("Ranvir");
-        programList.add("Uyiosa");
-        programList.add("Uyiosa");
-        programList.add("Uyiosa");
-        programList.add("Uyiosa");
-        programList.add("Uyiosa");
-        programList.add("Uyiosa");
-        programList.add("Uyiosa");
-        programList.add("Uyiosa");
+//        programList.add("John");
+//        programList.add("Ranvir");
+//        programList.add("Uyiosa");
+//        programList.add("Uyiosa");
+//        programList.add("Uyiosa");
+//        programList.add("Uyiosa");
+//        programList.add("Uyiosa");
+//        programList.add("Uyiosa");
+//        programList.add("Uyiosa");
+//        programList.add("Uyiosa");
 
-//        for (Program p : getProgramList()) {
-//            programList.add(getProgramData(p).get(""));
-//        }
+        for (Program p : getProgramList()) {
+            programList.add(getProgramData(p).get(""));
+        }
 
         rv = findViewById(R.id.recyclerView);
         rv.setLayoutManager(new LinearLayoutManager(this));
@@ -92,25 +92,25 @@ public class ProgramActivity extends AppCompatActivity implements RecycleViewInt
     @Override
     public void onItemClick(int pos) {
         Log.d("PERSON", Integer.toString(pos));
-//        HashMap<String, String> selectedProgramData = (HashMap<String, String>)getProgramData(programList.get(pos));
-//
-//        TextView tv1 = (TextView)findViewById(R.id.program_title);
-//        tv1.setText(selectedProgramData.get("ProgramTitle"));
-//
-//        TextView tv2 = (TextView)findViewById(R.id.program_code);
-//        tv2.setText(selectedProgramData.get("ProgramCode"));
-//
-//        TextView tv3 = (TextView)findViewById(R.id.program_description);
-//        tv3.setText(selectedProgramData.get("ProgramDescription"));
+        HashMap<String, String> selectedProgramData = (HashMap<String, String>)getProgramData(programList.get(pos));
 
-        // code below is for testing
         TextView tv1 = (TextView)findViewById(R.id.program_title);
-        tv1.setText("HI");
+        tv1.setText(selectedProgramData.get("ProgramTitle"));
 
         TextView tv2 = (TextView)findViewById(R.id.program_code);
-        tv2.setText("MY NAME IS DEV");
+        tv2.setText(selectedProgramData.get("ProgramCode"));
 
         TextView tv3 = (TextView)findViewById(R.id.program_description);
-        tv3.setText("I LOVE CHEESE!");
+        tv3.setText(selectedProgramData.get("ProgramDescription"));
+
+        // code below is for testing
+//        TextView tv1 = (TextView)findViewById(R.id.program_title);
+//        tv1.setText("HI");
+//
+//        TextView tv2 = (TextView)findViewById(R.id.program_code);
+//        tv2.setText("MY NAME IS DEV");
+//
+//        TextView tv3 = (TextView)findViewById(R.id.program_description);
+//        tv3.setText("I LOVE CHEESE!");
     }
 }
