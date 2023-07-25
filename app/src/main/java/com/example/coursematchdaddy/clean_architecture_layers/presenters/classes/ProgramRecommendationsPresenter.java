@@ -1,9 +1,8 @@
 package com.example.coursematchdaddy.clean_architecture_layers.presenters.classes;
 
-import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Program;
-import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.recommendationalgorithm_class_imports_implementations.ViewProgramsRecommendationsInterface;
 
+public class ProgramRecommendationsPresenter implements ViewProgramsRecommendationsInterface {
 import java.util.HashMap;
 import java.util.List;
 
