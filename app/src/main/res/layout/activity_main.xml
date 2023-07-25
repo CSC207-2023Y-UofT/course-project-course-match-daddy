@@ -1,25 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawer_layout"
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#20124D">
 
-    <include
-        android:id="@+id/app_bar_main"
-        layout="@layout/app_bar_main"
+    <!-- Title TextView  -->
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="80sp"
+        android:layout_gravity="center_horizontal"
+        android:background="#0000FF"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:text="Course Match Daddy"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp" />
 
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/activity_main_drawer" />
-</androidx.drawerlayout.widget.DrawerLayout>
+    <!--  TextView 2 -->
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="80sp"
+        android:background="#660000"
+        android:gravity="center"
+        android:text="Receive University of Toronto course and program recommendations!"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:layout_marginTop="16dp" />
+
+    <!-- Login TextView -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/editTextUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="  Username"
+        android:background="#CFE2F3"
+        android:layout_marginTop="8dp" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="  Password"
+        android:inputType="textPassword"
+        android:background="#CFE2F3"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Login" />
+
+    <!-- Signup TextView  -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Signup"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/editTextSignupUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="  Username"
+        android:background="#CFE2F3"
+        android:layout_marginTop="8dp" />
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="  Email"
+        android:inputType="textEmailAddress"
+        android:background="#CFE2F3"
+        android:layout_marginTop="8dp" />
+
+    <EditText
+        android:id="@+id/editTextSignupPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="  Password"
+        android:inputType="textPassword"
+        android:background="#CFE2F3"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/signupButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Signup" />
+
+    <!-- ImportantMessage TextView  -->
+    <TextView
+        android:id="@+id/importantMessage"
+        android:layout_width="match_parent"
+        android:layout_height="143dp"
+        android:text=""
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+
+</LinearLayout>
