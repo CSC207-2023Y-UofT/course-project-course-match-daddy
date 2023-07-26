@@ -1,10 +1,8 @@
 package com.example.coursematchdaddy.clean_architecture_layers.gateways.classes;
 
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
- 47-feature-47-create-settingscontroller-controller-layer-class
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.user_subclasses.LoggedInUser;
 
- main
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations.CreateUserAccountInterface;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations.ExtractUserDataInterface;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations.VerifyLoginDataInterface;
@@ -15,7 +13,6 @@ import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfac
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.updatesettings_class_imports_implementations.SaveSurveyDataInterface;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.updatesettings_class_imports_implementations.UpdateSettingsDataInterface;
 
- 47-feature-47-create-settingscontroller-controller-layer-class
 // Reads and writes user data to the database.
 public abstract class DBUsersGateway implements CreateUserAccountInterface, VerifyLoginDataInterface, SwipeCardRightInterface, SwipeCardLeftInterface, ExtractUserDataInterface, ExtractCoursesRecommendationsInterface, ExtractProgramsRecommendationsInterface, SaveSurveyDataInterface, UpdateSettingsDataInterface {
     /**
@@ -55,13 +52,6 @@ public abstract class DBUsersGateway implements CreateUserAccountInterface, Veri
     public boolean addPassword(String password) {
         return false;
     }
-
-
-
-=======
-public class DBUsersGateway implements CreateUserAccountInterface, VerifyLoginDataInterface, SwipeCardRightInterface,
-        SwipeCardLeftInterface, ExtractUserDataInterface, ExtractCoursesRecommendationsInterface,
-        ExtractProgramsRecommendationsInterface, SaveSurveyDataInterface, UpdateSettingsDataInterface {
 
   /**
   IMPORTANT:
@@ -113,5 +103,4 @@ public class DBUsersGateway implements CreateUserAccountInterface, VerifyLoginDa
             return false;
         }
     }
- main
 }
