@@ -25,7 +25,7 @@ public abstract class User {
     public String username; // This is a unique identifier for an instance of the User class.
 
     /**
-     * Constructor method for the User class.
+     * Constructor method for an instance of the User class.
      *
      * @param username This is the username of a user; this is a unique identifier for the user.
      * @param email This is the email of a user; this is a unique identifier for the user.
@@ -44,12 +44,30 @@ public abstract class User {
     }
 
     /**
+     * Retrieve a user's username.
+     *
+     * @return Retrieve a user's username.
+     */
+    public String getUsername(){
+        return this.username;
+    }
+
+    /**
      * Retrieve a user's email.
      *
      * @return Retrieve a user's email.
      */
     public String getEmail(){
         return this.email;
+    }
+
+    /**
+     * Retrieve a user's password.
+     *
+     * @return Retrieve a user's password.
+     */
+    public String getPassword(){
+        return this.password;
     }
 
     /**
@@ -147,7 +165,7 @@ public abstract class User {
      * @param username A user's username.
      * @return Return true if update is successful.
      */
-    public boolean updateUserUsername(String username){
+    public boolean updateUsername(String username){
         // Update the private email variable.
         this.username = username;
 
