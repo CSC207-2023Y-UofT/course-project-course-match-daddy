@@ -1,12 +1,12 @@
 package com.example.coursematchdaddy.clean_architecture_layers.entities.classes;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Survey {
     private String program;
     private Float numCredits;
-    private ArrayList<String> coursesTaken;
-    private ArrayList<String> preferences;
+    private List<String> coursesTaken;
+    private List<String> preferences;
 
     /**
      * Saves survey data as class attributes and creates instance of Survey
@@ -15,7 +15,7 @@ public abstract class Survey {
      * @param coursesTaken
      * @param preferences
      */
-    public Survey(String program, Float numCredits, ArrayList<String> coursesTaken, ArrayList<String> preferences) {
+    public Survey(String program, Float numCredits, List<String> coursesTaken, List<String> preferences) {
         this.program = program;
         this.numCredits = numCredits;
         this.coursesTaken = coursesTaken;
@@ -42,7 +42,7 @@ public abstract class Survey {
      * return list of courses taken
      * @return ArrayList<String>
      */
-    public ArrayList<String> getCoursesTaken() {
+    public List<String> getCoursesTaken() {
         return coursesTaken;
     }
 
@@ -50,7 +50,7 @@ public abstract class Survey {
      * return list of preferences
      * @return ArrayList<String>
      */
-    public ArrayList<String> getPreferences() {
+    public List<String> getPreferences() {
         return preferences;
     }
 }

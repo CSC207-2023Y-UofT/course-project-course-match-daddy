@@ -10,8 +10,8 @@ import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfac
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations.ExtractUserDataInterface;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations.VerifyLoginDataInterface;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 // Reads and writes user data to the database.
@@ -20,14 +20,14 @@ public class DBUsersGateway implements CreateUserAccountInterface, VerifyLoginDa
     private String username; // This is a unique identifier for an instance of the User class.
     private String email; // This is a unique identifier for an instance of the User class.
     private String password;
-    private Map<String, Course> selectedCourses= new HashMap<>();;
-    private Map<String, Program> selectedPrograms= new HashMap<>();;
+    private Map<String, Course> selectedCourses;
+    private Map<String, Program> selectedPrograms;
 
     // Survey-related attributes
-    private String program = new String();
-    private Float numCredits = (float) 0;
-    private ArrayList<String> coursesTaken = new ArrayList<String>();
-    private ArrayList<String> preferences = new ArrayList<String>();
+    private String program;
+    private Float numCredits;
+    private List<String> coursesTaken;
+    private List<String> preferences;
     private Survey userSurvey;
 
     // Define a map for storing all of the users in the text file.
@@ -53,6 +53,7 @@ public class DBUsersGateway implements CreateUserAccountInterface, VerifyLoginDa
             //numCredits = [read number of credits];
             //coursesTaken = [read courses taken];
             //preferences = [read preferences];
+
             // Initialize an instance of the UserData subclass of the Survey class
             //userSurvey = new UserData(username, email, password, program, numCredits, coursesTaken, preferences);
 

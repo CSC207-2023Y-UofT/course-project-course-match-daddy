@@ -4,6 +4,7 @@ import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.s
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 // Creates a user’s account, stores information about the user, and modifies user data.
@@ -17,8 +18,8 @@ public abstract class User {
     // Survey-related attributes
     private String program = new String();
     private Float numCredits = (float) 0;
-    private ArrayList<String> coursesTaken = new ArrayList<String>();
-    private ArrayList<String> preferences = new ArrayList<String>();
+    private List<String> coursesTaken = new ArrayList<String>();
+    private List<String> preferences = new ArrayList<String>();
     private Survey userSurvey;
 
     // Define the public attributes for an instance of the User class.
