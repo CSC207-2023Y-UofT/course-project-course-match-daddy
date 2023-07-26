@@ -1,5 +1,8 @@
 package com.example.coursematchdaddy.clean_architecture_layers.entities.classes;
 
+import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.survey_subclasses.UserData;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,8 +11,14 @@ public abstract class User {
     // Define the private attributes for an instance of the User class.
     private String email; // This is a unique identifier for an instance of the User class.
     private String password;
-    private Map<String, Course> selectedCourses;
-    private Map<String, Program> selectedPrograms;
+    private Map<String, Course> selectedCourses= new HashMap<>();;
+    private Map<String, Program> selectedPrograms= new HashMap<>();;
+
+    // Survey-related attributes
+    private String program = new String();
+    private Float numCredits = (float) 0;
+    private ArrayList<String> coursesTaken = new ArrayList<String>();
+    private ArrayList<String> preferences = new ArrayList<String>();
     private Survey userSurvey;
 
     // Define the public attributes for an instance of the User class.
@@ -26,13 +35,12 @@ public abstract class User {
         // Initialize the private attributes.
         this.email = email;
         this.password = password;
-        this.selectedCourses = new HashMap<>();
-        this.selectedPrograms = new HashMap<>();
-//        this.userSurvey = new Survey();
 
         // Initialize the public attributes.
-        // Initialize the public variable.
         this.username = username;
+
+        // Initialize an instance of the UserData subclass of the Survey class
+        userSurvey = new UserData(username, email, password, program, numCredits, coursesTaken, preferences);
     }
 
     /**

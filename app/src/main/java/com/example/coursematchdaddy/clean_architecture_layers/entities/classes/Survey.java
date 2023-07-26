@@ -5,20 +5,20 @@ import java.util.ArrayList;
 public abstract class Survey {
     private String program;
     private Float numCredits;
-    private ArrayList<String> courses;
+    private ArrayList<String> coursesTaken;
     private ArrayList<String> preferences;
 
     /**
      * Saves survey data as class attributes and creates instance of Survey
      * @param program
      * @param numCredits
-     * @param courses
+     * @param coursesTaken
      * @param preferences
      */
-    public Survey(String program, Float numCredits, ArrayList<String> courses, ArrayList<String> preferences) {
+    public Survey(String program, Float numCredits, ArrayList<String> coursesTaken, ArrayList<String> preferences) {
         this.program = program;
         this.numCredits = numCredits;
-        this.courses = courses;
+        this.coursesTaken = coursesTaken;
         this.preferences = preferences;
     }
 
@@ -42,8 +42,8 @@ public abstract class Survey {
      * return list of courses taken
      * @return ArrayList<String>
      */
-    public ArrayList<String> getCourses() {
-        return courses;
+    public ArrayList<String> getCoursesTaken() {
+        return coursesTaken;
     }
 
     /**

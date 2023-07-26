@@ -53,13 +53,13 @@ public abstract class DBUsersGateway implements CreateUserAccountInterface, Veri
         return false;
     }
 
-  /**
-  IMPORTANT:
-    I'm assuming that the <getUsername> method will be implemented here as per the design doc
-    Also note, <username> is listed as a public attribute of User on the design doc which
-    Is why im not using a getter for it. I also assume that the "get" methods in this class
-     will somehow access whatever persistence we choose to use to fetch the needed data. Please
-     correct me if I am misunderstanding anything
+    /**
+      IMPORTANT:
+      I'm assuming that the <getUsername> method will be implemented here as per the design doc
+      Also note, <username> is listed as a public attribute of User on the design doc which
+      Is why im not using a getter for it. I also assume that the "get" methods in this class
+      will somehow access whatever persistence we choose to use to fetch the needed data. Please
+      correct me if I am misunderstanding anything
      **/
     
     /**
