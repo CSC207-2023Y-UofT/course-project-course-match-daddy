@@ -9,8 +9,9 @@ public interface VerifyLoginDataInterface {
     /**
      * Verifies the user's provided log in credentials.
      *
-     * @param usersMap The maps of user objects containing the users' data.
+     * @param providedUsername Given username
+     * @param providedPassword given password
      * @return true if the username is valid and matches an existing user account, false otherwise.
      */
-    public boolean verifyUserProvidedData(HashMap<String, User> usersMap, String providedUsername, String providedEmail, String providedPassword);
+    public boolean verifyUserProvidedData(String providedUsername, String providedPassword);
 }
