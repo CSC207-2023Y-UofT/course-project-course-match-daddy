@@ -39,7 +39,7 @@ public abstract class UpdateSettings implements UserDataInterface, GenericDataIn
      */
     public boolean updateSettings(String username, String email, String password, Map<String, Course> selectedCourses, Map<String, Program> selectedPrograms, Survey userSurvey){
         // Update a user's attributes.
-        userData.updateUserUsername(username);
+        userData.updateUsername(username);
         userData.updateUserEmail(email);
         userData.updateUserPassword(password);
         userData.updateUserSelectedCourses(selectedCourses);
