@@ -2,6 +2,7 @@
 package com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes;
 
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
+import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.user_subclasses.LoggedInUser;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.interfaces.user_class_imports_implementations.AdministrationUserInterface;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.interfaces.user_class_imports_implementations.GuestUserInterface;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.interfaces.user_class_imports_implementations.LoggedInUserInterface;
@@ -31,7 +32,7 @@ public abstract class Login implements LoggedInUserInterface, GuestUserInterface
         this.password = password;
         this.email = email;
         // I assume <User> will not be abstract. If it is, I'll need to make a slight modification
-        this.user = new User(this.username, this.email, this.password);
+        this.user = new LoggedInUser(this.username, this.email, this.password);
     }
 
     /**
