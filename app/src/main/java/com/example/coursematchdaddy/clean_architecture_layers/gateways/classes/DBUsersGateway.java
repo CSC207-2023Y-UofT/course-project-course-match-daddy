@@ -68,15 +68,16 @@ public class DBUsersGateway implements CreateUserAccountInterface, VerifyLoginDa
 
     // These next set of interface methods revolve around verifying a user and modifying the user's data.
     /**
-     * Verifies the user's provided log in credentials.
+     * Verifies the user's provided log in credentials.\
      *
-     * @param usersMap The maps of user objects containing the users' data.
+     * @param providedUsername Given username
+     * @param providedPassword given password
      * @return true if the username is valid and matches an existing user account, false otherwise.
      */
     @Override
-    public boolean verifyUserProvidedData(HashMap<String, User> usersMap, String providedUsername, String providedEmail, String providedPassword){
-        if (usersMap.containsKey(username)) {
-            if (usersMap.get((String) username).getEmail().equals(providedEmail) && usersMap.get((String) username).getPassword().equals(providedPassword)) {
+    public boolean verifyUserProvidedData(String providedUsername, String providedPassword){
+        if (usersMap.containsKey(providedUsername)) {
+            if (this.usersMap.get((String) providedUsername).getPassword().equals(providedPassword)) {
                 return true;
             }
         }
