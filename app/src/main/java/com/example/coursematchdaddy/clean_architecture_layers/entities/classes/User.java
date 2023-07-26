@@ -22,15 +22,23 @@ public abstract class User {
      * @param email This is the email of a user; this is a unique identifier for the user.
      * @param password This is the password of a user.
      */
+ 47-feature-47-create-settingscontroller-controller-layer-class
     public User(String username, String email, String password) {
         // Initialize the private attributes.
+
+    public User(String username, String email, String password){
+        // Initialize the private variables.
+ main
         this.email = email;
         this.password = password;
         this.selectedCourses = new HashMap<>();
         this.selectedPrograms = new HashMap<>();
         this.userSurvey = new Survey();
 
+ 47-feature-47-create-settingscontroller-controller-layer-class
         // Initialize the public attributes.
+        // Initialize the public variable.
+ main
         this.username = username;
     }
 

@@ -1,8 +1,7 @@
 package com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations;
 
-import com.example.coursematchdaddy.clean_architecture_layers.gateways.classes.DBUsersGateway;
-
 public interface CreateUserAccountInterface {
+}
     /**
      * Adds a username to the persistence.
      *
