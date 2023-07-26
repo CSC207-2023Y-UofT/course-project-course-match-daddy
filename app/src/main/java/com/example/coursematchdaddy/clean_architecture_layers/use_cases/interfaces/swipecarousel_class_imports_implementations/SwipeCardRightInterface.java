@@ -1,5 +1,8 @@
 package com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.swipecarousel_class_imports_implementations;
 
+import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Course;
+import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.SwipeCarousel;
+
 /**
  * Define the contract for handling right swipes on course cards within a carousel.
  * The selected course is added to the user’s list of selected courses, and it's removed from the carousel.
