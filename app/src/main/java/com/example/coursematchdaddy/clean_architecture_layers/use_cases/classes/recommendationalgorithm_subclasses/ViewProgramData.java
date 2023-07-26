@@ -10,17 +10,21 @@ import java.util.List;
 
 public class ViewProgramData extends RecommendationAlgorithm {
 
+    public ViewProgramData(User user) {
+        super(user);
+    }
+
     /**
      * returning a program based on its code
      * @param programCode program code
      * @return Program: the program associated with the provided code
      */
     public Program getProgramData(String programCode) {
-        for (Program p: this.user.getSelectedPrograms()) {
-            if (p.getProgramCode() == programCode) {
-                return p;
-            }
+        
+        if (this.getUser().getSelectedPrograms().containsKey(programCode)) {
+            return this.getUser().getSelectedPrograms().get(programCode);
         }
+        return null;
     }
 
 }
