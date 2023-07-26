@@ -12,7 +12,6 @@ import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfac
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 // Reads and writes user data to the database.
