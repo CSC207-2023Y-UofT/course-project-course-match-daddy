@@ -29,6 +29,6 @@ public class VerifyLoginData extends Login {
      */
     public boolean verifyData() {
         User user = super.getUser();
-        return this.verifyLoginData.verifyEmail(user) && this.verifyLoginData.verifyUsername(user) && this.verifyLoginData.verifyPassword(user);
+        return this.verifyLoginData.verifyUserProvidedData(user.getUsername(), user.getPassword());
     }
 }
