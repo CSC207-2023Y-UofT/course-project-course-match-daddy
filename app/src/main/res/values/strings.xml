@@ -15,4 +15,9 @@
     <string name="template_program_title">(Program Title)</string>
     <string name="template_program_code">(Program Code)</string>
     <string name="template_program_description">(Program Description)</string>
+    <string name="course_header">Selected Courses</string>
+    <string name="course_selection">Please select a course to display its information here.</string>
+    <string name="template_course_title">(Course Title)</string>
+    <string name="template_course_code">(Course Code)</string>
+    <string name="template_course_description">(Course Description)</string>
 </resources>

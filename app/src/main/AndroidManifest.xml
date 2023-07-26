@@ -15,7 +15,6 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
             android:theme="@style/Theme.CourseMatchDaddy.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,6 +28,15 @@
             android:theme="@style/Theme.CourseMatchDaddy.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.PROGRAM" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+              
+            android:name=".CourseActivity"
+            android:exported="true"
+            android:theme="@style/Theme.CourseMatchDaddy.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.COURSE" />
+              
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
