@@ -28,7 +28,7 @@ public class ProgramRecommendationsPresenter implements ViewProgramsRecommendati
     public List<Program> getProgramRecommendations(User userData) {
         // The <getSelectedPrograms> method returns a dictionary that maps program names to program objects.
         // Here, we are returning all program objects in this dictionary as the recommendations.
-        return ((HashMap<String, Program>) userData.getSelectedPrograms()).values();
+        return (List<Program>)userData.getSelectedPrograms().values();
     }
 
     /**
