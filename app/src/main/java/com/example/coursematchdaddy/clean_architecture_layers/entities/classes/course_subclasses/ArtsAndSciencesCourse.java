@@ -44,7 +44,8 @@ public class ArtsAndSciencesCourse extends Course {
             this.getMiscellaneousCourseData().put("RemainingSeats", getRemainingSeats() + 1);
 
             // removing this course from the user's selected courses
-            return userData.getSelectedCourses().remove(this.getCourseTitle());
+            userData.getSelectedCourses().remove(this.getCourseTitle());
+            return true;
 
         } catch (NullPointerException e) {
             return false;
@@ -57,7 +58,7 @@ public class ArtsAndSciencesCourse extends Course {
      */
     private void updateSeats(int amount) {
         // update the seats by adding in the amount to the RemainingSeats key-pair in misc data
-        this.getMiscellaneousCourseData.put("RemainingSeats", this.getMiscellaneousCourseData.
+        super.getMiscellaneousCourseData().put("RemainingSeats", (int)super.getMiscellaneousCourseData().
                 get("RemainingSeats") + amount);
     }
 }
