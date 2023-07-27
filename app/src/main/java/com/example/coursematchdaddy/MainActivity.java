@@ -1,5 +1,6 @@
 package com.example.coursematchdaddy;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
@@ -64,8 +65,10 @@ public class MainActivity extends AppCompatActivity {
                 importantText.setText(presenter.getDisplayMessage());
 
                 if (loginSuccessful) {
-                    // TODO: Navigate to the main application screen upon successful login
-                    // Cant do this yet since other views have not been made
+                    Intent intent = new Intent(MainActivity.this, CourseActivity.class);
+                    intent.putExtra("username", username);
+                    startActivity(intent);
+                    finish(); // Close the current MainActivity if needed
                 }
             }
         });
@@ -86,6 +89,13 @@ public class MainActivity extends AppCompatActivity {
                 // Create a new account and update the UI with the display message from the presenter
                 boolean accountCreated = controller.createAccount();
                 importantText.setText(presenter.getDisplayMessage());
+
+                if (accountCreated){
+                    Intent intent = new Intent(MainActivity.this, CourseActivity.class);
+                    intent.putExtra("username", signupUsername);
+                    startActivity(intent);
+                    finish(); // Close the current MainActivity if needed
+                }
             }
         });
     }
