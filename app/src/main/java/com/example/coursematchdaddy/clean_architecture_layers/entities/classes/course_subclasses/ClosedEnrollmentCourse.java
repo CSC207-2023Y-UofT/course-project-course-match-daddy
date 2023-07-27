@@ -3,7 +3,20 @@ package com.example.coursematchdaddy.clean_architecture_layers.entities.classes.
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Course;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
 
+import java.util.HashMap;
+
 public class ClosedEnrollmentCourse extends Course {
+    /**
+     * @param courseTitle             : String
+     * @param courseCode              : String
+     * @param courseDescription       : String
+     * @param courseImageURL          : String
+     * @param miscellaneousCourseData : HashMap<String, Object>
+     */
+    public ClosedEnrollmentCourse(String courseTitle, String courseCode, String courseDescription, String courseImageURL, HashMap<String, Object> miscellaneousCourseData) {
+        super(courseTitle, courseCode, courseDescription, courseImageURL, miscellaneousCourseData);
+    }
+
     /**
      * Check if user has the prerequisite courses completed for this course
      * @param user: User
@@ -11,7 +24,7 @@ public class ClosedEnrollmentCourse extends Course {
      */
     public boolean hasPrerequisites(User user) {
         // placeholder method to show if prerequisites exist or not (will almost always return true)
-        return this.getMiscellaneousCourseData.get("PrerequisitesMet") != "";
+        return super.getMiscellaneousCourseData().get("PrerequisitesMet") != "";
     }
 
     /**
@@ -43,7 +56,8 @@ public class ClosedEnrollmentCourse extends Course {
             this.getMiscellaneousCourseData().put("RemainingSeats", getRemainingSeats() + 1);
 
             // removing this course from the user's selected courses
-            return userData.getSelectedCourses().remove(this.getCourseTitle());
+            userData.getSelectedCourses().remove(this.getCourseTitle());
+            return true;
 
         } catch (NullPointerException e) {
             return false;
@@ -56,7 +70,7 @@ public class ClosedEnrollmentCourse extends Course {
      */
     private void updateSeats(int amount) {
         // update the seats by adding in the amount to the RemainingSeats key-pair in misc data
-        this.getMiscellaneousCourseData.put("RemainingSeats", this.getMiscellaneousCourseData.
+        super.getMiscellaneousCourseData().put("RemainingSeats", (int) super.getMiscellaneousCourseData().
                 get("RemainingSeats") + amount);
     }
 }
