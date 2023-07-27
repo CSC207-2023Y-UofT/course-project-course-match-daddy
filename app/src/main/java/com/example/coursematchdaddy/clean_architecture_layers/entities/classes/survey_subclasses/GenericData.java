@@ -30,7 +30,7 @@ public class GenericData extends Survey implements GenericDataInterface {
 
         data.put("program", getProgram());
         data.put("numOfCredits", getNumCredits());
-        data.put("courses", getCourses());
+        data.put("courses", super.getCoursesTaken());
         data.put("preferences", getPreferences());
         return data;
     }
