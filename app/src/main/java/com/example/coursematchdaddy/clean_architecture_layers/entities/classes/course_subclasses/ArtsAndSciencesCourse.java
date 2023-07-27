@@ -3,7 +3,20 @@ package com.example.coursematchdaddy.clean_architecture_layers.entities.classes.
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Course;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
 
+import java.util.HashMap;
+
 public class ArtsAndSciencesCourse extends Course {
+
+    /**
+     * @param courseTitle             : String
+     * @param courseCode              : String
+     * @param courseDescription       : String
+     * @param courseImageURL          : String
+     * @param miscellaneousCourseData : HashMap<String, Object>
+     */
+    public ArtsAndSciencesCourse(String courseTitle, String courseCode, String courseDescription, String courseImageURL, HashMap<String, Object> miscellaneousCourseData) {
+        super(courseTitle, courseCode, courseDescription, courseImageURL, miscellaneousCourseData);
+    }
 
     /**
      * enroll a User into this course if there are seats available
