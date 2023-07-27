@@ -1,5 +1,6 @@
 package com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes;
 
+import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Course;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.swipecarousel_class_imports_implementations.CollectCarouselSwipeInterface;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.swipecarousel_class_imports_implementations.ExtractCourseDataInterface;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.swipecarousel_class_imports_implementations.ExtractProgramDataInterface;
@@ -14,5 +15,4 @@ public abstract class SwipeCarousel implements ExtractCourseDataInterface, Extra
     public abstract void extractProgramData(ExtractProgramDataInterface extractor);
     public abstract boolean addCoursePreference(Course courseData);
     public abstract boolean removeCourseFromCarousel(SwipeCarousel carouselData, Course courseData);
-}
 }
