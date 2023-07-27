@@ -6,6 +6,15 @@ import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.U
 public class Type2Program extends Program {
 
     /**
+     * @param programTitle       : String
+     * @param programCode        : String
+     * @param programDescription : String
+     */
+    public Type2Program(String programTitle, String programCode, String programDescription) {
+        super(programTitle, programCode, programDescription);
+    }
+
+    /**
      * Enroll userData in this program only if they have fulfilled the requirements
      * @param userData: User
      * @param hasRequirements: boolean
@@ -26,9 +35,17 @@ public class Type2Program extends Program {
      * @return boolean
      */
     public boolean unenroll(User userData) {
-        if (userData.getSelectedPrograms().remove(getProgramTitle())) {
+        // Assuming getProgramTitle() returns the program title of the course
+        String programTitle = getProgramTitle();
+
+        // Check if the programTitle exists in the user's selected programs
+        if (userData.getSelectedPrograms().containsKey(programTitle)) {
+            // Remove the programTitle from the user's selected programs and return true (unenroll successful)
+            userData.getSelectedPrograms().remove(programTitle);
             return true;
         }
+
+        // If the programTitle was not found in the user's selected programs, return false (unenroll failed)
         return false;
     }
 
