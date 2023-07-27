@@ -6,6 +6,15 @@ import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.U
 public class Type3Program extends Program {
 
     /**
+     * @param programTitle       : String
+     * @param programCode        : String
+     * @param programDescription : String
+     */
+    public Type3Program(String programTitle, String programCode, String programDescription) {
+        super(programTitle, programCode, programDescription);
+    }
+
+    /**
      * return whether this program has space to be enrolled in
      * @return boolean
      */
@@ -36,10 +45,16 @@ public class Type3Program extends Program {
      * @return boolean: boolean
      */
     public boolean unenroll(User userData) {
-        // remove program from user's selections
-        if (userData.getSelectedPrograms().remove(getProgramTitle())) {
-            return true;
+        // Assuming getProgramTitle() returns the program title of the course
+        String programTitle = getProgramTitle();
+
+        // Check if the programTitle exists in the user's selected programs
+        if (userData.getSelectedPrograms().containsKey(programTitle)) {
+            // Remove the programTitle from the user's selected programs
+            userData.getSelectedPrograms().remove(programTitle);
+            return true; // Unenroll successful
         }
-        return false;
+
+        return false; // Unenroll failed
     }
 }
