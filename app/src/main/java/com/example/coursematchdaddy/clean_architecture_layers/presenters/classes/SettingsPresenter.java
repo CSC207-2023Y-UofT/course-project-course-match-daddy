@@ -35,4 +35,21 @@ public class SettingsPresenter implements ViewSettingsDataInterface {
         return data;
 
     }
+
+    /**
+     * Return whether the user filled in all input boxes, and correctly
+     *
+     * @param inputFields username entered, email entered, password entered, program of study entered
+     * number of credits entered
+     * @return boolean on whether the information they returned is valid or not
+     */
+
+    public boolean validateInfo(HashMap<String, String> inputFields) {
+        if (!Objects.equals(inputFields.get("username"), "") && !Objects.equals(inputFields.get("password"), "") &&
+                !Objects.equals(inputFields.get("email"), "") && !Objects.equals(inputFields.get("programOfStudy"), "") &&
+                !Objects.equals(inputFields.get("numOfCredits"), "")) {
+            return true;
+        }
+        return false;
+    }
 }
