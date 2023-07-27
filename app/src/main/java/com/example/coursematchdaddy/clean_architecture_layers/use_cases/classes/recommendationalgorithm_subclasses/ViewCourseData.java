@@ -5,8 +5,9 @@ import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.U
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.RecommendationAlgorithm;
 
 public class ViewCourseData extends RecommendationAlgorithm {
+    private User user;
     public ViewCourseData(User user) {
-        super(user);
+        this.user = user;
     }
 
     /**
@@ -15,6 +16,6 @@ public class ViewCourseData extends RecommendationAlgorithm {
      * @return Course
      */
     public Course getCourseData(String courseCode) {
-        return super.getUser().getSelectedCourses().get(courseCode);
+        return this.user.getSelectedCourses().get(courseCode);
     }
 }
