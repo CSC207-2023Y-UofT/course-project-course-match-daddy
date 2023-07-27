@@ -2,11 +2,7 @@ package com.example.coursematchdaddy.clean_architecture_layers.entities.classes.
 
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
 
- 47-feature-47-create-settingscontroller-controller-layer-class
-public class AdministrationUser extends LoggedInUser {
-
 public class AdministrationUser extends User {
- main
     /**
      * Constructor method for the User class.
      *
