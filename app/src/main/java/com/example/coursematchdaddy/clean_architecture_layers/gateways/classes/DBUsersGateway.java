@@ -116,8 +116,8 @@ public class DBUsersGateway implements CreateUserAccountInterface, VerifyLoginDa
         //[update the corresponding row within the text file];
         return true;
     }
-    // temporary return method
-    public boolean saveSurvey(GenericData data) {
+    // temporary return method (using survey because it is parent of data classes)
+    public boolean saveSurvey(Survey data) {
         return true;
     }
 }
