@@ -1,6 +1,10 @@
 package com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.recommendationalgorithm_class_imports_implementations;
 
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Course;
+<<<<<<< HEAD
+=======
+import java.util.Map;
+>>>>>>> 50-feature-50-create-coursepresenter-presenter-layer-class
 
 public interface ViewCourseDataInterface {
     /**
@@ -8,5 +12,16 @@ public interface ViewCourseDataInterface {
      * @param courseCode: String
      * @return Course
      */
+<<<<<<< HEAD
     public Course getCourseData(String courseCode);
+=======
+    public Map<String, String> getCourseData(String courseCode);
+
+    /**
+     * return the data associated with a selected course
+     * @param course Course object that is selected
+     * @return Map<String, String> the data that needs to be displayed
+     */
+    public Map<String, String> getCourseData(Course course);
+>>>>>>> 50-feature-50-create-coursepresenter-presenter-layer-class
 }
