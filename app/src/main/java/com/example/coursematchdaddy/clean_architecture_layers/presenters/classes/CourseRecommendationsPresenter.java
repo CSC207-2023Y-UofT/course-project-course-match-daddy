@@ -5,6 +5,7 @@ import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.P
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.recommendationalgorithm_class_imports_implementations.ViewCoursesRecommendationsInterface;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,8 +24,15 @@ public class CourseRecommendationsPresenter implements ViewCoursesRecommendation
      * @return List<Course> a list of courses to display
      */
     public List<Course> getCourseRecommendations(User userData) {
-        // TEMPORARILY RETURNING THE COURSE LIST ONLY
-        return ((HashMap<String, Program>) userData.getSelectedCourses()).values();
+        List<Course> courseRecommendations = new ArrayList<>();
+
+        // Assuming userData.getSelectedCourses() returns a HashMap<String, Course>
+        HashMap<String, Course> selectedCourses = (HashMap<String, Course>) userData.getSelectedCourses();
+
+        // Add all the selected courses to the list of recommendations
+        courseRecommendations.addAll(selectedCourses.values());
+        return courseRecommendations;
+
     }
 
     /**
