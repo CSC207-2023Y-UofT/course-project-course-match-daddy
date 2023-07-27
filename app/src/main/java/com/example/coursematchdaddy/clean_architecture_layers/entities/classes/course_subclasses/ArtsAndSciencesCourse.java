@@ -30,8 +30,10 @@ public class ArtsAndSciencesCourse extends Course {
             // incrementing this course's seats by 1
             this.getMiscellaneousCourseData().put("RemainingSeats", getRemainingSeats() + 1);
 
-            // removing this course from the user's selected courses
-            return userData.getSelectedCourses().remove(this.getCourseTitle());
+            if (userData.getSelectedCourses().remove(this.getCourseTitle()) != null) {
+                return true;
+            }
+            return false;
 
         } catch (NullPointerException e) {
             return false;
