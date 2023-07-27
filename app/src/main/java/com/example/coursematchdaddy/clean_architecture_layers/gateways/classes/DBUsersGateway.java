@@ -4,6 +4,7 @@ import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.C
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Program;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Survey;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
+import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.survey_subclasses.GenericData;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.user_subclasses.LoggedInUser;
 
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations.CreateUserAccountInterface;
@@ -113,6 +114,10 @@ public class DBUsersGateway implements CreateUserAccountInterface, VerifyLoginDa
         }
         usersMap.put(userData.username, userData);
         //[update the corresponding row within the text file];
+        return true;
+    }
+    // temporary return method
+    public boolean saveSurvey(GenericData data) {
         return true;
     }
 }
