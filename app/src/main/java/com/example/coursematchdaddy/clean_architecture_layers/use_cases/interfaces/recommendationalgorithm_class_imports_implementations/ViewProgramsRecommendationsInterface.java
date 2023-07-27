@@ -13,4 +13,5 @@ public interface ViewProgramsRecommendationsInterface {
      * @return A List of Program objects representing the recommended programs.
      */
     List<Program> getProgramRecommendations(User userData);
+
 }
