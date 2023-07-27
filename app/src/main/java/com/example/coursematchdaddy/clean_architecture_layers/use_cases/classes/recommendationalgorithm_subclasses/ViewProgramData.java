@@ -9,9 +9,9 @@ import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.
 import java.util.List;
 
 public class ViewProgramData extends RecommendationAlgorithm {
-
+    private User user;
     public ViewProgramData(User user) {
-        super(user);
+        this.user = user;
     }
 
     /**
@@ -21,8 +21,8 @@ public class ViewProgramData extends RecommendationAlgorithm {
      */
     public Program getProgramData(String programCode) {
         
-        if (this.getUser().getSelectedPrograms().containsKey(programCode)) {
-            return this.getUser().getSelectedPrograms().get(programCode);
+        if (this.user.getSelectedPrograms().containsKey(programCode)) {
+            return this.user.getSelectedPrograms().get(programCode);
         }
         return null;
     }
