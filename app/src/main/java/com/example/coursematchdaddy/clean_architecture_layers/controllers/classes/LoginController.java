@@ -13,7 +13,7 @@ public class LoginController implements CollectLoginDataInterface {
     private String email;
     private String password;
     private Login verifyLogin;
-    private Login accountFactory;
+    private DBUsersGateway accountFactory;
     private LoginPresenter presenter;
     private DBUsersGateway gateway;
 
@@ -76,8 +76,7 @@ public class LoginController implements CollectLoginDataInterface {
      */
     public boolean createAccount() {
         this.gateway = new DBUsersGateway();
-        this.accountFactory = new CreateUserAccount(this.username, this.password, this.email, this.gateway);
-
+        accountFactory = new CreateUserAccount(this.username, this.email, this.password);
         boolean accountCreated = ((CreateUserAccount) accountFactory).createAccount();
 
         if (accountCreated) {
