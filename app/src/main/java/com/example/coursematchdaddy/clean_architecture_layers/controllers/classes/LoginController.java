@@ -1,5 +1,6 @@
 package com.example.coursematchdaddy.clean_architecture_layers.controllers.classes;
 
+import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.user_subclasses.LoggedInUser;
 import com.example.coursematchdaddy.clean_architecture_layers.gateways.classes.DBUsersGateway;
 import com.example.coursematchdaddy.clean_architecture_layers.presenters.classes.LoginPresenter;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.Login;
@@ -77,7 +78,7 @@ public class LoginController implements CollectLoginDataInterface {
     public boolean createAccount() {
         this.gateway = new DBUsersGateway();
         accountFactory = new CreateUserAccount(this.username, this.email, this.password);
-        boolean accountCreated = ((CreateUserAccount) accountFactory).createAccount();
+        boolean accountCreated = ((CreateUserAccount) accountFactory).createAccount(new LoggedInUser(this.username, this.email, this.password));
 
         if (accountCreated) {
             presenter.setDisplayMessage("Account successfully created!");
