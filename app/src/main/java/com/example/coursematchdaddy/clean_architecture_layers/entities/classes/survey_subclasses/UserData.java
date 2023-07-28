@@ -5,6 +5,7 @@ import com.example.coursematchdaddy.clean_architecture_layers.entities.interface
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class UserData extends Survey implements UserDataInterface {
 
@@ -22,8 +23,8 @@ public class UserData extends Survey implements UserDataInterface {
      * @param courses
      * @param preferences
      */
-    public UserData(String username, String email, String password, String program, Integer numCredits, ArrayList<String> courses, ArrayList<String> preferences) {
-        super(program, numCredits, courses, preferences);
+    public UserData(String username, String email, String password, String program, Float numCredits, List<String> coursesTaken, List<String> preferences) {
+        super(program, Float.valueOf(numCredits), coursesTaken, preferences);
 
         this.username = username;
         this.email = email;
@@ -40,7 +41,7 @@ public class UserData extends Survey implements UserDataInterface {
 
         data.put("program", getProgram());
         data.put("numOfCredits", getNumCredits());
-        data.put("courses", getCourses());
+        data.put("coursesTaken", getCoursesTaken());
         data.put("preferences", getPreferences());
         return data;
     }
