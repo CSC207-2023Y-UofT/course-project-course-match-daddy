@@ -1,6 +1,8 @@
 package com.example.coursematchdaddy.clean_architecture_layers.entities.classes;
 
-public class Program {
+import java.io.Serializable;
+
+public class Program implements Serializable {
     private final String programTitle;
     private final String programCode;
     private final String programDescription;
