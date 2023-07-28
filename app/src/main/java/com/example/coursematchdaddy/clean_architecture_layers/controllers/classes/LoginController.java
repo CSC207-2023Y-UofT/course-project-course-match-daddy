@@ -78,7 +78,7 @@ public class LoginController implements CollectLoginDataInterface {
     public boolean createAccount() {
         this.gateway = new DBUsersGateway();
         accountFactory = new CreateUserAccount(this.username, this.email, this.password);
-        boolean accountCreated = ((CreateUserAccount) accountFactory).createAccount(new LoggedInUser(this.username, this.email, this.password));
+        boolean accountCreated = ((CreateUserAccount) accountFactory).createAccount();
 
         if (accountCreated) {
             presenter.setDisplayMessage("Account successfully created!");
