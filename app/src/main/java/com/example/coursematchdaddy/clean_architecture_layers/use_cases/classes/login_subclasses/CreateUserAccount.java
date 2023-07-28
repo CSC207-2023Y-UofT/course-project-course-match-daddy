@@ -1,30 +1,44 @@
 package com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.login_subclasses;
 
+import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
 import com.example.coursematchdaddy.clean_architecture_layers.gateways.classes.DBUsersGateway;
+import com.example.coursematchdaddy.clean_architecture_layers.gateways.classes.GETCourseGateway;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.Login;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 
-public class CreateUserAccount extends Login {
+public class CreateUserAccount extends DBUsersGateway {
     /**
-     * Constructs a new Login instance with the provided login credentials.
-     * Aswell as a user object to represent the user trying to log in.
      *
      * @param username The username of the user for the login.
      * @param password The password of the user for the login.
      * @param email    The email of the user for the login.
-     * @param gateway
      */
-    public CreateUserAccount(String username, String password, String email, DBUsersGateway gateway) {
-        super(username, password, email);
+    private String username;
+    private String email;
+    private String password;
+    public CreateUserAccount(String username, String password, String email) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
     }
 
-    @Override
-    public HashMap<String, Object> getUsersDataMap() {
-        return null;
-    }
+    public boolean createAccount(User userdata) {
+        try (FileWriter writer = new FileWriter(super.getuserDataPath(), true)) {
+            writer.append(username);
+            writer.append(",");
+            writer.append(email);
+            writer.append(",");
+            writer.append(password);
+            writer.append("\n");
 
-    public boolean createAccount() {
-        return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error occurred while writing to the CSV file.");
+            return false;//failed to create account
+        }
+        return true;//Made account
     }
 }
