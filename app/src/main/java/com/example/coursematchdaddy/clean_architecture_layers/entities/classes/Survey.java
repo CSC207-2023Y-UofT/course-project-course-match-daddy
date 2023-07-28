@@ -1,8 +1,9 @@
 package com.example.coursematchdaddy.clean_architecture_layers.entities.classes;
 
+import java.io.Serializable;
 import java.util.List;
 
-public abstract class Survey {
+public abstract class Survey implements Serializable {
     private String program;
     private Float numCredits;
     private List<String> coursesTaken;
