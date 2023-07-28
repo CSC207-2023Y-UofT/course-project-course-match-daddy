@@ -19,11 +19,9 @@ public class SwipeCarousel implements SwipeCardLeftInterface, SwipeCardRightInte
     private List<Course> courseList;
     private User user;
 
-    public SwipeCarousel (User user, Survey surveyData) {
-        this.courseList = new ArrayList<>();
+    public SwipeCarousel (User user, Survey surveyData, List<Course> recommendedCourses) {
+        this.courseList = new ArrayList<>(recommendedCourses);
         this.user = user;
-        RecommendationAlgorithm recommendationAlgorithm = new RecommendationAlgorithm();
-        this.courseList = recommendationAlgorithm.getCourses(surveyData, user);
     }
 
     public List<Course> getCourseList(){
