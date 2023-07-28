@@ -27,11 +27,11 @@ public class CreateUserAccount extends DBUsersGateway {
 
     public boolean createAccount(User userdata) {
         try (FileWriter writer = new FileWriter(super.getuserDataPath(), true)) {
-            writer.append(username);
+            writer.append(this.username);
             writer.append(",");
-            writer.append(email);
+            writer.append(this.email);
             writer.append(",");
-            writer.append(password);
+            writer.append(this.password);
             writer.append("\n");
 
         } catch (IOException e) {
