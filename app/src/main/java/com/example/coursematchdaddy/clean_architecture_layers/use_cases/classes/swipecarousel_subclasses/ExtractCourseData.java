@@ -9,10 +9,11 @@ import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfac
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.swipecarousel_class_imports_implementations.ExtractProgramDataInterface;
 
 import java.util.HashMap;
+import java.util.List;
 
 public class ExtractCourseData extends SwipeCarousel {
-    public ExtractCourseData(User user, Survey surveyData) {
-        super(user, surveyData);
+    public ExtractCourseData(User user, Survey surveyData, List<Course> recommendedCourses) {
+        super(user, surveyData, recommendedCourses);
     }
 
     /**
@@ -59,13 +60,11 @@ public class ExtractCourseData extends SwipeCarousel {
     public HashMap<String, Object> getMiscellaneousCourseData(Course courseData) {
         return courseData.getMiscellaneousCourseData();
     }
-
-    @Override
+    
     public void extractCourseData(ExtractCourseDataInterface extractor) {
 
     }
-
-    @Override
+    
     public void extractProgramData(ExtractProgramDataInterface extractor) {
 
     }
@@ -79,23 +78,19 @@ public class ExtractCourseData extends SwipeCarousel {
     public boolean removeCourseFromCarousel(SwipeCarousel carouselData, Course courseData) {
         return false;
     }
-
-    @Override
+    
     public String collectCarouselSwipe() {
         return null;
     }
-
-    @Override
+    
     public String getTitle(Program programData) {
         return null;
     }
-
-    @Override
+    
     public String getCode(Program programData) {
         return null;
     }
-
-    @Override
+    
     public String getDescription(Program programData) {
         return null;
     }
