@@ -2,6 +2,8 @@ package com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes
 
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Course;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Program;
+import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Survey;
+import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.SwipeCarousel;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.swipecarousel_class_imports_implementations.ExtractCourseDataInterface;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.swipecarousel_class_imports_implementations.ExtractProgramDataInterface;
@@ -9,6 +11,10 @@ import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfac
 import java.util.HashMap;
 
 public class ExtractCourseData extends SwipeCarousel {
+    public ExtractCourseData(User user, Survey surveyData) {
+        super(user, surveyData);
+    }
+
     /**
      * return the course title from the database, given courseData
      * @param courseData: Course
