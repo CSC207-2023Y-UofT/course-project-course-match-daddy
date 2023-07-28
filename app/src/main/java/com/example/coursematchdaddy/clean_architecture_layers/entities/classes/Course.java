@@ -1,8 +1,9 @@
 package com.example.coursematchdaddy.clean_architecture_layers.entities.classes;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
-public abstract class Course {
+public abstract class Course implements Serializable {
     private final String courseTitle;
     private final String courseCode;
     private final String courseDescription;
