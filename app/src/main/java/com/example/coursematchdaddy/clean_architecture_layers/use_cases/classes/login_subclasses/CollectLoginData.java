@@ -4,6 +4,8 @@ package com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.Login;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations.CollectLoginDataInterface;
 
+import java.util.HashMap;
+
 public class CollectLoginData extends Login {
 
     private CollectLoginDataInterface collectLoginData;
@@ -29,5 +31,10 @@ public class CollectLoginData extends Login {
         this.collectLoginData.storeEmail(super.getEmail());
         this.collectLoginData.storePassword(super.getPassword());
         this.collectLoginData.storeUsername(super.getUsername());
+    }
+
+    @Override
+    public HashMap<String, Object> getUsersDataMap() {
+        return null;
     }
 }

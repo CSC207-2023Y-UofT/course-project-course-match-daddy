@@ -2,6 +2,7 @@ package com.example.coursematchdaddy.clean_architecture_layers.entities.classes;
 
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.survey_subclasses.UserData;
 
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;

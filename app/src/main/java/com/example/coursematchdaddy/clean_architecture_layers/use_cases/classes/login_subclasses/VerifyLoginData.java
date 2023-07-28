@@ -5,6 +5,8 @@ import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.U
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.Login;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations.VerifyLoginDataInterface;
 
+import java.util.HashMap;
+
 public class VerifyLoginData extends Login {
 
     private VerifyLoginDataInterface verifyLoginData;
@@ -29,6 +31,16 @@ public class VerifyLoginData extends Login {
      */
     public boolean verifyData() {
         User user = super.getUser();
-        return this.verifyLoginData.verifyEmail(user) && this.verifyLoginData.verifyUsername(user) && this.verifyLoginData.verifyPassword(user);
+        return this.verifyLoginData.verifyUserProvidedData(user.getUsername(), user.getPassword());
+    }
+
+    /**
+     * Retrieve a users' data.
+     *
+     * @return Retrieve a users' data.
+     */
+    @Override
+    public HashMap<String, Object> getUsersDataMap() {
+        return null;
     }
 }
