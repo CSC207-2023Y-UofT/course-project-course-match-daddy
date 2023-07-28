@@ -1,24 +1,25 @@
 package com.example.coursematchdaddy.clean_architecture_layers.entities.classes;
 
-import java.util.ArrayList;
+import java.io.Serializable;
+import java.util.List;
 
-public abstract class Survey {
+public abstract class Survey implements Serializable {
     private String program;
     private Float numCredits;
-    private ArrayList<String> courses;
-    private ArrayList<String> preferences;
+    private List<String> coursesTaken;
+    private List<String> preferences;
 
     /**
      * Saves survey data as class attributes and creates instance of Survey
      * @param program
      * @param numCredits
-     * @param courses
+     * @param coursesTaken
      * @param preferences
      */
-    public Survey(String program, Float numCredits, ArrayList<String> courses, ArrayList<String> preferences) {
+    public Survey(String program, Float numCredits, List<String> coursesTaken, List<String> preferences) {
         this.program = program;
         this.numCredits = numCredits;
-        this.courses = courses;
+        this.coursesTaken = coursesTaken;
         this.preferences = preferences;
     }
 
@@ -42,15 +43,15 @@ public abstract class Survey {
      * return list of courses taken
      * @return ArrayList<String>
      */
-    public ArrayList<String> getCourses() {
-        return courses;
+    public List<String> getCoursesTaken() {
+        return coursesTaken;
     }
 
     /**
      * return list of preferences
      * @return ArrayList<String>
      */
-    public ArrayList<String> getPreferences() {
+    public List<String> getPreferences() {
         return preferences;
     }
 }
