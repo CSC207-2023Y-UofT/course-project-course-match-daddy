@@ -11,6 +11,9 @@ import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfac
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations.ExtractUserDataInterface;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations.VerifyLoginDataInterface;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,6 +26,7 @@ public class DBUsersGateway implements CreateUserAccountInterface, VerifyLoginDa
     private String password;
     private Map<String, Course> selectedCourses;
     private Map<String, Program> selectedPrograms;
+    private final String userDataPath = "/data/user/0/com.example.coursematchdaddy/files/userdata.csv";
 
     // Survey-related attributes
     private String program;
@@ -100,15 +104,14 @@ public class DBUsersGateway implements CreateUserAccountInterface, VerifyLoginDa
     }
 
     /**
-     * Add or update a user within the text file.
+     * Update a user within the text file.
      *
      * @param userData This is the provided user's data.
      * @return Return true if this operation is successful.
      */
-    @Override
     public boolean updateUserData(User userData) {
-        if (usersMap.containsKey(username)) {
-            usersMap.put(username, userData);
+        if (this.usersMap.containsKey(userData.getUsername())) {
+            this.usersMap.put(userData.getUsername(), userData);
             //[update the corresponding row within the text file];
             return true;
         }
@@ -119,5 +122,32 @@ public class DBUsersGateway implements CreateUserAccountInterface, VerifyLoginDa
     // temporary return method (using survey because it is parent of data classes)
     public boolean saveSurvey(Survey data) {
         return true;
+    }
+
+    @Override
+    /**
+     * Add a user within the text file.
+     *
+     * @param userData This is the provided user's data.
+     * @return Return true if this operation is successful.
+     */
+    public boolean createAccount(User userData) {
+        try (FileWriter writer = new FileWriter(this.userDataPath, true)) {
+            writer.append(username);
+            writer.append(",");
+            writer.append(email);
+            writer.append(",");
+            writer.append(password);
+            writer.append("\n");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error occurred while writing to the CSV file.");
+            return false;//failed to create account
+        }
+        return true;//Made account
+    }
+    protected String getuserDataPath() {
+        return this.userDataPath;
     }
 }
