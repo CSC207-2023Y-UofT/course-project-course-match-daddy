@@ -2,13 +2,15 @@ package com.example.coursematchdaddy.clean_architecture_layers.entities.classes;
 
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.survey_subclasses.UserData;
 
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 // Creates a user’s account, stores information about the user, and modifies user data.
-public abstract class User {
+public abstract class User implements Serializable {
     // Define the private attributes for an instance of the User class.
     private String email; // This is a unique identifier for an instance of the User class.
     private String password;
