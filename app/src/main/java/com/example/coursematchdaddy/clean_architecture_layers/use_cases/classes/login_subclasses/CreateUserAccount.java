@@ -29,29 +29,4 @@ public class CreateUserAccount extends DBUsersGateway {
         this.password = password;
         this.email = email;
     }
-
-    /**
-     * Creates a new user account and writes the user information to the database.
-     *
-     * @return true if the account creation is successful, false otherwise.
-     */
-    public boolean createAccount() {
-        try {
-            // Get the file path for the user data from the DBUsersGateway
-            File file = new File(super.getuserDataPath());
-            try (FileWriter writer = new FileWriter(file, true)) {
-                // Write the user information to the file in CSV format
-                writer.append(this.username);
-                writer.append(",");
-                writer.append(this.email);
-                writer.append(",");
-                writer.append(this.password);
-                writer.append("\n");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false; // failed to create account
-        }
-        return true; // Made account
-    }
 }
