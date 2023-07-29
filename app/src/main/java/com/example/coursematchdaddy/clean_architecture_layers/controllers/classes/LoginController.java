@@ -7,6 +7,7 @@ import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.login_subclasses.CreateUserAccount;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.login_subclasses.VerifyLoginData;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations.CollectLoginDataInterface;
+import com.example.coursematchdaddy.clean_architecture_layers.gateways.classes.UserDB;
 
 public class LoginController implements CollectLoginDataInterface {
 
@@ -16,7 +17,7 @@ public class LoginController implements CollectLoginDataInterface {
     private Login verifyLogin;
     private DBUsersGateway accountFactory;
     private LoginPresenter presenter;
-    private DBUsersGateway gateway;
+    private UserDB gateway;
 
     /**
      * Constructs a new LoginController object with the given LoginPresenter instance.
@@ -24,7 +25,7 @@ public class LoginController implements CollectLoginDataInterface {
      * @param presenter The LoginPresenter instance associated with this controller.
      */
     public LoginController(LoginPresenter presenter) {
-        gateway = new DBUsersGateway();
+        gateway = new UserDB();
         this.presenter = presenter;
         this.email = "";
         this.password = "";
@@ -55,7 +56,7 @@ public class LoginController implements CollectLoginDataInterface {
      * @return true if the provided credentials are valid, false otherwise.
      */
     public boolean validateData() {
-        this.gateway = new DBUsersGateway();
+        this.gateway = new UserDB();
         this.verifyLogin = new VerifyLoginData(this.username, this.password, this.email, this.gateway);
 
         boolean isValidated = ((VerifyLoginData) verifyLogin).verifyData();
@@ -76,9 +77,9 @@ public class LoginController implements CollectLoginDataInterface {
      * @return true if the account creation is successful, false otherwise.
      */
     public boolean createAccount() {
-        this.gateway = new DBUsersGateway();
+        this.gateway = new UserDB();
         accountFactory = new CreateUserAccount(this.username, this.email, this.password);
-        boolean accountCreated = ((CreateUserAccount) accountFactory).createAccount();
+        boolean accountCreated = gateway.verifyUser(new LoggedInUser(username, email, password));
 
         if (accountCreated) {
             presenter.setDisplayMessage("Account successfully created!");
