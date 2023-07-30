@@ -1,6 +1,5 @@
 package com.example.coursematchdaddy;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,23 +10,43 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Program;
+import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
+import com.example.coursematchdaddy.clean_architecture_layers.gateways.classes.UserDB;
 import com.example.coursematchdaddy.clean_architecture_layers.presenters.classes.ProgramPresenter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class ProgramActivity extends AppCompatActivity implements RecycleViewInterface{
     private ProgramPresenter presenter;
     private ArrayList<String> programList = new ArrayList<>();
+    private User currentUser;
     RecyclerView rv;
     OutputAdapter oa;
 
+    /**
+     * On creation of this activity
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_program);
+
+        // populate the user from the previous activity
+        this.currentUser = populateUser();
+//        currentUser.getSelectedPrograms().put("HI", new Program("HI", "HELLO", "HOW ARE YOU?"));
+//        currentUser.getSelectedPrograms().put("HEY!", new Program("HEY!", "HELLO", "HOW ARE YOU?"));
+
+//        Log.e("Program name:", currentUser.getSelectedPrograms());
+        // put the program info into the presenter
+        for (Program p : currentUser.getSelectedPrograms().values()) {
+            Log.e("Program name:", p.getProgramTitle());
+        }
+
+        presenter = new ProgramPresenter(new ArrayList<>(currentUser.getSelectedPrograms().values()));
+
 
         // for testing purposes
 //        programList.add("John");
@@ -41,8 +60,12 @@ public class ProgramActivity extends AppCompatActivity implements RecycleViewInt
 //        programList.add("Uyiosa");
 //        programList.add("Uyiosa");
 
-        for (Program p : getProgramList()) {
-            programList.add(getProgramData(p).get(""));
+        // add the programs to the program list
+        programList.clear();
+
+        for (HashMap<String, String> p : presenter.getProgramData()) {
+            Log.e("Program name:", p.get("ProgramTitle"));
+            programList.add(p.get("ProgramTitle"));
         }
 
         rv = findViewById(R.id.recyclerView);
@@ -52,47 +75,27 @@ public class ProgramActivity extends AppCompatActivity implements RecycleViewInt
     }
 
     /**
-     * Set the presenter of this activity
-     * @param pp: the Program Presenter
+     * Populate the user object given the username that was validated in the login screen
+     *
+     * @return User object
      */
-    public void setPresenter(ProgramPresenter pp) {
-        this.presenter = pp;
-    }
+    private User populateUser() {
+        Intent intent = getIntent();
+        String username = intent.getStringExtra("username");
 
-    /**
-     * return the list of programs to be displayed
-     * @return List<Program> list of programs
-     */
-    public List<Program> getProgramList() {
-        return presenter.getProgramList();
-    }
-
-    /**
-     * return the data associated with a selected program
-     * @param programCode Program code associated with a program
-     * @return Map<String, String> the data that needs to be displayed
-     */
-    public Map<String, String> getProgramData(String programCode) {
-        return presenter.getProgramData(programCode);
-    }
-
-    /**
-     * return the data associated with a selected program
-     * @param program Program object that is selected
-     * @return Map<String, String> the data that needs to be displayed
-     */
-    public Map<String, String> getProgramData(Program program) {
-        return presenter.getProgramData(program);
+        // temporarily taking the info directly from the database
+        UserDB userDB = new UserDB();
+        return userDB.getUserFromDB(username);
     }
 
     /**
      * update display information on click
-     * @param pos
+     * @param pos indicates the number of the box that is clicked (increases as you go down)
      */
     @Override
     public void onItemClick(int pos) {
-        Log.d("PERSON", Integer.toString(pos));
-        HashMap<String, String> selectedProgramData = (HashMap<String, String>)getProgramData(programList.get(pos));
+
+        HashMap<String, String> selectedProgramData = presenter.getProgramData().get(pos);
 
         TextView tv1 = (TextView)findViewById(R.id.program_title);
         tv1.setText(selectedProgramData.get("ProgramTitle"));
