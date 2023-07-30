@@ -38,6 +38,10 @@ public class CourseActivity extends AppCompatActivity implements RecycleViewInte
         setContentView(R.layout.activity_course);
 
         this.currentUser = populateUser();
+
+        this.currentUser.getSelectedCourses().put("HI", new ArtsAndSciencesCourse("HI", "HEY", "HI", "HYD", new HashMap<>()));
+        this.currentUser.getSelectedCourses().put("sup", new ArtsAndSciencesCourse("ttt", "HEY", "HI", "HYD", new HashMap<>()));
+
         presenter = new CoursePresenter(new ArrayList<>(currentUser.getSelectedCourses().values()));
 
         // for testing purposes
@@ -52,8 +56,8 @@ public class CourseActivity extends AppCompatActivity implements RecycleViewInte
 //        courseList.add("Uyiosa");
 //        courseList.add("Uyiosa");
 
-        for (Course c : presenter.getCourseList()) {
-            courseList.add(presenter.getCourseData(c).get("CourseTitle"));
+        for (HashMap<String, String> course : presenter.getCourseData()) {
+            courseList.add(course.get("CourseTitle"));
         }
 
         rv = findViewById(R.id.recyclerView);
@@ -83,7 +87,7 @@ public class CourseActivity extends AppCompatActivity implements RecycleViewInte
     @Override
     public void onItemClick(int pos) {
         Log.d("PERSON", Integer.toString(pos));
-        HashMap<String, String> selectedCourseData = (HashMap<String, String>)presenter.getCourseData(courseList.get(pos));
+        HashMap<String, String> selectedCourseData = presenter.getCourseData().get(pos);
 
         TextView tv1 = (TextView)findViewById(R.id.course_title);
         tv1.setText(selectedCourseData.get("CourseTitle"));
