@@ -10,8 +10,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.coursematchdaddy.clean_architecture_layers.controllers.classes.LoginController;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Course;
+import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
+import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.course_subclasses.ArtsAndSciencesCourse;
+import com.example.coursematchdaddy.clean_architecture_layers.gateways.classes.UserDB;
 import com.example.coursematchdaddy.clean_architecture_layers.presenters.classes.CoursePresenter;
+import com.example.coursematchdaddy.clean_architecture_layers.presenters.classes.LoginPresenter;
+import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.Login;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,6 +28,7 @@ import java.util.Map;
 public class CourseActivity extends AppCompatActivity implements RecycleViewInterface{
     private CoursePresenter presenter;
     private ArrayList<String> courseList = new ArrayList<>();
+    private User currentUser;
     RecyclerView rv;
     OutputAdapter oa;
 
@@ -29,6 +36,9 @@ public class CourseActivity extends AppCompatActivity implements RecycleViewInte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course);
+
+        this.currentUser = populateUser();
+        presenter = new CoursePresenter(new ArrayList<>(currentUser.getSelectedCourses().values()));
 
         // for testing purposes
 //        courseList.add("John");
@@ -41,9 +51,9 @@ public class CourseActivity extends AppCompatActivity implements RecycleViewInte
 //        courseList.add("Uyiosa");
 //        courseList.add("Uyiosa");
 //        courseList.add("Uyiosa");
-
-        for (Course c : getCourseList()) {
-            courseList.add(getCourseData(c).get(""));
+        
+        for (Course c : presenter.getCourseList()) {
+            courseList.add(presenter.getCourseData(c).get("CourseTitle"));
         }
 
         rv = findViewById(R.id.recyclerView);
@@ -52,38 +62,15 @@ public class CourseActivity extends AppCompatActivity implements RecycleViewInte
         rv.setAdapter(oa);
     }
 
-    /**
-     * Set the presenter of this activity
-     * @param cp: the Course Presenter
-     */
-    public void setPresenter(CoursePresenter cp) {
-        this.presenter = cp;
-    }
 
-    /**
-     * return the list of courses to be displayed
-     * @return List<Course> list of courses
-     */
-    public List<Course> getCourseList() {
-        return presenter.getCourseList();
-    }
 
-    /**
-     * return the data associated with a selected course
-     * @param courseCode Course code associated with a course
-     * @return Map<String, String> the data that needs to be displayed
-     */
-    public Map<String, String> getCourseData(String courseCode) {
-        return presenter.getCourseData(courseCode);
-    }
+    private User populateUser() {
+        Intent intent = getIntent();
+        String username = intent.getStringExtra("username");
 
-    /**
-     * return the data associated with a selected course
-     * @param course Course object that is selected
-     * @return Map<String, String> the data that needs to be displayed
-     */
-    public Map<String, String> getCourseData(Course course) {
-        return presenter.getCourseData(course);
+        // temporarily taking the info directly from the database
+        UserDB userDB = new UserDB();
+        return userDB.getUserFromDB(username);
     }
 
     /**
@@ -93,7 +80,7 @@ public class CourseActivity extends AppCompatActivity implements RecycleViewInte
     @Override
     public void onItemClick(int pos) {
         Log.d("PERSON", Integer.toString(pos));
-        HashMap<String, String> selectedCourseData = (HashMap<String, String>)getCourseData(courseList.get(pos));
+        HashMap<String, String> selectedCourseData = (HashMap<String, String>)presenter.getCourseData(courseList.get(pos));
 
         TextView tv1 = (TextView)findViewById(R.id.course_title);
         tv1.setText(selectedCourseData.get("CourseTitle"));
