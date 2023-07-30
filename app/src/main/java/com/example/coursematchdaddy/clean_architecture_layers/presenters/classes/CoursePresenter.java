@@ -12,7 +12,7 @@ public class CoursePresenter implements ViewCourseDataInterface {
 
 
     /**
-     * @param c
+     * @param c Course list
      */
     public CoursePresenter(List<Course> c) {
         this.courseList = c;
