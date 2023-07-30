@@ -1,13 +1,17 @@
 package com.example.coursematchdaddy;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.coursematchdaddy.clean_architecture_layers.controllers.classes.LoginController;
 import com.example.coursematchdaddy.clean_architecture_layers.presenters.classes.LoginPresenter;
+
+import java.io.*;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,10 +30,60 @@ public class MainActivity extends AppCompatActivity {
     private LoginPresenter presenter;
     private LoginController controller;
 
+    /**
+     * Copies a file from the "raw" folder to the internal storage directory of the app.
+     *
+     * @param context    The Context of the app.
+     * @param rawResId   The resource ID of the file in the "raw" folder.
+     * @param targetPath The desired path of the copied file within the internal storage.
+     * @return True if the file was successfully copied, false otherwise.
+     */
+    private boolean copyFileFromRawToInternalStorage(Context context, int rawResId, String targetPath) {
+        try {
+            // Open the raw resource using the resource ID
+            InputStream inputStream = context.getResources().openRawResource(rawResId);
+
+            // Get the internal storage directory
+            File internalStorageDir = context.getFilesDir();
+
+            // Create the target file inside the internal storage directory
+            File targetFile = new File(internalStorageDir, targetPath);
+
+            // Copy if the file doesnt exist
+            if (!targetFile.exists()) {
+                FileOutputStream outputStream = new FileOutputStream(targetFile);
+                // For efficiency, shoudnt matter too much in either case since csv file isnt too large
+                byte[] buffer = new byte[1024];
+                int bytesRead;
+
+                // WHile theres still stuff to copy
+                while ((bytesRead = inputStream.read(buffer)) != -1) {
+                    outputStream.write(buffer, 0, bytesRead);
+                }
+
+                outputStream.close();
+                inputStream.close();
+
+                Log.d("LOG", "File copied successfully to internal storage: " + targetFile.getAbsolutePath());
+                return true;
+            } else {
+                // Dont rewrite if file already exists
+                Log.d("LOG", "File already exists in internal storage: " + targetFile.getAbsolutePath());
+                return false;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Copy the file from resources to internal storage
+        boolean copySuccess = copyFileFromRawToInternalStorage(this, R.raw.artssci, "artssci.csv");
 
         // Initialize references to the UI elements
         titleTextView = findViewById(R.id.textView2);
