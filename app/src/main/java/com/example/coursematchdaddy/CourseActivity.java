@@ -51,7 +51,7 @@ public class CourseActivity extends AppCompatActivity implements RecycleViewInte
 //        courseList.add("Uyiosa");
 //        courseList.add("Uyiosa");
 //        courseList.add("Uyiosa");
-        
+
         for (Course c : presenter.getCourseList()) {
             courseList.add(presenter.getCourseData(c).get("CourseTitle"));
         }
@@ -62,8 +62,11 @@ public class CourseActivity extends AppCompatActivity implements RecycleViewInte
         rv.setAdapter(oa);
     }
 
-
-
+    /**
+     * Populate the user object given the username that was validated in the login screen
+     * 
+     * @return User object
+     */
     private User populateUser() {
         Intent intent = getIntent();
         String username = intent.getStringExtra("username");
