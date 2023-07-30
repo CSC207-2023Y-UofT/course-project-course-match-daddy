@@ -115,4 +115,25 @@ public class UserDB implements VerifyLoginDataInterface {
 
         return false;
     }
+
+    /**
+     * Return a User given their username
+     *
+     * @param providedUsername the username passed in from the Intent
+     * @return User object to be returned
+     */
+    public User getUserFromDB(String providedUsername) {
+        // Hashmap containing username : User key pair values
+        HashMap<String, User> userDB = readUserDB();
+
+        try {
+            // If username and password exist in DB, and are correct, then return true, otherwise, false
+            User user = userDB.get(providedUsername);
+            return user;
+        } catch (Exception e) {
+            Log.e("ERROR", "Error verifying user login: " + e.getMessage());
+        }
+
+        return null;
+    }
 }
