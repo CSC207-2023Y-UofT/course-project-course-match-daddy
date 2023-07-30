@@ -3,12 +3,13 @@ package com.example.coursematchdaddy.clean_architecture_layers.entities.classes;
 import java.io.Serializable;
 import java.util.HashMap;
 
-public abstract class Course implements Serializable {
+public abstract class Course implements Serializable, Comparable<Course>  {
     private final String courseTitle;
     private final String courseCode;
     private final String courseDescription;
     private final String courseImageURL;
     private final HashMap<String, Object> miscellaneousCourseData;
+    private double relevance;
 
     /**
      * @param courseTitle: String
@@ -25,6 +26,7 @@ public abstract class Course implements Serializable {
         this.courseDescription = courseDescription;
         this.courseImageURL = courseImageURL;
         this.miscellaneousCourseData = miscellaneousCourseData;
+        this.relevance = 0;
     }
 
     /**
@@ -104,6 +106,28 @@ public abstract class Course implements Serializable {
             // course cannot be enrolled in
             return 0;
         }
+    }
+    /**
+     * Retrieves the relevance value associated with this course.
+     *
+     * @return The relevance value of this course.
+     */
+    public double getRelevance() {
+        return this.relevance;
+    }
+
+    /**
+     * Sets the relevance value for this course.
+     *
+     * @param d The relevance value to be set.
+     */
+    public void setRelevance(double d) {
+        this.relevance = d;
+    }
+    @Override
+    public int compareTo(Course other) {
+        // Compare by relevance in descending order
+        return Double.compare(other.getRelevance(), this.relevance);
     }
 
     /**

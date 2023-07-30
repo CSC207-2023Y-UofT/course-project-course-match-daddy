@@ -124,30 +124,5 @@ public class DBUsersGateway implements CreateUserAccountInterface, VerifyLoginDa
         return true;
     }
 
-    @Override
-    /**
-     * Add a user within the text file.
-     *
-     * @param userData This is the provided user's data.
-     * @return Return true if this operation is successful.
-     */
-    public boolean createAccount(User userData) {
-        try (FileWriter writer = new FileWriter(this.userDataPath, true)) {
-            writer.append(username);
-            writer.append(",");
-            writer.append(email);
-            writer.append(",");
-            writer.append(password);
-            writer.append("\n");
 
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Error occurred while writing to the CSV file.");
-            return false;//failed to create account
-        }
-        return true;//Made account
-    }
-    protected String getuserDataPath() {
-        return this.userDataPath;
-    }
 }
