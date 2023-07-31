@@ -15,7 +15,8 @@ public class CarouselPresenter {
     public CarouselPresenter() {
         recommendationAlgorithm = new RecommendationAlgorithm();
     }
-    public List<Course> getRecommendations(LoggedInUser loggedInUser){
+    public List<Course> getRecommendations(String username){
+
         List<Course> recs = recommendationAlgorithm.getCourses(loggedInUser.getUserSurveyData(), loggedInUser);
         courseList = recs;
         return recs;
