@@ -136,4 +136,26 @@ public class UserDB implements VerifyLoginDataInterface {
 
         return null;
     }
+
+    /**
+     * Return whether the entered username is unique or not
+     *
+     * @param providedEmail the entered username
+     * @return true if the email is unique, false otherwise
+     */
+    public boolean checkEmailUniqueness(String providedEmail) {
+        HashMap<String, User> userDB = readUserDB();
+
+        try {
+            // if a user with the given email already exists in the DB, return false
+            User user = userDB.get(providedEmail);
+            if (user != null) {
+                return false;
+            }
+        } catch (Exception e) {
+            Log.e("ERROR", "Error verifying user login: " + e.getMessage());
+        }
+
+        return true;
+    }
 }
