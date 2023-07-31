@@ -20,4 +20,6 @@
     <string name="template_course_title">(Course Title)</string>
     <string name="template_course_code">(Course Code)</string>
     <string name="template_course_description">(Course Description)</string>
+    <string name="carousel_header">Recommendations</string>
+    <string name="course_title">Course Title</string>
 </resources>
