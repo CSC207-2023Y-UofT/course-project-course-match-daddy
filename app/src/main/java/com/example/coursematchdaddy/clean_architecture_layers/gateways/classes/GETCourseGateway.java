@@ -23,7 +23,7 @@ import java.util.List;
  * BreadthRequirements,Prerequisites,Corequisites,Hours
  *
  * Example:
- * "Introduction to Computer Science","CS101","An introductory course to programming",
+ * "Introduction to Computer Science","CS108","An introductory course to programming",
  * "Mathematics","Natural Sciences","None","None","3 hours"
  *
  * The course data is extracted from the CSV file, and a list of Course objects is created
@@ -36,7 +36,7 @@ public class GETCourseGateway {
     private List<Course> coursesListData;
     private HashMap<String, Course> coursesListDataMap;
     private File db;
-    private final String path = "/data/user/0/com.example.coursematchdaddy/files/data/user/0/com.example.coursematchdaddy/files/artssci.csv";
+    private final String path = "/data/user/0/com.example.coursematchdaddy/files/artssci.csv";
 
     /**
      * Constructs a GETCourseGateway object.
