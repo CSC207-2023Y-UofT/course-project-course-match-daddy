@@ -18,8 +18,9 @@ public class CarouselPresenter {
         gw = new GETCourseGateway();
         recommendationAlgorithm = new RecommendationAlgorithm(loggedInUser, gw.getCoursesListData() );
     }
-    public List<Course> getRecommendations(){
-        List<Course> recs = recommendationAlgorithm.getCourses();
+    public List<Course> getRecommendations(String username){
+
+        List<Course> recs = recommendationAlgorithm.getCourses(loggedInUser.getUserSurveyData(), loggedInUser);
         courseList = recs;
         return recs;
     }
