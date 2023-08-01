@@ -43,7 +43,7 @@ public abstract class User implements Serializable {
         this.username = username;
 
         // Initialize an instance of the UserData subclass of the Survey class
-        userSurvey = new UserData(username, email, password, program, numCredits, coursesTaken, preferences);
+        userSurvey = new UserData(username, email, password, program, numCredits, coursesTaken, (List<String>) preferences);
     }
 
     /**

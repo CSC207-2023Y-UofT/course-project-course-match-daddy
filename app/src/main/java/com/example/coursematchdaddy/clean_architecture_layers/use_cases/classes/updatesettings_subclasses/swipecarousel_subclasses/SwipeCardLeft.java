@@ -13,13 +13,28 @@ import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfac
 import java.util.HashMap;
 import java.util.List;
 
-// The logic behind this method is handled in the SwipeCarousel Class
+/**
+ * This is a subclass of SwipeCarousel that represents the swipe left action.
+ * It extends the SwipeCarousel class.
+ */
 public class SwipeCardLeft extends SwipeCarousel {
-    public SwipeCardLeft(LoggedInUser loggedInUser) {
+
+    /**
+     * Constructor to initialize the SwipeCardLeft.
+     *
+     * @param loggedInUser The logged-in user.
+     */
+    public SwipeCardLeft(User loggedInUser) {
         super(loggedInUser);
     }
 
-    //All this method has to do is remove the item from the list
+    /**
+     * This method represents the behavior for the left swipe action.
+     * All this method has to do is confirm that the course must be removed.
+     *
+     * @param course The course data for which the swipe action is performed.
+     * @return True just to indicate that the swipe was processed.
+     */
     @Override
     public boolean processSwipe(Course course) {
         return true;
