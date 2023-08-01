@@ -7,7 +7,7 @@ import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfac
 import java.util.HashMap;
 import java.util.Objects;
 
-
+//Dont think <getUserData> is a necessary method
 public class SettingsPresenter implements ViewSettingsDataInterface {
 
     public SettingsPresenter() {
@@ -31,7 +31,7 @@ public class SettingsPresenter implements ViewSettingsDataInterface {
         data.put("program", surveyData.getProgram());
         data.put("numOfCredits", surveyData.getNumCredits());
         data.put("courses", surveyData.getCoursesTaken());
-        data.put("preferences", surveyData.getPreferences());
+        data.put("preferences", surveyData.getCompleteData());
 
         return data;
 
@@ -46,8 +46,7 @@ public class SettingsPresenter implements ViewSettingsDataInterface {
      */
 
     public boolean validateInfo(HashMap<String, String> inputFields) {
-        if (!Objects.equals(inputFields.get("username"), "") && !Objects.equals(inputFields.get("password"), "") &&
-                !Objects.equals(inputFields.get("email"), "") && !Objects.equals(inputFields.get("programOfStudy"), "") &&
+        if (!Objects.equals(inputFields.get("programOfStudy"), "") &&
                 !Objects.equals(inputFields.get("numOfCredits"), "")) {
             return true;
         }
