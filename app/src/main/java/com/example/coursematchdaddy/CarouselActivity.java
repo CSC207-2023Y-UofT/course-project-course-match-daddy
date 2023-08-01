@@ -18,6 +18,11 @@ import com.example.coursematchdaddy.clean_architecture_layers.presenters.classes
 
 import java.util.List;
 
+/**
+ * This activity displays a carousel of recommended courses.
+ * The user can swipe left to reject a course or swipe right to like a course.
+ * The activity uses a presenter and controller to handle the logic and interactions.
+ */
 public class CarouselActivity extends AppCompatActivity {
 
     private List<Course> recommendedCourses;
@@ -59,7 +64,7 @@ public class CarouselActivity extends AppCompatActivity {
         buttonCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Handle the user swiping right (accepting) the course
+                // Handle the user swiping right on the course
                 onCourseAccepted();
             }
         });
@@ -67,7 +72,7 @@ public class CarouselActivity extends AppCompatActivity {
         buttonReject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Handle the user swiping left (rejecting) the course
+                // Handle the user swiping left on the course
                 onCourseRejected();
             }
         });
@@ -76,7 +81,11 @@ public class CarouselActivity extends AppCompatActivity {
         displayCourse(currentCourseIndex);
     }
 
-    // This method will be called when the user swipes right (accepting) the course
+    /**
+     * This method will be called when the user swipes right on the course.
+     * It removes the course from the list and updates the UI.
+     * The process of removing and adding is done by the controller
+     */
     private void onCourseAccepted() {
         // Remove the course from the list and update the UI
         carouselController.onSwipeRight(recommendedCourses.get(currentCourseIndex));
@@ -84,7 +93,10 @@ public class CarouselActivity extends AppCompatActivity {
         displayCourse(currentCourseIndex);
     }
 
-    // This method will be called when the user swipes left (rejecting) the course
+    /**
+     * This method will be called when the user swipes left on the course.
+     * It removes the course from the list and updates the UI.
+     */
     private void onCourseRejected() {
         // Remove the course from the list and update the UI
         carouselController.onSwipeLeft(recommendedCourses.get(currentCourseIndex));
@@ -92,7 +104,13 @@ public class CarouselActivity extends AppCompatActivity {
         displayCourse(currentCourseIndex);
     }
 
-    // Method to display the course at the specified index
+    /**
+     * Method to display the course at the specified index.
+     * It sets the image and title of the course.
+     * If there are no more courses to display, it finishes the activity.
+     *
+     * @param index The index of the course to display (Always 0).
+     */
     private void displayCourse(int index) {
         if (index >= 0 && index < recommendedCourses.size()) {
             Course currentCourse = recommendedCourses.get(index);
@@ -107,8 +125,7 @@ public class CarouselActivity extends AppCompatActivity {
             courseTitleTextView.setText(currentCourse.getCourseTitle());
         } else {
             // Handle the case when there are no more courses to display
-            // For example, show a message like "No more courses to display"
-            // or navigate to another activity
+            // Navigate to another activity
             finish();
         }
     }
