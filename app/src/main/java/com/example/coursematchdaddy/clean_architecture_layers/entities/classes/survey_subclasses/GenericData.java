@@ -14,10 +14,10 @@ public class GenericData extends Survey implements GenericDataInterface {
      * @param program
      * @param numCredits
      * @param courses
-     * @param preferences
+     * @param completeData
      */
-    public GenericData(String program, Float numCredits, ArrayList<String> courses, ArrayList<String> preferences) {
-        super(program, numCredits, courses, preferences);
+    public GenericData(String program, Float numCredits, ArrayList<String> courses, HashMap<String, String> completeData) {
+        super(program, numCredits, courses, completeData);
 
     }
 
@@ -31,7 +31,7 @@ public class GenericData extends Survey implements GenericDataInterface {
         data.put("program", getProgram());
         data.put("numOfCredits", getNumCredits());
         data.put("courses", super.getCoursesTaken());
-        data.put("preferences", getPreferences());
+        data.put("preferences", getCompleteData());
         return data;
     }
 }
