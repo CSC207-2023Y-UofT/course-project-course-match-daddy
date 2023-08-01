@@ -2,13 +2,17 @@ package com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes
 
 
 
+import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Survey;
+import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.survey_subclasses.GenericData;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.survey_subclasses.UserData;
 import com.example.coursematchdaddy.clean_architecture_layers.gateways.classes.DBUsersGateway;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
-
+//Acts as a survey factory
 public class SubmitSurvey {
 
     private String program;
@@ -16,46 +20,17 @@ public class SubmitSurvey {
     private ArrayList<String> courses;
     private ArrayList<String> preferences;
 
-    /**
-     * Creates SubmitSurvey isntance
-     * @param program
-     * @param numCredits
-     * @param courses
-     * @param preferences
-     */
-    public SubmitSurvey(String program, Float numCredits, ArrayList<String> courses, ArrayList<String> preferences){
-        this.program = program;
-        this.numCredits = numCredits;
-        this.courses = courses;
-        this.preferences = preferences;
+
+    public SubmitSurvey(User user, HashMap<String, String> preferences ){
 
     }
 
     /**
-     * Creates Survey instance and verifies save to db
-     * @param username
-     * @param email
-     * @param password
-     * @param db
-     * @return Boolean
+     * Creates Survey instance
+     * @return Survey instance
      */
-    public Boolean userSubmit(String username, String email, String password, DBUsersGateway db) {
-        UserData data = new UserData(username, email, password, program, numCredits, courses, preferences);
-
-        //Assumes SaveSurveyDataInterface will have saveSurvey() and it will return a boolean
-        return db.saveSurvey(data);
-    }
-
-    /**
-     * Creates generic user survey and verifies save to db
-     * @param db
-     * @return
-     */
-    public Boolean genericSubmit(DBUsersGateway db){
-        GenericData data = new GenericData(program, numCredits, courses, preferences);
-
-        //Assumes SaveSurveyDataInterface will have saveSurvey() and it will return a boolean
-        return db.saveSurvey(data);
+    public Survey userSubmit(String username, String email, String password, DBUsersGateway db, List<String> coursesTaken, HashMap<String, String> completeData) {
+        return new UserData(username,email,password,program,numCredits,coursesTaken, completeData);
     }
 
 

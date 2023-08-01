@@ -1,26 +1,27 @@
 package com.example.coursematchdaddy.clean_architecture_layers.entities.classes;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
 
 public abstract class Survey implements Serializable {
     private String program;
     private Float numCredits;
     private List<String> coursesTaken;
-    private List<String> preferences;
+    private HashMap<String, String> completeData;//TODO: outline what this will look like.
 
     /**
      * Saves survey data as class attributes and creates instance of Survey
      * @param program
      * @param numCredits
      * @param coursesTaken
-     * @param preferences
+     * @param completeData
      */
-    public Survey(String program, Float numCredits, List<String> coursesTaken, List<String> preferences) {
+    public Survey(String program, Float numCredits, List<String> coursesTaken, HashMap<String, String> completeData) {
         this.program = program;
         this.numCredits = numCredits;
         this.coursesTaken = coursesTaken;
-        this.preferences = preferences;
+        this.completeData = completeData;
     }
 
     /**
@@ -51,7 +52,7 @@ public abstract class Survey implements Serializable {
      * return list of preferences
      * @return ArrayList<String>
      */
-    public List<String> getPreferences() {
-        return preferences;
+    public HashMap<String, String> getCompleteData(){
+        return this.completeData;
     }
 }
