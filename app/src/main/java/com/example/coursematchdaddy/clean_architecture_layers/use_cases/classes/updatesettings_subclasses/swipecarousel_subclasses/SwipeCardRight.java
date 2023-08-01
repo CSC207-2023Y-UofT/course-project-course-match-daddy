@@ -16,7 +16,7 @@ import java.util.Map;
 
 // The logic of this class is handled in the SwipeCarousel class
 public class SwipeCardRight extends SwipeCarousel{
-    public SwipeCardRight(LoggedInUser loggedInUser) {
+    public SwipeCardRight(User loggedInUser) {
         super(loggedInUser);
     }
 

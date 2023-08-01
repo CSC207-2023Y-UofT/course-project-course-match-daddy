@@ -15,9 +15,9 @@ import java.util.Map;
 
 public abstract class SwipeCarousel implements CollectCarouselSwipeInterface {
 
-    protected LoggedInUser loggedInUser;
+    protected User loggedInUser;
 
-    public SwipeCarousel (LoggedInUser loggedInUser){
+    public SwipeCarousel (User loggedInUser){
         this.loggedInUser = loggedInUser;
     }
 

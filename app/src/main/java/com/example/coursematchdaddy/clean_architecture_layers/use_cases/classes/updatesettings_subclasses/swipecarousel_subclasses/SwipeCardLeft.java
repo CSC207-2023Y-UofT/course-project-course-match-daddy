@@ -15,7 +15,7 @@ import java.util.List;
 
 // The logic behind this method is handled in the SwipeCarousel Class
 public class SwipeCardLeft extends SwipeCarousel {
-    public SwipeCardLeft(LoggedInUser loggedInUser) {
+    public SwipeCardLeft(User loggedInUser) {
         super(loggedInUser);
     }
 

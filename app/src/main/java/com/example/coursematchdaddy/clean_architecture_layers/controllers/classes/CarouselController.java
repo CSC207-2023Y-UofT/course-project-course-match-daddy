@@ -4,6 +4,7 @@ import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.C
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Survey;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.user_subclasses.LoggedInUser;
+import com.example.coursematchdaddy.clean_architecture_layers.gateways.classes.UserDB;
 import com.example.coursematchdaddy.clean_architecture_layers.presenters.classes.CarouselPresenter;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.RecommendationAlgorithm;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.SwipeCarousel;
@@ -14,13 +15,15 @@ import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfac
 import java.util.List;
 
 public class CarouselController{
-    private LoggedInUser loggedInUser;
+    private User loggedInUser;
     private SwipeCardLeft swipeCardLeft;
     private SwipeCardRight swipeCardRight;
     private CarouselPresenter presenter;
 
-    public CarouselController(LoggedInUser loggedInUser) {
-        this.loggedInUser = loggedInUser;
+    public CarouselController(String username) {
+        UserDB userDB = new UserDB();
+        User user = userDB.getUserFromDB(username);
+        this.loggedInUser = user;
         // Create instances of SwipeCardLeft and SwipeCardRight
         swipeCardLeft = new SwipeCardLeft(loggedInUser);
         swipeCardRight = new SwipeCardRight(loggedInUser);
