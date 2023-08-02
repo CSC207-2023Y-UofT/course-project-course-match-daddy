@@ -179,4 +179,30 @@ public class UserDB implements VerifyLoginDataInterface {
 
         return null;
     }
+    /**
+     * Updates the user information in the database after verifying that the user is approved for changing their settings.
+     * This method assumes that the user has already been verified for the update operation.
+     *
+     * @param user The User object containing the updated information.
+     * @return True if the update was successful, false otherwise.
+     */
+    public boolean updateDB(User user) {
+        HashMap<String, User> userDB = readUserDB();
+        userDB.put(user.getUsername(), user);
+
+        return writeUser(userDB, user);
+    }
+
+    /**
+     * Removes the specified user from the database.
+     *
+     * @param user The User object representing the user to be removed.
+     * @return True if the user was successfully removed, false otherwise.
+     */
+    public boolean removeUser(User user) {
+        HashMap<String, User> userDB = readUserDB();
+        userDB.remove(user.getUsername());
+        return userDB.get(user.getUsername()) == null;//removed successfully
+    }
+
 }

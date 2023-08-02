@@ -40,61 +40,92 @@ public class SettingsController implements CollectSettingsDataInterface {
     }
 
     /**
-     * Retrieve a user's provided data from the settings view.
+     * Retrieves and processes a user's provided data from the settings view.
+     * This method collects the user's input data, validates the changes, and updates the user's profile if the changes are valid.
      *
-     * @return Return true if the data was successfully collected.
+     * @return True if the data was successfully collected and the user's profile was updated, false otherwise.
      */
-    @Override
     public boolean collectSettingsData() {
         String username;
         String password;
         String email;
-        //TODO: Check for potential bugs
-        // Leaving section blank means that they want the username/email to stay the same.
+        
+        // Leaving a section blank means that the user wants to keep the current username/email.
         boolean changedUsername = !this.inputfields.get("username").equals("");
         boolean changedEmail = !this.inputfields.get("email").equals("");
         boolean changedPassword = !this.inputfields.get("password").equals("");
 
-        //Update email from input field if it was changed. If not, use user object
-        if (changedEmail){
+        // Update email from input field if it was changed. If not, use the user object's email.
+        if (changedEmail) {
             email = inputfields.get("email");
-        }else{
+        } else {
             email = this.userData.getEmail();
         }
-        //Update username from input field if it was changed. If not, use user object
-        if (changedUsername){
+
+        // Update username from input field if it was changed. If not, use the user object's username.
+        if (changedUsername) {
             username = inputfields.get("username");
-        }else{
+        } else {
             username = this.userData.getUsername();
         }
-        //Update password from input field if it was changed. If not, use user object
-        if (changedPassword){
+
+        // Update password from the input field if it was changed. If not, use the user object's password.
+        if (changedPassword) {
             password = inputfields.get("password");
-        }else{
+        } else {
             password = this.userData.getPassword();
         }
-        //check if changes were valid before finalizing them.
-        if ((!changedEmail | this.db.checkEmailUniqueness(email)) && (!changedUsername | this.db.checkUsernameUniqueness(username))){
-            saveData = new SaveSurveyData(this.userData);
-            ArrayList<String> coursestaken = new ArrayList<>();
-            for (String s: this.inputfields.get("coursesTaken").split(" ")){
-                coursestaken.add(s.toUpperCase());
-                //TODO: add better parsing
-            }
-            float numCredits = 0.0f;
-            try {
-                numCredits = Float.parseFloat(this.inputfields.get("numOfCredits"));
-            } catch (NumberFormatException e) {
-                //Default to 0 if user provides bad input
-                numCredits = 0.0f;
-            }
-            String program = this.inputfields.get("programOfStudy").toUpperCase();
-            Survey surveyData = new GenericData(program, numCredits, coursestaken, this.inputfields);
-            //TODO: Ensure that saveData also saves the resulting user object in the UserDB
-            return saveData.updateSettings(username, email, password, this.userData.getSelectedCourses(), this.userData.getSelectedPrograms(), surveyData);
-        }else{
+
+        // Check if changes were valid before finalizing them.
+        if ((!changedEmail || this.db.checkEmailUniqueness(email)) && (!changedUsername || this.db.checkUsernameUniqueness(username))) {
+            Survey surveyData = createSurveyData();
+            return updateUserData(username, email, password, surveyData);
+        } else {
             return false;
         }
+    }
 
+    /**
+     * Creates a Survey object from the user's input data.
+     *
+     * @return The Survey object created from the user's input data.
+     */
+    private Survey createSurveyData() {
+        ArrayList<String> coursesTaken = new ArrayList<>();
+        for (String s : this.inputfields.get("coursesTaken").split(" ")) {
+            coursesTaken.add(s.toUpperCase());
+            // TODO: add better parsing if needed
+        }
+
+        float numCredits = 0.0f;
+        try {
+            numCredits = Float.parseFloat(this.inputfields.get("numOfCredits"));
+        } catch (NumberFormatException e) {
+            // Default to 0 if the user provides bad input
+            numCredits = 0.0f;
+        }
+
+        String program = this.inputfields.get("programOfStudy").toUpperCase();
+        return new GenericData(program, numCredits, coursesTaken, this.inputfields);
+    }
+
+    /**
+     * Updates the user's profile with the provided data.
+     *
+     * @param username        The updated username.
+     * @param email           The updated email.
+     * @param password        The updated password.
+     * @param surveyData      The survey data to update the user's profile.
+     * @return True if the user's profile was successfully updated, false otherwise.
+     */
+    private boolean updateUserData(String username, String email, String password, Survey surveyData) {
+        SaveSurveyData saveData = new SaveSurveyData(this.userData);
+        return db.removeUser(this.userData) && saveData.updateSettings(username, email, password, this.userData.getSelectedCourses(), this.userData.getSelectedPrograms(), surveyData, db);
+    }
+
+
+    @Override
+    public boolean collectSettingsData(User userData) {
+        return false;
     }
 }
