@@ -33,8 +33,11 @@ public class CarouselActivity extends AppCompatActivity {
     private Button buttonCheck;
     private Button buttonReject;
 
+    private Button buttonNext;
     private CarouselPresenter carouselPresenter;
     private CarouselController carouselController;
+
+    private String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +45,7 @@ public class CarouselActivity extends AppCompatActivity {
         setContentView(R.layout.carousel);
 
         // Get the username from the previous activity
-        String username = getIntent().getStringExtra("username");
+        username = getIntent().getStringExtra("username");
 
         // Initialize the presenter and controller
         carouselPresenter = new CarouselPresenter(username);
@@ -59,6 +62,7 @@ public class CarouselActivity extends AppCompatActivity {
         courseTitleTextView = findViewById(R.id.textView4);
         buttonCheck = findViewById(R.id.buttonCheck);
         buttonReject = findViewById(R.id.buttonReject);
+        buttonNext = findViewById(R.id.buttonNext);
 
         // Set click listeners for the buttons
         buttonCheck.setOnClickListener(new View.OnClickListener() {
@@ -74,6 +78,13 @@ public class CarouselActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Handle the user swiping left on the course
                 onCourseRejected();
+            }
+        });
+        buttonNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle button click event
+                navigateToNextActivity();
             }
         });
 
@@ -128,5 +139,15 @@ public class CarouselActivity extends AppCompatActivity {
             // Navigate to another activity
             finish();
         }
+    }
+
+    private void navigateToNextActivity() {
+        // Create an Intent to launch the next activity
+        // Might have to modify based on the next activity
+        Intent intent = new Intent(CarouselActivity.this, CourseActivity.class);
+        intent.putExtra("username", username);
+
+        // Start the next activity
+        startActivity(intent);
     }
 }
