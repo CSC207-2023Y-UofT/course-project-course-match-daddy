@@ -21,7 +21,7 @@ public abstract class User implements Serializable {
     private String program = new String();
     private Float numCredits = (float) 0;
     private List<String> coursesTaken = new ArrayList<String>();
-    private HashMap<String,String> preferences = new HashMap<String,String>();
+    private HashMap<String, String> preferences = new HashMap<String,String>();
     private Survey userSurvey;
 
     // Define the public attributes for an instance of the User class.
@@ -43,7 +43,7 @@ public abstract class User implements Serializable {
         this.username = username;
 
         // Initialize an instance of the UserData subclass of the Survey class
-        userSurvey = new UserData(username, email, password, program, numCredits, coursesTaken, (List<String>) preferences);
+        userSurvey = new UserData(username, email, password, program, numCredits, coursesTaken, preferences);
     }
 
     /**
