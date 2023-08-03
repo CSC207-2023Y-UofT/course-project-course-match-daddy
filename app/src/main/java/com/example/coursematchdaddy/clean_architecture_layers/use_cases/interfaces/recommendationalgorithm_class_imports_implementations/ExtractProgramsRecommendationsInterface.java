@@ -11,8 +11,7 @@ public interface ExtractProgramsRecommendationsInterface {
     /**
      * Retrieves a list of recommended programs for a given user based on the provided user data.
      *
-     * @param userData The User object containing the relevant data for generating program recommendations.
      * @return A List of recommended Program objects.
      */
-    //public List<Program> getProgramRecommendations(User userData);
+    public List<Program> getProgramRecommendations();
 }

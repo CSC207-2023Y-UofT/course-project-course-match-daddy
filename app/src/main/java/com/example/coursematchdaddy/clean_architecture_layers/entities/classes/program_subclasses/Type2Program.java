@@ -10,8 +10,8 @@ public class Type2Program extends Program {
      * @param programCode        : String
      * @param programDescription : String
      */
-    public Type2Program(String programTitle, String programCode, String programDescription) {
-        super(programTitle, programCode, programDescription);
+    public Type2Program(String programTitle, String programCode, String programDescription,String completionRequirements) {
+        super(programTitle, programCode, programDescription,completionRequirements);
     }
 
     /**
