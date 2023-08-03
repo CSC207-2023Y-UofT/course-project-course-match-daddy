@@ -37,15 +37,29 @@ public class Program implements Serializable, Comparable<Program> {
     public String getProgramCode() {
         return this.programCode;
     }
+
+    /**
+     * @param other Program object
+     * @return int comparision
+     */
     @Override
     public int compareTo(Program other) {
         // Compare by relevance in descending order
         return Double.compare(other.getRelevance(), this.relevance);
     }
 
+    /**
+     * returning relevance of this program in the algorithm
+     * @return double relevance
+     */
     public double getRelevance() {
         return this.relevance;
     }
+
+    /**
+     * setting the relevance of this program
+     * @param d relevance value
+     */
     public void setRelevance(double d){
         this.relevance = d;
     }
@@ -57,6 +71,11 @@ public class Program implements Serializable, Comparable<Program> {
     public String getProgramDescription() {
         return this.programDescription;
     }
+
+    /**
+     * Returning a string containing the completion requirements for this program
+     * @return String completion requirements
+     */
     public String getCompletionRequirements(){
         return this.completionRequirements;
     }
