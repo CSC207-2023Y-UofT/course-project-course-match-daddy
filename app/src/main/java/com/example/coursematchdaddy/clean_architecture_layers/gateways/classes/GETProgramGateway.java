@@ -63,17 +63,17 @@ public class GETProgramGateway {
                     Log.e("GETProgramGateway", "Invalid number of fields in CSV file");
                 } else {
                     // Assign the fields to variables
-                    String programTitle = programData.get(0);
+                    String programName = programData.get(0);
                     String programDescription = programData.get(1);
                     String enrolmentRequirements = programData.get(2);
                     String completionRequirements = programData.get(3);
                     String areaOfStudy = programData.get(4);
 
                     // Instantiate a Program object and add it to the list of Program objects
-                    Program program = new Program(programTitle, null, programDescription);
+                    Program program = new Program(programName,programName.substring(programName.length() - 9,programName.length()) ,programDescription, completionRequirements);
                     this.programListData.add(program);
                     // Map the program title to the Program object
-                    this.programListDataMap.put(programTitle, program);
+                    this.programListDataMap.put(programName, program);
                 }
             }
             // Close the BufferedReader
