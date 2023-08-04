@@ -45,7 +45,7 @@ public class SettingsController implements CollectSettingsDataInterface {
      * @return Return true if the data was successfully collected.
      */
     @Override
-    public boolean collectSettingsData() {
+    public boolean collectSettingsData() {//Consider decoupling
         String username;
         String password;
         String email;
@@ -91,7 +91,7 @@ public class SettingsController implements CollectSettingsDataInterface {
             String program = this.inputfields.get("programOfStudy").toUpperCase();
             Survey surveyData = new GenericData(program, numCredits, coursestaken, this.inputfields);
             //TODO: Ensure that saveData also saves the resulting user object in the UserDB
-            return saveData.updateSettings(username, email, password, this.userData.getSelectedCourses(), this.userData.getSelectedPrograms(), surveyData);
+            return saveData.updateSettings(username, email, password, this.userData.getSelectedCourses(), this.userData.getSelectedPrograms(), surveyData, this.db);
         }else{
             return false;
         }
