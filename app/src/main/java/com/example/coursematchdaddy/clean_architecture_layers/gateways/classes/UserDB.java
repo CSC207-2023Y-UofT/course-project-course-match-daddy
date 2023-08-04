@@ -134,6 +134,28 @@ public class UserDB implements VerifyLoginDataInterface {
     }
 
     /**
+     * Saves Changes to the database.
+     *
+     * @param userDB database
+     * @return boolean on whether the process was completed
+     */
+    private boolean saveChanges(HashMap<String, User> userDB) {
+        File file = new File(pathname);
+
+        try (FileOutputStream fileOutputStream = new FileOutputStream(file);
+             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
+
+            // Write serialized object
+            objectOutputStream.writeObject(userDB);
+            return true;
+
+        } catch (IOException ex) {
+            Log.e("ERROR", "Error writing user database: " + ex.getMessage());
+        }
+
+        return false;
+    }
+    /**
      * Verifies the user's provided log in credentials.
      *
      * @param providedUsername Given username
@@ -201,8 +223,8 @@ public class UserDB implements VerifyLoginDataInterface {
      */
     public boolean removeUser(User user) {
         HashMap<String, User> userDB = readUserDB();
-        userDB.remove(user.getUsername());
-        return userDB.get(user.getUsername()) == null;//removed successfully
+        userDB.put(user.getUsername(), null);
+        return userDB.get(user.getUsername()) == null && saveChanges(userDB);//removed successfully
     }
 
 }
