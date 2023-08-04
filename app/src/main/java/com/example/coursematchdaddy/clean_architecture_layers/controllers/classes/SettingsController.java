@@ -1,13 +1,6 @@
 package com.example.coursematchdaddy.clean_architecture_layers.controllers.classes;
-
-import android.util.Log;
-
-import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Course;
-import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Program;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Survey;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
-import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.survey_subclasses.GenericData;
-import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.user_subclasses.LoggedInUser;
 import com.example.coursematchdaddy.clean_architecture_layers.gateways.classes.UserDB;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.SubmitSurvey;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.UpdateSettings;
@@ -16,7 +9,6 @@ import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfac
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 // Handles changes to the user’s settings.
 public class SettingsController implements CollectSettingsDataInterface {
@@ -88,13 +80,24 @@ public class SettingsController implements CollectSettingsDataInterface {
                 //Default to 0 if user provides bad input
                 numCredits = 0.0f;
             }
+            db.removeUser(this.userData);//remove user from database
             String program = this.inputfields.get("programOfStudy").toUpperCase();
-            Survey surveyData = new GenericData(program, numCredits, coursestaken, this.inputfields);
+            Survey surveyData = submitData.userSubmit(username, email,password,program,numCredits,coursestaken,this.inputfields);
             //TODO: Ensure that saveData also saves the resulting user object in the UserDB
-            return saveData.updateSettings(username, email, password, this.userData.getSelectedCourses(), this.userData.getSelectedPrograms(), surveyData);
+            //Save user data and then save it under a new "key" in the databse (remember, username is unique identifier)
+            return saveData.updateSettings(username, email, password, this.userData.getSelectedCourses(), this.userData.getSelectedPrograms(), surveyData, this.db) && db.updateDB(this.userData);
         }else{
             return false;
         }
 
+    }
+
+    /**
+     * Returns a users username
+     *
+     * @return Users username
+     */
+    public String getUsername() {
+        return this.userData.getUsername();
     }
 }

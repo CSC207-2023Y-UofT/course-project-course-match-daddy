@@ -2,6 +2,7 @@ package com.example.coursematchdaddy;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -36,6 +37,7 @@ public class SettingActivity extends AppCompatActivity {
         SettingsPresenter presenter = new SettingsPresenter();
         if (intent != null) {
             this.username = intent.getStringExtra("username");// user associated with previous activity.
+            Log.d("LOG", "SETTINGSUSERPART@: " + this.username);
         }
         // Find views by their IDs
         usernameEditText = findViewById(R.id.username);
@@ -103,11 +105,11 @@ public class SettingActivity extends AppCompatActivity {
                 inputFields.put("bigPicture", String.valueOf(isBigPicture));
                 inputFields.put("reports", String.valueOf(isReports));
                 inputFields.put("problemSets", String.valueOf(isProblemSets));
-                inputFields.put("creative", String.valueOf(isCreative));
-                inputFields.put("thought", String.valueOf(isThought));
-                inputFields.put("livingThings", String.valueOf(isLivingThings));
-                inputFields.put("physicalMath", String.valueOf(isPhysicalMath));
-                inputFields.put("societyInstitutions", String.valueOf(isSocietyInstitutions));
+                inputFields.put("Creative and Cultural Representations", String.valueOf(isCreative));
+                inputFields.put("Thought, Belief, and Behaviour", String.valueOf(isThought));
+                inputFields.put("Living Things and Their Environment", String.valueOf(isLivingThings));
+                inputFields.put("The Physical and Mathematical Universes", String.valueOf(isPhysicalMath));
+                inputFields.put("Society and Its Institutions", String.valueOf(isSocietyInstitutions));
                 View rootView = findViewById(android.R.id.content); // The root view of your layout
                 String message ="Provide your number of credits and the 3-digit course code for your desired POSt.";
                 String errorMessage = "Failed to update settings. Please try again.";//TODO: Make this message more useful to user
@@ -117,8 +119,13 @@ public class SettingActivity extends AppCompatActivity {
                     SettingsController controller = new SettingsController(SettingActivity.this.username, inputFields);
                     boolean successful = controller.collectSettingsData();
                     if (successful){
+                        //Navigate to carousel activity so the user can start getting their recommendations!
                         Snackbar.make(rootView, "Success!", Snackbar.LENGTH_SHORT).show();
-                        //TODO:Navigate to next view and pass in relevant data
+                        Intent intent = new Intent(SettingActivity.this, CarouselActivity.class);
+                        SettingActivity.this.username = controller.getUsername();
+                        intent.putExtra("username", SettingActivity.this.username);
+                        startActivity(intent);
+                        finish(); // Close the current SettingActivity if needed
                     }else{
                         Snackbar.make(rootView, errorMessage, Snackbar.LENGTH_SHORT).show();
                     }
