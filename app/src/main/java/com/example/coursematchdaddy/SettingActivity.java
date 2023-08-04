@@ -122,6 +122,7 @@ public class SettingActivity extends AppCompatActivity {
                         //Navigate to carousel activity so the user can start getting their recommendations!
                         Snackbar.make(rootView, "Success!", Snackbar.LENGTH_SHORT).show();
                         Intent intent = new Intent(SettingActivity.this, CarouselActivity.class);
+                        SettingActivity.this.username = controller.getUsername();
                         intent.putExtra("username", SettingActivity.this.username);
                         startActivity(intent);
                         finish(); // Close the current SettingActivity if needed
