@@ -10,8 +10,7 @@ public interface ExtractCoursesRecommendationsInterface {
 
     /**
      * Retrieves a list of recommended courses for a given user
-     *
      * @return A List of recommended Course objects.
      */
-    public List<Course> getCourses();
+    List<Course> getCourseRecommendations();
 }

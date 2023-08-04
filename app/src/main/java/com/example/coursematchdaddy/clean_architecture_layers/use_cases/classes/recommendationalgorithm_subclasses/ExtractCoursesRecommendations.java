@@ -19,7 +19,7 @@ public class ExtractCoursesRecommendations extends RecommendationAlgorithm imple
     }
 
     @Override
-    public List<Course> getCourses() {
-        return super.getCourses();
+    public List<Course> getCourseRecommendations() {
+        return super.getCourseRecommendations();
     }
 }

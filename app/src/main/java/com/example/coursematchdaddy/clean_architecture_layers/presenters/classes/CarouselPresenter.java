@@ -1,22 +1,22 @@
 package com.example.coursematchdaddy.clean_architecture_layers.presenters.classes;
 
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Course;
-import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Survey;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
-import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.user_subclasses.LoggedInUser;
 import com.example.coursematchdaddy.clean_architecture_layers.gateways.classes.GETCourseGateway;
 import com.example.coursematchdaddy.clean_architecture_layers.gateways.classes.UserDB;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.RecommendationAlgorithm;
+import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.recommendationalgorithm_subclasses.ExtractCoursesRecommendations;
+import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.recommendationalgorithm_class_imports_implementations.ExtractCoursesRecommendationsInterface;
 
 import java.util.List;
 
 /**
  * Responsible for handling the business logic related to the CarouselActivity.
- * It communicates with the GETCourseGateway and RecommendationAlgorithm to provide a list of
+ * It communicates with the GETCourseGateway and ExtractCoursesRecommendationInterface to provide a list of
  * recommended courses to be displayed in the carousel.
  */
 public class CarouselPresenter {
-    private RecommendationAlgorithm recommendationAlgorithm;
+    private ExtractCoursesRecommendationsInterface recommendationAlgorithm;//interface implemented by <RecommendationAlgorithm>
     private List<Course> courseList;
     private GETCourseGateway gw;
 
@@ -31,7 +31,7 @@ public class CarouselPresenter {
         gw = new GETCourseGateway();
         UserDB userDB = new UserDB();
         User user = userDB.getUserFromDB(username);
-        recommendationAlgorithm = new RecommendationAlgorithm(user, gw.getCoursesListData() );
+        recommendationAlgorithm = new ExtractCoursesRecommendations(user, gw.getCoursesListData() );
     }
 
     /**
@@ -41,7 +41,7 @@ public class CarouselPresenter {
      * @return The list of recommended courses.
      */
     public List<Course> getRecommendations(String username){
-        List<Course> recs = recommendationAlgorithm.getCourses();
+        List<Course> recs = recommendationAlgorithm.getCourseRecommendations();
         courseList = recs;
         return recs;
     }

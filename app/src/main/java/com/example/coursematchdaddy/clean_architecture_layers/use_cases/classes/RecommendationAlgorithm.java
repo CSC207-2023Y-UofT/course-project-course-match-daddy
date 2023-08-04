@@ -46,7 +46,7 @@ public class RecommendationAlgorithm implements ExtractCoursesRecommendationsInt
      *
      * @return A list of recommended courses.
      */
-    public List<Course> getCourses() {
+    public List<Course> getCourseRecommendations() {
         List<Course> courses = filterCourses(this.courseList);
         Collections.sort(courses);
 
@@ -193,7 +193,14 @@ public class RecommendationAlgorithm implements ExtractCoursesRecommendationsInt
             }
         }
     }
-    public List<Course> getCourseList(){
+    /**
+     * Retrieves the list of courses
+     *
+     * @return A List of Course objects representing the courses available.
+     */
+    public List<Course> getCourseList() {
         return this.courseList;
     }
+
+
 }
