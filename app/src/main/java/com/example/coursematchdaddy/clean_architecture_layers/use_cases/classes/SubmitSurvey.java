@@ -29,7 +29,7 @@ public class SubmitSurvey {
      * Creates Survey instance
      * @return Survey instance
      */
-    public Survey userSubmit(String username, String email, String password, DBUsersGateway db, List<String> coursesTaken, HashMap<String, String> completeData) {
+    public Survey userSubmit(String username, String email, String password,String program,float numCredits, List<String> coursesTaken, HashMap<String, String> completeData) {
         return new UserData(username,email,password,program,numCredits,coursesTaken, completeData);
     }
 
