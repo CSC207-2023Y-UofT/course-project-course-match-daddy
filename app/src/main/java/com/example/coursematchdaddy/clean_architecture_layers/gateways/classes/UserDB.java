@@ -3,13 +3,15 @@ package com.example.coursematchdaddy.clean_architecture_layers.gateways.classes;
 import android.util.Log;
 
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
+import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations.CreateUserAccountInterface;
+import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations.ExtractUserDataInterface;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations.VerifyLoginDataInterface;
 
 import java.io.*;
 import java.util.HashMap;
 import java.util.Objects;
 
-public class UserDB implements VerifyLoginDataInterface {
+public class UserDB implements VerifyLoginDataInterface, ExtractUserDataInterface, CreateUserAccountInterface {
     private final String pathname = "/data/user/0/com.example.coursematchdaddy/files/userdata.csv";
 
     public UserDB() {
@@ -73,6 +75,7 @@ public class UserDB implements VerifyLoginDataInterface {
      * @param providedUsername the entered username
      * @return true if the email is unique, false otherwise
      */
+    @Override
     public boolean checkUsernameUniqueness(String providedUsername) {
         HashMap<String, User> userDB = readUserDB();
 
@@ -88,6 +91,18 @@ public class UserDB implements VerifyLoginDataInterface {
 
         return true;
     }
+
+    /**
+     * Add or update a user within the text file.
+     *
+     * @param userData This is the provided user's data.
+     * @return Return true if this operation is successful.
+     */
+    @Override
+    public boolean updateUserData(User userData) {
+        return false; // TODO: WRITE THIS METHOD TO UPDATE WITH SETTINGS/SURVEY
+    }
+
     /**
      * Verify whether the user can be logged in based on the credentials given.
      *
@@ -157,6 +172,19 @@ public class UserDB implements VerifyLoginDataInterface {
         }
 
         return false;
+    }
+
+    /**
+     * Retrieve a user's data from a database.
+     *
+     * @param email This is a unique identifier for a user.
+     * @return Return a user's data.
+     */
+    @Override
+    public User getUserData(String email) {
+        HashMap<String, User> userDB = readUserDB();
+        User user = userDB.get(email);
+        return user;
     }
 
     /**
