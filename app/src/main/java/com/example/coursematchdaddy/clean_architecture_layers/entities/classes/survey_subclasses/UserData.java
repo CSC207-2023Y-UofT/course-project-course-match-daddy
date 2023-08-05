@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+//TODO: modify implemented interface. Some of its methods are redundant/not useful/not needed
 public class UserData extends Survey implements UserDataInterface {
 
     private String username;
@@ -20,11 +21,13 @@ public class UserData extends Survey implements UserDataInterface {
      * @param password
      * @param program
      * @param numCredits
-     * @param courses
-     * @param preferences
+     * @param coursesTaken
+     * @param completeData
      */
-    public UserData(String username, String email, String password, String program, Float numCredits, List<String> coursesTaken, List<String> preferences) {
-        super(program, Float.valueOf(numCredits), coursesTaken, preferences);
+    public UserData(String username, String email, String password,
+                    String program, Float numCredits,
+                    List<String> coursesTaken, HashMap<String, String> completeData) {
+        super(program, Float.valueOf(numCredits), coursesTaken, completeData);
 
         this.username = username;
         this.email = email;
@@ -42,7 +45,7 @@ public class UserData extends Survey implements UserDataInterface {
         data.put("program", getProgram());
         data.put("numOfCredits", getNumCredits());
         data.put("coursesTaken", getCoursesTaken());
-        data.put("preferences", getPreferences());
+        data.put("preferences", getCompleteData());
         return data;
     }
 
