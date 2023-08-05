@@ -7,8 +7,7 @@ public interface CollectSettingsDataInterface {
     /**
      * Retrieve a user's provided data from the settings view.
      *
-     * @param userData This is an instance of a User class.
      * @return Return true if the data was successfully collected.
      */
-    public boolean collectSettingsData(User userData);
+    public boolean collectSettingsData();
 }

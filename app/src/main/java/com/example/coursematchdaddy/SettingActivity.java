@@ -116,7 +116,7 @@ public class SettingActivity extends AppCompatActivity {
                 if (!presenter.validateInfo(inputFields)){
                     Snackbar.make(rootView, message, Snackbar.LENGTH_SHORT).show();
                 }else{
-                    SettingsController controller = new SettingsController(SettingActivity.this.username, inputFields);
+                    SettingsController controller = new SettingsController(SettingActivity.this.username, inputFields, db, db, db);
                     boolean successful = controller.collectSettingsData();
                     if (successful){
                         //Navigate to carousel activity so the user can start getting their recommendations!

@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 // Reads and writes user data to the database.
-public class DBUsersGateway implements CreateUserAccountInterface, VerifyLoginDataInterface,  ExtractUserDataInterface {
+public class DBUsersGateway {
     // Define the private attributes for an instance of the User class.
     private String username; // This is a unique identifier for an instance of the User class.
     private String email; // This is a unique identifier for an instance of the User class.
@@ -79,7 +79,6 @@ public class DBUsersGateway implements CreateUserAccountInterface, VerifyLoginDa
      * @param providedPassword given password
      * @return true if the username is valid and matches an existing user account, false otherwise.
      */
-    @Override
     public boolean verifyUserProvidedData(String providedUsername, String providedPassword){
         if (usersMap.containsKey(providedUsername)) {
             if (this.usersMap.get((String) providedUsername).getPassword().equals(providedPassword)) {
@@ -95,7 +94,6 @@ public class DBUsersGateway implements CreateUserAccountInterface, VerifyLoginDa
      * @param username This is a unique identifier for a user.
      * @return
      */
-    @Override
     public User getUserData(String username) {
         if (usersMap.containsKey(username)) {
             return usersMap.get((String) username);
