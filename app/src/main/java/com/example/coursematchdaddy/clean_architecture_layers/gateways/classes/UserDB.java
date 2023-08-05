@@ -100,7 +100,10 @@ public class UserDB implements VerifyLoginDataInterface, ExtractUserDataInterfac
      */
     @Override
     public boolean updateUserData(User userData) {
-        return false; // TODO: WRITE THIS METHOD TO UPDATE WITH SETTINGS/SURVEY
+        HashMap<String, User> userDB = readUserDB();
+        userDB.put(userData.getUsername(), userData);
+
+        return writeUser(userDB, userData);
     }
 
     /**
@@ -118,6 +121,13 @@ public class UserDB implements VerifyLoginDataInterface, ExtractUserDataInterfac
         } else {
             return false;
         }
+    }
+
+    @Override
+    public boolean removeUser(User user) {
+            HashMap<String, User> userDB = readUserDB();
+            userDB.put(user.getUsername(), null);
+            return userDB.get(user.getUsername()) == null && saveChanges(userDB);//removed successfully
     }
 
     /**
@@ -173,7 +183,28 @@ public class UserDB implements VerifyLoginDataInterface, ExtractUserDataInterfac
 
         return false;
     }
+    /**
+     * Saves Changes to the database.
+     *
+     * @param userDB database
+     * @return boolean on whether the process was completed
+     */
+    private boolean saveChanges(HashMap<String, User> userDB) {
+        File file = new File(pathname);
 
+        try (FileOutputStream fileOutputStream = new FileOutputStream(file);
+             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
+
+            // Write serialized object
+            objectOutputStream.writeObject(userDB);
+            return true;
+
+        } catch (IOException ex) {
+            Log.e("ERROR", "Error writing user database: " + ex.getMessage());
+        }
+
+        return false;
+    }
     /**
      * Retrieve a user's data from a database.
      *
