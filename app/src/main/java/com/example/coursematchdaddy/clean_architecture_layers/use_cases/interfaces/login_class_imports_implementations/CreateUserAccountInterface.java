@@ -18,4 +18,11 @@ public interface CreateUserAccountInterface {
      * @return true if user was written, false if already exists or an error occurred
      */
     public boolean verifyUser(User user);
+    /**
+     * Removes the specified user from the database.
+     *
+     * @param user The User object representing the user to be removed.
+     * @return True if the user was successfully removed, false otherwise.
+     */
+    public boolean removeUser(User user);
 }
