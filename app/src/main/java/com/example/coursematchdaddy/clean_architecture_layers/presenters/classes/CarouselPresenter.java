@@ -31,19 +31,12 @@ public class CarouselPresenter {
         gw = new GETCourseGateway();
         UserDB userDB = new UserDB();
         User user = userDB.getUserFromDB(username);
-        recommendationAlgorithm = new RecommendationAlgorithm(user, gw.getCoursesListData() );
+        recommendationAlgorithm = new RecommendationAlgorithm(user, gw.getCoursesListData());
+        courseList = recommendationAlgorithm.getCourses();
     }
 
-    /**
-     * Get the list of recommended courses based on the user's data.
-     *
-     * @param username The username of the logged-in user.
-     * @return The list of recommended courses.
-     */
     public List<Course> getRecommendations(String username){
-        List<Course> recs = recommendationAlgorithm.getCourses();
-        courseList = recs;
-        return recs;
+        return courseList;
     }
 
     /**
