@@ -17,7 +17,7 @@ import java.util.HashMap;
 public class SettingsController implements CollectSettingsDataInterface {
     // Define the private attributes.
     private User userData;
-    private CreateUserAccountInterface createAccount;   
+    private CreateUserAccountInterface createAccount;
     private UpdateSettings saveData;
     private HashMap<String, String> inputfields;
     private SubmitSurvey submitData;
@@ -87,12 +87,16 @@ public class SettingsController implements CollectSettingsDataInterface {
                 //Default to 0 if user provides bad input
                 numCredits = 0.0f;
             }
+
             this.createAccount.removeUser(this.userData);//remove user from database
+
             String program = this.inputfields.get("programOfStudy").toUpperCase();
             Survey surveyData = submitData.userSubmit(username, email,password,program,numCredits,coursestaken,this.inputfields);
             //TODO: Ensure that saveData also saves the resulting user object in the UserDB
             //Save user data and then save it under a new "key" in the databse (remember, username is unique identifier)
+
             return saveData.updateSettings(username, email, password, this.userData.getSelectedCourses(), this.userData.getSelectedPrograms(), surveyData, this.createAccount) && createAccount.updateUserData(this.userData);
+
         }else{
             return false;
         }
