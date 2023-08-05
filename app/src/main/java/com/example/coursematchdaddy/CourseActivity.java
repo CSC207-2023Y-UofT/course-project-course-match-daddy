@@ -1,33 +1,30 @@
 package com.example.coursematchdaddy;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.coursematchdaddy.clean_architecture_layers.controllers.classes.LoginController;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Course;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.course_subclasses.ArtsAndSciencesCourse;
 import com.example.coursematchdaddy.clean_architecture_layers.gateways.classes.UserDB;
 import com.example.coursematchdaddy.clean_architecture_layers.presenters.classes.CoursePresenter;
-import com.example.coursematchdaddy.clean_architecture_layers.presenters.classes.LoginPresenter;
-import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.Login;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class CourseActivity extends AppCompatActivity implements RecycleViewInterface{
     private CoursePresenter presenter;
     private ArrayList<String> courseList = new ArrayList<>();
+
+    private Button toCarousel, toProgram;
     private User currentUser;
     RecyclerView rv;
     OutputAdapter oa;
@@ -39,10 +36,36 @@ public class CourseActivity extends AppCompatActivity implements RecycleViewInte
 
         this.currentUser = populateUser();
 
-        this.currentUser.getSelectedCourses().put("HI", new ArtsAndSciencesCourse("HI", "HEY", "HI", "HYD", new HashMap<>()));
-        this.currentUser.getSelectedCourses().put("sup", new ArtsAndSciencesCourse("ttt", "HEY", "HI", "HYD", new HashMap<>()));
+//        this.currentUser.getSelectedCourses().put("HI", new ArtsAndSciencesCourse("HI", "HEY", "HI", "HYD", new HashMap<>()));
+//        this.currentUser.getSelectedCourses().put("sup", new ArtsAndSciencesCourse("ttt", "HEY", "HI", "HYD", new HashMap<>()));
 
         presenter = new CoursePresenter(new ArrayList<>(currentUser.getSelectedCourses().values()));
+
+        toCarousel = (Button)findViewById(R.id.buttonCarousel);
+
+        // moving to carousel on button click
+        toCarousel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CourseActivity.this, CarouselActivity.class);
+                intent.putExtra("username", getIntent().getStringExtra("username"));
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        toProgram = (Button)findViewById(R.id.buttonProgram);
+
+        // moving to program tab on button click
+        toProgram.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CourseActivity.this, ProgramActivity.class);
+                intent.putExtra("username", getIntent().getStringExtra("username"));
+                startActivity(intent);
+                finish();
+            }
+        });
 
         // for testing purposes
 //        courseList.add("John");

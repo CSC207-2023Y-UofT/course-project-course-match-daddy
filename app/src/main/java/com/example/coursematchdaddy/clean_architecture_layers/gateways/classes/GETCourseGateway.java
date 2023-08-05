@@ -37,6 +37,7 @@ public class GETCourseGateway {
     private HashMap<String, Course> coursesListDataMap;
     private File db;
     private final String path = "/data/user/0/com.example.coursematchdaddy/files/artssci.csv";
+    private String imageURL;
 
     /**
      * Constructs a GETCourseGateway object.
@@ -82,9 +83,24 @@ public class GETCourseGateway {
                     miscellaneousCourseData.put("Corequisites", corequisites);
                     // Add other relevant data as needed
 
+                    // Check breadth requirement and set the imageURL accordingly
+                    if (breadthRequirements.contains("Creative and Cultural Representations (1)")) {
+                        imageURL = "/data/user/0/com.example.coursematchdaddy/databases/Pictures/creative.png";
+                    } else if (breadthRequirements.contains("Thought, Belief and Behaviour (2)")) {
+                        imageURL = "/data/user/0/com.example.coursematchdaddy/databases/Pictures/thought.png";
+                    } else if (breadthRequirements.contains("Society and its Institutions (3)")) {
+                        imageURL = "/data/user/0/com.example.coursematchdaddy/databases/Pictures/society.png";
+                    } else if (breadthRequirements.contains("Living Things and Their Environment (4)")) {
+                        imageURL = "/data/user/0/com.example.coursematchdaddy/databases/Pictures/living.png";
+                    } else if (breadthRequirements.contains("The Physical and Mathematical Universes (5)")) {
+                        imageURL = "/data/user/0/com.example.coursematchdaddy/databases/Pictures/math.png";
+                    } else {
+                        imageURL = "/data/user/0/com.example.coursematchdaddy/Pictures/math.png";
+                    }
+
                     // Create a new Course object with the extracted data
                     Course course = new ArtsAndSciencesCourse(courseName, courseCode, courseDescription,
-                            /* courseImageURL: */ "TEMPURL", miscellaneousCourseData);
+                            imageURL, miscellaneousCourseData);
                     this.coursesListData.add(course);
                     this.coursesListDataMap.put(courseCode, course);
                 } else {

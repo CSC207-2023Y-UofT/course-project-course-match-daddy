@@ -1,11 +1,14 @@
 package com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes;
 
+import android.util.Log;
+
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Course;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Program;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Survey;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.interfaces.survey_class_imports_implementations.GenericDataInterface;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.interfaces.survey_class_imports_implementations.UserDataInterface;
+import com.example.coursematchdaddy.clean_architecture_layers.gateways.classes.UserDB;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,17 +38,20 @@ public abstract class UpdateSettings implements UserDataInterface, GenericDataIn
      * @param selectedCourses This is a user's updated selected courses.
      * @param selectedPrograms This is a user's updated selected programs.
      * @param userSurvey This is a user's updated survey data.
+     * @param db Persistence used to save the changes to internal storage
      * @return Return true if update is successful.
      */
-    public boolean updateSettings(String username, String email, String password, Map<String, Course> selectedCourses, Map<String, Program> selectedPrograms, Survey userSurvey){
+    //TODO: Consider making multiple "update" methods in order to avoid having so many parameters.
+    public boolean updateSettings(String username, String email, String password, Map<String, Course> selectedCourses, Map<String, Program> selectedPrograms, Survey userSurvey, UserDB db){
         // Update a user's attributes.
+        boolean successful = false;
         userData.updateUsername(username);
         userData.updateUserEmail(email);
         userData.updateUserPassword(password);
         userData.updateUserSelectedCourses(selectedCourses);
         userData.updateUserSelectedPrograms(selectedPrograms);
         userData.updateUserSurveyData(userSurvey);
-
-        return true;
+        successful = db.updateDB(userData);
+        return successful;
     }
 }

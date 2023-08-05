@@ -7,24 +7,10 @@
     android:background="#20124D">
 
     <TextView
-        android:id="@+id/textView6"
-        android:layout_width="413dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="155dp"
-        android:background="#660000"
-        android:gravity="start"
-        android:text="Code"
-        android:textAlignment="textStart"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <TextView
         android:id="@+id/textView10"
         android:layout_width="match_parent"
         android:layout_height="80sp"
+        android:layout_marginTop="8dp"
         android:background="#660000"
         android:gravity="start"
         android:text="Description"
@@ -32,8 +18,25 @@
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="413dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="156dp"
+        android:background="#660000"
+        android:gravity="start"
+        android:text="Code"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/textView2"
@@ -51,22 +54,48 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="317dp"
-        android:layout_height="325dp"
+        android:layout_width="291dp"
+        android:layout_height="288dp"
         android:layout_marginTop="110dp"
         android:layout_marginBottom="286dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.702"
         app:srcCompat="@drawable/ic_menu_gallery" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/course_title"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/buttonReject"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="488dp"
+        android:background="@drawable/button_circle"
+        android:backgroundTint="@android:color/white"
+        android:padding="8dp"
+        android:text="X"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/buttonCheck"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonCheck"
         android:layout_width="90dp"
         android:layout_height="90dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="488dp"
         android:background="@drawable/button_circle"
         android:backgroundTint="#FFFFFF"
         android:padding="8dp"
@@ -78,29 +107,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/buttonReject"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_marginTop="500dp"
-        android:background="@drawable/button_circle"
-        android:backgroundTint="@android:color/white"
-        android:padding="8dp"
-        android:text="X"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/buttonCheck"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/buttonNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/course_title"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="298dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="597dp"
+        android:text="Done"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

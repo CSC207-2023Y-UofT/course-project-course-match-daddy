@@ -3,13 +3,15 @@ package com.example.coursematchdaddy.clean_architecture_layers.gateways.classes;
 import android.util.Log;
 
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
+import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations.CreateUserAccountInterface;
+import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations.ExtractUserDataInterface;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations.VerifyLoginDataInterface;
 
 import java.io.*;
 import java.util.HashMap;
 import java.util.Objects;
 
-public class UserDB implements VerifyLoginDataInterface {
+public class UserDB implements VerifyLoginDataInterface, ExtractUserDataInterface, CreateUserAccountInterface {
     private final String pathname = "/data/user/0/com.example.coursematchdaddy/files/userdata.csv";
 
     public UserDB() {
@@ -73,6 +75,7 @@ public class UserDB implements VerifyLoginDataInterface {
      * @param providedUsername the entered username
      * @return true if the email is unique, false otherwise
      */
+    @Override
     public boolean checkUsernameUniqueness(String providedUsername) {
         HashMap<String, User> userDB = readUserDB();
 
@@ -88,6 +91,21 @@ public class UserDB implements VerifyLoginDataInterface {
 
         return true;
     }
+
+    /**
+     * Add or update a user within the text file.
+     *
+     * @param userData This is the provided user's data.
+     * @return Return true if this operation is successful.
+     */
+    @Override
+    public boolean updateUserData(User userData) {
+        HashMap<String, User> userDB = readUserDB();
+        userDB.put(userData.getUsername(), userData);
+
+        return writeUser(userDB, userData);
+    }
+
     /**
      * Verify whether the user can be logged in based on the credentials given.
      *
@@ -103,6 +121,13 @@ public class UserDB implements VerifyLoginDataInterface {
         } else {
             return false;
         }
+    }
+
+    @Override
+    public boolean removeUser(User user) {
+            HashMap<String, User> userDB = readUserDB();
+            userDB.put(user.getUsername(), null);
+            return userDB.get(user.getUsername()) == null && saveChanges(userDB);//removed successfully
     }
 
     /**
@@ -134,6 +159,28 @@ public class UserDB implements VerifyLoginDataInterface {
     }
 
     /**
+     * Saves Changes to the database.
+     *
+     * @param userDB database
+     * @return boolean on whether the process was completed
+     */
+    private boolean saveChanges(HashMap<String, User> userDB) {
+        File file = new File(pathname);
+
+        try (FileOutputStream fileOutputStream = new FileOutputStream(file);
+             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
+
+            // Write serialized object
+            objectOutputStream.writeObject(userDB);
+            return true;
+
+        } catch (IOException ex) {
+            Log.e("ERROR", "Error writing user database: " + ex.getMessage());
+        }
+
+        return false;
+    }
+    /**
      * Verifies the user's provided log in credentials.
      *
      * @param providedUsername Given username
@@ -158,6 +205,40 @@ public class UserDB implements VerifyLoginDataInterface {
 
         return false;
     }
+    /**
+     * Saves Changes to the database.
+     *
+     * @param userDB database
+     * @return boolean on whether the process was completed
+     */
+    private boolean saveChanges(HashMap<String, User> userDB) {
+        File file = new File(pathname);
+
+        try (FileOutputStream fileOutputStream = new FileOutputStream(file);
+             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
+
+            // Write serialized object
+            objectOutputStream.writeObject(userDB);
+            return true;
+
+        } catch (IOException ex) {
+            Log.e("ERROR", "Error writing user database: " + ex.getMessage());
+        }
+
+        return false;
+    }
+    /**
+     * Retrieve a user's data from a database.
+     *
+     * @param email This is a unique identifier for a user.
+     * @return Return a user's data.
+     */
+    @Override
+    public User getUserData(String email) {
+        HashMap<String, User> userDB = readUserDB();
+        User user = userDB.get(email);
+        return user;
+    }
 
     /**
      * Return a User given their username
@@ -179,4 +260,30 @@ public class UserDB implements VerifyLoginDataInterface {
 
         return null;
     }
+    /**
+     * Updates the user information in the database after verifying that the user is approved for changing their settings.
+     * This method assumes that the user has already been verified for the update operation.
+     *
+     * @param user The User object containing the updated information.
+     * @return True if the update was successful, false otherwise.
+     */
+    public boolean updateDB(User user) {
+        HashMap<String, User> userDB = readUserDB();
+        userDB.put(user.getUsername(), user);
+
+        return writeUser(userDB, user);
+    }
+
+    /**
+     * Removes the specified user from the database.
+     *
+     * @param user The User object representing the user to be removed.
+     * @return True if the user was successfully removed, false otherwise.
+     */
+    public boolean removeUser(User user) {
+        HashMap<String, User> userDB = readUserDB();
+        userDB.put(user.getUsername(), null);
+        return userDB.get(user.getUsername()) == null && saveChanges(userDB);//removed successfully
+    }
+
 }
