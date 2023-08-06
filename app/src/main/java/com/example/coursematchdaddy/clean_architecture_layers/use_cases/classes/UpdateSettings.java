@@ -9,6 +9,7 @@ import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.U
 import com.example.coursematchdaddy.clean_architecture_layers.entities.interfaces.survey_class_imports_implementations.GenericDataInterface;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.interfaces.survey_class_imports_implementations.UserDataInterface;
 import com.example.coursematchdaddy.clean_architecture_layers.gateways.classes.UserDB;
+import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations.CreateUserAccountInterface;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -42,7 +43,7 @@ public abstract class UpdateSettings implements UserDataInterface, GenericDataIn
      * @return Return true if update is successful.
      */
     //TODO: Consider making multiple "update" methods in order to avoid having so many parameters.
-    public boolean updateSettings(String username, String email, String password, Map<String, Course> selectedCourses, Map<String, Program> selectedPrograms, Survey userSurvey, UserDB db){
+    public boolean updateSettings(String username, String email, String password, Map<String, Course> selectedCourses, Map<String, Program> selectedPrograms, Survey userSurvey, CreateUserAccountInterface db){
         // Update a user's attributes.
         boolean successful = false;
         userData.updateUsername(username);
@@ -51,7 +52,7 @@ public abstract class UpdateSettings implements UserDataInterface, GenericDataIn
         userData.updateUserSelectedCourses(selectedCourses);
         userData.updateUserSelectedPrograms(selectedPrograms);
         userData.updateUserSurveyData(userSurvey);
-        successful = db.updateDB(userData);
+        successful = db.updateUserData(userData);
         return successful;
     }
 }
