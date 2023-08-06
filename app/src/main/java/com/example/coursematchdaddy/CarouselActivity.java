@@ -30,6 +30,8 @@ public class CarouselActivity extends AppCompatActivity {
 
     private ImageView courseImageView;
     private TextView courseTitleTextView;
+    private TextView courseCodeTextView;
+    private TextView courseDescriptionTextView;
     private Button buttonCheck;
     private Button buttonReject;
 
@@ -60,6 +62,8 @@ public class CarouselActivity extends AppCompatActivity {
         // Initialize the UI elements
         courseImageView = findViewById(R.id.imageView);
         courseTitleTextView = findViewById(R.id.textView4);
+        courseCodeTextView = findViewById(R.id.textView6);
+        courseDescriptionTextView = findViewById(R.id.textView10);
         buttonCheck = findViewById(R.id.buttonCheck);
         buttonReject = findViewById(R.id.buttonReject);
         buttonNext = findViewById(R.id.buttonNext);
@@ -134,6 +138,9 @@ public class CarouselActivity extends AppCompatActivity {
             //Set the image using the bitmap
             courseImageView.setImageBitmap(bitmap);
             courseTitleTextView.setText(currentCourse.getCourseTitle());
+            //TODO: Deal with text being cut off
+            courseDescriptionTextView.setText(currentCourse.getCourseDescription());
+            courseCodeTextView.setText(currentCourse.getCourseCode());
         } else {
             // Handle the case when there are no more courses to display
             // Navigate to another activity

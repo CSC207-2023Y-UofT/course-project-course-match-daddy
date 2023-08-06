@@ -9,30 +9,24 @@ import java.util.List;
 import java.util.Map;
 
 public class CoursePresenter implements ViewCourseDataInterface {
-    private List<HashMap<String, String>> courseList = new ArrayList<>();
+    private HashMap<String, Course> courseList;
 
 
     /**
-     * @param c Course list
+     * @param courseList Course list1
      */
-    public CoursePresenter(List<Course> courses) {
-        for (Course course : courses) {
-            HashMap<String, String> courseData = new HashMap<>();
-            courseData.put("CourseTitle", course.getCourseTitle());
-            courseData.put("CourseCode", course.getCourseCode());
-            courseData.put("courseDescription", course.getCourseDescription());
-            courseList.add(courseData);
-        }
+    public CoursePresenter(HashMap<String,Course> courseList) {
+        this.courseList = courseList;
     }
 
 
     /**
-     * return a list of course maps containing course titles, codes, and descriptions
+     * return course map containing course titles, codes, and descriptions
      *
-     * @return List<Map < String, String>>
+     * @return Map < String, String>
      */
     @Override
-    public List<HashMap<String, String>> getCourseData() {
+    public HashMap<String, Course> getCourseData() {
         return courseList;
     }
 }

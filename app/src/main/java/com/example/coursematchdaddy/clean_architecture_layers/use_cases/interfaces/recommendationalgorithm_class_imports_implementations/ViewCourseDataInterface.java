@@ -1,13 +1,15 @@
 package com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.recommendationalgorithm_class_imports_implementations;
 
+import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Course;
+
 import java.util.HashMap;
 import java.util.List;
 public interface ViewCourseDataInterface {
     /**
-     * return a list of course maps containing course titles, codes, and descriptions
+     * return a course map containing course titles, codes, and descriptions
      *
-     * @return List<Map<String, String>>
+     * @return Map<String, String>
      */
-    public List<HashMap<String, String>> getCourseData();
+    public HashMap<String, Course> getCourseData();
 
 }

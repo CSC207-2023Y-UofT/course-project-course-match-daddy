@@ -10,8 +10,15 @@ import java.util.List;
 
 public class ViewProgramData extends RecommendationAlgorithm {
     private User user;
-    public ViewProgramData(User user) {
-        this.user = user;
+
+    /**
+     * Creates a RecommendationAlgorithm object.
+     *
+     * @param user       The user for whom courses need to be recommended.
+     * @param courseList The list of all available courses to choose from.
+     */
+    public ViewProgramData(User user, List<Course> courseList) {
+        super(user, courseList);
     }
 
     /**

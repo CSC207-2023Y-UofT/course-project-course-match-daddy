@@ -3,19 +3,27 @@ package com.example.coursematchdaddy;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Course;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Program;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
+import com.example.coursematchdaddy.clean_architecture_layers.gateways.classes.GETCourseGateway;
+import com.example.coursematchdaddy.clean_architecture_layers.gateways.classes.GETProgramGateway;
 import com.example.coursematchdaddy.clean_architecture_layers.gateways.classes.UserDB;
 import com.example.coursematchdaddy.clean_architecture_layers.presenters.classes.ProgramPresenter;
+import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.recommendationalgorithm_subclasses.ExtractProgramsRecommendations;
+import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.recommendationalgorithm_class_imports_implementations.ExtractProgramsRecommendationsInterface;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class ProgramActivity extends AppCompatActivity implements RecycleViewInterface{
     private ProgramPresenter presenter;
@@ -36,6 +44,7 @@ public class ProgramActivity extends AppCompatActivity implements RecycleViewInt
 
         // populate the user from the previous activity
         this.currentUser = populateUser();
+
 //        currentUser.getSelectedPrograms().put("HI", new Program("HI", "HELLO", "HOW ARE YOU?"));
 //        currentUser.getSelectedPrograms().put("HEY!", new Program("HEY!", "HELLO", "HOW ARE YOU?"));
 
@@ -44,8 +53,8 @@ public class ProgramActivity extends AppCompatActivity implements RecycleViewInt
         for (Program p : currentUser.getSelectedPrograms().values()) {
             Log.e("Program name:", p.getProgramTitle());
         }
-
-        presenter = new ProgramPresenter(new ArrayList<>(currentUser.getSelectedPrograms().values()));
+        updateSelectedPrograms();
+        presenter = new ProgramPresenter((HashMap<String, Program>) currentUser.getSelectedPrograms());
 
 
         // for testing purposes
@@ -61,17 +70,38 @@ public class ProgramActivity extends AppCompatActivity implements RecycleViewInt
 //        programList.add("Uyiosa");
 
         // add the programs to the program list
-        programList.clear();
 
-        for (HashMap<String, String> p : presenter.getProgramData()) {
-            Log.e("Program name:", p.get("ProgramTitle"));
-            programList.add(p.get("ProgramTitle"));
+        for (Program p: presenter.getProgramList().values()) {
+            programList.add(p.getProgramTitle());
         }
 
         rv = findViewById(R.id.recyclerView);
         rv.setLayoutManager(new LinearLayoutManager(this));
         oa = new OutputAdapter(programList, this);
         rv.setAdapter(oa);
+
+        Button toCourse = (Button) findViewById(R.id.buttonProgram);//TODO: Change this id
+        Button toCarousel = (Button)findViewById(R.id.buttonCarousel);
+        // moving to program tab on button click
+        toCourse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent( ProgramActivity.this, CourseActivity.class);
+                intent.putExtra("username", getIntent().getStringExtra("username"));
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        toCarousel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProgramActivity.this, CarouselActivity.class);
+                intent.putExtra("username", getIntent().getStringExtra("username"));
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     /**
@@ -88,6 +118,19 @@ public class ProgramActivity extends AppCompatActivity implements RecycleViewInt
         return userDB.getUserFromDB(username);
     }
 
+    private void updateSelectedPrograms(){
+
+        //TODO: Make sure the following two lines adhere to CA, modify if they dont
+        GETProgramGateway pgw = new GETProgramGateway();
+        GETCourseGateway cgw = new GETCourseGateway();
+        ExtractProgramsRecommendationsInterface ra = new ExtractProgramsRecommendations(this.currentUser, cgw.getCoursesListData(), pgw.getProgramsListData());
+        HashMap<String, Program> programs = new HashMap<>();
+        for (Program p: ra.getProgramRecommendations()){
+            programs.put(p.getProgramTitle(), p);
+        }
+        this.currentUser.updateUserSelectedPrograms(programs);
+    }
+
     /**
      * update display information on click
      * @param pos indicates the number of the box that is clicked (increases as you go down)
@@ -95,16 +138,17 @@ public class ProgramActivity extends AppCompatActivity implements RecycleViewInt
     @Override
     public void onItemClick(int pos) {
 
-        HashMap<String, String> selectedProgramData = presenter.getProgramData().get(pos);
+        List<Program> programs = new ArrayList<>(presenter.getProgramData().values());
+        Program selectedProgramData = programs.get(pos);
 
         TextView tv1 = (TextView)findViewById(R.id.program_title);
-        tv1.setText(selectedProgramData.get("ProgramTitle"));
+        tv1.setText(selectedProgramData.getProgramTitle());
 
         TextView tv2 = (TextView)findViewById(R.id.program_code);
-        tv2.setText(selectedProgramData.get("ProgramCode"));
+        tv2.setText(selectedProgramData.getProgramCode());
 
         TextView tv3 = (TextView)findViewById(R.id.program_description);
-        tv3.setText(selectedProgramData.get("ProgramDescription"));
+        tv3.setText(selectedProgramData.getProgramDescription());
 
         // code below is for testing
 //        TextView tv1 = (TextView)findViewById(R.id.program_title);
