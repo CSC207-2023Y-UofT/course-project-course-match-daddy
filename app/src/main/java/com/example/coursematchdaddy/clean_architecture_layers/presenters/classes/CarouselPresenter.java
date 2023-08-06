@@ -59,6 +59,8 @@ public class CarouselPresenter {
             Course selectedCourse = courseList.remove(0);
             this.user.getSelectedCourses().put(selectedCourse.getCourseTitle(), selectedCourse);
             saveSwipe.updateUserData(this.user);
+        }else{
+            courseList.remove(0);//simply remove the course.
         }
     }
 }
