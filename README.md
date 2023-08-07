@@ -104,24 +104,24 @@ _____
 <a name="team-roles-and-contributions"></a>
 ## Team, Roles, and Contributions
 The following individuals were involved in the development of this software application:
-* Uyiosa Iyekekpolor
+* [Uyiosa Iyekekpolor](https://github.com/uyoyo0)
   * **Role**: Data Specialist and Software Developer
   * **Contributions**: Uyiosa was responsible for the first user story. Specifically, he handled the development of the application's code related to its sign-up and login features, and the development of the application's algorithm.
-* Gagandeep Singh Lubana
+* [Gagandeep Singh Lubana](https://github.com/GagandeepLubana)
   * **Role**: Software Developer
   * **Contributions**: Gagan was responsible for the second user story. Specifically, he handled the development of the application's code related to collecting survey data from the user.
-* Lavya Vaishno
+* [Lavya Vaishno](https://github.com/LVaishno)
   * **Role**: Software Developer
   * **Contributions**: Lavya was responsible for the third user story. Specifically, he handled the development of the application's code related to displaying recommended courses and programs within the application's carousel.
-* Dev Vora
+* [Dev Vora](https://github.com/realdevvora)
   * **Role**: Software Developer
   * **Contributions**: Dev was responsible for the fourth user story. Specifically, he handled the development of the application's code related to courses and programs.
-* Manav Singh
+* [Manav Singh](https://github.com/M4N4VS1NGH)
   * **Role**: Data Specialist and Software Developer
   * **Contributions**: Manav was responsible for the fifth user story. Specifically, he handled the development of the application's code related to displaying the user's saved courses and programs within the 'Courses' and 'Programs' views.
-* Jaspreet Khela
+* [Jaspreet Khela](https://github.com/JaspreetKhela)
   * **Role**: Team Lead and Software Developer
-  * **Contributions**: Jaspreet was responsible for the sixth user story. Specifically, he handled the development of the application's code related to updating the user's settings (including their survey data).
+  * **Contributions**: Jaspreet was responsible for the sixth user story. Specifically, he handled the development of the application's code related to updating the user's settings (including their survey data). Additionally, he was the team's 'Chief Solutions Architect' and 'Tech Lead' given that he had the most experience developing deployable software and, in particular, Android applications within the team. His contributions primarily were designing the application in adherence to Clean Architecture and SOLID Design Principles; creating application wireframes; teaching command-line interface Git usage processes, Android application development, and web scraping to his teammates; setting up the GitHub repository, including the application's packaging structure, project board, development milestones, development issues, and documentation seen within the README.md file; leading weekly team meetings, including solving application development issues; and crafting the project presentation.
 
 _____
 
@@ -206,4 +206,57 @@ _____
 
 <a name="reflection"></a>
 ## Project Reflection
-[Coming Soon]
+### Group Reflection
+* **Challenges**:
+  * Adhering to recommended software application architecture and design principles.
+  * Testing and debugging the software application.
+  * Completing the project on a part-time basis within the span of a few months.
+* **Successes**:
+  * Scraping data from the web to create clean datasets.
+  * Seamlessly assigning and completing work based on an individual's user story.
+  * Developing a fully-functional Android application.
+
+### Individual Reflections
+The following individuals were involved in the development of this software application. Their individual project reflections are expressed below:
+* [Uyiosa Iyekekpolor](https://github.com/uyoyo0)
+  * **Role**: Data Specialist and Software Developer
+  * **Reflection**:
+    * **Challenges**:
+      * [Coming Soon] 
+    * **Successes**:
+      * [Coming Soon] 
+* [Gagandeep Singh Lubana](https://github.com/GagandeepLubana)
+  * **Role**: Software Developer
+  * **Reflection**:
+    * **Challenges**:
+      * [Coming Soon] 
+    * **Successes**:
+      * [Coming Soon] 
+* [Lavya Vaishno](https://github.com/LVaishno)
+  * **Role**: Software Developer
+  * **Reflection**:
+    * **Challenges**:
+      * [Coming Soon] 
+    * **Successes**:
+      * [Coming Soon] 
+* [Dev Vora](https://github.com/realdevvora)
+  * **Role**: Software Developer
+  * **Reflection**:
+    * **Challenges**:
+      * [Coming Soon] 
+    * **Successes**:
+      * [Coming Soon] 
+* [Manav Singh](https://github.com/M4N4VS1NGH)
+  * **Role**: Data Specialist and Software Developer
+  * **Reflection**:
+    * **Challenges**:
+      * [Coming Soon] 
+    * **Successes**:
+      * [Coming Soon] 
+* [Jaspreet Khela](https://github.com/JaspreetKhela)
+  * **Role**: Team Lead and Software Developer
+  * **Reflection**:
+    * **Challenges**:
+      * [Coming Soon] 
+    * **Successes**:
+      * [Coming Soon] 
