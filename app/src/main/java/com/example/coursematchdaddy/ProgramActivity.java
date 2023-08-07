@@ -3,6 +3,8 @@ package com.example.coursematchdaddy;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +22,8 @@ import java.util.HashMap;
 public class ProgramActivity extends AppCompatActivity implements RecycleViewInterface{
     private ProgramPresenter presenter;
     private ArrayList<String> programList = new ArrayList<>();
+
+    private Button toCarousel, toCourse;
     private User currentUser;
     RecyclerView rv;
     OutputAdapter oa;
@@ -47,6 +51,30 @@ public class ProgramActivity extends AppCompatActivity implements RecycleViewInt
 
         presenter = new ProgramPresenter(new ArrayList<>(currentUser.getSelectedPrograms().values()));
 
+        toCarousel = (Button)findViewById(R.id.buttonCarousel);
+        // moving to carousel on button click
+        toCarousel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProgramActivity.this, CarouselActivity.class);
+                intent.putExtra("username", getIntent().getStringExtra("username"));
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        toCourse = (Button)findViewById(R.id.buttonCourse);
+
+        // moving to program tab on button click
+        toCourse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProgramActivity.this, CourseActivity.class);
+                intent.putExtra("username", getIntent().getStringExtra("username"));
+                startActivity(intent);
+                finish();
+            }
+        });
 
         // for testing purposes
 //        programList.add("John");
