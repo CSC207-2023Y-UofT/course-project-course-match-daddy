@@ -32,11 +32,11 @@ public class CarouselPresenter {
         UserDB userDB = new UserDB();
         User user = userDB.getUserFromDB(username);
         recommendationAlgorithm = new ExtractCoursesRecommendations(user, gw.getCoursesListData() );
-        courseList = recommendationAlgorithm.getCourses();
+        courseList = recommendationAlgorithm.getCourseRecommendations();
     }
 
     public List<Course> getRecommendations(String username){
-        List<Course> recs = recommendationAlgorithm.getCourses();
+        List<Course> recs = recommendationAlgorithm.getCourseRecommendations();
         courseList = recs;
         return recs;
     }
