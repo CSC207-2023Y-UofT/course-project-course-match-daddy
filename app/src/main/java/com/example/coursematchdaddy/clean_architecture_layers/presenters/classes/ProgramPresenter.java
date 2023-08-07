@@ -28,17 +28,17 @@ public class ProgramPresenter implements ViewProgramDataInterface {
         }
     }
 
-    // Provide a method to retrieve the list of program data
+    //
+
+    /**
+     * Provide a method to retrieve the list of program data, consisting of title, code,
+     * and description
+     *
+     * @return List<HashMap<String, String>> program data list
+     */
     public List<HashMap<String, String>> getProgramData() {
         return programDataList;
     }
 
-    /**
-     * return the list of programs to be displayed
-     * @return List<Program> list of programs
-     */
-    public List<HashMap<String, String>> getProgramList() {
-        return this.programDataList;
-    }
 
 }

@@ -20,7 +20,7 @@ public class CoursePresenter implements ViewCourseDataInterface {
             HashMap<String, String> courseData = new HashMap<>();
             courseData.put("CourseTitle", course.getCourseTitle());
             courseData.put("CourseCode", course.getCourseCode());
-            courseData.put("courseDescription", course.getCourseDescription());
+            courseData.put("CourseDescription", course.getCourseDescription());
             courseList.add(courseData);
         }
     }
