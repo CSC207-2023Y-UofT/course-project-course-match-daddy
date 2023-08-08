@@ -1,4 +1,4 @@
-package com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.updatesettings_subclasses.swipecarousel_subclasses;
+package com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.swipecarousel_subclasses;
 
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Course;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Program;

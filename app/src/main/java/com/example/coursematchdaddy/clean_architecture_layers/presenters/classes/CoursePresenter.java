@@ -15,8 +15,19 @@ public class CoursePresenter implements ViewCourseDataInterface {
     /**
      * @param courseList Course list1
      */
+<<<<<<< HEAD
     public CoursePresenter(HashMap<String,Course> courseList) {
         this.courseList = courseList;
+=======
+    public CoursePresenter(List<Course> courses) {
+        for (Course course : courses) {
+            HashMap<String, String> courseData = new HashMap<>();
+            courseData.put("CourseTitle", course.getCourseTitle());
+            courseData.put("CourseCode", course.getCourseCode());
+            courseData.put("CourseDescription", course.getCourseDescription());
+            courseList.add(courseData);
+        }
+>>>>>>> main
     }
 
 

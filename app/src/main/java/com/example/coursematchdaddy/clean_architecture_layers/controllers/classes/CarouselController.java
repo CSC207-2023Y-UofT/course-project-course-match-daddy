@@ -3,18 +3,11 @@ package com.example.coursematchdaddy.clean_architecture_layers.controllers.class
 import android.util.Log;
 
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Course;
-import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Survey;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
-import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.user_subclasses.LoggedInUser;
 import com.example.coursematchdaddy.clean_architecture_layers.gateways.classes.UserDB;
 import com.example.coursematchdaddy.clean_architecture_layers.presenters.classes.CarouselPresenter;
-import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.RecommendationAlgorithm;
-import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.SwipeCarousel;
-import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.updatesettings_subclasses.swipecarousel_subclasses.SwipeCardLeft;
-import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.updatesettings_subclasses.swipecarousel_subclasses.SwipeCardRight;
-import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.swipecarousel_class_imports_implementations.CollectCarouselSwipeInterface;
-
-import java.util.List;
+import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.swipecarousel_subclasses.SwipeCardLeft;
+import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.swipecarousel_subclasses.SwipeCardRight;
 
 /**
  * Handles the interactions and actions for the CarouselActivity.

@@ -21,6 +21,7 @@ public class ProgramPresenter implements ViewProgramDataInterface {
         this.programDataList = programDataList;
     }
 
+<<<<<<< HEAD
     // Provide a method to retrieve the list of program data
     public HashMap<String, Program> getProgramData() {
         return programDataList;
@@ -33,5 +34,19 @@ public class ProgramPresenter implements ViewProgramDataInterface {
     public HashMap<String, Program> getProgramList() {
         return this.programDataList;
     }
+=======
+    //
+
+    /**
+     * Provide a method to retrieve the list of program data, consisting of title, code,
+     * and description
+     *
+     * @return List<HashMap<String, String>> program data list
+     */
+    public List<HashMap<String, String>> getProgramData() {
+        return programDataList;
+    }
+
+>>>>>>> main
 
 }
