@@ -85,17 +85,17 @@ public class GETCourseGateway {
 
                     // Check breadth requirement and set the imageURL accordingly
                     if (breadthRequirements.contains("Creative and Cultural Representations (1)")) {
-                        imageURL = "/data/user/0/com.example.coursematchdaddy/databases/Pictures/creative.png";
+                        imageURL = "/data/user/0/com.example.coursematchdaddy/files/creative.png";
                     } else if (breadthRequirements.contains("Thought, Belief and Behaviour (2)")) {
-                        imageURL = "/data/user/0/com.example.coursematchdaddy/databases/Pictures/thought.png";
+                        imageURL = "/data/user/0/com.example.coursematchdaddy/files/thought.png";
                     } else if (breadthRequirements.contains("Society and its Institutions (3)")) {
-                        imageURL = "/data/user/0/com.example.coursematchdaddy/databases/Pictures/society.png";
+                        imageURL = "/data/user/0/com.example.coursematchdaddy/files/society.png";
                     } else if (breadthRequirements.contains("Living Things and Their Environment (4)")) {
-                        imageURL = "/data/user/0/com.example.coursematchdaddy/databases/Pictures/living.png";
+                        imageURL = "/data/user/0/com.example.coursematchdaddy/files/living.png";
                     } else if (breadthRequirements.contains("The Physical and Mathematical Universes (5)")) {
-                        imageURL = "/data/user/0/com.example.coursematchdaddy/databases/Pictures/math.png";
+                        imageURL = "/data/user/0/com.example.coursematchdaddy/files/math.png";
                     } else {
-                        imageURL = "/data/user/0/com.example.coursematchdaddy/Pictures/math.png";
+                        imageURL = "/data/user/0/com.example.coursematchdaddy/files/math.png";
                     }
 
                     // Create a new Course object with the extracted data

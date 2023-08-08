@@ -85,6 +85,11 @@ public class MainActivity extends AppCompatActivity {
         // Copy the file from resources to internal storage
         boolean copySuccess = copyFileFromRawToInternalStorage(this, R.raw.artssci, "artssci.csv");
         copySuccess = copyFileFromRawToInternalStorage(this, R.raw.programs, "programs.csv");
+        copySuccess = copyFileFromRawToInternalStorage(this, R.raw.math, "math.png");
+        copySuccess = copyFileFromRawToInternalStorage(this, R.raw.culture, "culture.png");
+        copySuccess = copyFileFromRawToInternalStorage(this, R.raw.living, "living.png");
+        copySuccess = copyFileFromRawToInternalStorage(this, R.raw.society, "society.png");
+        copySuccess = copyFileFromRawToInternalStorage(this, R.raw.thought, "thought.png");
 
         // Initialize references to the UI elements
         titleTextView = findViewById(R.id.textView2);
