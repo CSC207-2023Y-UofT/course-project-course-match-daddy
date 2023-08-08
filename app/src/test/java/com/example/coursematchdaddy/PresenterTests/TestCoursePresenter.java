@@ -11,19 +11,27 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class TestCoursePresenter {
 
     @Test
     public void testCoursePresenter() {
         List<Course> courses = generateCourses();
+        HashMap<String, Course> courseMap = new HashMap<>();
+        for (Course course : courses) {
+            courseMap.put(course.getCourseTitle(), course);
+        }
 
-        CoursePresenter presenter = new CoursePresenter(courses);
+        CoursePresenter presenter = new CoursePresenter(courseMap);
 
         // testing that list is populated correctly
-        assertEquals(presenter.getCourseData().get(1).get("CourseTitle"), courses.get(1).getCourseTitle());
-        assertEquals(presenter.getCourseData().get(1).get("CourseCode"), courses.get(1).getCourseCode());
-        assertEquals(presenter.getCourseData().get(1).get("CourseDescription"), courses.get(1).getCourseDescription());
+
+        for (Course course : courses) {
+            assertEquals(presenter.getCourseData().get(course.getCourseTitle()), course);
+        }
+
+        assertEquals(presenter.getCourseData().get(courses.get(1).getCourseTitle()), courses.get(1));
     }
 
     public List<Course> generateCourses() {

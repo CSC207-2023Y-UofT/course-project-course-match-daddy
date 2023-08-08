@@ -15,7 +15,7 @@ public class ProgramPresenter implements ViewProgramDataInterface {
 
     /**
      *
-     * @param programs
+     * @param programDataList hashmap containing program titles as strings and programs as values
      */
     public ProgramPresenter(HashMap<String, Program> programDataList) {
         this.programDataList = programDataList;
