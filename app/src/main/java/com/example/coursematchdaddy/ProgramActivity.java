@@ -28,6 +28,8 @@ import java.util.List;
 public class ProgramActivity extends AppCompatActivity implements RecycleViewInterface{
     private ProgramPresenter presenter;
     private ArrayList<String> programList = new ArrayList<>();
+
+    private Button toCarousel, toCourse;
     private User currentUser;
     RecyclerView rv;
     OutputAdapter oa;
@@ -56,6 +58,30 @@ public class ProgramActivity extends AppCompatActivity implements RecycleViewInt
         updateSelectedPrograms();
         presenter = new ProgramPresenter((HashMap<String, Program>) currentUser.getSelectedPrograms());
 
+        toCarousel = (Button)findViewById(R.id.buttonCarousel);
+        // moving to carousel on button click
+        toCarousel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProgramActivity.this, CarouselActivity.class);
+                intent.putExtra("username", getIntent().getStringExtra("username"));
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        toCourse = (Button)findViewById(R.id.buttonCourse);
+
+        // moving to program tab on button click
+        toCourse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProgramActivity.this, CourseActivity.class);
+                intent.putExtra("username", getIntent().getStringExtra("username"));
+                startActivity(intent);
+                finish();
+            }
+        });
 
         // for testing purposes
 //        programList.add("John");
@@ -80,7 +106,7 @@ public class ProgramActivity extends AppCompatActivity implements RecycleViewInt
         oa = new OutputAdapter(programList, this);
         rv.setAdapter(oa);
 
-        Button toCourse = (Button) findViewById(R.id.buttonProgram);//TODO: Change this id
+        Button toCourse = (Button) findViewById(R.id.buttonCourse);//TODO: Change this id
         Button toCarousel = (Button)findViewById(R.id.buttonCarousel);
         // moving to program tab on button click
         toCourse.setOnClickListener(new View.OnClickListener() {

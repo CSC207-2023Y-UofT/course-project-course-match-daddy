@@ -125,9 +125,9 @@ public class UserDB implements VerifyLoginDataInterface, ExtractUserDataInterfac
 
     @Override
     public boolean removeUser(User user) {
-            HashMap<String, User> userDB = readUserDB();
-            userDB.put(user.getUsername(), null);
-            return userDB.get(user.getUsername()) == null && saveChanges(userDB);//removed successfully
+        HashMap<String, User> userDB = readUserDB();
+        userDB.put(user.getUsername(), null);
+        return userDB.get(user.getUsername()) == null && saveChanges(userDB);//removed successfully
     }
 
     /**

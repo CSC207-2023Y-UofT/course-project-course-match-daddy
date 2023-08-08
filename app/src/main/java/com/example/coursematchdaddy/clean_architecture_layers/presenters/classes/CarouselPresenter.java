@@ -39,7 +39,10 @@ public class CarouselPresenter {
         this.user = db.getUserFromDB(username);
         recommendationAlgorithm = new ExtractCoursesRecommendations(user, gw.getCoursesListData() );
         courseList = recommendationAlgorithm.getCourseRecommendations();
+<<<<<<< HEAD
         this.saveSwipe = new UserDB();//TODO: Consider passing this in through constructor
+=======
+>>>>>>> c86fa131325e7832d434e3ba74383ad8386fc170
     }
 
     public List<Course> getRecommendations(String username){

@@ -93,7 +93,7 @@
                 android:text="Back to Carousel" />
 
             <Button
-                android:id="@+id/buttonProgram"
+                android:id="@+id/buttonCourse"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
