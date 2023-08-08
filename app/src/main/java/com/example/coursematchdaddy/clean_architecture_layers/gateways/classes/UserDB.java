@@ -123,13 +123,6 @@ public class UserDB implements VerifyLoginDataInterface, ExtractUserDataInterfac
         }
     }
 
-    @Override
-    public boolean removeUser(User user) {
-        HashMap<String, User> userDB = readUserDB();
-        userDB.put(user.getUsername(), null);
-        return userDB.get(user.getUsername()) == null && saveChanges(userDB);//removed successfully
-    }
-
     /**
      * Write the new user information to the database.
      *
@@ -185,28 +178,6 @@ public class UserDB implements VerifyLoginDataInterface, ExtractUserDataInterfac
         return false;
     }
     /**
-     * Saves Changes to the database.
-     *
-     * @param userDB database
-     * @return boolean on whether the process was completed
-     */
-    private boolean saveChanges(HashMap<String, User> userDB) {
-        File file = new File(pathname);
-
-        try (FileOutputStream fileOutputStream = new FileOutputStream(file);
-             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
-
-            // Write serialized object
-            objectOutputStream.writeObject(userDB);
-            return true;
-
-        } catch (IOException ex) {
-            Log.e("ERROR", "Error writing user database: " + ex.getMessage());
-        }
-
-        return false;
-    }
-    /**
      * Retrieve a user's data from a database.
      *
      * @param email This is a unique identifier for a user.
@@ -239,17 +210,32 @@ public class UserDB implements VerifyLoginDataInterface, ExtractUserDataInterfac
 
         return null;
     }
-    /**
-     * Updates the user information in the database after verifying that the user is approved for changing their settings.
-     * This method assumes that the user has already been verified for the update operation.
-     *
-     * @param user The User object containing the updated information.
-     * @return True if the update was successful, false otherwise.
-     */
-    public boolean updateDB(User user) {
-        HashMap<String, User> userDB = readUserDB();
-        userDB.put(user.getUsername(), user);
 
-        return writeUser(userDB, user);
+    private boolean saveChanges(HashMap<String, User> userDB) {
+        File file = new File(pathname);
+
+        try (FileOutputStream fileOutputStream = new FileOutputStream(file);
+             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
+
+            // Write serialized object
+            objectOutputStream.writeObject(userDB);
+            return true;
+
+        } catch (IOException ex) {
+            Log.e("ERROR", "Error writing user database: " + ex.getMessage());
+        }
+
+        return false;
+    }
+    /**
+     * Removes the specified user from the database.
+     *
+     * @param user The User object representing the user to be removed.
+     * @return True if the user was successfully removed, false otherwise.
+     */
+    public boolean removeUser(User user) {
+        HashMap<String, User> userDB = readUserDB();
+        userDB.put(user.getUsername(), null);
+        return userDB.get(user.getUsername()) == null && saveChanges(userDB);//removed successfully
     }
 }
