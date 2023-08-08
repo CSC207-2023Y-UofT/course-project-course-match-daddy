@@ -38,15 +38,15 @@ Our software application’s domain is a course-matching application for student
 _____
 
 <a name="web-app-link"></a>
-**Design Document Link**: [Coming Soon]
+**Design Document Link**: [Design Document](https://docs.google.com/document/d/15TUxfaFlEyd421scretf51ZsUehlfaIpVaOlAHEvrO8/edit?usp=sharing)
 
-**GitHub Repository Link**: https://github.com/CSC207-2023Y-UofT/course-project-course-match-daddy
+**GitHub Repository Link**: [Codebase Repository](https://github.com/CSC207-2023Y-UofT/course-project-course-match-daddy)
 
-**GitHub Project Board Link**: https://github.com/orgs/CSC207-2023Y-UofT/projects/1
+**GitHub Project Board Link**: [Project Board](https://github.com/orgs/CSC207-2023Y-UofT/projects/1)
 
 **Web Application Link**: [Coming Soon]
 
-**(Google Slides) Presentation Link**: [Coming Soon]
+**(Google Slides) Presentation Link**: [Presentation](https://docs.google.com/presentation/d/16w1j7fEJtF_dIpQ3D2XVup-_kWV2GUUChHGUme2E03k/edit?usp=sharing)
 
 _____
 
@@ -87,11 +87,11 @@ The following user stories breakdown the software usage scenarios specifications
 6. As a user, I want to be able to view my provided survey data so that I can update my preferences to get new course and program recommendations.
 
 ### Codebase Architecture
-The following outlines the architectural scaffolding of our software application in an effort to design, implement, and maintain a robust and scalable application. We have categorized our classes and interfaces using clean architecture categories, including - from most to least fundamental - by entities, use cases, gateways, controllers, and presenters; the last three categories form a single layer within our software application’s architecture hierarchy. This design choice constitutes packaging by layers. Additionally, SOLID design principles were adhered to when designing the content and scope of our codebase’s classes and interfaces. Recall that the SOLID design principles are the Single-Responsibility, Open-Closed, Liskov, Interface Segregation, and Dependency Inversion principles. 
+The following outlines the architectural scaffolding of our software application in an effort to design, implement, and maintain a robust and scalable application. We have categorized our classes and interfaces using clean architecture categories, including - from most to least fundamental - by entities, use cases, gateways, controllers, and presenters; the last three categories form a single layer within our software application’s architecture hierarchy. This design choice constitutes packaging by layers. Additionally, SOLID Design Principles were adhered to when designing the content and scope of our codebase’s classes and interfaces. Recall that the SOLID Design Principles are the Single-Responsibility, Open-Closed, Liskov, Interface Segregation, and Dependency Inversion principles.
 
-The Class-Responsibility-Collaboration (CRC) cards shown within our design document outline the high-level abstract classes and interfaces that a category defines. A card includes the class’s/interface’s name, responsible party, responsibilities, collaborating classes/interfaces, (private and public) attributes, and (private and public) methods. The class cards are mostly abstract classes that either are related to or implement specific interfaces. For example, the high-level (abstract) ‘User’ entity class is related to a ‘LoggedInUserInterface’ interface which is implemented within a lower layer’s abstract class (e.g. a class within the ‘Use Case’ layer); this interface enables dependency inversion with less fundamental layers within our software application’s architecture hierarchy in congruence with SOLID architecture principles. 
+The Class-Responsibility-Collaboration (CRC) cards shown within our design document outline the high-level abstract classes and interfaces that a category defines. A card includes the class’s/interface’s name, responsible party, responsibilities, collaborating classes/interfaces, (private and public) attributes, and (private and public) methods. The class cards are mostly abstract classes that either are related to or implement specific interfaces. For example, the high-level (abstract) ‘User’ entity class is related to a ‘LoggedInUserInterface’ interface which is implemented within a lower layer’s abstract class (e.g. a class within the ‘Use Case’ layer); this interface enables dependency inversion with less fundamental layers within our software application’s architecture hierarchy in congruence with SOLID Design Principles. 
 
-Classes and interfaces were designed to adhere to SOLID design principles. Each class and interface has a single responsibility; in other words, each class and interface has high cohesion, which is a goal of effective Object-Oriented Programming (OOP) design. Classes were defined to be abstract so that they, like interfaces, could be extended, not modified, by implementing subclasses, thus adhering to the Open-Closed principle. Moreover, since classes’ and interfaces’ methods were designed and implemented using abstract class instances, substituting an instance of a parent object with a child object is viable, thus adhering to the Liskov Substitution principle. Additionally, interfaces are bijectively related to use cases, thus adhering to the Interface Segregation principle. Lastly, our use of interfaces between classes to achieve dependency inversion enables low coupling between classes, which is also a goal of effective OOP design.
+Classes and interfaces were designed to adhere to SOLID Design Principles. Each class and interface has a single responsibility; in other words, each class and interface has high cohesion, which is a goal of effective Object-Oriented Programming (OOP) design. Classes were defined to be abstract so that they, like interfaces, could be extended, not modified, by implementing subclasses, thus adhering to the Open-Closed principle. Moreover, since classes’ and interfaces’ methods were designed and implemented using abstract class instances, substituting an instance of a parent object with a child object is viable, thus adhering to the Liskov Substitution principle. Additionally, interfaces are bijectively related to use cases, thus adhering to the Interface Segregation principle. Lastly, our use of interfaces between classes to achieve dependency inversion enables low coupling between classes, which is also a goal of effective OOP design.
 
 Classes and interfaces were packaged by their associated Clean Architecture layers as described above. This design choice was motivated by the fact that our application is a monorepo with many granular and fungible non-use-case classes and interfaces, not an n-tier or microservices application. Specifically, packaging classes and interfaces by features, components, or whether or not they facilitate API requests would limit their reusability, especially that of more fundamental classes and interfaces.
 
