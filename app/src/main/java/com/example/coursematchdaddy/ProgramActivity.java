@@ -106,7 +106,7 @@ public class ProgramActivity extends AppCompatActivity implements RecycleViewInt
         oa = new OutputAdapter(programList, this);
         rv.setAdapter(oa);
 
-        Button toCourse = (Button) findViewById(R.id.buttonProgram);//TODO: Change this id
+        Button toCourse = (Button) findViewById(R.id.buttonCourse);//TODO: Change this id
         Button toCarousel = (Button)findViewById(R.id.buttonCarousel);
         // moving to program tab on button click
         toCourse.setOnClickListener(new View.OnClickListener() {
