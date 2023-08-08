@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -19,6 +20,7 @@ import com.example.coursematchdaddy.clean_architecture_layers.presenters.classes
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class CourseActivity extends AppCompatActivity implements RecycleViewInterface{
     private CoursePresenter presenter;
@@ -39,9 +41,10 @@ public class CourseActivity extends AppCompatActivity implements RecycleViewInte
 //        this.currentUser.getSelectedCourses().put("HI", new ArtsAndSciencesCourse("HI", "HEY", "HI", "HYD", new HashMap<>()));
 //        this.currentUser.getSelectedCourses().put("sup", new ArtsAndSciencesCourse("ttt", "HEY", "HI", "HYD", new HashMap<>()));
 
-        presenter = new CoursePresenter(new ArrayList<>(currentUser.getSelectedCourses().values()));
+        presenter = new CoursePresenter((HashMap<String, Course>) this.currentUser.getSelectedCourses());
 
         toCarousel = (Button)findViewById(R.id.buttonCarousel);
+        Log.d("LOG", "==================== " + this.currentUser.getSelectedCourses().values().size());
 
         // moving to carousel on button click
         toCarousel.setOnClickListener(new View.OnClickListener() {
@@ -79,8 +82,8 @@ public class CourseActivity extends AppCompatActivity implements RecycleViewInte
 //        courseList.add("Uyiosa");
 //        courseList.add("Uyiosa");
 
-        for (HashMap<String, String> course : presenter.getCourseData()) {
-            courseList.add(course.get("CourseTitle"));
+        for (Course c : presenter.getCourseData().values()) {
+            courseList.add(c.getCourseTitle());
         }
 
         rv = findViewById(R.id.recyclerView);
@@ -109,17 +112,28 @@ public class CourseActivity extends AppCompatActivity implements RecycleViewInte
      */
     @Override
     public void onItemClick(int pos) {
+//        Log.d("LOG", presenter.getCourseData().values())
         Log.d("PERSON", Integer.toString(pos));
-        HashMap<String, String> selectedCourseData = presenter.getCourseData().get(pos);
+        List<Course> courses = new ArrayList<>(presenter.getCourseData().values());
+        Course selectedCourseData = courses.get(pos);
 
         TextView tv1 = (TextView)findViewById(R.id.course_title);
-        tv1.setText(selectedCourseData.get("CourseTitle"));
+        tv1.setText(selectedCourseData.getCourseTitle());
 
         TextView tv2 = (TextView)findViewById(R.id.course_code);
-        tv2.setText(selectedCourseData.get("CourseCode"));
+        tv2.setText(selectedCourseData.getCourseCode());
 
         TextView tv3 = (TextView)findViewById(R.id.course_description);
-        tv3.setText(selectedCourseData.get("CourseDescription"));
+        tv3.setText(selectedCourseData.getCourseDescription());
+
+        TextView tv7 = (TextView)findViewById(R.id.textView7);
+        //Remove textview
+        if (tv7 != null) {
+            ViewGroup parentView = (ViewGroup) tv7.getParent();
+            if (parentView != null) {
+                parentView.removeView(tv7);
+            }
+        }
 
         // code below is for testing
 //        TextView tv1 = (TextView)findViewById(R.id.course_title);

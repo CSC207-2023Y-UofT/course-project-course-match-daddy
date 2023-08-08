@@ -1,5 +1,7 @@
 package com.example.coursematchdaddy.clean_architecture_layers.controllers.classes;
 
+import android.util.Log;
+
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Course;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
 import com.example.coursematchdaddy.clean_architecture_layers.gateways.classes.UserDB;
@@ -30,6 +32,7 @@ public class CarouselController{
         // Create instances of SwipeCardLeft and SwipeCardRight
         swipeCardLeft = new SwipeCardLeft(loggedInUser);
         swipeCardRight = new SwipeCardRight(loggedInUser);
+        this.presenter = new CarouselPresenter(username);
     }
 
     /**

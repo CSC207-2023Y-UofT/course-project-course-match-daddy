@@ -151,28 +151,7 @@ public class UserDB implements VerifyLoginDataInterface, ExtractUserDataInterfac
         return false;
     }
 
-    /**
-     * Saves Changes to the database.
-     *
-     * @param userDB database
-     * @return boolean on whether the process was completed
-     */
-    private boolean saveChanges(HashMap<String, User> userDB) {
-        File file = new File(pathname);
 
-        try (FileOutputStream fileOutputStream = new FileOutputStream(file);
-             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
-
-            // Write serialized object
-            objectOutputStream.writeObject(userDB);
-            return true;
-
-        } catch (IOException ex) {
-            Log.e("ERROR", "Error writing user database: " + ex.getMessage());
-        }
-
-        return false;
-    }
     /**
      * Verifies the user's provided log in credentials.
      *
@@ -231,6 +210,21 @@ public class UserDB implements VerifyLoginDataInterface, ExtractUserDataInterfac
 
         return null;
     }
+<<<<<<< HEAD
+    /**
+     * Updates the user information in the database after verifying that the user is approved for changing their settings.
+     * This method assumes that the user has already been verified for the update operation.
+     *
+     * @param user The User object containing the updated information.
+     * @return True if the update was successful, false otherwise.
+     */
+    public boolean updateDB(User user) {
+        HashMap<String, User> userDB = readUserDB();
+        userDB.put(user.getUsername(), user);
+
+        return writeUser(userDB, user);
+    }
+=======
 
     /**
      * Removes the specified user from the database.
@@ -244,4 +238,5 @@ public class UserDB implements VerifyLoginDataInterface, ExtractUserDataInterfac
         return userDB.get(user.getUsername()) == null && saveChanges(userDB);//removed successfully
     }
 
+>>>>>>> main
 }

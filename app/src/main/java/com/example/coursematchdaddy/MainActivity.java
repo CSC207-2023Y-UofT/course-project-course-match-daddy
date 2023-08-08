@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Copy the file from resources to internal storage
         boolean copySuccess = copyFileFromRawToInternalStorage(this, R.raw.artssci, "artssci.csv");
+        copySuccess = copyFileFromRawToInternalStorage(this, R.raw.programs, "programs.csv");
 
         // Initialize references to the UI elements
         titleTextView = findViewById(R.id.textView2);
@@ -119,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
                 importantText.setText(presenter.getDisplayMessage());
 
                 if (loginSuccessful) {
-                    Intent intent = new Intent(MainActivity.this, CourseActivity.class);
+                    Intent intent = new Intent(MainActivity.this, SettingActivity.class);
                     intent.putExtra("username", username);
                     startActivity(intent);
                     finish(); // Close the current MainActivity if needed
@@ -145,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
                 importantText.setText(presenter.getDisplayMessage());
 
                 if (accountCreated){
-                    Intent intent = new Intent(MainActivity.this, CourseActivity.class);
+                    Intent intent = new Intent(MainActivity.this, SettingActivity.class);
                     intent.putExtra("username", signupUsername);
                     startActivity(intent);
                     finish(); // Close the current MainActivity if needed

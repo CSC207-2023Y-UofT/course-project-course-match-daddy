@@ -11,23 +11,30 @@ import java.util.Objects;
 
 public class ProgramPresenter implements ViewProgramDataInterface {
 
-    private List<HashMap<String, String>> programDataList = new ArrayList<>();
+    private HashMap<String, Program> programDataList;
 
     /**
      *
      * @param programs
      */
-    public ProgramPresenter(List<Program> programs) {
-        // Iterate through the list of programs and extract their data
-        for (Program program : programs) {
-            HashMap<String, String> programData = new HashMap<>();
-            programData.put("ProgramTitle", program.getProgramTitle());
-            programData.put("ProgramCode", program.getProgramCode());
-            programData.put("ProgramDescription", program.getProgramDescription());
-            programDataList.add(programData);
-        }
+    public ProgramPresenter(HashMap<String, Program> programDataList) {
+        this.programDataList = programDataList;
     }
 
+<<<<<<< HEAD
+    // Provide a method to retrieve the list of program data
+    public HashMap<String, Program> getProgramData() {
+        return programDataList;
+    }
+
+    /**
+     * return the list of programs to be displayed
+     * @return List<Program> list of programs
+     */
+    public HashMap<String, Program> getProgramList() {
+        return this.programDataList;
+    }
+=======
     //
 
     /**
@@ -40,5 +47,6 @@ public class ProgramPresenter implements ViewProgramDataInterface {
         return programDataList;
     }
 
+>>>>>>> main
 
 }

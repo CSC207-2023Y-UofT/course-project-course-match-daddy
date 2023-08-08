@@ -59,7 +59,7 @@ public class LoginController implements CollectLoginDataInterface {
         this.gateway = new UserDB();
         this.verifyLogin = new VerifyLoginData(this.username, this.password, this.email, this.gateway);
 
-        boolean isValidated = ((VerifyLoginData) verifyLogin).verifyData();
+        boolean isValidated = gateway.verifyUserProvidedData(this.username, this.password);//TODO: Modidy to rely on interface not UserDB
         if (isValidated) {
             presenter.setDisplayMessage("Login Validated!");
         } else {

@@ -33,10 +33,10 @@ public class SwipeCardLeft extends SwipeCarousel {
      * All this method has to do is confirm that the course must be removed.
      *
      * @param course The course data for which the swipe action is performed.
-     * @return True just to indicate that the swipe was processed.
+     * @return False just to indicate that course was rejected
      */
     @Override
     public boolean processSwipe(Course course) {
-        return true;
+        return false;
     }
 }
