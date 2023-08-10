@@ -1,4 +1,4 @@
-package com.example.coursematchdaddy.PresenterTests;
+package com.example.coursematchdaddy.clean_architecture_layers.presenters.classes;
 
 import static org.junit.Assert.assertEquals;
 
@@ -11,9 +11,8 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-public class TestCoursePresenter {
+public class CoursePresenterTest {
 
     @Test
     public void testCoursePresenter() {
