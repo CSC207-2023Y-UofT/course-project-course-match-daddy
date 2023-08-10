@@ -1,20 +1,18 @@
-package com.example.coursematchdaddy.EntityTests.CourseTests;
+package com.example.coursematchdaddy.clean_architecture_layers.entities.classes.course_subclasses;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
-import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.course_subclasses.ClosedEnrollmentCourse;
-import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.course_subclasses.OpenEnrollmentCourse;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.user_subclasses.GuestUser;
 
 import org.junit.Test;
 
 import java.util.HashMap;
 
-public class TestOpenEnrollmentCourse {
+public class ClosedEnrollmentCourseTest {
     HashMap<String, Object> miscData;
-    OpenEnrollmentCourse course;
+    ClosedEnrollmentCourse course;
 
     public void populate() {
         this.miscData = new HashMap<>();
@@ -24,7 +22,7 @@ public class TestOpenEnrollmentCourse {
         miscData.put("RemainingSeats", 40);
         miscData.put("PrerequisitesMet", true);
 
-        this.course = new OpenEnrollmentCourse("Introduction to Computer Science",
+        this.course = new ClosedEnrollmentCourse("Introduction to Computer Science",
                 "CSC148", "An introductory computer science course",
                 ".png", miscData);
     }
@@ -51,6 +49,7 @@ public class TestOpenEnrollmentCourse {
         User temp = new GuestUser();
         course.enroll(temp);
 
+        assertEquals(course.hasPrerequisites(temp), true);
         assertEquals(temp.getSelectedCourses().get("Introduction to Computer Science"), course);
         assertEquals(course.getRemainingSeats(), 39);
 

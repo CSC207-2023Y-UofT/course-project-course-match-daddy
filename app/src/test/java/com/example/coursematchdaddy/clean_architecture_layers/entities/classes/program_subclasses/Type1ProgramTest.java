@@ -1,4 +1,4 @@
-package com.example.coursematchdaddy.EntityTests.ProgramTests;
+package com.example.coursematchdaddy.clean_architecture_layers.entities.classes.program_subclasses;
 
 import org.junit.Test;
 
@@ -8,7 +8,7 @@ import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.U
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.program_subclasses.Type1Program;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.user_subclasses.GuestUser;
 
-public class TestType1Program {
+public class Type1ProgramTest {
     @Test
     public void test_basic_info() {
         Type1Program program = new Type1Program("Religion", "ERMAJ0151", "Religion major", "RLG101");
