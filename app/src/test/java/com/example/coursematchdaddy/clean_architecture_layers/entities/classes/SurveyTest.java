@@ -1,18 +1,53 @@
 package com.example.coursematchdaddy.clean_architecture_layers.entities.classes;
 
-import junit.framework.TestCase;
+import static org.junit.Assert.assertEquals;
 
-public class SurveyTest extends TestCase {
+import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.survey_subclasses.GenericData;
 
+
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+public class SurveyTest {
+
+    private static Survey survey;
+    @Before
+    public void testCreator() {
+        ArrayList<String> coursesTaken = new ArrayList<String>();
+        coursesTaken.add("ISP100");
+        HashMap<String, String> preferences = new HashMap<String, String>();
+        preferences.put("interest", "objectivity");
+        survey = new GenericData("Computer Science", (float) 3.0, coursesTaken, preferences);
+    }
+
+    @Test
     public void testGetProgram() {
+        String expected = "Computer Science";
+        assertEquals(survey.getProgram(), expected);
+
     }
 
+    @Test
     public void testGetNumCredits() {
+        Float expected = (float) 3.0;
+        assertEquals(survey.getNumCredits(), expected);
     }
 
+    @Test
     public void testGetCoursesTaken() {
+        List<String> expected = new ArrayList<String>();
+        expected.add("ISP100");
+        assertEquals(expected, survey.getCoursesTaken());
     }
 
+    @Test
     public void testGetCompleteData() {
+        HashMap<String, String> expected = new HashMap<>();
+        expected.put("interest", "objectivity");
+        assertEquals(expected, survey.getCompleteData());
     }
 }
