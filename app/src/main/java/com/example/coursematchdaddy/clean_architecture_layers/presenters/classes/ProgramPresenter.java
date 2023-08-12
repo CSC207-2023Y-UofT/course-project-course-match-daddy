@@ -3,15 +3,11 @@ package com.example.coursematchdaddy.clean_architecture_layers.presenters.classe
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Program;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.recommendationalgorithm_class_imports_implementations.ViewProgramDataInterface;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
 
 public class ProgramPresenter implements ViewProgramDataInterface {
 
-    private HashMap<String, Program> programDataList;
+    private final HashMap<String, Program> programDataList;
 
     /**
      *

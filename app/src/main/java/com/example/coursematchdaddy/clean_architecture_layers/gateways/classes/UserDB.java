@@ -1,5 +1,6 @@
 package com.example.coursematchdaddy.clean_architecture_layers.gateways.classes;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
@@ -12,6 +13,7 @@ import java.util.HashMap;
 import java.util.Objects;
 
 public class UserDB implements VerifyLoginDataInterface, ExtractUserDataInterface, CreateUserAccountInterface {
+    @SuppressLint("SdCardPath")
     private final String pathname = "/data/user/0/com.example.coursematchdaddy/files/userdata.csv";
 
     public UserDB() {
@@ -186,8 +188,7 @@ public class UserDB implements VerifyLoginDataInterface, ExtractUserDataInterfac
     @Override
     public User getUserData(String email) {
         HashMap<String, User> userDB = readUserDB();
-        User user = userDB.get(email);
-        return user;
+        return userDB.get(email);
     }
 
     /**
@@ -202,8 +203,7 @@ public class UserDB implements VerifyLoginDataInterface, ExtractUserDataInterfac
 
         try {
             // If username and password exist in DB, and are correct, then return true, otherwise, false
-            User user = userDB.get(providedUsername);
-            return user;
+            return userDB.get(providedUsername);
         } catch (Exception e) {
             Log.e("ERROR", "Error verifying user login: " + e.getMessage());
         }

@@ -9,12 +9,12 @@ public interface ArtsAndSciencesCourseInterface {
      * @param userData: User
      * @return boolean
      */
-    public boolean enroll(User userData);
+    boolean enroll(User userData);
 
     /**
      * unenroll a student from this course
-     * @param userData
+     * @param userData User object
      * @return boolean
      */
-    public boolean unenroll(User userData);
+    boolean unenroll(User userData);
 }

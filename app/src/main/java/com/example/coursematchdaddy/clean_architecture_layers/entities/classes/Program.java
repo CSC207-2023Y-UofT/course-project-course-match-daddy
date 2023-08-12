@@ -7,7 +7,7 @@ public class Program implements Serializable, Comparable<Program> {
     private final String programCode;
     private final String programDescription;
     private double relevance;
-    private String completionRequirements;
+    private final String completionRequirements;
 
     /**
      * @param programTitle: String

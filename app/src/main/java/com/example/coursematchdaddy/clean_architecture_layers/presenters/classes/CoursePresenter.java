@@ -3,13 +3,10 @@ package com.example.coursematchdaddy.clean_architecture_layers.presenters.classe
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Course;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.recommendationalgorithm_class_imports_implementations.ViewCourseDataInterface;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class CoursePresenter implements ViewCourseDataInterface {
-    private HashMap<String, Course> courseList;
+    private final HashMap<String, Course> courseList;
 
 
     /**
