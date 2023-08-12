@@ -29,7 +29,7 @@ public class OpenEnrollmentCourse extends Course {
             // enroll user
             userData.getSelectedCourses().put(this.getCourseTitle(), this);
             // update available course seats
-            updateSeats(-1);
+            updateSeats();
             return true;
         }
         // otherwise, return false
@@ -57,11 +57,14 @@ public class OpenEnrollmentCourse extends Course {
 
     /**
      * update the number of seats in this course by amount
-     * @param amount: int
      */
-    private void updateSeats (int amount){
+    private void updateSeats () {
         // update the seats by adding in the amount to the RemainingSeats key-pair in misc data
-        super.getMiscellaneousCourseData().put("RemainingSeats", (int)super.getMiscellaneousCourseData().
-                get("RemainingSeats") + amount);
+        try {
+            super.getMiscellaneousCourseData().put("RemainingSeats", (int)super.getMiscellaneousCourseData().
+                    get("RemainingSeats") - 1);
+        } catch (NullPointerException e) {
+            super.getMiscellaneousCourseData().put("RemainingSeats", 0);
+        }
     }
 }

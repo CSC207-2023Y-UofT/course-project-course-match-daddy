@@ -1,6 +1,7 @@
 package com.example.coursematchdaddy.clean_architecture_layers.entities.classes.course_subclasses;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.user_subclasses.GuestUser;
@@ -52,7 +53,7 @@ public class ArtsAndScienceCourseTest {
 
         course.unenroll(temp);
 
-        assertEquals(temp.getSelectedCourses().get("Introduction to Computer Science"), null);
+        assertNull(temp.getSelectedCourses().get("Introduction to Computer Science"));
         assertEquals(course.getRemainingSeats(), 40);
     }
 }
