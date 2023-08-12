@@ -21,7 +21,7 @@
             android:layout_height="44sp"
             android:background="#2196F3"
             android:gravity="center"
-            android:text="Settings"
+            android:text="Survey"
             android:textColor="#FFFFFF"
             android:textSize="34sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -38,7 +38,7 @@
             android:layout_height="81sp"
             android:background="#660000"
             android:gravity="center"
-            android:text="Please update your settings below. New courses and programs will be recommended upon saving."
+            android:text="Please enter your preferences below. New courses and programs will be recommended upon saving."
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -47,105 +47,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.04"
-            tools:ignore="HardcodedText" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
-            android:gravity="center"
-            android:text="Username:"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.05"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.112"
-            tools:ignore="HardcodedText" />
-
-
-        <EditText
-            android:id="@+id/username"
-            android:layout_width="372dp"
-            android:layout_height="34dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="#CFE2F3"
-            android:gravity="center"
-            android:hint="Username"
-            android:importantForAutofill="no"
-            android:inputType="textCapSentences"
-            android:textColor="#000000"
-            tools:ignore="HardcodedText" />
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:text="Email:"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.044"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.147"
-            tools:ignore="HardcodedText" />
-
-        <EditText
-            android:id="@+id/editTextEmail2"
-            android:layout_width="372dp"
-            android:layout_height="34dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="#CFE2F3"
-            android:gravity="center"
-            android:hint="Email"
-            android:importantForAutofill="no"
-            android:inputType="textEmailAddress"
-            android:textColor="#000000"
-            tools:ignore="HardcodedText" />
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:text="Password:"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.05"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.178"
-            tools:ignore="HardcodedText" />
-
-        <EditText
-            android:id="@+id/editTextSignupPassword2"
-
-            android:layout_width="372dp"
-            android:layout_height="35dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="#CFE2F3"
-            android:gravity="center"
-            android:hint="Password"
-            android:importantForAutofill="no"
-            android:inputType="textPassword"
-            android:textColor="#000000"
             tools:ignore="HardcodedText" />
 
         <TextView
@@ -168,12 +69,12 @@
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
-            android:gravity="center"
             android:text="What 3-digit code best describes you Program of Study?"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.056"
@@ -185,27 +86,27 @@
         <EditText
             android:id="@+id/programofstudy"
             android:layout_width="372dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_height="30dp"
             android:background="#CFE2F3"
-            android:gravity="center"
             android:hint="Ex. BIO, CHM"
-            android:importantForAutofill="no"
             android:inputType="textCapSentences"
             android:textColor="#000000"
-            tools:ignore="HardcodedText" />
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            tools:ignore="HardcodedText"
+            android:importantForAutofill="no" />
 
         <TextView
             android:id="@+id/textView12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
             android:text="Number of Credits:"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.057"
@@ -217,47 +118,47 @@
         <EditText
             android:id="@+id/numofcredits"
             android:layout_width="372dp"
-            android:layout_height="35dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_height="35dp"
             android:background="#CFE2F3"
-            android:gravity="center"
             android:hint="Ex: 4.0"
-            android:importantForAutofill="no"
             android:inputType="textCapSentences"
             android:textColor="#000000"
-            tools:ignore="HardcodedText" />
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            tools:ignore="HardcodedText"
+            android:importantForAutofill="no" />
 
         <TextView
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
             android:text="Favourite Courses Taken:"
             android:textColor="#FAFAFA"
             android:textSize="16sp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
             tools:ignore="HardcodedText" />
 
         <EditText
             android:id="@+id/coursestaken"
             android:layout_width="372dp"
-            android:layout_height="34dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_height="34dp"
             android:background="#CFE2F3"
-            android:gravity="center"
             android:hint="Ex: ISP100 STA130"
-            android:importantForAutofill="no"
             android:inputType="textCapSentences"
             android:textColor="#000000"
-            tools:ignore="HardcodedText" />
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            tools:ignore="HardcodedText"
+            android:importantForAutofill="no" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="967dp"
+            android:layout_height="808dp"
             android:background="#20124D"
             android:scrollbarThumbVertical="@color/teal_700">
 

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -53,6 +54,15 @@ public class CourseActivity extends AppCompatActivity implements RecycleViewInte
         // moving to program tab on button click
         toProgram.setOnClickListener(view -> {
             Intent intent = new Intent(CourseActivity.this, ProgramActivity.class);
+            intent.putExtra("username", getIntent().getStringExtra("username"));
+            startActivity(intent);
+            finish();
+        });
+
+        ImageButton toSettings = (ImageButton) findViewById(R.id.buttonSettings);
+
+        toSettings.setOnClickListener(view -> {
+            Intent intent = new Intent(CourseActivity.this, SettingActivity.class);
             intent.putExtra("username", getIntent().getStringExtra("username"));
             startActivity(intent);
             finish();

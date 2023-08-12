@@ -17,8 +17,8 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.HashMap;
 
-public class SettingActivity extends AppCompatActivity {
-    private EditText usernameEditText, emailEditText, passwordEditText, programOfStudyEditText,
+public class SurveyActivity extends AppCompatActivity {
+    private EditText programOfStudyEditText,
             numOfCreditsEditText, coursesTakenEditText;
     private CheckBox objectiveCheckBox, subjectivityCheckBox, peopleCheckBox, thingsCheckBox,
             detailsCheckBox, bigPictureCheckBox, reportsCheckBox, problemSetsCheckBox,
@@ -28,7 +28,7 @@ public class SettingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_setting);
+        setContentView(R.layout.activity_survey);
 
         // Retrieve the "extra" info from the Intent
         Intent intent = getIntent();
@@ -39,9 +39,7 @@ public class SettingActivity extends AppCompatActivity {
             Log.d("LOG", "SETTINGSUSERPART@: " + this.username);
         }
         // Find views by their IDs
-        usernameEditText = findViewById(R.id.username);
-        emailEditText = findViewById(R.id.editTextEmail2);
-        passwordEditText = findViewById(R.id.editTextSignupPassword2);
+
         programOfStudyEditText = findViewById(R.id.programofstudy);
         numOfCreditsEditText = findViewById(R.id.numofcredits);
         coursesTakenEditText = findViewById(R.id.coursestaken);
@@ -65,9 +63,6 @@ public class SettingActivity extends AppCompatActivity {
         // Set onClickListener for the saveButton
         saveButton.setOnClickListener(v -> {
             // Gather input data from EditText views and CheckBoxes
-            String username = usernameEditText.getText().toString();
-            String email = emailEditText.getText().toString();
-            String password = passwordEditText.getText().toString();
             String programOfStudy = programOfStudyEditText.getText().toString();
             String numOfCredits = numOfCreditsEditText.getText().toString();
             String coursesTaken = coursesTakenEditText.getText().toString();
@@ -88,9 +83,9 @@ public class SettingActivity extends AppCompatActivity {
 
             // Store input data in a HashMap
             HashMap<String, String> inputFields = new HashMap<>();
-            inputFields.put("username", username);
-            inputFields.put("email", email);
-            inputFields.put("password", password);
+            inputFields.put("username", "");
+            inputFields.put("email", "");
+            inputFields.put("password", "");
             inputFields.put("programOfStudy", programOfStudy);
             inputFields.put("numOfCredits", numOfCredits);
             inputFields.put("coursesTaken", coursesTaken);
@@ -113,14 +108,14 @@ public class SettingActivity extends AppCompatActivity {
             if (!presenter.validateInfo(inputFields)){
                 Snackbar.make(rootView, message, Snackbar.LENGTH_SHORT).show();
             }else{
-                SettingsController controller = new SettingsController(SettingActivity.this.username, inputFields, db, db, db);
+                SettingsController controller = new SettingsController(SurveyActivity.this.username, inputFields, db, db, db);
                 boolean successful = controller.collectSettingsData();
                 if (successful){
                     //Navigate to carousel activity so the user can start getting their recommendations!
                     Snackbar.make(rootView, "Success!", Snackbar.LENGTH_SHORT).show();
-                    Intent intent1 = new Intent(SettingActivity.this, CarouselActivity.class);
-                    SettingActivity.this.username = controller.getUsername();
-                    intent1.putExtra("username", SettingActivity.this.username);
+                    Intent intent1 = new Intent(SurveyActivity.this, CarouselActivity.class);
+                    SurveyActivity.this.username = controller.getUsername();
+                    intent1.putExtra("username", SurveyActivity.this.username);
                     startActivity(intent1);
                     finish(); // Close the current SettingActivity if needed
                 }else{
@@ -130,3 +125,4 @@ public class SettingActivity extends AppCompatActivity {
         });
     }
 }
+

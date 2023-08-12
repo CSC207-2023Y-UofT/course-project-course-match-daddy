@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
                 importantText.setText(presenter.getDisplayMessage());
 
                 if (loginSuccessful) {
-                    Intent intent = new Intent(MainActivity.this, SettingActivity.class);
+                    Intent intent = new Intent(MainActivity.this, CourseActivity.class);
                     intent.putExtra("username", username);
                     startActivity(intent);
                     finish(); // Close the current MainActivity if needed
@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
                 importantText.setText(presenter.getDisplayMessage());
 
                 if (accountCreated){
-                    Intent intent = new Intent(MainActivity.this, SettingActivity.class);
+                    Intent intent = new Intent(MainActivity.this, SurveyActivity.class);
                     intent.putExtra("username", signupUsername);
                     startActivity(intent);
                     finish(); // Close the current MainActivity if needed
