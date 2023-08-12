@@ -100,8 +100,7 @@ public abstract class Course implements Serializable, Comparable<Course>  {
     public int getRemainingSeats() {
         try {
             // find seats from misc data
-            int seats = (int)this.getMiscellaneousCourseData().get("RemainingSeats");
-            return seats;
+            return (int)this.getMiscellaneousCourseData().get("RemainingSeats");
         } catch (NullPointerException e) {
             // course cannot be enrolled in
             return 0;
@@ -132,15 +131,15 @@ public abstract class Course implements Serializable, Comparable<Course>  {
 
     /**
      * enroll a user into a course
-     * @param userData
-     * @return boolean
+     * @param userData User object
+     * @return true if enrolled, false if not
      */
     public abstract boolean enroll(User userData);
 
     /**
      * unenroll a student from this course
-     * @param userData
-     * @return boolean
+     * @param userData User object
+     * @return true if enrolled, false if not
      */
     public abstract boolean unenroll(User userData);
 }

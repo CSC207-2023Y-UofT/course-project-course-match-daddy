@@ -5,7 +5,6 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
-import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.program_subclasses.Type1Program;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.user_subclasses.GuestUser;
 
 public class Type1ProgramTest {

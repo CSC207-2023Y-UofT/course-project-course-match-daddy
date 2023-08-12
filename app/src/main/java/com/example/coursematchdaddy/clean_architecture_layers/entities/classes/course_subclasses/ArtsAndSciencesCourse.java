@@ -21,22 +21,22 @@ public class ArtsAndSciencesCourse extends Course {
     /**
      * enroll a User into this course if there are seats available
      * @param userData: User
-     * @return boolean
+     * @return true if enrolled, false otherwise
      */
     public boolean enroll(User userData) {
         if (this.getRemainingSeats() > 0) {
             // enroll user
             userData.getSelectedCourses().put(this.getCourseTitle(), this);
             // subtract from remaining seats
-            updateSeats(-1);
+            updateSeats();
         }
         return false;
     }
 
     /**
      * unenroll a student from this course
-     * @param userData
-     * @return boolean
+     * @param userData user object
+     * @return true if unenrolled, false otherwise
      */
     public boolean unenroll(User userData) {
         try {
@@ -54,11 +54,14 @@ public class ArtsAndSciencesCourse extends Course {
 
     /**
      * update the number of seats in this course by amount
-     * @param amount: int
      */
-    private void updateSeats(int amount) {
+    private void updateSeats() {
         // update the seats by adding in the amount to the RemainingSeats key-pair in misc data
-        super.getMiscellaneousCourseData().put("RemainingSeats", (int)super.getMiscellaneousCourseData().
-                get("RemainingSeats") + amount);
+        try {
+            super.getMiscellaneousCourseData().put("RemainingSeats", (int)super.getMiscellaneousCourseData().
+                    get("RemainingSeats") - 1);
+        } catch (NullPointerException e) {
+            super.getMiscellaneousCourseData().put("RemainingSeats", 0);
+        }
     }
 }
