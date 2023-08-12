@@ -1,7 +1,6 @@
 package com.example.coursematchdaddy.clean_architecture_layers.controllers.classes;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Survey;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
-import com.example.coursematchdaddy.clean_architecture_layers.gateways.classes.UserDB;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.SubmitSurvey;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.UpdateSettings;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.updatesettings_subclasses.SaveSurveyData;
@@ -16,26 +15,24 @@ import java.util.HashMap;
 // Handles changes to the user’s settings.
 public class SettingsController implements CollectSettingsDataInterface {
     // Define the private attributes.
-    private User userData;
-    private CreateUserAccountInterface createAccount;
+    private final User userData;
+    private final CreateUserAccountInterface createAccount;
     private UpdateSettings saveData;
-    private HashMap<String, String> inputfields;
-    private SubmitSurvey submitData;
-    private ExtractUserDataInterface extractUserData;
-    private VerifyLoginDataInterface verifyLoginData;
+    private final HashMap<String, String> inputfields;
+    private final SubmitSurvey submitData;
+    private final VerifyLoginDataInterface verifyLoginData;
     /**
      * Retrieves data from the settings view.
      *
      * @param username This is the username of a user; this is a unique identifier for the user.
      */
     public SettingsController(String username, HashMap<String, String> inputfields, ExtractUserDataInterface extractUserData, CreateUserAccountInterface createAccount, VerifyLoginDataInterface verifyLoginData){
-        this.extractUserData = extractUserData;
         this.createAccount = createAccount;
         this.verifyLoginData = verifyLoginData;
         this.userData = extractUserData.getUserFromDB(username);
         this.saveData = new SaveSurveyData(userData);
         this.inputfields = inputfields;
-        this.submitData = new SubmitSurvey(this.userData, this.inputfields);
+        this.submitData = new SubmitSurvey();
     }
 
     /**

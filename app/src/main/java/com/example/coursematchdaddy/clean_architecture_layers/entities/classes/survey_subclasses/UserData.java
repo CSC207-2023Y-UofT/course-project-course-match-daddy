@@ -3,7 +3,7 @@ package com.example.coursematchdaddy.clean_architecture_layers.entities.classes.
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Survey;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.interfaces.survey_class_imports_implementations.UserDataInterface;
 
-import java.util.ArrayList;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -16,18 +16,18 @@ public class UserData extends Survey implements UserDataInterface {
 
     /**
      * Stores User data and survey data and returns an instance representing the User's data
-     * @param username
-     * @param email
-     * @param password
-     * @param program
-     * @param numCredits
-     * @param coursesTaken
-     * @param completeData
+     * @param username the username of the user
+     * @param email the email of the user
+     * @param password the password of the user
+     * @param program the program of the user that it is in
+     * @param numCredits the number of credits the user has taken
+     * @param coursesTaken the courses the user has taken
+     * @param completeData all of the user's data
      */
     public UserData(String username, String email, String password,
                     String program, Float numCredits,
                     List<String> coursesTaken, HashMap<String, String> completeData) {
-        super(program, Float.valueOf(numCredits), coursesTaken, completeData);
+        super(program, numCredits, coursesTaken, completeData);
 
         this.username = username;
         this.email = email;
@@ -75,7 +75,7 @@ public class UserData extends Survey implements UserDataInterface {
 
     /**
      * Set the User's password to the new password
-     * @param password
+     * @param password the new intended password of the user
      */
     public void setPassword(String password) {
         this.password =  password;
@@ -83,7 +83,7 @@ public class UserData extends Survey implements UserDataInterface {
 
     /**
      * Set the User's username to the new username
-     * @param username
+     * @param username the new intended username for the user
      */
     public void setUsername(String username) {
         this.username = username;
@@ -91,7 +91,7 @@ public class UserData extends Survey implements UserDataInterface {
 
     /**
      * Set the User's email to the new email
-     * @param email
+     * @param email the new intended email for the user
      */
     public void setEmail(String email) {
         this.email = email;

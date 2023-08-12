@@ -11,10 +11,10 @@ public class GenericData extends Survey implements GenericDataInterface {
 
     /**
      * creates data for guest user
-     * @param program
-     * @param numCredits
-     * @param courses
-     * @param completeData
+     * @param program the program the user entered
+     * @param numCredits the number of credits the user has taken
+     * @param courses the user's past courses
+     * @param completeData all of the user's given data
      */
     public GenericData(String program, Float numCredits, ArrayList<String> courses, HashMap<String, String> completeData) {
         super(program, numCredits, courses, completeData);
