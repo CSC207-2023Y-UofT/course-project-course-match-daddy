@@ -19,14 +19,10 @@ public class UserDB implements VerifyLoginDataInterface, ExtractUserDataInterfac
     public UserDB() {
     }
 
-    /**
-     * Read the user database from the file and put the information into a hashmap.
-     *
-     * @return HashMap<String, User>: the hashmap containing all users
-     */
     private HashMap<String, User> readUserDB() {
         File file = new File(pathname);
 
+        // if file doesnt exist, just return an empty
         if (!file.exists()) {
             return new HashMap<>();
         }
@@ -52,7 +48,7 @@ public class UserDB implements VerifyLoginDataInterface, ExtractUserDataInterfac
     /**
      * Return whether the entered username is unique or not
      *
-     * @param providedEmail the entered username
+     * @param providedEmail the entered email
      * @return true if the email is unique, false otherwise
      */
     public boolean checkEmailUniqueness(String providedEmail) {
@@ -60,9 +56,10 @@ public class UserDB implements VerifyLoginDataInterface, ExtractUserDataInterfac
 
         try {
             // if a user with the given email already exists in the DB, return false
-            User user = userDB.get(providedEmail);
-            if (user != null) {
-                return false;
+            for (User user : userDB.values()) {
+                if (user.getEmail().equals(providedEmail)) {
+                    return false;
+                }
             }
         } catch (Exception e) {
             Log.e("ERROR", "Error verifying user login: " + e.getMessage());
@@ -102,6 +99,7 @@ public class UserDB implements VerifyLoginDataInterface, ExtractUserDataInterfac
      */
     @Override
     public boolean updateUserData(User userData) {
+        // put new user info into the database
         HashMap<String, User> userDB = readUserDB();
         userDB.put(userData.getUsername(), userData);
 
@@ -118,20 +116,13 @@ public class UserDB implements VerifyLoginDataInterface, ExtractUserDataInterfac
         HashMap<String, User> userDB = readUserDB();
 
         // If there is a user in the database with the same username, deny the registration
-        if (userDB.get(user.getUsername()) == null) {
+        if (checkUsernameUniqueness(user.getUsername())) {
             return writeUser(userDB, user);
         } else {
             return false;
         }
     }
 
-    /**
-     * Write the new user information to the database.
-     *
-     * @param userDB database
-     * @param user   the user that is to be written
-     * @return boolean on whether the process was completed
-     */
     private boolean writeUser(HashMap<String, User> userDB, User user) {
         File file = new File(pathname);
 
@@ -188,7 +179,14 @@ public class UserDB implements VerifyLoginDataInterface, ExtractUserDataInterfac
     @Override
     public User getUserData(String email) {
         HashMap<String, User> userDB = readUserDB();
-        return userDB.get(email);
+
+        // return the user when email is found in DB, otherwise return null
+        for (User user : userDB.values()) {
+            if (user.getEmail().equals(email)) {
+                return user;
+            }
+        }
+        return null;
     }
 
     /**
@@ -236,6 +234,6 @@ public class UserDB implements VerifyLoginDataInterface, ExtractUserDataInterfac
     public boolean removeUser(User user) {
         HashMap<String, User> userDB = readUserDB();
         userDB.put(user.getUsername(), null);
-        return userDB.get(user.getUsername()) == null && saveChanges(userDB);//removed successfully
+        return userDB.get(user.getUsername()) == null && saveChanges(userDB); //removed successfully
     }
 }
