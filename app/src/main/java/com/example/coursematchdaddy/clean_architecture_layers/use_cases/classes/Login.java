@@ -88,4 +88,11 @@ public abstract class Login implements LoggedInUserInterface, GuestUserInterface
         return userDataMap;
     }
 
+    @Override
+    public HashMap<String, Object> getUsersDataMap() {
+        HashMap<String, Object> userDataMap = new HashMap<>();
+        userDataMap.put(this.user.getUsername(), this.user);
+        return userDataMap;
+    }
+
 }
