@@ -4,14 +4,13 @@ import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.C
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Program;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Survey;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
-import com.example.coursematchdaddy.clean_architecture_layers.entities.interfaces.survey_class_imports_implementations.GenericDataInterface;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.interfaces.survey_class_imports_implementations.UserDataInterface;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations.CreateUserAccountInterface;
 
 import java.util.Map;
 
 // Handles a user’s data and related methods.
-public abstract class UpdateSettings implements UserDataInterface, GenericDataInterface {
+public abstract class UpdateSettings implements UserDataInterface {
     // Define the private attributes for an instance of the UpdateSettings class.
     private final User userData;
 

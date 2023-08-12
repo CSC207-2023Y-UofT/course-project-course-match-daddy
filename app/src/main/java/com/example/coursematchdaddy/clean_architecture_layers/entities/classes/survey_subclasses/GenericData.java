@@ -1,12 +1,11 @@
 package com.example.coursematchdaddy.clean_architecture_layers.entities.classes.survey_subclasses;
 
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Survey;
-import com.example.coursematchdaddy.clean_architecture_layers.entities.interfaces.survey_class_imports_implementations.GenericDataInterface;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class GenericData extends Survey implements GenericDataInterface {
+public class GenericData extends Survey {
 
 
     /**

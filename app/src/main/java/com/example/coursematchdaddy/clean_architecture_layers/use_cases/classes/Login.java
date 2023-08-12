@@ -21,7 +21,7 @@ public abstract class Login implements LoggedInUserInterface, GuestUserInterface
 
     /**
      * Constructs a new Login instance with the provided login credentials.
-     * Aswell as a user object to represent the user trying to log in.
+     * As well as a user object to represent the user trying to log in.
      *
      * @param username The username of the user for the login.
      * @param password The password of the user for the login.

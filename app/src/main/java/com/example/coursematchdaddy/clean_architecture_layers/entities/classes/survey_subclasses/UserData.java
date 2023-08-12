@@ -1,14 +1,12 @@
 package com.example.coursematchdaddy.clean_architecture_layers.entities.classes.survey_subclasses;
 
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Survey;
-import com.example.coursematchdaddy.clean_architecture_layers.entities.interfaces.survey_class_imports_implementations.UserDataInterface;
-
 
 import java.util.HashMap;
 import java.util.List;
 
 //TODO: modify implemented interface. Some of its methods are redundant/not useful/not needed
-public class UserData extends Survey implements UserDataInterface {
+public class UserData extends Survey {
 
     private String username;
     private String email;

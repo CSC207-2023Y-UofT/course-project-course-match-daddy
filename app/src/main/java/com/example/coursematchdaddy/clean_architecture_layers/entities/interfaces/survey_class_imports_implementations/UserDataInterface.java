@@ -2,50 +2,15 @@ package com.example.coursematchdaddy.clean_architecture_layers.entities.interfac
 
 
 
-import java.util.HashMap;
+import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Course;
+import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Program;
+import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Survey;
+import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations.CreateUserAccountInterface;
+
+import java.util.Map;
 
 
 public interface UserDataInterface {
-    /**
-     * Get Survey data from the User
-     * @return A HashMap containing the survey data the user submitted
-     */
-    HashMap<String, Object> getUserSurveyData();
+    public boolean updateSettings(String username, String email, String password, Map<String, Course> selectedCourses, Map<String, Program> selectedPrograms, Survey userSurvey, CreateUserAccountInterface db);
 
-    /**
-     * Get the username of the User
-     * @return a String representing the username
-     */
-    String getUsername();
-
-
-    /**
-     * Get the User's password
-     * @return a String representing the user's password
-     */
-    String getPassword();
-
-    /**
-     * Get the User's email
-     * @return a String representing the User's email
-     */
-    String getEmail();
-
-    /**
-     * Sets the User's password to the new password
-     * @param password the new password for the user
-     */
-    void setPassword(String password);
-
-    /**
-     * Sets the User's username to the new username
-     * @param username the new username for the user
-     */
-    void setUsername(String username);
-
-    /**
-     * Sets the User's email to the new email
-     * @param email the new email for the user
-     */
-    void setEmail(String email);
 }
