@@ -86,4 +86,8 @@ public class LoginController implements CollectLoginDataInterface {
         }
         return accountCreated;
     }
+
+    public LoginPresenter getPresenter() {
+        return this.presenter;
+    }
 }
