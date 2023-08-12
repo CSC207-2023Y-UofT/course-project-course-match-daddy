@@ -46,9 +46,4 @@ public class ExtractUserData extends Login {
 
         return userData;
     }
-
-    @Override
-    public HashMap<String, Object> getUsersDataMap() {
-        return null;
-    }
 }
