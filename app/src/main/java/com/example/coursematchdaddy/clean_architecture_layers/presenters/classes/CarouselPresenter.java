@@ -1,12 +1,10 @@
 package com.example.coursematchdaddy.clean_architecture_layers.presenters.classes;
 
-import android.util.Log;
-
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Course;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
 import com.example.coursematchdaddy.clean_architecture_layers.gateways.classes.GETCourseGateway;
 import com.example.coursematchdaddy.clean_architecture_layers.gateways.classes.UserDB;
-import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.RecommendationAlgorithm;
+
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.recommendationalgorithm_subclasses.ExtractCoursesRecommendations;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations.CreateUserAccountInterface;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations.ExtractUserDataInterface;
@@ -20,13 +18,11 @@ import java.util.List;
  * recommended courses to be displayed in the carousel.
  */
 public class CarouselPresenter {
-    private ExtractCoursesRecommendationsInterface recommendationAlgorithm;//interface implemented by <RecommendationAlgorithm>
+    private final ExtractCoursesRecommendationsInterface recommendationAlgorithm;//interface implemented by <RecommendationAlgorithm>
     private List<Course> courseList;
-    private GETCourseGateway gw;
 
-    private User user;
-    private ExtractUserDataInterface db;
-    private CreateUserAccountInterface saveSwipe;
+    private final User user;
+    private final CreateUserAccountInterface saveSwipe;
 
     /**
      * Initialize the CarouselPresenter.
@@ -34,15 +30,15 @@ public class CarouselPresenter {
      * @param username The username of the logged-in user.
      */
     public CarouselPresenter(String username) {
-        this.gw = new GETCourseGateway();
-        this.db = new UserDB();//TODO: Consider passing this in through constructor
+        GETCourseGateway gw = new GETCourseGateway();
+        ExtractUserDataInterface db = new UserDB();//TODO: Consider passing this in through constructor
         this.user = db.getUserFromDB(username);
         recommendationAlgorithm = new ExtractCoursesRecommendations(user, gw.getCoursesListData() );
         courseList = recommendationAlgorithm.getCourseRecommendations();
         this.saveSwipe = new UserDB();//TODO: Consider passing this in through constructor
     }
 
-    public List<Course> getRecommendations(String username){
+    public List<Course> getRecommendations(){
         List<Course> recs = recommendationAlgorithm.getCourseRecommendations();
         courseList = recs;
         return recs;
