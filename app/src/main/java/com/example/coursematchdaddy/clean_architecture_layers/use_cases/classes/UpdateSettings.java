@@ -1,23 +1,19 @@
 package com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes;
 
-import android.util.Log;
-
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Course;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Program;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Survey;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.interfaces.survey_class_imports_implementations.GenericDataInterface;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.interfaces.survey_class_imports_implementations.UserDataInterface;
-import com.example.coursematchdaddy.clean_architecture_layers.gateways.classes.UserDB;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations.CreateUserAccountInterface;
 
-import java.util.HashMap;
 import java.util.Map;
 
 // Handles a user’s data and related methods.
 public abstract class UpdateSettings implements UserDataInterface, GenericDataInterface {
     // Define the private attributes for an instance of the UpdateSettings class.
-    private User userData;
+    private final User userData;
 
     // Define the private attributes for an instance of the UpdateSettings class.
 
@@ -45,7 +41,7 @@ public abstract class UpdateSettings implements UserDataInterface, GenericDataIn
     //TODO: Consider making multiple "update" methods in order to avoid having so many parameters.
     public boolean updateSettings(String username, String email, String password, Map<String, Course> selectedCourses, Map<String, Program> selectedPrograms, Survey userSurvey, CreateUserAccountInterface db){
         // Update a user's attributes.
-        boolean successful = false;
+        boolean successful;
         userData.updateUsername(username);
         userData.updateUserEmail(email);
         userData.updateUserPassword(password);

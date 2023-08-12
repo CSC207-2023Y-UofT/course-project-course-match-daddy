@@ -9,6 +9,7 @@ import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.coursematchdaddy.clean_architecture_layers.controllers.classes.LoginController;
+import com.example.coursematchdaddy.clean_architecture_layers.gateways.classes.UserDB;
 import com.example.coursematchdaddy.clean_architecture_layers.presenters.classes.LoginPresenter;
 
 import java.io.*;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     // Declare references to the presenter and controller
     private LoginPresenter presenter;
     private LoginController controller;
+    private UserDB gateway;
 
     /**
      * Copies a file from the "raw" folder to the internal storage directory of the app.
@@ -104,7 +106,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Initialize the presenter and controller
         presenter = new LoginPresenter();
-        controller = new LoginController(presenter);
+        gateway = new UserDB();
+        controller = new LoginController(presenter, gateway, gateway);
 
         // Set click listeners for the login and signup buttons
         loginButton.setOnClickListener(new View.OnClickListener() {

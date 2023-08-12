@@ -33,19 +33,19 @@ public interface UserDataInterface {
 
     /**
      * Sets the User's password to the new password
-     * @param password
+     * @param password the new password for the user
      */
     void setPassword(String password);
 
     /**
      * Sets the User's username to the new username
-     * @param username
+     * @param username the new username for the user
      */
     void setUsername(String username);
 
     /**
      * Sets the User's email to the new email
-     * @param email
+     * @param email the new email for the user
      */
     void setEmail(String email);
 }

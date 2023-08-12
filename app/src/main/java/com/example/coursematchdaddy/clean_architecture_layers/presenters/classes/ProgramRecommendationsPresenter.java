@@ -12,7 +12,7 @@ import java.util.Objects;
 
 
 public class ProgramRecommendationsPresenter implements ViewProgramsRecommendationsInterface {
-    private List<Program> programList;
+    private final List<Program> programList;
 
     public ProgramRecommendationsPresenter(List<Program> p) {
         this.programList = p;
@@ -39,7 +39,7 @@ public class ProgramRecommendationsPresenter implements ViewProgramsRecommendati
      */
     public Map<String, String> getProgramData(Program program) {
         // adding all data from the program matching with program (Program object)
-        HashMap<String, String> data = new HashMap<String, String>();
+        HashMap<String, String> data = new HashMap<>();
         for (Program p : programList) {
             if (Objects.equals(p.getProgramCode(), program.getProgramCode())) {
                 data.put("ProgramCode", p.getProgramCode());

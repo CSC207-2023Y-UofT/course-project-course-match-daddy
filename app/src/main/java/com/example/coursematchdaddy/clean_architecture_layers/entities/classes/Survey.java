@@ -5,17 +5,17 @@ import java.util.HashMap;
 import java.util.List;
 
 public abstract class Survey implements Serializable {
-    private String program;
-    private Float numCredits;
-    private List<String> coursesTaken;
-    private HashMap<String, String> completeData;//TODO: outline what this will look like.
+    private final String program;
+    private final Float numCredits;
+    private final List<String> coursesTaken;
+    private final HashMap<String, String> completeData;//TODO: outline what this will look like.
 
     /**
      * Saves survey data as class attributes and creates instance of Survey
-     * @param program
-     * @param numCredits
-     * @param coursesTaken
-     * @param completeData
+     * @param program the program that was entered
+     * @param numCredits the number of credits that the user has taken
+     * @param coursesTaken the course taken by the user
+     * @param completeData Complete representation of the survey data
      */
     public Survey(String program, Float numCredits, List<String> coursesTaken, HashMap<String, String> completeData) {
         this.program = program;

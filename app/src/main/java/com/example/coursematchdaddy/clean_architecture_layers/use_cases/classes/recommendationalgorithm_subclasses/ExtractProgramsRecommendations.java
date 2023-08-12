@@ -13,7 +13,7 @@ import java.util.List;
 public class ExtractProgramsRecommendations extends RecommendationAlgorithm
         implements ExtractProgramsRecommendationsInterface {
     final static int PROGRAM_LIMIT = 10;
-    private List<Program> programList;
+    private final List<Program> programList;
     public ExtractProgramsRecommendations(User user, List<Course> courseList, List<Program> programList) {
         super(user, courseList);
         this.programList = programList;

@@ -10,6 +10,6 @@ public interface ViewProgramDataInterface {
      *
      * @return Map<String, String> the data that needs to be displayed
      */
-    public HashMap<String, Program> getProgramData();
+    HashMap<String, Program> getProgramData();
 
 }
