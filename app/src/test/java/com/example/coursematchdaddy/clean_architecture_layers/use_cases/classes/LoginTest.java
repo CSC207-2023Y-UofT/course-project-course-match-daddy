@@ -67,4 +67,19 @@ public class LoginTest extends TestCase {
         assertEquals(user.getEmail(), retrievedUser.getEmail());
         assertEquals(user.getPassword(), retrievedUser.getPassword());
     }
+
+    public void testGetUsersDataMap() {
+        VerifyLoginData login = new VerifyLoginData(USERNAME, PASSWORD, EMAIL, null);
+        HashMap<String, Object> expectedUserData = new HashMap<>();
+        User user = new LoggedInUser(USERNAME, EMAIL, PASSWORD);
+        expectedUserData.put(USERNAME, user);
+
+        HashMap<String, Object> userData = login.getUserData();
+        User retrievedUser = (User) userData.get(USERNAME);
+
+        assertEquals(expectedUserData.size(), userData.size());
+        assertEquals(user.getUsername(), retrievedUser.getUsername());
+        assertEquals(user.getEmail(), retrievedUser.getEmail());
+        assertEquals(user.getPassword(), retrievedUser.getPassword());
+    }
 }
