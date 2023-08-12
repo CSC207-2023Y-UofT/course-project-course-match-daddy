@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -59,6 +60,15 @@ public class SettingActivity extends AppCompatActivity {
         livingThingsCheckBox = findViewById(R.id.checkBox11);
         physicalMathCheckBox = findViewById(R.id.checkBox13);
         societyInstitutionsCheckBox = findViewById(R.id.checkBox12);
+
+        ImageButton backButton = findViewById(R.id.buttonBack);
+
+        backButton.setOnClickListener(v -> {
+            Intent intent1 = new Intent(SettingActivity.this, CarouselActivity.class);
+            intent1.putExtra("username", SettingActivity.this.username);
+            startActivity(intent1);
+            finish(); // Close the current SettingActivity if needed
+        });
 
         Button saveButton = findViewById(R.id.saveButton);
 
