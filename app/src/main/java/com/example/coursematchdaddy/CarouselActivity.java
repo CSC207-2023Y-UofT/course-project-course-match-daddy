@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -32,11 +31,7 @@ public class CarouselActivity extends AppCompatActivity {
     private TextView courseTitleTextView;
     private TextView courseCodeTextView;
     private TextView courseDescriptionTextView;
-    private Button buttonCheck;
-    private Button buttonReject;
 
-    private Button buttonNext;
-    private CarouselPresenter carouselPresenter;
     private CarouselController carouselController;
 
     private String username;
@@ -50,11 +45,11 @@ public class CarouselActivity extends AppCompatActivity {
         username = getIntent().getStringExtra("username");
 
         // Initialize the presenter and controller
-        carouselPresenter = new CarouselPresenter(username);
+        CarouselPresenter carouselPresenter = new CarouselPresenter(username);
         carouselController = new CarouselController(username);
 
         // Get the recommended courses from the presenter
-        recommendedCourses = carouselPresenter.getRecommendations(username);
+        recommendedCourses = carouselPresenter.getRecommendations();
 
         // Initialize the index to display the first course
         currentCourseIndex = 0;
@@ -64,32 +59,23 @@ public class CarouselActivity extends AppCompatActivity {
         courseTitleTextView = findViewById(R.id.textView4);
         courseCodeTextView = findViewById(R.id.textView6);
         courseDescriptionTextView = findViewById(R.id.textView10);
-        buttonCheck = findViewById(R.id.buttonCheck);
-        buttonReject = findViewById(R.id.buttonReject);
-        buttonNext = findViewById(R.id.buttonNext);
+        Button buttonCheck = findViewById(R.id.buttonCheck);
+        Button buttonReject = findViewById(R.id.buttonReject);
+        Button buttonNext = findViewById(R.id.buttonNext);
 
         // Set click listeners for the buttons
-        buttonCheck.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Handle the user swiping right on the course
-                onCourseAccepted();
-            }
+        buttonCheck.setOnClickListener(v -> {
+            // Handle the user swiping right on the course
+            onCourseAccepted();
         });
 
-        buttonReject.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Handle the user swiping left on the course
-                onCourseRejected();
-            }
+        buttonReject.setOnClickListener(v -> {
+            // Handle the user swiping left on the course
+            onCourseRejected();
         });
-        buttonNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Handle button click event
-                navigateToNextActivity();
-            }
+        buttonNext.setOnClickListener(v -> {
+            // Handle button click event
+            navigateToNextActivity();
         });
 
         // Display the first course in the carousel

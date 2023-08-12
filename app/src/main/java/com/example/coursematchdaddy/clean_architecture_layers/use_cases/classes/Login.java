@@ -73,11 +73,26 @@ public abstract class Login implements LoggedInUserInterface, GuestUserInterface
 
     @Override
     public HashMap<String, Object> getLoginCredentials() {
-        return null; // Implemented this method in subclasses to return specific login credentials.
+        HashMap<String, Object> credentials = new HashMap<>();
+        credentials.put("username", this.username);
+        credentials.put("email", this.email);
+        credentials.put("password", this.password);
+        return credentials;
     }
+
 
     @Override
     public HashMap<String, Object> getUserData() {
-        return null; // Implemented this method in subclasses to return specific user data.
+        HashMap<String, Object> userDataMap = new HashMap<>();
+        userDataMap.put(this.user.getUsername(), this.user);
+        return userDataMap;
     }
+
+    @Override
+    public HashMap<String, Object> getUsersDataMap() {
+        HashMap<String, Object> userDataMap = new HashMap<>();
+        userDataMap.put(this.user.getUsername(), this.user);
+        return userDataMap;
+    }
+
 }

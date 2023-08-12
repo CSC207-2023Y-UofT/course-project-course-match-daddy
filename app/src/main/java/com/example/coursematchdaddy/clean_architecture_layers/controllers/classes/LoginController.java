@@ -4,28 +4,30 @@ import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.u
 import com.example.coursematchdaddy.clean_architecture_layers.gateways.classes.DBUsersGateway;
 import com.example.coursematchdaddy.clean_architecture_layers.presenters.classes.LoginPresenter;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.Login;
-import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.login_subclasses.CreateUserAccount;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.login_subclasses.VerifyLoginData;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations.CollectLoginDataInterface;
 import com.example.coursematchdaddy.clean_architecture_layers.gateways.classes.UserDB;
+import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations.CreateUserAccountInterface;
+import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations.VerifyLoginDataInterface;
 
 public class LoginController implements CollectLoginDataInterface {
 
     private String username;
     private String email;
     private String password;
-    private Login verifyLogin;
-    private DBUsersGateway accountFactory;
     private LoginPresenter presenter;
-    private UserDB gateway;
+    private VerifyLoginDataInterface validateData;
+    private CreateUserAccountInterface createAccount;
+
 
     /**
      * Constructs a new LoginController object with the given LoginPresenter instance.
      *
      * @param presenter The LoginPresenter instance associated with this controller.
      */
-    public LoginController(LoginPresenter presenter) {
-        gateway = new UserDB();
+    public LoginController(LoginPresenter presenter, VerifyLoginDataInterface validateData,CreateUserAccountInterface createAccount) {
+        this.validateData = validateData;
+        this.createAccount = createAccount;
         this.presenter = presenter;
         this.email = "";
         this.password = "";
@@ -56,10 +58,8 @@ public class LoginController implements CollectLoginDataInterface {
      * @return true if the provided credentials are valid, false otherwise.
      */
     public boolean validateData() {
-        this.gateway = new UserDB();
-        this.verifyLogin = new VerifyLoginData(this.username, this.password, this.email, this.gateway);
 
-        boolean isValidated = gateway.verifyUserProvidedData(this.username, this.password);//TODO: Modidy to rely on interface not UserDB
+        boolean isValidated = validateData.verifyUserProvidedData(this.username, this.password);
         if (isValidated) {
             presenter.setDisplayMessage("Login Validated!");
         } else {
@@ -77,9 +77,7 @@ public class LoginController implements CollectLoginDataInterface {
      * @return true if the account creation is successful, false otherwise.
      */
     public boolean createAccount() {
-        this.gateway = new UserDB();
-        accountFactory = new CreateUserAccount(this.username, this.email, this.password);
-        boolean accountCreated = gateway.verifyUser(new LoggedInUser(username, email, password));
+        boolean accountCreated = this.createAccount.verifyUser(new LoggedInUser(username, email, password));
 
         if (accountCreated) {
             presenter.setDisplayMessage("Account successfully created!");
@@ -87,5 +85,21 @@ public class LoginController implements CollectLoginDataInterface {
             presenter.setDisplayMessage("Failed to create account, please try again.");
         }
         return accountCreated;
+    }
+
+    public LoginPresenter getPresenter() {
+        return this.presenter;
+    }
+
+    public String getPassword() {
+        return  this.password;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public String getUsername() {
+        return this.username;
     }
 }

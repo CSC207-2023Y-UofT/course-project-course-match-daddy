@@ -32,9 +32,4 @@ public class CollectLoginData extends Login {
         this.collectLoginData.storePassword(super.getPassword());
         this.collectLoginData.storeUsername(super.getUsername());
     }
-
-    @Override
-    public HashMap<String, Object> getUsersDataMap() {
-        return null;
-    }
 }

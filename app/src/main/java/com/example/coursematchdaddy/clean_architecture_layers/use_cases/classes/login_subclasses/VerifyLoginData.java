@@ -33,14 +33,4 @@ public class VerifyLoginData extends Login {
         User user = super.getUser();
         return this.verifyLoginData.verifyUserProvidedData(user.getUsername(), user.getPassword());
     }
-
-    /**
-     * Retrieve a users' data.
-     *
-     * @return Retrieve a users' data.
-     */
-    @Override
-    public HashMap<String, Object> getUsersDataMap() {
-        return null;
-    }
 }

@@ -1,7 +1,5 @@
 package com.example.coursematchdaddy.clean_architecture_layers.controllers.classes;
 
-import android.util.Log;
-
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Course;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
 import com.example.coursematchdaddy.clean_architecture_layers.gateways.classes.UserDB;
@@ -15,10 +13,9 @@ import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.
  * and process user swipes.
  */
 public class CarouselController{
-    private User loggedInUser;
-    private SwipeCardLeft swipeCardLeft;
-    private SwipeCardRight swipeCardRight;
-    private CarouselPresenter presenter;
+    private final SwipeCardLeft swipeCardLeft;
+    private final SwipeCardRight swipeCardRight;
+    private final CarouselPresenter presenter;
 
     /**
      * Initialize the CarouselController.
@@ -28,10 +25,9 @@ public class CarouselController{
     public CarouselController(String username) {
         UserDB userDB = new UserDB();
         User user = userDB.getUserFromDB(username);
-        this.loggedInUser = user;
         // Create instances of SwipeCardLeft and SwipeCardRight
-        swipeCardLeft = new SwipeCardLeft(loggedInUser);
-        swipeCardRight = new SwipeCardRight(loggedInUser);
+        swipeCardLeft = new SwipeCardLeft(user);
+        swipeCardRight = new SwipeCardRight(user);
         this.presenter = new CarouselPresenter(username);
     }
 
