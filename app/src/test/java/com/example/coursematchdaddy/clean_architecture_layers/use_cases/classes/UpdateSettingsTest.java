@@ -1,8 +1,4 @@
-package com.example.coursematchdaddy;
-
-import static org.junit.Assert.assertEquals;
-
-import androidx.test.ext.junit.runners.AndroidJUnit4;
+package com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes;
 
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Course;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Program;
@@ -12,26 +8,24 @@ import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.c
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.program_subclasses.Type1Program;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.survey_subclasses.UserData;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.user_subclasses.LoggedInUser;
-import com.example.coursematchdaddy.clean_architecture_layers.gateways.classes.UserDB;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.updatesettings_subclasses.SaveSurveyData;
+import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations.CreateUserAccountInterface;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+
+import junit.framework.TestCase;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@RunWith(AndroidJUnit4.class)
-public class UpdateSettingsTest{
+public class UpdateSettingsTest extends TestCase {
 
     private static final String USERNAME = "testUser";
     private static final String PASSWORD = "testPassword";
     private static final String EMAIL = "test@example.com";
 
 
-    @Test
     public void testUpdateSettings() {
         //all variables needed to construct the objects
         float numCredits = (float) 3.0;
@@ -42,9 +36,7 @@ public class UpdateSettingsTest{
 
         SaveSurveyData settingsUpdate = new SaveSurveyData(userData);
 
-        UserDB db = new UserDB();
-        db.verifyUser(userData);
-        db.updateUserData(userData);
+        CreateUserAccountInterfaceMock db = new CreateUserAccountInterfaceMock();
 
         String newUsername = "newUser";
         String newEmail = "newemail@gmail.com";
@@ -61,7 +53,7 @@ public class UpdateSettingsTest{
 
         Survey surveyInfo = new UserData(newUsername, newEmail, newPassword, newProgram, numCredits, coursesTaken, completeData);
 
-        settingsUpdate.updateSettings(newUsername, newEmail, newPassword, selectedCourses, selectedPrograms, surveyInfo, db);
+        boolean success = settingsUpdate.updateSettings(newUsername, newEmail, newPassword, selectedCourses, selectedPrograms, surveyInfo, db);
 
         assertEquals(userData.getEmail(), newEmail);
         assertEquals(userData.getUserSurveyData(), surveyInfo);
@@ -69,5 +61,26 @@ public class UpdateSettingsTest{
         assertEquals(userData.getPassword(), newPassword);
         assertEquals(userData.getSelectedCourses(), selectedCourses);
         assertEquals(userData.getSelectedPrograms(), selectedPrograms);
+        assertTrue(success);
     }
+
+    // Mock implementation of CreateUserAccountInterface for testing
+    private static class CreateUserAccountInterfaceMock implements CreateUserAccountInterface {
+
+        @Override
+        public boolean updateUserData(User userData) {
+            return true;//For testing purposes
+        }
+
+        @Override
+        public boolean verifyUser(User user) {
+            return true;//For testing purposes
+        }
+
+        @Override
+        public boolean removeUser(User user) {
+            return true;//For testing purposes
+        }
+    }
+
 }
