@@ -11,6 +11,7 @@ import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfac
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 
 // Handles changes to the user’s settings.
 public class SettingsController implements CollectSettingsDataInterface {
@@ -18,7 +19,7 @@ public class SettingsController implements CollectSettingsDataInterface {
     private final User userData;
     private final CreateUserAccountInterface createAccount;
     private UpdateSettings saveData;
-    private final HashMap<String, String> inputfields;
+    private final HashMap<String, String> inputFields;
     private final SubmitSurvey submitData;
     private final VerifyLoginDataInterface verifyLoginData;
     /**
@@ -26,12 +27,12 @@ public class SettingsController implements CollectSettingsDataInterface {
      *
      * @param username This is the username of a user; this is a unique identifier for the user.
      */
-    public SettingsController(String username, HashMap<String, String> inputfields, ExtractUserDataInterface extractUserData, CreateUserAccountInterface createAccount, VerifyLoginDataInterface verifyLoginData){
+    public SettingsController(String username, HashMap<String, String> inputFields, ExtractUserDataInterface extractUserData, CreateUserAccountInterface createAccount, VerifyLoginDataInterface verifyLoginData){
         this.createAccount = createAccount;
         this.verifyLoginData = verifyLoginData;
         this.userData = extractUserData.getUserFromDB(username);
         this.saveData = new SaveSurveyData(userData);
-        this.inputfields = inputfields;
+        this.inputFields = inputFields;
         this.submitData = new SubmitSurvey();
     }
 
@@ -47,39 +48,39 @@ public class SettingsController implements CollectSettingsDataInterface {
         String email;
         //TODO: Check for potential bugs
         // Leaving section blank means that they want the username/email to stay the same.
-        boolean changedUsername = !this.inputfields.get("username").equals("");
-        boolean changedEmail = !this.inputfields.get("email").equals("");
-        boolean changedPassword = !this.inputfields.get("password").equals("");
+        boolean changedUsername = !Objects.equals(this.inputFields.get("username"), "");
+        boolean changedEmail = !Objects.equals(this.inputFields.get("email"), "");
+        boolean changedPassword = !Objects.equals(this.inputFields.get("password"), "");
 
         //Update email from input field if it was changed. If not, use user object
         if (changedEmail){
-            email = inputfields.get("email");
+            email = inputFields.get("email");
         }else{
             email = this.userData.getEmail();
         }
         //Update username from input field if it was changed. If not, use user object
         if (changedUsername){
-            username = inputfields.get("username");
+            username = inputFields.get("username");
         }else{
             username = this.userData.getUsername();
         }
         //Update password from input field if it was changed. If not, use user object
         if (changedPassword){
-            password = inputfields.get("password");
+            password = inputFields.get("password");
         }else{
             password = this.userData.getPassword();
         }
         //check if changes were valid before finalizing them.
         if ((!changedEmail | this.verifyLoginData.checkEmailUniqueness(email)) && (!changedUsername | this.verifyLoginData.checkUsernameUniqueness(username))){
             saveData = new SaveSurveyData(this.userData);
-            ArrayList<String> coursestaken = new ArrayList<>();
-            for (String s: this.inputfields.get("coursesTaken").split(" ")){
-                coursestaken.add(s.toUpperCase());
+            ArrayList<String> coursesTaken = new ArrayList<>();
+            for (String s: Objects.requireNonNull(this.inputFields.get("coursesTaken")).split(" ")){
+                coursesTaken.add(s.toUpperCase());
                 //TODO: add better parsing
             }
-            float numCredits = 0.0f;
+            float numCredits;
             try {
-                numCredits = Float.parseFloat(this.inputfields.get("numOfCredits"));
+                numCredits = Float.parseFloat(Objects.requireNonNull(this.inputFields.get("numOfCredits")));
             } catch (NumberFormatException e) {
                 //Default to 0 if user provides bad input
                 numCredits = 0.0f;
@@ -87,10 +88,10 @@ public class SettingsController implements CollectSettingsDataInterface {
 
             this.createAccount.removeUser(this.userData);//remove user from database
 
-            String program = this.inputfields.get("programOfStudy").toUpperCase();
-            Survey surveyData = submitData.userSubmit(username, email,password,program,numCredits,coursestaken,this.inputfields);
+            String program = Objects.requireNonNull(this.inputFields.get("programOfStudy")).toUpperCase();
+            Survey surveyData = submitData.userSubmit(username, email,password,program,numCredits,coursesTaken,this.inputFields);
             //TODO: Ensure that saveData also saves the resulting user object in the UserDB
-            //Save user data and then save it under a new "key" in the databse (remember, username is unique identifier)
+            //Save user data and then save it under a new "key" in the database (remember, username is unique identifier)
 
             return saveData.updateSettings(username, email, password, this.userData.getSelectedCourses(), this.userData.getSelectedPrograms(), surveyData, this.createAccount) && createAccount.updateUserData(this.userData);
 
