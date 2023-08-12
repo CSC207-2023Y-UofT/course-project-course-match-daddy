@@ -90,4 +90,16 @@ public class LoginController implements CollectLoginDataInterface {
     public LoginPresenter getPresenter() {
         return this.presenter;
     }
+
+    public String getPassword() {
+        return  this.password;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public String getUsername() {
+        return this.username;
+    }
 }
