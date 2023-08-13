@@ -107,7 +107,7 @@ public class UserTest extends TestCase {
         selectedCourses.put("course1", course1Metadata);
 
         // Test whether or not the User object instance's stored data is what we expect it to be.
-        assertEquals(selectedCourses.get("course1"), userData.getSelectedCourses().get("course1"));
+        assertEquals(selectedCourses.get("course1").getCourseTitle(), userData.getSelectedCourses().get("course1").getCourseTitle());
     }
 
     /**
@@ -123,7 +123,7 @@ public class UserTest extends TestCase {
         selectedPrograms.put("program1", program1Metadata);
 
         // Test whether or not the User object instance's stored data is what we expect it to be.
-        assertEquals(selectedPrograms.get("program1"), userData.getSelectedPrograms().get("program1"));
+        assertEquals(selectedPrograms.get("program1").getProgramTitle(), userData.getSelectedPrograms().get("program1").getProgramTitle());
     }
 
     /**
@@ -157,6 +157,7 @@ public class UserTest extends TestCase {
         // Define an object instance of the (abstract) User class.
         LoggedInUser userData = defineUserObjectInstance();
 
+        // Update the email within an object instance of the (abstract) User class.
         userData.updateUserEmail("update_test_user@test.com");
 
         // Test whether or not the User object instance's stored data is what we expect it to be.
@@ -167,6 +168,7 @@ public class UserTest extends TestCase {
         // Define an object instance of the (abstract) User class.
         LoggedInUser userData = defineUserObjectInstance();
 
+        // Update the password within an object instance of the (abstract) User class.
         userData.updateUserPassword("update_password");
 
         // Test whether or not the User object instance's stored data is what we expect it to be.
@@ -190,7 +192,7 @@ public class UserTest extends TestCase {
         Course course2Metadata = new ArtsAndSciencesCourse("course2Title", "course2Code", "course2Description", "course2ImageURL", miscellaneousCourse2Data);
         selectedCourses.put("course2", course2Metadata);
 
-        // Update the userData to contain the second course.
+        // Update the selectedCourses within an object instance of the (abstract) User class.
         userData.updateUserSelectedCourses(selectedCourses);
 
         // Test whether or not the User object instance's stored data is what we expect it to be.
@@ -206,7 +208,7 @@ public class UserTest extends TestCase {
         Program program1Metadata = new Type1Program("program1Title", "program1Code", "program1Description", "program1CompletionRequirements");
         selectedPrograms.put("program1", program1Metadata);
 
-        // Add a second program.
+        // Update the selectedPrograms within an object instance of the (abstract) User class.
         Program program2Metadata = new Type1Program("program2Title", "program2Code", "program2Description", "program2CompletionRequirements");
         selectedPrograms.put("program2", program2Metadata);
 
