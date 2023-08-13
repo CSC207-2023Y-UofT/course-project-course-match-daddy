@@ -340,6 +340,36 @@ Key considerations for compute efficiency include:
 6. **Resource Sharing:** Share resources efficiently among different components or users to prevent resource contention and bottlenecks.
 
 Optimizing memory and compute efficiency requires a deep understanding of the application's architecture, programming languages, and underlying hardware. Developers often use profiling tools and performance monitoring to identify bottlenecks and areas for improvement. Striking a balance between memory and compute efficiency is crucial, as over-optimization in one area can negatively impact the other. Efficient software development results in applications that are fast, responsive, and resource-friendly, contributing to a positive user experience and efficient utilization of hardware resources.
+
+Memory and compute efficiency are essential considerations for any software application. The potential memory and compute efficiency aspects of our application are analyzed as follows within the context of our user stories:
+1. **Account Creation and Persistence:**
+   - **Memory Efficiency:** We use appropriate data structures and libraries to manage user data without excessive memory consumption.
+   - **Compute Efficiency:** For future development, account creation and metadata persistence should be optimized to reduce processing time; we may utilize background threads or asynchronous operations to avoid blocking the main thread.
+2. **Initial Survey and Recommendations:**
+   - **Memory Efficiency:** Our application efficiently stores and manage survey data to avoid unnecessary memory consumption.
+   - **Compute Efficiency:** For future development, our recommendation algorithms should be optimized for speed and accuracy such as through caching recommendations to avoid redundant computations.
+3. **Viewing Recommended Courses:**
+   - **Memory Efficiency:** Our application stores and manages course data efficiently, especially when displaying a carousel of recommended courses. For future development, we may employ lazy loading or pagination to help avoid loading excessive data into memory.
+   - **Compute Efficiency:** Our application's UI updates and animations are optimized (by Android Studio) to ensure a seamless user experience.
+4. **Viewing Course Details:**
+   - **Memory Efficiency:** Our application loads and displays course details on-demand to prevent loading excessive content into memory. Unnecessary resources are disposed of when transitioning between courses.
+   - **Compute Efficiency:** Displaying course details should not cause a significant compute load.
+5. **Viewing Saved and Recommended Items:**
+   - **Memory Efficiency:** Our application efficiently manages the display of saved and recommended items through the use of HashMap data structures that allow for efficient item retrieval and rendering.
+   - **Compute Efficiency:** Our application's course list rendering and updates are optimized.
+6. **Updating Survey Data:**
+   - **Memory Efficiency:** Our application updates survey data efficiently.
+   - **Compute Efficiency:** The process of updating survey data and generating new recommendations is not computationally intensive. For future development, we may optimize the recommendation algorithm to balance accuracy and performance.
+
+In addition to these user stories, our application's adherence to SOLID design principles and Clean Architecture layers can contribute to memory and compute efficiency. Separation of concerns, modularization, and low coupling can help you avoid resource-intensive bottlenecks and improve the efficiency of our codebase.
+
+To further enhance memory and compute efficiency, we need to:
+- Implement proper memory management practices, such as releasing resources when they're no longer needed.
+- Optimize image loading and handling to minimize memory consumption and improve loading times.
+- Use appropriate background tasks for data processing, networking, and other resource-intensive operations.
+- Monitor and profile your application to identify and address performance bottlenecks.
+
+By considering both memory and compute efficiency throughout the design and implementation of our Android application, we create a responsive, smooth, and user-friendly experience for our users while ensuring that the application runs efficiently on a variety of devices.
 _____
 
 <a name="modularity"></a>
