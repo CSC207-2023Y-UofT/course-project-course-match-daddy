@@ -276,6 +276,7 @@ Here are the key aspects of application testing within the context of software d
 
 Overall, application testing plays a crucial role in delivering high-quality software that meets user expectations and functions reliably in various scenarios. It's an ongoing process that helps ensure the application's correctness, security, performance, and usability.
 
+#### Application-Specific Information
 In particular, Android Studio has the capacity to perform the following types of tests:
 * **Functional Testing**:
   *  Unit tests were written for the application within the [tests folder](https://github.com/CSC207-2023Y-UofT/course-project-course-match-daddy/tree/main/app/src/androidTest/java/com/example/coursematchdaddy).
@@ -319,6 +320,7 @@ _____
 
 <a name="efficiency"></a>
 ### Application (Memory and Compute) Efficiency
+#### General Information
 In the context of software development, application memory and compute efficiency refer to optimizing how an application uses system resources, specifically memory (RAM) and computing power (CPU cycles). Efficiently managing these resources is crucial for creating software that performs well, consumes less energy, and provides a smooth user experience. Efficient software can run faster, use less memory, and require fewer hardware resources, leading to cost savings and improved user satisfaction.
 
 **Memory Efficiency:**
@@ -344,6 +346,7 @@ Key considerations for compute efficiency include:
 
 Optimizing memory and compute efficiency requires a deep understanding of the application's architecture, programming languages, and underlying hardware. Developers often use profiling tools and performance monitoring to identify bottlenecks and areas for improvement. Striking a balance between memory and compute efficiency is crucial, as over-optimization in one area can negatively impact the other. Efficient software development results in applications that are fast, responsive, and resource-friendly, contributing to a positive user experience and efficient utilization of hardware resources.
 
+#### Application-Specific Information
 Memory and compute efficiency are essential considerations for any software application. The potential memory and compute efficiency aspects of our application are analyzed as follows within the context of our user stories:
 1. **Account Creation and Persistence:**
    - **Memory Efficiency:** We use appropriate data structures and libraries to manage user data without excessive memory consumption.
@@ -377,6 +380,7 @@ _____
 
 <a name="modularity"></a>
 ### Application Modularity
+#### General Information
 Application modularity is a software design principle that promotes breaking down a complex application into smaller, independent, and reusable components called modules. Each module focuses on a specific functionality or feature of the application and can be developed, tested, and maintained independently. Modularity enhances code organization, collaboration among developers, and the overall maintainability and scalability of the software.
 
 Here are the key aspects of application modularity within the context of software development:
@@ -403,6 +407,7 @@ Here are the key aspects of application modularity within the context of softwar
 
 By adopting a modular approach to software development, developers can create applications that are easier to understand, maintain, and extend. Modular design enhances code quality, promotes collaboration, and contributes to the overall success of a software project.
 
+#### Application-Specific Information
 Our application exhibits modularity in the following ways:
 1. **Clean Architecture Layers:**
    Our application's architecture follows the principles of Clean Architecture, which promotes modularity by organizing code into distinct layers: entities, use cases, gateways, controllers, and presenters. Each layer has a clear responsibility, ensuring a separation of concerns and making it easier to maintain and extend the application.
@@ -426,6 +431,7 @@ _____
 
 <a name="extensibility"></a>
 ### Application Extensibility
+#### General Information
 Application extensibility is a software design principle that focuses on creating software in a way that allows for easy and efficient addition of new features, functionalities, or modules without significantly modifying the existing codebase. Extensible applications are designed to accommodate changes and enhancements without causing disruption to the existing system. This flexibility is crucial in keeping software adaptable to evolving user needs and market trends.
 
 Here are the key aspects of application extensibility within the context of software development:
@@ -451,6 +457,7 @@ Here are the key aspects of application extensibility within the context of soft
 
 By designing applications with extensibility in mind, developers can ensure that their software remains adaptable and relevant over time. An extensible application is better equipped to meet the changing needs of users, embrace new technologies, and maintain a competitive edge in the market.
 
+#### Application-Specific Information
 Our application exhibits extensibility in the following ways:
 1. **Clean Architecture Layers:**
    The Clean Architecture structure we have employed promotes extensibility by separating concerns into distinct layers. New features or changes can be added in specific layers without requiring modifications to other layers, reducing the risk of unintended side effects.
@@ -476,6 +483,7 @@ _____
 
 <a name="design-principles"></a>
 ### Application (SOLID) Design Principles
+#### General Information
 The SOLID design principles are a set of five principles that guide software developers in creating well-structured, maintainable, and scalable object-oriented software. These principles were introduced by Robert C. Martin and represent a foundation for writing clean and robust code that is easy to understand, modify, and extend. Each principle focuses on a specific aspect of software design, contributing to overall software quality.
 
 Here's a brief overview of each SOLID principle within the context of software development:
@@ -492,6 +500,7 @@ Here's a brief overview of each SOLID principle within the context of software d
 
 Together, the SOLID principles provide a comprehensive framework for designing maintainable and extensible software. Adhering to these principles helps developers create code that is less tightly coupled, more modular, and less prone to unexpected side effects when modifications are made. By following these principles, developers can achieve better code quality, improved maintainability, and greater ease in accommodating changes and new features in their software projects.
 
+#### Application-Specific Information
 Our application employs SOLID Design Principles in the following ways:
 1. **Single Responsibility Principle (SRP):**
    Each class and interface in our application is designed to have a single responsibility. This adherence to SRP ensures that each component focuses on a specific task, making the codebase more maintainable and easier to understand.
@@ -511,6 +520,7 @@ _____
 
 <a name="clean-architecture"></a>
 ### Application (Clean) Architecture
+#### General Information
 Certainly! Clean Architecture is a software design approach introduced by Robert C. Martin that emphasizes the separation of concerns, maintainability, and testability of a software system. It aims to create an architecture that is independent of frameworks, databases, and other external details, focusing on the core business logic and user interactions. Clean Architecture helps developers create software that is flexible, modular, and easy to understand, while also promoting the use of modern software engineering practices.
 
 The Clean Architecture consists of concentric circles or layers, each representing a distinct level of abstraction and responsibility. These layers are designed to be independent of one another, with the innermost layers containing the most critical business logic and the outer layers dealing with technical details and user interfaces.
@@ -534,6 +544,35 @@ Here are the main components or layers of Clean Architecture:
 6. **Testability:** The architecture encourages the isolation of business logic for testing without requiring external dependencies.
 
 Clean Architecture is designed to address challenges like codebase maintainability, ease of testing, and adaptability to changes. By following this approach, developers can create software that is both robust and adaptable to evolving business requirements and technological changes.
+
+#### Application-Specific Information
+Your Android application's architecture is based on the principles of Clean Architecture, which is a design philosophy that emphasizes separation of concerns and modularization to create a maintainable and scalable software system. Let's analyze how your application aligns with the principles of Clean Architecture based on the provided information and user stories:
+
+1. **Clear Separation of Layers:**
+   Your application follows the Clean Architecture approach by categorizing classes and interfaces into distinct layers, such as entities, use cases, gateways, controllers, and presenters. This separation promotes modularity and allows for changes in one layer without affecting others.
+
+2. **High-Level Description of Layers:**
+   Your architecture defines layers that align with Clean Architecture's recommended layers: entities (domain models), use cases (application logic), gateways (data access interfaces), controllers (UI logic), and presenters (UI rendering logic). This separation helps in keeping the responsibilities of each layer distinct.
+
+3. **Dependency Inversion:**
+   The use of interfaces to define interactions between layers facilitates dependency inversion. This design principle allows higher-level layers to depend on abstractions (interfaces) rather than concrete implementations, which promotes flexibility and extensibility.
+
+4. **Single Responsibility Principle:**
+   The application's adherence to the Single Responsibility Principle is evident in the design of classes and interfaces. Each class and interface has a single responsibility, promoting modularization and maintainability.
+
+5. **Modularity and Reusability:**
+   Packaging classes and interfaces within their respective Clean Architecture layers promotes modularity. This modular structure enhances code reusability since components can be more easily extracted and reused in different parts of the application or even in other projects.
+
+6. **Use Case-Centric Design:**
+   The focus on use cases (application-specific actions) separates business logic from presentation details. This design supports easier testing, maintenance, and modification of business rules.
+7. **Testability:**
+   Clean Architecture emphasizes the ability to test each layer independently. By following this approach, you can write unit tests for individual components without tightly coupling them to other layers.
+8. **Low Coupling and High Cohesion:**
+   The architecture's use of interfaces and abstractions contributes to low coupling between components and high cohesion within components. This results in a more maintainable and flexible codebase.
+9. **Extensibility and Scalability:**
+   The use of SOLID Design Principles, along with Clean Architecture's layering, abstraction, and dependency inversion, makes the application more extensible and scalable. New features can be added or existing features modified with minimal impact on the overall system.
+
+In summary, your Android application's architecture aligns well with Clean Architecture principles. The separation of concerns, modularization, dependency inversion, and adherence to SOLID Design Principles contribute to a maintainable, testable, and scalable codebase. This approach will help you handle changes, extend functionality, and maintain a robust application over time.
 _____
 
 <a name="code-smells"></a>
