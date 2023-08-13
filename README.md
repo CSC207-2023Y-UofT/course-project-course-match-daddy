@@ -31,12 +31,6 @@ _____
 
 _____
 
-<a name="description"></a>
-## Description
-Our software application’s domain is a course-matching application for students. Specifically, our application aims to match University of Toronto students with courses and programs based on students’ academic histories, preferences, and desired learning outcomes. We hope to streamline students’ course- and program-selection processes to reduce their cognitive load of navigating an overwhelming breadth and depth of the course and program offerings at the University of Toronto.
-
-_____
-
 <a name="web-app-link"></a>
 **Design Document Link**: [Design Document](https://docs.google.com/document/d/15TUxfaFlEyd421scretf51ZsUehlfaIpVaOlAHEvrO8/edit?usp=sharing)
 
@@ -51,25 +45,108 @@ _____
 _____
 
 ## Table of Contents
-* [General Information](#info)
-* [Team, Roles, and Contributions](#team-roles-and-contributions)
-* [GitHub Repository Specifications](#github)
-* [Android Software Application Specifications](#android)
-* [Database Specifications](#database)
-* [Machine Learning Model Specifications](#machine-learning-model)
-* [Installation](#installation)
-* [Usage](#usage)
-* [Features](#features)
-* [Testing](#testing)
-* [External Contributions](#contributions)
-* [Questions](#questions)
-* [License](#license)
-* [Project Reflection](#reflection)
+* [General Information](#general-information)
+  * [Description](#description)
+  * [Application Features](#features)
+  * [Team, Roles, and Contributions](#team-roles-and-contributions)
+  * [GitHub Repository Specifications](#github)
+  * [Application Database Specifications](#database)
+  * [Application Machine Learning Model Specifications](#machine-learning-model)
+  * [Application Installation and Usage](#installation-and-usage)
+* [Design Information](#design-information)
+  * [Application Use Cases](#use-cases)
+  * [Application User Stories](#user-stories)
+  * [Application Correctness](#program-correctness)
+  * [Application Testing](#testing)
+  * [Application (Memory and Compute) Efficiency](#efficiency)
+  * [Application Modularity](#modularity)
+  * [Application Extensibility](#extensibility)
+  * [Application (SOLID) Design Principles](#design-principles)
+  * [Application (Clean) Architecture](#clean-architecture)
+  * [Application Code Smells](#code-smells)
+  * [Application Design Patterns](#design-patterns)
+  * [Application Accessibility](#accessibility)
+  * [Application Ethics](#ethics)
+* [Miscellaneous Information](#miscellaneous-information)
+  * [Project Reflection](#reflection)
+  * [Questions](#questions)
+  * [External Contributions](#contributions)
+  * [License](#license)
 
 _____
 
 <a name="info"></a>
 ## General Information
+_____
+
+<a name="description"></a>
+### Description
+Our software application’s domain is a course-matching application for students. Specifically, our application aims to match University of Toronto students with courses and programs based on students’ academic histories, preferences, and desired learning outcomes. We hope to streamline students’ course- and program-selection processes to reduce their cognitive load of navigating an overwhelming breadth and depth of the course and program offerings at the University of Toronto.
+_____
+
+<a name="features"></a>
+### Application Features
+This application has the following features:
+* Users can create an account.
+* Users can provide data on their academic histories, preferences, and desired learning outcomes.
+* The application can recommend University of Toronto courses and programs to users based on their provided data; the users can indicate whether or not they 'like' the recommendation.
+* The users can save and edit their data and recommendations locally to their smartphones for later viewing.
+_____
+
+<a name="team-roles-and-contributions"></a>
+### Team, Roles, and Contributions
+The following individuals were involved in the development of this software application:
+* [Uyiosa Iyekekpolor](https://github.com/uyoyo0)
+  * **Role**: Data Specialist and Software Developer
+  * **Contributions**: Uyiosa was responsible for the first user story. Specifically, he handled the development of the application's code related to its sign-up and login features, and the development of the application's algorithm.
+* [Gagandeep Singh Lubana](https://github.com/GagandeepLubana)
+  * **Role**: Software Developer
+  * **Contributions**: Gagan was responsible for the second user story. Specifically, he handled the development of the application's code related to collecting survey data from the user.
+* [Lavya Vaishno](https://github.com/LVaishno)
+  * **Role**: Software Developer
+  * **Contributions**: Lavya was responsible for the third user story. Specifically, he handled the development of the application's code related to displaying recommended courses and programs within the application's carousel.
+* [Dev Vora](https://github.com/realdevvora)
+  * **Role**: Software Developer
+  * **Contributions**: Dev was responsible for the fourth user story. Specifically, he handled the development of the application's code related to courses and programs.
+* [Manav Singh](https://github.com/M4N4VS1NGH)
+  * **Role**: Data Specialist and Software Developer
+  * **Contributions**: Manav was responsible for the fifth user story. Specifically, he handled the development of the application's code related to displaying the user's saved courses and programs within the 'Courses' and 'Programs' views.
+* [Jaspreet Khela](https://github.com/JaspreetKhela)
+  * **Role**: Team Lead and Software Developer
+  * **Contributions**: Jaspreet was responsible for the sixth user story. Specifically, he handled the development of the application's code related to updating the user's settings (including their survey data). Additionally, he was the team's 'Chief Solutions Architect' and 'Tech Lead' given that he had the most experience developing deployable software and, in particular, Android applications within the team. His contributions primarily were designing the application in adherence to Clean Architecture and SOLID Design Principles; creating application wireframes; teaching command-line interface Git usage processes, Android application development, and web scraping to his teammates; setting up the GitHub repository, including the application's packaging structure, project board, development milestones, development issues, and documentation seen within the README.md file; leading weekly team meetings, including solving application development issues; and crafting the project presentation.
+_____ 
+
+<a name="github"></a>
+### GitHub Repository Specifications
+The GitHub repository is structured as a "Navigation Drawer Views Activity" project within Android Studio. Within the application's source code, files are organized based on their relation to [clear architecture layers](https://github.com/CSC207-2023Y-UofT/course-project-course-match-daddy/tree/main/app/src/main/java/com/example/coursematchdaddy/clean_architecture_layers), whether or not they are an abstract class, and whether or not they are an interface.
+_____
+
+<a name="database"></a>
+### Application Database Specifications
+[Coming Soon]
+_____
+
+<a name="machine-learning-model"></a>
+### Application Machine Learning Model Specifications
+[Coming Soon]
+_____
+
+<a name="installation-and-usage"></a>
+### Installation and Usage
+The application can be run locally on your computer or an Android smartphone device (after following the installation instructions that are specified below).
+
+To install the application, first, clone the repository to your machine using the following Git commands within your command-line interface:
+
+```
+cd <desired-project-directory-pathway>
+git clone https://github.com/CSC207-2023Y-UofT/course-project-course-match-daddy.git
+cd "course-project-course-match-daddy"
+```
+
+Then, open your project folder in [Android Studio](https://developer.android.com/studio) and run the Android smartphone emulator.
+_____
+
+
 ### Software Usage Scenarios Specifications
 First, the user will create an account using a provided (valid) email address and password. The creation of an account ensures that user-generated data within the application can persist beyond the user’s current application usage session. Additionally, the user can also view course reviews written by other users of the application.
 
@@ -99,36 +176,8 @@ The following Unified Modeling Language (UML) Diagram diagram depicts the high-l
 
 ![Course Match Application's UML Design](https://github.com/CSC207-2023Y-UofT/course-project-course-match-daddy/assets/80941606/a02aebe9-e903-4d37-ad86-4a1c4c6e1792)
 
-_____
 
-<a name="team-roles-and-contributions"></a>
-## Team, Roles, and Contributions
-The following individuals were involved in the development of this software application:
-* [Uyiosa Iyekekpolor](https://github.com/uyoyo0)
-  * **Role**: Data Specialist and Software Developer
-  * **Contributions**: Uyiosa was responsible for the first user story. Specifically, he handled the development of the application's code related to its sign-up and login features, and the development of the application's algorithm.
-* [Gagandeep Singh Lubana](https://github.com/GagandeepLubana)
-  * **Role**: Software Developer
-  * **Contributions**: Gagan was responsible for the second user story. Specifically, he handled the development of the application's code related to collecting survey data from the user.
-* [Lavya Vaishno](https://github.com/LVaishno)
-  * **Role**: Software Developer
-  * **Contributions**: Lavya was responsible for the third user story. Specifically, he handled the development of the application's code related to displaying recommended courses and programs within the application's carousel.
-* [Dev Vora](https://github.com/realdevvora)
-  * **Role**: Software Developer
-  * **Contributions**: Dev was responsible for the fourth user story. Specifically, he handled the development of the application's code related to courses and programs.
-* [Manav Singh](https://github.com/M4N4VS1NGH)
-  * **Role**: Data Specialist and Software Developer
-  * **Contributions**: Manav was responsible for the fifth user story. Specifically, he handled the development of the application's code related to displaying the user's saved courses and programs within the 'Courses' and 'Programs' views.
-* [Jaspreet Khela](https://github.com/JaspreetKhela)
-  * **Role**: Team Lead and Software Developer
-  * **Contributions**: Jaspreet was responsible for the sixth user story. Specifically, he handled the development of the application's code related to updating the user's settings (including their survey data). Additionally, he was the team's 'Chief Solutions Architect' and 'Tech Lead' given that he had the most experience developing deployable software and, in particular, Android applications within the team. His contributions primarily were designing the application in adherence to Clean Architecture and SOLID Design Principles; creating application wireframes; teaching command-line interface Git usage processes, Android application development, and web scraping to his teammates; setting up the GitHub repository, including the application's packaging structure, project board, development milestones, development issues, and documentation seen within the README.md file; leading weekly team meetings, including solving application development issues; and crafting the project presentation.
 
-_____
-
-<a name="github"></a>
-## GitHub Repository Specifications
-The GitHub repository is structured as a "Navigation Drawer Views Activity" project within Android Studio. Within the application's source code, files are organized based on their relation to [clear architecture layers](https://github.com/CSC207-2023Y-UofT/course-project-course-match-daddy/tree/main/app/src/main/java/com/example/coursematchdaddy/clean_architecture_layers), whether or not they are an abstract class, and whether or not they are an interface.
-_____
 
 <a name="android"></a>
 ## Android Software Application Specifications
@@ -137,45 +186,8 @@ _____
 
 ### Screenshots
 [Coming Soon]
-_____
 
-<a name="database"></a>
-## Database Specifications
-[Coming Soon]
-_____
 
-<a name="machine-learning-model"></a>
-## Machine Learning Model Specifications
-[Coming Soon]
-_____
-
-<a name="installation"></a>
-## Installation
-To install the application, first, clone the repository to your machine using the following Git commands within your command-line interface:
-
-```
-cd <desired-project-directory-pathway>
-git clone https://github.com/CSC207-2023Y-UofT/course-project-course-match-daddy.git
-cd "course-project-course-match-daddy"
-```
-
-Then, open your project folder in [Android Studio](https://developer.android.com/studio) and run the Android smartphone emulator.
-_____
-
-<a name="usage"></a>
-## Usage
-The application can be run locally on your computer or an Android smartphone device (after following the installation instructions that are specified above).
-_____
-
-<a name="features"></a>
-## Features
-This application has the following features:
-* Users can create an account.
-* Users can provide data on their academic histories, preferences, and desired learning outcomes.
-* The application can recommend University of Toronto courses and programs to users based on their provided data; the users can indicate whether or not they 'like' the recommendation.
-* The users can save and edit their data and recommendations locally to their smartphones for later viewing.
-
-_____
 
 <a name="testing"></a>
 ## Testing
