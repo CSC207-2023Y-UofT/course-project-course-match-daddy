@@ -14,14 +14,12 @@ public abstract class User implements Serializable {
     // Define the private attributes for an instance of the User class.
     private String email; // This is a unique identifier for an instance of the User class.
     private String password;
-    private Map<String, Course> selectedCourses= new HashMap<>();;
-    private Map<String, Program> selectedPrograms= new HashMap<>();;
+    private Map<String, Course> selectedCourses= new HashMap<>();
+    private Map<String, Program> selectedPrograms= new HashMap<>();
 
     // Survey-related attributes
-    private String program = new String();
+    private String program = "";
     private Float numCredits = (float) 0;
-    private List<String> coursesTaken = new ArrayList<String>();
-    private HashMap<String, String> preferences = new HashMap<String,String>();
     private Survey userSurvey;
 
     // Define the public attributes for an instance of the User class.
@@ -43,6 +41,8 @@ public abstract class User implements Serializable {
         this.username = username;
 
         // Initialize an instance of the UserData subclass of the Survey class
+        List<String> coursesTaken = new ArrayList<>();
+        HashMap<String, String> preferences = new HashMap<>();
         userSurvey = new UserData(username, email, password, program, numCredits, coursesTaken, preferences);
     }
 
@@ -108,103 +108,87 @@ public abstract class User implements Serializable {
      * Update a user's username.
      *
      * @param username A user's username.
-     * @return Return true if the update was successful.
      */
-    public boolean updateUsername(String username) {
+    public void updateUsername(String username) {
         // Update the private email variable.
         this.username = username;
 
-        return true;
     }
 
     /**
      * Update a user's email.
      *
      * @param email A user's email.
-     * @return Return true if the update was successful.
      */
-    public boolean updateUserEmail(String email) {
+    public void updateUserEmail(String email) {
         // Update the private email variable.
         this.email = email;
 
-        return true;
     }
 
     /**
      * Update a user's password.
      *
      * @param password A user's password.
-     * @return Return true if the update was successful.
      */
-    public boolean updateUserPassword(String password) {
+    public void updateUserPassword(String password) {
         // Update the private password variable.
         this.password = password;
 
-        return true;
     }
 
     /**
      * Update user's program of study.
      *
      * @param program A user's program of study.
-     * @return Return true if the update was successful.
      */
-    public boolean updateProgram(String program) {
+    public void updateProgram(String program) {
         // Update the private program variable.
         this.program = program;
 
-        return true;
     }
 
     /**
      * Update a user's number of course credits completed.
-     * 
+     *
      * @param numCredits A user's number of course credits completed.
-     * @return Return true if the update was successful.
      */
-    public boolean updateNumCredits(float numCredits) {
+    public void updateNumCredits(float numCredits) {
         // Update the private numCredits variable.
         this.numCredits = numCredits;
-        
-        return true;
+
     }
 
     /**
      * Update a user's selected courses.
      *
      * @param selectedCourses A user's selected courses.
-     * @return Return true if the update was successful.
      */
-    public boolean updateUserSelectedCourses(Map<String, Course> selectedCourses) {
+    public void updateUserSelectedCourses(Map<String, Course> selectedCourses) {
         // Update the private selectedCourses variable.
         this.selectedCourses = selectedCourses;
 
-        return true;
     }
 
     /**
      * Update a user's selected programs.
      *
      * @param selectedPrograms A user's selected programs.
-     * @return Return true if the update was successful.
      */
-    public boolean updateUserSelectedPrograms(Map<String, Program> selectedPrograms) {
+    public void updateUserSelectedPrograms(Map<String, Program> selectedPrograms) {
         // Update the private selectedPrograms variable.
         this.selectedPrograms = selectedPrograms;
 
-        return true;
     }
 
     /**
      * Update a user's survey data.
      *
      * @param userSurvey A user's survey data.
-     * @return Return true if the update was successful.
      */
-    public boolean updateUserSurveyData(Survey userSurvey) {
+    public void updateUserSurveyData(Survey userSurvey) {
         // Update the private userSurvey variable.
         this.userSurvey = userSurvey;
 
-        return true;
     }
 }
