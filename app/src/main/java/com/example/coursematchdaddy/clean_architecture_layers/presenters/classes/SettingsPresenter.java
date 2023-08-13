@@ -23,6 +23,8 @@ public class SettingsPresenter implements ViewSettingsDataInterface {
         //Represents all of the user data as a hashmap
         HashMap<String, Object> data = new HashMap<>();
 
+        data.put("username", userData.getUsername());
+        data.put("password", userData.getPassword());
         data.put("email", userData.getEmail());
 
         //Saves survey data of the user
