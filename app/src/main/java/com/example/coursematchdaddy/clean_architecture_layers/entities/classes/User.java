@@ -49,64 +49,81 @@ public abstract class User implements Serializable {
     /**
      * Retrieve a user's username.
      *
-     * @return Retrieve a user's username.
+     * @return Return a user's username.
      */
-    public String getUsername(){
-        return this.username;
-    }
+    public String getUsername(){ return this.username; }
 
     /**
      * Retrieve a user's email.
      *
-     * @return Retrieve a user's email.
+     * @return Return a user's email.
      */
-    public String getEmail(){
-        return this.email;
-    }
+    public String getEmail(){ return this.email; }
 
     /**
      * Retrieve a user's password.
      *
-     * @return Retrieve a user's password.
+     * @return Return a user's password.
      */
-    public String getPassword(){
-        return this.password;
-    }
+    public String getPassword(){ return this.password; }
+
+    /**
+     * Retrieve a user's program of study.
+     * 
+     * @return Return a user's program of study.
+     */
+    public String getProgram() { return this.program; }
+
+    /**
+     * Retrieve a user's number of course credits completed.
+     * 
+     * @return Return a user's number of course credits completed.
+     */
+    public float getNumCredits() { return this.numCredits; }
 
     /**
      * Retrieve a user's selected courses.
      *
-     * @return Retrieve a user's selected courses.
+     * @return Return a user's selected courses.
      */
-    public Map<String, Course> getSelectedCourses(){
-        return this.selectedCourses;
-    }
+    public Map<String, Course> getSelectedCourses() { return this.selectedCourses; }
 
     /**
      * Retrieve a user's selected programs.
      *
-     * @return Retrieve a user's selected programs.
+     * @return Return a user's selected programs.
      */
-    public Map<String, Program> getSelectedPrograms(){
-        return this.selectedPrograms;
-    }
+    public Map<String, Program> getSelectedPrograms() { return this.selectedPrograms; }
 
     /**
      * Retrieve a user's survey data.
      *
-     * @return Retrieve a user's survey data.
+     * @return Return a user's survey data.
      */
     public Survey getUserSurveyData(){
         return this.userSurvey;
     }
 
     /**
+     * Update a user's username.
+     *
+     * @param username A user's username.
+     * @return Return true if the update was successful.
+     */
+    public boolean updateUsername(String username) {
+        // Update the private email variable.
+        this.username = username;
+
+        return true;
+    }
+
+    /**
      * Update a user's email.
      *
      * @param email A user's email.
-     * @return Return true if update is successful.
+     * @return Return true if the update was successful.
      */
-    public boolean updateUserEmail(String email){
+    public boolean updateUserEmail(String email) {
         // Update the private email variable.
         this.email = email;
 
@@ -117,9 +134,9 @@ public abstract class User implements Serializable {
      * Update a user's password.
      *
      * @param password A user's password.
-     * @return Return true if update is successful.
+     * @return Return true if the update was successful.
      */
-    public boolean updateUserPassword(String password){
+    public boolean updateUserPassword(String password) {
         // Update the private password variable.
         this.password = password;
 
@@ -127,12 +144,39 @@ public abstract class User implements Serializable {
     }
 
     /**
+     * Update user's program of study.
+     *
+     * @param program A user's program of study.
+     * @return Return true if the update was successful.
+     */
+    public boolean updateProgram(String program) {
+        // Update the private program variable.
+        this.program = program;
+
+        return true;
+    }
+
+    /**
+     * Update a user's number of course credits completed.
+     * 
+     * @param numCredits A user's number of course credits completed.
+     * @return Return true if the update was successful.
+     */
+    public boolean updateNumCredits(float numCredits) {
+        // Update the private numCredits variable.
+        this.numCredits = numCredits;
+        
+        return true;
+    }
+
+    /**
      * Update a user's selected courses.
      *
      * @param selectedCourses A user's selected courses.
-     * @return Return true if update is successful.
+     * @return Return true if the update was successful.
      */
-    public boolean updateUserSelectedCourses(Map<String, Course> selectedCourses){
+    public boolean updateUserSelectedCourses(Map<String, Course> selectedCourses) {
+        // Update the private selectedCourses variable.
         this.selectedCourses = selectedCourses;
 
         return true;
@@ -142,9 +186,10 @@ public abstract class User implements Serializable {
      * Update a user's selected programs.
      *
      * @param selectedPrograms A user's selected programs.
-     * @return Return true if update is successful.
+     * @return Return true if the update was successful.
      */
-    public boolean updateUserSelectedPrograms(Map<String, Program> selectedPrograms){
+    public boolean updateUserSelectedPrograms(Map<String, Program> selectedPrograms) {
+        // Update the private selectedPrograms variable.
         this.selectedPrograms = selectedPrograms;
 
         return true;
@@ -154,23 +199,11 @@ public abstract class User implements Serializable {
      * Update a user's survey data.
      *
      * @param userSurvey A user's survey data.
-     * @return Return true if update is successful.
+     * @return Return true if the update was successful.
      */
-    public boolean updateUserSurveyData(Survey userSurvey){
+    public boolean updateUserSurveyData(Survey userSurvey) {
+        // Update the private userSurvey variable.
         this.userSurvey = userSurvey;
-
-        return true;
-    }
-
-    /**
-     * Update a user's username.
-     *
-     * @param username A user's username.
-     * @return Return true if update is successful.
-     */
-    public boolean updateUsername(String username){
-        // Update the private email variable.
-        this.username = username;
 
         return true;
     }
