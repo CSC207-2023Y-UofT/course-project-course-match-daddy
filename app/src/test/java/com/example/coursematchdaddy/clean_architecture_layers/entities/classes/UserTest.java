@@ -7,9 +7,10 @@ import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.u
 
 import junit.framework.TestCase;
 
+import java.util.Collections;
 import java.util.Map;
 import java.util.HashMap;
-import java.util.Arrays;
+import java.util.Objects;
 
 public class UserTest extends TestCase {
     /**
@@ -18,9 +19,9 @@ public class UserTest extends TestCase {
      */
     public LoggedInUser defineUserObjectInstance() {
         // Define an object instance of the (abstract) Survey class.
-        HashMap<String, String> preferences = new HashMap<String, String>();
+        HashMap<String, String> preferences = new HashMap<>();
         preferences.put("key1", "value1");
-        UserData userSurveyData = new UserData("TestUser", "test_user@test.com", "password", "Mathematics", (float) 1, Arrays.asList("CSC207H1"), preferences);
+        UserData userSurveyData = new UserData("TestUser", "test_user@test.com", "password", "Mathematics", (float) 1, Collections.singletonList("CSC207H1"), preferences);
 
         // Define an object instance of the (abstract) User Class.
         LoggedInUser userData = new LoggedInUser(userSurveyData.getUsername(), userSurveyData.getEmail(), userSurveyData.getPassword());
@@ -31,15 +32,15 @@ public class UserTest extends TestCase {
         userData.updateUserSurveyData(userSurveyData);
 
         // Update the object instance of the (abstract) User class with selected courses (from the carousel view).
-        Map<String, Course> selectedCourses = new HashMap<String, Course>();
-        HashMap<String, Object> miscellaneousCourse1Data = new HashMap<String, Object>();
+        Map<String, Course> selectedCourses = new HashMap<>();
+        HashMap<String, Object> miscellaneousCourse1Data = new HashMap<>();
         miscellaneousCourse1Data.put("miscellaneousCourse1Data1Key", "miscellaneousCourse1Data1Value");
         Course course1Metadata = new ArtsAndSciencesCourse("course1Title", "course1Code", "course1Description", "course1ImageURL", miscellaneousCourse1Data);
         selectedCourses.put("course1", course1Metadata);
         userData.updateUserSelectedCourses(selectedCourses);
 
         // Update the object instance of the (abstract) User class with selected program(s).
-        Map<String, Program> selectedPrograms = new HashMap<String, Program>();
+        Map<String, Program> selectedPrograms = new HashMap<>();
         Program program1Metadata = new Type1Program("program1Title", "program1Code", "program1Description", "program1CompletionRequirements");
         selectedPrograms.put("program1", program1Metadata);
         userData.updateUserSelectedPrograms(selectedPrograms);
@@ -100,14 +101,14 @@ public class UserTest extends TestCase {
         LoggedInUser userData = defineUserObjectInstance();
 
         // Initialize a map variable for a user's selected courses.
-        Map<String, Course> selectedCourses = new HashMap<String, Course>();
-        HashMap<String, Object> miscellaneousCourse1Data = new HashMap<String, Object>();
+        Map<String, Course> selectedCourses = new HashMap<>();
+        HashMap<String, Object> miscellaneousCourse1Data = new HashMap<>();
         miscellaneousCourse1Data.put("miscellaneousCourse1Data1Key", "miscellaneousCourse1Data1Value");
         Course course1Metadata = new ArtsAndSciencesCourse("course1Title", "course1Code", "course1Description", "course1ImageURL", miscellaneousCourse1Data);
         selectedCourses.put("course1", course1Metadata);
 
         // Test whether or not the User object instance's stored data is what we expect it to be.
-        assertEquals(selectedCourses.get("course1").getCourseTitle(), userData.getSelectedCourses().get("course1").getCourseTitle());
+        assertEquals(Objects.requireNonNull(selectedCourses.get("course1")).getCourseTitle(), Objects.requireNonNull(userData.getSelectedCourses().get("course1")).getCourseTitle());
     }
 
     /**
@@ -118,12 +119,12 @@ public class UserTest extends TestCase {
         LoggedInUser userData = defineUserObjectInstance();
 
         // Initialize a map variable for a user's selected programs.
-        Map<String, Program> selectedPrograms = new HashMap<String, Program>();
+        Map<String, Program> selectedPrograms = new HashMap<>();
         Program program1Metadata = new Type1Program("program1Title", "program1Code", "program1Description", "program1CompletionRequirements");
         selectedPrograms.put("program1", program1Metadata);
 
         // Test whether or not the User object instance's stored data is what we expect it to be.
-        assertEquals(selectedPrograms.get("program1").getProgramTitle(), userData.getSelectedPrograms().get("program1").getProgramTitle());
+        assertEquals(Objects.requireNonNull(selectedPrograms.get("program1")).getProgramTitle(), Objects.requireNonNull(userData.getSelectedPrograms().get("program1")).getProgramTitle());
     }
 
     /**
@@ -134,9 +135,9 @@ public class UserTest extends TestCase {
         LoggedInUser userData = defineUserObjectInstance();
 
         // Define an object instance of the (abstract) Survey class.
-        HashMap<String, String> preferences = new HashMap<String, String>();
+        HashMap<String, String> preferences = new HashMap<>();
         preferences.put("key1", "value1");
-        UserData userSurveyData = new UserData("TestUser", "test_user@test.com", "password", "Mathematics", (float) 1, Arrays.asList("CSC207H1"), preferences);
+        UserData userSurveyData = new UserData("TestUser", "test_user@test.com", "password", "Mathematics", (float) 1, Collections.singletonList("CSC207H1"), preferences);
 
         // Test whether or not the User object instance's stored data is what we expect it to be.
         assertEquals(userSurveyData.getCoursesTaken(), userData.getUserSurveyData().getCoursesTaken());
@@ -180,14 +181,14 @@ public class UserTest extends TestCase {
         LoggedInUser userData = defineUserObjectInstance();
 
         // Initialize a map variable for a user's selected courses.
-        Map<String, Course> selectedCourses = new HashMap<String, Course>();
-        HashMap<String, Object> miscellaneousCourse1Data = new HashMap<String, Object>();
+        Map<String, Course> selectedCourses = new HashMap<>();
+        HashMap<String, Object> miscellaneousCourse1Data = new HashMap<>();
         miscellaneousCourse1Data.put("miscellaneousCourse1Data1Key", "miscellaneousCourse1Data1Value");
         Course course1Metadata = new ArtsAndSciencesCourse("course1Title", "course1Code", "course1Description", "course1ImageURL", miscellaneousCourse1Data);
         selectedCourses.put("course1", course1Metadata);
 
         // Add a second course.
-        HashMap<String, Object> miscellaneousCourse2Data = new HashMap<String, Object>();
+        HashMap<String, Object> miscellaneousCourse2Data = new HashMap<>();
         miscellaneousCourse2Data.put("miscellaneousCourse2Data1Key", "miscellaneousCourse2Data1Value");
         Course course2Metadata = new ArtsAndSciencesCourse("course2Title", "course2Code", "course2Description", "course2ImageURL", miscellaneousCourse2Data);
         selectedCourses.put("course2", course2Metadata);
@@ -204,7 +205,7 @@ public class UserTest extends TestCase {
         LoggedInUser userData = defineUserObjectInstance();
 
         // Initialize a map variable for a user's selected programs.
-        Map<String, Program> selectedPrograms = new HashMap<String, Program>();
+        Map<String, Program> selectedPrograms = new HashMap<>();
         Program program1Metadata = new Type1Program("program1Title", "program1Code", "program1Description", "program1CompletionRequirements");
         selectedPrograms.put("program1", program1Metadata);
 
@@ -224,9 +225,9 @@ public class UserTest extends TestCase {
         LoggedInUser userData = defineUserObjectInstance();
 
         // Define an object instance of the (abstract) Survey class.
-        HashMap<String, String> preferences = new HashMap<String, String>();
+        HashMap<String, String> preferences = new HashMap<>();
         preferences.put("key1", "value1");
-        UserData userSurveyData = new UserData("TestUser", "test_user@test.com", "password", "Mathematics", (float) 1, Arrays.asList("CSC207H1"), preferences);
+        UserData userSurveyData = new UserData("TestUser", "test_user@test.com", "password", "Mathematics", (float) 1, Collections.singletonList("CSC207H1"), preferences);
         userSurveyData.setUsername("UpdateTestUser");
 
         userData.updateUserSurveyData(userSurveyData);
