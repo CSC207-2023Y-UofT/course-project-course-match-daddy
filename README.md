@@ -87,7 +87,8 @@ Our software application’s domain is a course-matching application for student
 ![Application Wireframes](https://github.com/CSC207-2023Y-UofT/course-project-course-match-daddy/assets/80941606/3266b79c-7666-4d85-a523-6187841d6a90)
 
 ### Screenshots
-[Coming Soon]
+![Screenshots](https://github.com/CSC207-2023Y-UofT/course-project-course-match-daddy/assets/80941606/a639c999-805f-4723-bc67-89eb1650e328)
+
 _____
 
 <a name="features"></a>
@@ -169,6 +170,8 @@ _____
 
 <a name="design-information"></a>
 ## Application Design Information
+The following application design topics were inspired by a previously-submitted ChatGPT-powered coding exercise.
+
 <a name="use-cases"></a>
 ### Application Use Cases
 Here are use cases for the given user stories:
