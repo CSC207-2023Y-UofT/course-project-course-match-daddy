@@ -1,5 +1,6 @@
 package com.example.coursematchdaddy.clean_architecture_layers.gateways.classes;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Program;
@@ -16,26 +17,20 @@ import java.util.List;
  * The GETProgramGateway class is responsible for taking in program data
  * from a CSV file located within the application's storage. The program parses
  * the CSV file and then creates a list of Program objects.
- *
  * The CSV file should be in the following format:
  * ProgramName, ProgramDescription, EnrolmentRequirements, CompletionRequirements, AreaOfStudy
- *
  * An example would be:
  * "Computer Science Specialist", "A specialist program in Computer Science", "None", "None", "Computer Science"
- *
- *
  */
 public class GETProgramGateway {
-    private List<Program> programListData;
-    private File db;
-    private HashMap<String, Program> programListDataMap;
-    private final String path = "/data/user/0/com.example.coursematchdaddy/files/programs.csv";
+    private final File db;
 
     /**
      * Constructs a GETProgramGateway object.
      * Initializes the File object which represents the CSV file located in the app storage.
      */
     public GETProgramGateway() {
+        @SuppressLint("SdCardPath") String path = "/data/user/0/com.example.coursematchdaddy/files/programs.csv";
         db = new File(path);
     }
 
@@ -46,16 +41,21 @@ public class GETProgramGateway {
      */
 
     public List<Program> getProgramsListData() {
-        /** Initialize the list of Program objects and the HashMap of Program objects */
-        this.programListData = new ArrayList<>();
-        this.programListDataMap = new HashMap<>();
-        /** Initialize the BufferedReader object to read the CSV file */
+
+        // Initialize the list of Program objects and the HashMap of Program objects
+        List<Program> programListData = new ArrayList<>();
+        HashMap<String, Program> programListDataMap = new HashMap<>();
+
+        // Initialize the BufferedReader object to read the CSV file
         BufferedReader br = null;
+
         try {
             br = new BufferedReader(new FileReader(this.db));
             // Skip the first line since they are just column names
+
             br.readLine();
             // Read the rest of the file
+
             String line;
             while ((line = br.readLine()) != null) {
                 List<String> programData = parseCSVLine(line);
@@ -64,16 +64,16 @@ public class GETProgramGateway {
                 } else {
                     // Assign the fields to variables
                     String programName = programData.get(0);
+                    String programCode = programName.substring(programName.length() - 9);
                     String programDescription = programData.get(1);
-                    String enrolmentRequirements = programData.get(2);
                     String completionRequirements = programData.get(3);
-                    String areaOfStudy = programData.get(4);
 
                     // Instantiate a Program object and add it to the list of Program objects
-                    Program program = new Program(programName,programName.substring(programName.length() - 9,programName.length()) ,programDescription, completionRequirements);
-                    this.programListData.add(program);
+                    Program program = new Program(programName, programCode ,programDescription, completionRequirements);
+                    programListData.add(program);
+
                     // Map the program title to the Program object
-                    this.programListDataMap.put(programName, program);
+                    programListDataMap.put(programName, program);
                 }
             }
             // Close the BufferedReader
@@ -89,7 +89,7 @@ public class GETProgramGateway {
                 }
             }
         // Return the list of Program objects
-            return this.programListData;
+            return programListData;
         }
 
         /**
@@ -98,7 +98,7 @@ public class GETProgramGateway {
          * @param line The CSV line to parse.
          * @return A List of String containing fields from the CSV line.
          */
-        private List<String> parseCSVLine (String line){
+        public List<String> parseCSVLine(String line){
             List<String> fields = new ArrayList<>();
             StringBuilder currentField = new StringBuilder();
             boolean withinQuotes = false;
