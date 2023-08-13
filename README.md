@@ -145,7 +145,7 @@ _____
 
 <a name="database"></a>
 ### Application Database Specifications
-[Coming Soon]
+We used .csv files for our minimum viable product (MVP) implementation of our user stories. For future development, we plan to implement an SQL relational database to store API-provided and user-generated information.
 _____
 
 <a name="machine-learning-model"></a>
@@ -205,6 +205,7 @@ _____
 
 <a name="Correctness"></a>
 ### Application Correctness
+#### General Information
 In the context of software development, the correctness of an application refers to whether the application behaves as intended and meets its specified requirements. This concept encompasses various aspects that ensure the application's accuracy, reliability, and adherence to its intended purpose. Correctness is a fundamental quality attribute that developers and testers strive to achieve during the software development lifecycle.
 
 Here are some key aspects of an application's correctness:
@@ -221,6 +222,7 @@ Here are some key aspects of an application's correctness:
 
 Achieving correctness requires a combination of careful design, implementation, testing, and quality assurance practices. Developers often work closely with quality assurance professionals and follow development methodologies that emphasize testing and validation to ensure that the application is correct and reliable for its intended users.
 
+#### Application-Specific Information
 We have put considerable thought and effort into designing our Android course-matching application. We have employed Clean Architecture principles and adhered to SOLID Design Principles, which are key factors in ensuring the correctness, maintainability, and scalability of our application. The correctness of our application in the context of the provided information and user stories can be analyzed as follows:
 1. **User Account Creation:**
    The user story involving account creation indicates that users can create accounts to persist their application-related metadata. User data is securely stored, account creation and authentication processes are robust, and privacy considerations are taken into account, all of which contribute to the correctness of this feature.
@@ -244,6 +246,7 @@ _____
 
 <a name="testing"></a>
 ### Application Testing
+#### General Information
 Application testing is a critical phase in the software development lifecycle that involves evaluating a software application to identify defects, errors, and issues. The primary goal of testing is to ensure that the application functions correctly, meets its requirements, and provides a reliable and satisfactory user experience. Testing helps uncover bugs and vulnerabilities before the application is deployed to users, reducing the risk of operational issues and improving overall software quality.
 
 Here are the key aspects of application testing within the context of software development:
