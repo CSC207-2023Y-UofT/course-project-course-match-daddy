@@ -31,7 +31,7 @@ _____
 
 _____
 
-<a name="web-app-link"></a>
+<a name='web-app-link'></a>
 **Design Document Link**: [Design Document](https://docs.google.com/document/d/15TUxfaFlEyd421scretf51ZsUehlfaIpVaOlAHEvrO8/edit?usp=sharing)
 
 **GitHub Repository Link**: [Codebase Repository](https://github.com/CSC207-2023Y-UofT/course-project-course-match-daddy)
@@ -77,9 +77,9 @@ _____
 
 _____
 
-<a name="info"></a>
+<a name='info'></a>
 ## General Information
-<a name="description"></a>
+<a name='description'></a>
 ### Description
 Our software application’s domain is a course-matching application for students. Specifically, our application aims to match University of Toronto students with courses and programs based on students’ academic histories, preferences, and desired learning outcomes. We hope to streamline students’ course- and program-selection processes to reduce their cognitive load of navigating an overwhelming breadth and depth of the course and program offerings at the University of Toronto.
 
@@ -91,7 +91,7 @@ Our software application’s domain is a course-matching application for student
 
 _____
 
-<a name="features"></a>
+<a name='features'></a>
 ### Application Features
 This application has the following features:
 * Users can create an account.
@@ -100,7 +100,7 @@ This application has the following features:
 * The users can save and edit their data and recommendations locally to their smartphones for later viewing.
 _____
 
-<a name="team-roles-and-contributions"></a>
+<a name='team-roles-and-contributions'></a>
 ### Team, Roles, and Contributions
 The following individuals were involved in the development of this software application:
 * [Uyiosa Iyekekpolor](https://github.com/uyoyo0)
@@ -123,12 +123,12 @@ The following individuals were involved in the development of this software appl
   * **Contributions**: Jaspreet was responsible for the sixth user story. Specifically, he handled the development of the application's code related to updating the user's settings (including their survey data). Additionally, he was the team's 'Chief Solutions Architect' and 'Tech Lead' given that he had the most experience developing deployable software and, in particular, Android applications within the team. His contributions primarily were designing the application in adherence to Clean Architecture and SOLID Design Principles; creating application wireframes; teaching command-line interface Git usage processes, Android application development, and web scraping to his teammates; setting up the GitHub repository, including the application's packaging structure, project board, development milestones, development issues, and documentation seen within the README.md file; leading weekly team meetings, including solving application development issues; and crafting the project presentation.
 _____ 
 
-<a name="github"></a>
+<a name='github'></a>
 ### GitHub Repository Specifications
-The GitHub repository is structured as a "Navigation Drawer Views Activity" project within Android Studio. Within the application's source code, files are organized based on their relation to [clear architecture layers](https://github.com/CSC207-2023Y-UofT/course-project-course-match-daddy/tree/main/app/src/main/java/com/example/coursematchdaddy/clean_architecture_layers), whether or not they are an abstract class, and whether or not they are an interface.
+The GitHub repository is structured as a 'Navigation Drawer Views Activity' project within Android Studio. Within the application's source code, files are organized based on their relation to [clear architecture layers](https://github.com/CSC207-2023Y-UofT/course-project-course-match-daddy/tree/main/app/src/main/java/com/example/coursematchdaddy/clean_architecture_layers), whether or not they are an abstract class, and whether or not they are an interface.
 _____
 
-<a name="installation-and-usage"></a>
+<a name='installation-and-usage'></a>
 ### Installation and Usage
 The application can be run locally on our computer or an Android smartphone device (after following the installation instructions that are specified below).
 
@@ -137,13 +137,13 @@ To install the application, first, clone the repository to our machine using the
 ```
 cd <desired-project-directory-pathway>
 git clone https://github.com/CSC207-2023Y-UofT/course-project-course-match-daddy.git
-cd "course-project-course-match-daddy"
+cd 'course-project-course-match-daddy'
 ```
 
 Then, open our project folder in [Android Studio](https://developer.android.com/studio) and run the Android smartphone emulator.
 _____
 
-<a name="architecture-overview"></a>
+<a name='architecture-overview'></a>
 ### Codebase Architecture Overview
 The following outlines the architectural scaffolding of our software application in an effort to design, implement, and maintain a robust and scalable application. We have categorized our classes and interfaces using clean architecture categories, including - from most to least fundamental - by entities, use cases, gateways, controllers, and presenters; the last three categories form a single layer within our software application’s architecture hierarchy. This design choice constitutes packaging by layers. Additionally, SOLID Design Principles were adhered to when designing the content and scope of our codebase’s classes and interfaces. Recall that the SOLID Design Principles are the Single-Responsibility, Open-Closed, Liskov, Interface Segregation, and Dependency Inversion principles.
 
@@ -158,27 +158,27 @@ The following Unified Modeling Language (UML) Diagram diagram depicts the high-l
 ![Course Match Application's UML Design](https://github.com/CSC207-2023Y-UofT/course-project-course-match-daddy/assets/80941606/a02aebe9-e903-4d37-ad86-4a1c4c6e1792)
 _____
 
-<a name="database"></a>
+<a name='database'></a>
 ### Application Database Specifications
 We used .csv files for our minimum viable product (MVP) implementation of our user stories. For future development, we plan to implement an SQL relational database to store API-provided and user-generated information.
 _____
 
-<a name="machine-learning-model"></a>
+<a name='machine-learning-model'></a>
 ### Application Machine Learning Model Specifications
 [Coming Soon]
 _____
 
-<a name="design-information"></a>
+<a name='design-information'></a>
 ## Application Design Information
 The following application design topics were inspired by a previously-submitted ChatGPT-powered coding exercise.
 
-<a name="use-cases"></a>
+<a name='use-cases'></a>
 ### Application Use Cases
 Here are use cases for the given user stories:
 * **User Story 1: Account Creation**
   1. User opens the application.
   2. User enters their email address, username, and/or password.
-  3. User clicks on the "Sign Up" or "Login" buttons.
+  3. User clicks on the 'Sign Up' or 'Login' buttons.
   4. System validates the entered information, checks for existing accounts with the same email, and/or creates a new account.
   5. System redirects the user to the survey page.
 * **User Story 2: Initial Survey**
@@ -186,7 +186,7 @@ Here are use cases for the given user stories:
   2. System stores the survey responses in the user's profile.
   3. System uses the survey data to generate personalized course and program recommendations.
 * **User Story 3: Course Recommendations Carousel**
-  1. User sees a "Recommended Courses" section on their dashboard.
+  1. User sees a 'Recommended Courses' section on their dashboard.
   2. User swipes right on a course card to indicate interest or swipes left to indicate disinterest.
   3. System updates the user's preferences based on their swipes and refines the recommendations accordingly.
   4. System loads new course cards in the carousel based on the updated recommendations.
@@ -195,19 +195,19 @@ Here are use cases for the given user stories:
   2. System displays a detailed page for the selected course, including its content, text-based description, and related metadata.
   4. User can read through the course information and click a button to go back to the list of courses.
 * **User Story 5: Viewing Saved/Recommended Courses and Programs**
-  1. User clicks on the "Courses" or "Programs" tab in the navigation menu.
+  1. User clicks on the 'Courses' or 'Programs' tab in the navigation menu.
   2. System displays a list of recently saved or recommended courses/programs based on the user's interactions and survey responses.
   3. User can scroll through the list, view course/program cards, and click on a card to learn more about a specific course/program.
 * **User Story 6: Updating Survey Data**
-  1. User navigates to the "Settings" section.
+  1. User navigates to the 'Settings' section.
   2. User views their provided survey data and makes necessary updates.
-  3. User clicks on the "Update Preferences" button.
+  3. User clicks on the 'Update Preferences' button.
   4. System validates the updated information and adjusts the recommendations based on the new preferences.
 
 These use cases outline how users interact with the application based on the provided user stories below. They cover actions like account creation, survey completion, viewing course recommendations, accessing course details, managing saved/recommended courses, and updating survey data.
 _____
 
-<a name="user-stories"></a>
+<a name='user-stories'></a>
 ### Application User Stories
 The following user stories breakdown the software usage scenarios specifications into discrete development objectives:
 1. As a user, I want to be able to create an account so that my application-related metadata persists between application usage sessions. 
@@ -218,7 +218,7 @@ The following user stories breakdown the software usage scenarios specifications
 6. As a user, I want to be able to view my provided survey data so that I can update my preferences to get new course and program recommendations.
 _____
 
-<a name="Correctness"></a>
+<a name='Correctness'></a>
 ### Application Correctness
 #### General Information
 In the context of software development, the correctness of an application refers to whether the application behaves as intended and meets its specified requirements. This concept encompasses various aspects that ensure the application's accuracy, reliability, and adherence to its intended purpose. Correctness is a fundamental quality attribute that developers and testers strive to achieve during the software development lifecycle.
@@ -248,7 +248,7 @@ We have put considerable thought and effort into designing our Android course-ma
 4. **Viewing Course Details**:
    Allowing users to view detailed information about a selected course is crucial for informed decision-making. Ensuring that course details, descriptions, and related metadata are accurately displayed and accessible contributes to the correctness of this feature.
 5. **Viewing Saved and Recommended Items**:
-   The "Courses" and "Programs" tabs allow users to view recently saved or recommended courses and programs. The correctness of this feature involves correctly displaying and organizing the user's selections and recommendations.
+   The 'Courses' and 'Programs' tabs allow users to view recently saved or recommended courses and programs. The correctness of this feature involves correctly displaying and organizing the user's selections and recommendations.
 6. **Updating Survey Data**:
    Enabling users to update their survey data for new recommendations is valuable. Ensuring that the updated data is accurately captured and used to generate relevant suggestions contributes to the correctness of this feature.
 
@@ -259,7 +259,7 @@ To ensure the application's correctness further, it's recommended to conduct tho
 Overall, our application's design and adherence to software engineering best practices suggest a solid foundation for creating a correct, robust, and scalable course-matching application for University of Toronto students.
 _____
 
-<a name="testing"></a>
+<a name='testing'></a>
 ### Application Testing
 #### General Information
 Application testing is a critical phase in the software development lifecycle that involves evaluating a software application to identify defects, errors, and issues. The primary goal of testing is to ensure that the application functions correctly, meets its requirements, and provides a reliable and satisfactory user experience. Testing helps uncover bugs and vulnerabilities before the application is deployed to users, reducing the risk of operational issues and improving overall software quality.
@@ -316,7 +316,7 @@ Implementing unit tests is crucial to ensure the reliability and correctness of 
    - Tested the selected course's information retrieval and presentation.
    - Verified that the content, description, and metadata of the selected course are accurately displayed.
 5. **Viewing Saved and Recommended Items**:
-   - Test the functionality of the "Courses" and "Programs" tabs.
+   - Test the functionality of the 'Courses' and 'Programs' tabs.
    - Ensure that the recently saved or recommended items are displayed correctly.
 6. **Updating Survey Data**:
    - Test the process of updating survey data and preferences.
@@ -333,7 +333,7 @@ When writing unit tests, we also considered the following guidelines:
 Since unit tests are just one aspect of testing, we will also consider future implementations of integration tests, end-to-end tests, and user acceptance testing to ensure comprehensive coverage and the overall reliability of our application.
 _____
 
-<a name="efficiency"></a>
+<a name='efficiency'></a>
 ### Application (Memory and Compute) Efficiency
 #### General Information
 In the context of software development, application memory and compute efficiency refer to optimizing how an application uses system resources, specifically memory (RAM) and computing power (CPU cycles). Efficiently managing these resources is crucial for creating software that performs well, consumes less energy, and provides a smooth user experience. Efficient software can run faster, use less memory, and require fewer hardware resources, leading to cost savings and improved user satisfaction.
@@ -393,7 +393,7 @@ To further enhance memory and compute efficiency, we need to:
 By considering both memory and compute efficiency throughout the design and implementation of our Android application, we create a responsive, smooth, and user-friendly experience for our users while ensuring that the application runs efficiently on a variety of devices.
 _____
 
-<a name="modularity"></a>
+<a name='modularity'></a>
 ### Application Modularity
 #### General Information
 Application modularity is a software design principle that promotes breaking down a complex application into smaller, independent, and reusable components called modules. Each module focuses on a specific functionality or feature of the application and can be developed, tested, and maintained independently. Modularity enhances code organization, collaboration among developers, and the overall maintainability and scalability of the software.
@@ -444,7 +444,7 @@ Our application exhibits modularity in the following ways:
 In summary, our Android application's architecture and design principles demonstrate a strong emphasis on modularity. The Clean Architecture layers, adherence to SOLID principles, and separation of concerns collectively contribute to a codebase that is organized, maintainable, and conducive to future development and expansion.
 _____
 
-<a name="extensibility"></a>
+<a name='extensibility'></a>
 ### Application Extensibility
 #### General Information
 Application extensibility is a software design principle that focuses on creating software in a way that allows for the easy and efficient addition of new features, functionalities, or modules without significantly modifying the existing codebase. Extensible applications are designed to accommodate changes and enhancements without causing disruption to the existing system. This flexibility is crucial in keeping software adaptable to evolving user needs and market trends.
@@ -496,7 +496,7 @@ Our application exhibits extensibility in the following ways:
 In summary, our Android application's design and architecture demonstrate a strong foundation for extensibility. The combination of Clean Architecture, SOLID Design Principles, interfaces, and modular components makes it easier to introduce new features, adapt to changing requirements, and extend the application's functionality over time without jeopardizing its stability or existing features.
 _____
 
-<a name="design-principles"></a>
+<a name='design-principles'></a>
 ### Application (SOLID) Design Principles
 #### General Information
 The SOLID design principles are a set of five principles that guide software developers in creating well-structured, maintainable, and scalable object-oriented software. These principles were introduced by Robert C. Martin and represent a foundation for writing clean and robust code that is easy to understand, modify, and extend. Each principle focuses on a specific aspect of software design, contributing to overall software quality.
@@ -533,7 +533,7 @@ Our application's architecture also aligns with Clean Architecture's principles 
 Overall, our application demonstrates a strong understanding and implementation of both SOLID principles and Clean Architecture. These principles should help our application remain flexible, maintainable, and adaptable as it evolves over time. Our emphasis on cohesion, low coupling, and layer separation will likely contribute to the success of our application in the future.
 _____
 
-<a name="clean-architecture"></a>
+<a name='clean-architecture'></a>
 ### Application (Clean) Architecture
 #### General Information
 Clean Architecture is a software design approach introduced by Robert C. Martin that emphasizes the separation of concerns, maintainability, and testability of a software system. It aims to create an architecture that is independent of frameworks, databases, and other external details, focusing on the core business logic and user interactions. Clean Architecture helps developers create software that is flexible, modular, and easy to understand, while also promoting the use of modern software engineering practices.
@@ -584,7 +584,7 @@ Our application aligns with the principles of Clean Architecture in the followin
 In summary, our Android application's architecture aligns well with Clean Architecture principles. The separation of concerns, modularization, dependency inversion, and adherence to SOLID Design Principles contribute to a maintainable, testable, and scalable codebase. This approach will help us handle changes, extend functionality, and maintain a robust application over time.
 _____
 
-<a name="code-smells"></a>
+<a name='code-smells'></a>
 ### Application Code Smells
 #### General Information
 Code smells are indicators or signs in the source code of a software system that suggest potential design or implementation issues. They are not bugs or errors in themselves but rather patterns or practices that might lead to problems such as reduced maintainability, increased complexity, and potential bugs in the future. Identifying and addressing code smells early can help prevent the accumulation of technical debt and improve the overall quality of the codebase.
@@ -608,7 +608,7 @@ Within our application, in particular, we were (and still are) mindful of the fo
 1. **Long and Complex Methods**:
    As our application grows, there might be a risk of having long and complex methods that are responsible for multiple tasks. This can make the code harder to read, understand, and maintain. Consider breaking down these methods into smaller, focused functions that handle specific tasks.
 2. **God Objects**:
-   While our adherence to SOLID principles and the architecture's layering is a positive step, we are cautious of creating classes or components that have an excessive number of responsibilities, also known as "God Objects." This can lead to a lack of cohesion and difficulty in managing these components.
+   While our adherence to SOLID principles and the architecture's layering is a positive step, we are cautious of creating classes or components that have an excessive number of responsibilities, also known as 'God Objects.' This can lead to a lack of cohesion and difficulty in managing these components.
 3. **Overuse of Interfaces**:
    While interfaces promote flexibility, excessive use of interfaces for every class can lead to over-engineering. We make sure that each interface serves a clear purpose and is necessary for abstraction. Unnecessary interfaces can clutter the codebase.
 4. **Duplicated Code**:
@@ -629,7 +629,7 @@ Within our application, in particular, we were (and still are) mindful of the fo
 These potential code smells are areas to watch out for as our application evolves. Regular code reviews, refactoring sessions, and maintaining a strong feedback loop within our development team can help mitigate these issues and keep our codebase clean and maintainable.
 _____
 
-<a name="design-patterns"></a>
+<a name='design-patterns'></a>
 ### Application Design Patterns
 #### General Information
 Design patterns are reusable solutions to common problems that arise during software design and development. They provide established best practices for structuring code, solving specific design challenges, and creating software that is maintainable, scalable, and efficient. Design patterns help developers communicate and share their knowledge by providing a common vocabulary and framework for solving recurring problems in software development.
@@ -683,7 +683,7 @@ We have implemented many beneficial design patterns for our Android application.
 Overall, these patterns enhance the maintainability, flexibility, and readability of our codebase.
 _____
 
-<a name="accessibility"></a>
+<a name='accessibility'></a>
 ### Application Accessibility
 #### General Information
 Application accessibility, also known as web accessibility or digital accessibility, refers to the practice of designing and developing software applications in a way that ensures people with disabilities can access and interact with the application's content, features, and functionalities. The goal of application accessibility is to provide an inclusive user experience for individuals with various disabilities, including visual, auditory, cognitive, and motor impairments.
@@ -748,7 +748,7 @@ For future development, we may implement:
 Overall, accessibility is an ongoing process that depends upon user feedback and evolving best practices. By prioritizing accessibility, we will create a more inclusive and user-friendly experience for all of our application's users.
 _____
 
-<a name="ethics"></a>
+<a name='ethics'></a>
 ### Application Ethics
 #### General Information
 Application ethics, also known as software ethics or technology ethics, refers to the ethical considerations and responsibilities that software developers and technology companies have when creating, designing, and deploying software applications and technology solutions. It involves making decisions that align with ethical principles, respect user rights, consider potential societal impacts, and promote the well-being of individuals and communities.
@@ -809,7 +809,7 @@ As our application interacts with students and their academic data, there are se
 By integrating these ethical considerations into our application's design, development, and operation, we can create a product that not only fulfils its functional goals but also respects and protects the rights and well-being of its users. Ethical practices will contribute to building trust and credibility for our application within the academic community.
 _____
 
-<a name="future-development"></a>
+<a name='future-development'></a>
 ### Application Future Development
 Building upon the existing user stories and the application's domain, here are some future development ideas that could enhance the course-matching application:
 1. **Advanced Matching Algorithms**:
@@ -846,9 +846,9 @@ Building upon the existing user stories and the application's domain, here are s
 These future development ideas aim to enhance the user experience, provide more personalized recommendations, and offer additional tools and resources to help students navigate their academic journey more effectively.
 _____
 
-<a name=""></a>
+<a name=''></a>
 ## Miscellaneous Information
-<a name="reflection"></a>
+<a name='reflection'></a>
 ## Project Reflection
 ### Group Reflection
 * **Challenges**:
@@ -906,16 +906,16 @@ The following individuals were involved in the development of this software appl
       * [Coming Soon]
 _____
 
-<a name="questions"></a>
+<a name='questions'></a>
 ## Questions
 If we have questions for our team, please [email](utoronto.csc207h1.group.45@gmail.com) us.
 
 _____
-<a name="contributions"></a>
+<a name='contributions'></a>
 ## External Contributions
 This project is currently not open for external contributions.
 _____
 
-<a name="license"></a>
+<a name='license'></a>
 ## License
 This project has an MIT License.
