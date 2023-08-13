@@ -399,6 +399,26 @@ Here are the key aspects of application modularity within the context of softwar
   5. **Service Modules:** Offer specific services, such as authentication, logging, or messaging, which can be used by other modules.
 
 By adopting a modular approach to software development, developers can create applications that are easier to understand, maintain, and extend. Modular design enhances code quality, promotes collaboration, and contributes to the overall success of a software project.
+
+Our application exhibits modularity in the following ways:
+1. **Clean Architecture Layers:**
+   Our application's architecture follows the principles of Clean Architecture, which promotes modularity by organizing code into distinct layers: entities, use cases, gateways, controllers, and presenters. Each layer has a clear responsibility, ensuring a separation of concerns and making it easier to maintain and extend the application.
+2. **Single Responsibility Principle (SRP):**
+   The SOLID principle of SRP is reflected in our design. Each class and interface has a single responsibility, contributing to high cohesion and focused functionality. This modular approach ensures that each component performs a specific task, making code easier to understand and maintain.
+3. **Dependency Inversion Principle (DIP):**
+   The use of interfaces to achieve dependency inversion enables low coupling between classes. This promotes modularity by allowing classes to depend on abstractions rather than concrete implementations. As a result, changes in one module are less likely to affect others.
+4. **Reuse of Components:**
+   Our application's granular and fungible classes and interfaces, packaged by Clean Architecture layers, facilitate reuse. The modular structure allows us to easily incorporate existing components into new features, enhancing development efficiency and reducing redundant code.
+5. **Separation of Concerns:**
+   The division of responsibilities among layers (e.g., use cases, controllers, presenters) demonstrates separation of concerns. Each layer addresses a specific aspect of the application's functionality, contributing to a modular design that can be modified or extended without impacting unrelated components.
+6. **Encapsulation and Abstraction:**
+   The abstraction provided by interfaces and the encapsulation of functionality within classes contribute to modularity. Abstraction hides implementation details, allowing components to interact without needing to know how each other works internally.
+7. **Component Cohesion:**
+   Our design promotes high cohesion within individual classes and interfaces. Each entity or use case has a clearly defined purpose, resulting in code that is easier to reason about and less prone to unexpected side effects.
+8. **Maintainability and Scalability:**
+   Modularity enhances the maintainability and scalability of our application. Changes or updates can be made to specific modules without affecting the entire codebase. This makes it easier to add new features, fix bugs, and adapt to evolving requirements.
+
+In summary, our Android application's architecture and design principles demonstrate a strong emphasis on modularity. The Clean Architecture layers, adherence to SOLID principles, and separation of concerns collectively contribute to a codebase that is organized, maintainable, and conducive to future development and expansion.
 _____
 
 <a name="extensibility"></a>
@@ -427,6 +447,28 @@ Here are the key aspects of application extensibility within the context of soft
   5. **Module/Add-on System:** Create an architecture that allows users to install and activate new modules or add-ons to enhance functionality.
 
 By designing applications with extensibility in mind, developers can ensure that their software remains adaptable and relevant over time. An extensible application is better equipped to meet the changing needs of users, embrace new technologies, and maintain a competitive edge in the market.
+
+Our application exhibits extensibility in the following ways:
+1. **Clean Architecture Layers:**
+   The Clean Architecture structure we have employed promotes extensibility by separating concerns into distinct layers. New features or changes can be added in specific layers without requiring modifications to other layers, reducing the risk of unintended side effects.
+2. **Single Responsibility Principle (SRP):**
+   The adherence to the SRP ensures that each class or interface has a single responsibility. This modularity allows us to extend or modify a specific component without affecting the entire system.
+3. **Open-Closed Principle (OCP):**
+   Our design follows the OCP by using abstract classes and interfaces that can be extended by subclasses. This allows us to introduce new functionality by creating new classes rather than modifying existing ones, ensuring that existing code remains stable.
+4. **Dependency Inversion Principle (DIP):**
+   Dependency inversion, achieved through the use of interfaces and dependency injection, allows for the replacement of concrete implementations with new ones. This makes it easier to introduce new features without disrupting the existing codebase.
+5. **Interfaces and Abstraction:**
+   The use of interfaces and abstract classes provides a clear contract between components. This abstraction allows new implementations to be introduced without affecting the existing interactions between modules.
+6. **Modular Components:**
+   Our application's architecture is composed of modular components, each with a specific responsibility. This modularity enables the addition of new features or modules without impacting the rest of the application.
+7. **Low Coupling:**
+   The low coupling between components achieved through interfaces and dependency inversion enhances extensibility. Changes in one component are less likely to affect others, making it easier to extend the application.
+8. **Packaging by Layers:**
+   Packaging classes and interfaces by Clean Architecture layers contributes to extensibility. New features or changes can be introduced at specific layers, minimizing the impact on other layers and facilitating the addition of new functionalities.
+9. **High Cohesion:**
+   Each class and interface has high cohesion due to its single responsibility. This design principle ensures that new features can be added without conflicting with existing behavior.
+
+In summary, our Android application's design and architecture demonstrate a strong foundation for extensibility. The combination of Clean Architecture, SOLID Design Principles, interfaces, and modular components makes it easier to introduce new features, adapt to changing requirements, and extend the application's functionality over time without jeopardizing its stability or existing features.
 _____
 
 <a name="design-principles"></a>
@@ -447,7 +489,7 @@ Here's a brief overview of each SOLID principle within the context of software d
 
 Together, the SOLID principles provide a comprehensive framework for designing maintainable and extensible software. Adhering to these principles helps developers create code that is less tightly coupled, more modular, and less prone to unexpected side effects when modifications are made. By following these principles, developers can achieve better code quality, improved maintainability, and greater ease in accommodating changes and new features in their software projects.
 
-Let's break down how the SOLID principles are applied in our application structure:
+Our application employs SOLID Design Principles in the following ways:
 1. **Single Responsibility Principle (SRP):**
    Each class and interface in our application is designed to have a single responsibility. This adherence to SRP ensures that each component focuses on a specific task, making the codebase more maintainable and easier to understand.
 2. **Open-Closed Principle (OCP):**
