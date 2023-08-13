@@ -533,7 +533,7 @@ _____
 <a name="clean-architecture"></a>
 ### Application (Clean) Architecture
 #### General Information
-Certainly! Clean Architecture is a software design approach introduced by Robert C. Martin that emphasizes the separation of concerns, maintainability, and testability of a software system. It aims to create an architecture that is independent of frameworks, databases, and other external details, focusing on the core business logic and user interactions. Clean Architecture helps developers create software that is flexible, modular, and easy to understand, while also promoting the use of modern software engineering practices.
+Clean Architecture is a software design approach introduced by Robert C. Martin that emphasizes the separation of concerns, maintainability, and testability of a software system. It aims to create an architecture that is independent of frameworks, databases, and other external details, focusing on the core business logic and user interactions. Clean Architecture helps developers create software that is flexible, modular, and easy to understand, while also promoting the use of modern software engineering practices.
 
 The Clean Architecture consists of concentric circles or layers, each representing a distinct level of abstraction and responsibility. These layers are designed to be independent of one another, with the innermost layers containing the most critical business logic and the outer layers dealing with technical details and user interfaces.
 
@@ -808,7 +808,7 @@ _____
 
 <a name="future-development"></a>
 ### Application Future Development
-Certainly! Building upon the existing user stories and the application's domain, here are some future development ideas that could enhance the course-matching application:
+Building upon the existing user stories and the application's domain, here are some future development ideas that could enhance the course-matching application:
 1. **Advanced Matching Algorithms**:
    Develop more sophisticated algorithms for course matching. Incorporate machine learning techniques to provide more accurate and personalized course recommendations based on students' academic histories and preferences.
 2. **Real-time Collaboration and Discussions**:
