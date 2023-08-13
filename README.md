@@ -128,16 +128,6 @@ _____
 The GitHub repository is structured as a "Navigation Drawer Views Activity" project within Android Studio. Within the application's source code, files are organized based on their relation to [clear architecture layers](https://github.com/CSC207-2023Y-UofT/course-project-course-match-daddy/tree/main/app/src/main/java/com/example/coursematchdaddy/clean_architecture_layers), whether or not they are an abstract class, and whether or not they are an interface.
 _____
 
-<a name="database"></a>
-### Application Database Specifications
-[Coming Soon]
-_____
-
-<a name="machine-learning-model"></a>
-### Application Machine Learning Model Specifications
-[Coming Soon]
-_____
-
 <a name="installation-and-usage"></a>
 ### Installation and Usage
 The application can be run locally on your computer or an Android smartphone device (after following the installation instructions that are specified below).
@@ -153,6 +143,16 @@ cd "course-project-course-match-daddy"
 Then, open your project folder in [Android Studio](https://developer.android.com/studio) and run the Android smartphone emulator.
 _____
 
+<a name="database"></a>
+### Application Database Specifications
+[Coming Soon]
+_____
+
+<a name="machine-learning-model"></a>
+### Application Machine Learning Model Specifications
+[Coming Soon]
+_____
+
 <a name="design-information"></a>
 ## Application Design Information
 _____
@@ -161,37 +161,33 @@ _____
 ### Application Use Cases
 Here are use cases for the given user stories:
 * **User Story 1: Account Creation**
-  1. User opens the application and clicks on the "Sign Up" button.
-  2. User enters their email address, username, and password.
-  3. User clicks on the "Create Account" button.
-  4. System validates the entered information, checks for existing accounts with the same email, and creates a new account.
-  5. System displays a success message and redirects the user to the login page.
+  1. User opens the application.
+  2. User enters their email address, username, and/or password.
+  3. User clicks on the "Sign Up" or "Login" buttons.
+  4. System validates the entered information, checks for existing accounts with the same email, and/or creates a new account.
+  5. System redirects the user to the survey page.
 * **User Story 2: Initial Survey**
-  1. User logs into their account and navigates to the "Profile" section.
-  2. User clicks on the "Take Initial Survey" button.
-  3. User answers questions about their academic history, preferences, and desired learning outcomes.
-  4. System stores the survey responses in the user's profile.
-  5. System uses the survey data to generate personalized course and program recommendations.
+  1. User answers questions about their academic history, preferences, and desired learning outcomes.
+  2. System stores the survey responses in the user's profile.
+  3. System uses the survey data to generate personalized course and program recommendations.
 * **User Story 3: Course Recommendations Carousel**
-  1. User logs into their account and sees a "Recommended Courses" section on their dashboard.
+  1. User sees a "Recommended Courses" section on their dashboard.
   2. User swipes right on a course card to indicate interest or swipes left to indicate disinterest.
   3. System updates the user's preferences based on their swipes and refines the recommendations accordingly.
   4. System loads new course cards in the carousel based on the updated recommendations.
 * **User Story 4: Course Details**
-  1. User navigates to the "Courses" section from the menu.
-  2. User clicks on a course card from the list of recommended courses.
-  3. System displays a detailed page for the selected course, including its content, text-based description, and related metadata.
+  1. User clicks on a course card from the list of recommended courses.
+  2. System displays a detailed page for the selected course, including its content, text-based description, and related metadata.
   4. User can read through the course information and click a button to go back to the list of courses.
 * **User Story 5: Viewing Saved/Recommended Courses and Programs**
   1. User clicks on the "Courses" or "Programs" tab in the navigation menu.
   2. System displays a list of recently saved or recommended courses/programs based on the user's interactions and survey responses.
   3. User can scroll through the list, view course/program cards, and click on a card to learn more about a specific course/program.
 * **User Story 6: Updating Survey Data**
-  1. User navigates to the "Profile" section.
-  2. User clicks on the "Edit Survey" button.
-  3. User views their provided survey data and makes necessary updates.
-  4. User clicks on the "Update Preferences" button.
-  5. System validates the updated information and adjusts the recommendations based on the new preferences.
+  1. User navigates to the "Settings" section.
+  2. User views their provided survey data and makes necessary updates.
+  3. User clicks on the "Update Preferences" button.
+  4. System validates the updated information and adjusts the recommendations based on the new preferences.
 
 These use cases outline how users interact with the application based on the provided user stories below. They cover actions like account creation, survey completion, viewing course recommendations, accessing course details, managing saved/recommended courses, and updating survey data.
 _____
@@ -224,6 +220,26 @@ Here are some key aspects of an application's correctness:
 10. **Testing:** Rigorous testing is essential to validate the correctness of an application. This includes unit testing, integration testing, regression testing, and user acceptance testing to identify and address issues before deployment.
 
 Achieving correctness requires a combination of careful design, implementation, testing, and quality assurance practices. Developers often work closely with quality assurance professionals and follow development methodologies that emphasize testing and validation to ensure that the application is correct and reliable for its intended users.
+
+We have put considerable thought and effort into designing our Android course-matching application. We have employed Clean Architecture principles and adhered to SOLID Design Principles, which are key factors in ensuring the correctness, maintainability, and scalability of our application. The correctness of our application in the context of the provided information and user stories can be analyzed as follows:
+1. **User Account Creation:**
+   The user story involving account creation indicates that users can create accounts to persist their application-related metadata. User data is securely stored, account creation and authentication processes are robust, and privacy considerations are taken into account, all of which contribute to the correctness of this feature.
+2. **Initial Survey and Recommendations:**
+   The ability for users to complete an initial survey and receive course and program recommendations based on their academic history and preferences is aligned with our application's purpose. Correctness here entails accurately capturing user preferences and providing relevant recommendations based on that data.
+3. **Viewing Recommended Courses:**
+   The ability to view recommended course cards and interact with them by swiping indicates a user-friendly approach to presenting recommendations. Ensuring that users can interact smoothly with the carousel and that the swiping gestures are responsive and intuitive contributes to the correctness of this feature.
+4. **Viewing Course Details:**
+   Allowing users to view detailed information about a selected course is crucial for informed decision-making. Ensuring that course details, descriptions, and related metadata are accurately displayed and accessible contributes to the correctness of this feature.
+5. **Viewing Saved and Recommended Items:**
+   The "Courses" and "Programs" tabs allow users to view recently saved or recommended courses and programs. The correctness of this feature involves correctly displaying and organizing the user's selections and recommendations.
+6. **Updating Survey Data:**
+   Enabling users to update their survey data for new recommendations is valuable. Ensuring that the updated data is accurately captured and used to generate relevant suggestions contributes to the correctness of this feature.
+
+In addition to the user stories, our focus on adhering to SOLID design principles and Clean Architecture layers is likely to enhance the correctness of our application. These principles promote modularity, maintainability, and clear separation of concerns, all of which contribute to the overall correctness and reliability of our codebase.
+
+To ensure the application's correctness further, it's recommended to conduct thorough testing, including unit tests, integration tests, and user acceptance testing. Testing will help identify and address any issues or discrepancies that might affect the accuracy and reliability of our application's functionality.
+
+Overall, our application's design and adherence to software engineering best practices suggest a solid foundation for creating a correct, robust, and scalable course-matching application for University of Toronto students.
 _____
 
 <a name="testing"></a>
@@ -266,6 +282,36 @@ In particular, Android Studio has the capacity to perform the following types of
   * [Coming Soon]
 * **Compatibility Testing**:
   * [Coming Soon]
+
+Implementing unit tests is crucial to ensure the reliability and correctness of our Android application. Unit tests focus on testing individual units of code in isolation, such as methods, functions, or classes. Given the complexity of our application, it's important to have a solid unit testing strategy that covers various aspects of our user stories and architectural design. Each user story-related segment of the codebase was tested as followed: 
+1. **User Account Creation:**
+   - Tested the account creation process by mocking the necessary components (e.g., user data storage, authentication) and asserting that the account was created successfully.
+   - Verified that the user's application-related metadata persisted between sessions.
+2. **Initial Survey and Recommendations:**
+   - Tested the survey completion by simulating user input and checking if the survey data was correctly captured.
+   - Mocked the recommendation algorithm and validated that the recommended courses aligned with the survey input.
+3. **Viewing Recommended Courses:**
+   - Tested the carousel's functionality, including swiping right/left on recommended courses.
+   - Ensured that the carousel correctly displayed the recommended course cards.
+4. **Viewing Course Details:**
+   - Tested the selected course's information retrieval and presentation.
+   - Verified that the content, description, and metadata of the selected course are accurately displayed.
+5. **Viewing Saved and Recommended Items:**
+   - Test the functionality of the "Courses" and "Programs" tabs.
+   - Ensure that the recently saved or recommended items are displayed correctly.
+6. **Updating Survey Data:**
+   - Test the process of updating survey data and preferences.
+   - Verify that the updated data reflects the user's new preferences and that new recommendations are generated accordingly.
+
+When writing unit tests, we also considered the following guidelines:
+- **Isolation:** Unit tests should isolate the unit of code being tested. Use mocking frameworks to simulate the behavior of dependencies and ensure that tests focus solely on the unit being tested.
+- **Coverage:** Aim for comprehensive test coverage. Test various scenarios, including edge cases, valid inputs, and potential errors.
+- **Readability:** Write clear and concise test cases with descriptive names that reflect the purpose of the test.
+- **Maintainability:** As our application evolves, ensure that unit tests remain up-to-date. Regularly refactor tests alongside code changes.
+- **Automation:** Automate our tests to run as part of your build and deployment pipeline. This ensures that tests are run consistently and automatically.
+- **Test-Driven Development (TDD):** Consider adopting a TDD approach, where we write tests before writing the actual code. This can help shape our code design and improve test coverage.
+
+Since unit tests are just one aspect of testing, we will also consider future implementations of integration tests, end-to-end tests, and user acceptance testing to ensure comprehensive coverage and the overall reliability of our application.
 _____
 
 <a name="efficiency"></a>
@@ -293,7 +339,7 @@ Key considerations for compute efficiency include:
 5. **Asynchronous Operations:** Use asynchronous programming paradigms to free up the CPU from waiting for I/O operations to complete.
 6. **Resource Sharing:** Share resources efficiently among different components or users to prevent resource contention and bottlenecks.
 
-Optimizing memory and compute efficiency requires a deep understanding of the application's architecture, programming languages, and the underlying hardware. Developers often use profiling tools and performance monitoring to identify bottlenecks and areas for improvement. Striking a balance between memory and compute efficiency is crucial, as over-optimization in one area can negatively impact the other. Efficient software development results in applications that are fast, responsive, and resource-friendly, contributing to a positive user experience and efficient utilization of hardware resources.
+Optimizing memory and compute efficiency requires a deep understanding of the application's architecture, programming languages, and underlying hardware. Developers often use profiling tools and performance monitoring to identify bottlenecks and areas for improvement. Striking a balance between memory and compute efficiency is crucial, as over-optimization in one area can negatively impact the other. Efficient software development results in applications that are fast, responsive, and resource-friendly, contributing to a positive user experience and efficient utilization of hardware resources.
 _____
 
 <a name="modularity"></a>
