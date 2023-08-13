@@ -22,16 +22,14 @@ public class SettingsControllerTest extends TestCase {
     public static final String EMAIL = "example@mail.com";
     public static final String PASSWORD = "password";
     public void testCollectSettingsData() {
-        String username = "exampleUser";
-        String email = "example@mail.com";
-        String password = "password";
+
+        //Create inputField for the argument
         HashMap<String, String> inputField = new HashMap<>();
 
-
-
-        username = "newUser";
-        email = "new@mail.com";
-        password = "newpassword";
+        //Crete credential information
+        String username = "newUser";
+        String email = "new@mail.com";
+        String password = "newpassword";
 
         //Inserting new info into inputField
         inputField.put("username", username);
@@ -41,21 +39,23 @@ public class SettingsControllerTest extends TestCase {
         inputField.put("numOfCredits", "2.0");
         inputField.put("programOfStudy", "Comp Sci");
 
+        //Creates mock interfaces for interacting with the database
         ExtractUserDataInterfaceMock extract = new ExtractUserDataInterfaceMock();
         VerifyLoginDataInterfaceMock verify  = new VerifyLoginDataInterfaceMock();
         CreateUserAccountInterfaceMock create = new CreateUserAccountInterfaceMock();
 
+        //Creates the SettingsController
         SettingsController controller = new SettingsController(username, inputField, extract, create, verify);
 
+        //Checks for successful process
         boolean success = controller.collectSettingsData();
         assertTrue(success);
 
     }
 
     public void testGetUsername() {
+        //Create InputField for the argument of the call
         HashMap<String, String> inputField = new HashMap<>();
-
-
 
         //Inserting new info into inputField
         inputField.put("username", USERNAME);
@@ -65,18 +65,21 @@ public class SettingsControllerTest extends TestCase {
         inputField.put("numOfCredits", "2.0");
         inputField.put("programOfStudy", "Comp Sci");
 
+        //Creates mock interface for interacting with the database
         ExtractUserDataInterfaceMock extract = new ExtractUserDataInterfaceMock();
         VerifyLoginDataInterfaceMock verify  = new VerifyLoginDataInterfaceMock();
         CreateUserAccountInterfaceMock create = new CreateUserAccountInterfaceMock();
 
+        //Creates the controller and calls the tested method
         SettingsController controller = new SettingsController(USERNAME, inputField, extract, create, verify);
 
+        //Compares results
         String resultingUsername = controller.getUsername();
         assertEquals(USERNAME, resultingUsername);
     }
 
     // Mock implementation of VerifyLoginDataInterface for testing
-    private class VerifyLoginDataInterfaceMock implements VerifyLoginDataInterface {
+    private static class VerifyLoginDataInterfaceMock implements VerifyLoginDataInterface {
         @Override
         public boolean verifyUserProvidedData(String username, String password) {
             // Mocking the verification process, always returning true for testing purposes
@@ -95,7 +98,7 @@ public class SettingsControllerTest extends TestCase {
     }
 
     // Mock implementation of CreateUserAccountInterface for testing
-    private class CreateUserAccountInterfaceMock implements CreateUserAccountInterface {
+    private static class CreateUserAccountInterfaceMock implements CreateUserAccountInterface {
 
         @Override
         public boolean updateUserData(User userData) {
@@ -114,7 +117,7 @@ public class SettingsControllerTest extends TestCase {
     }
 
     //Mock implementation of ExtractUserDataInterface for testing
-    private class ExtractUserDataInterfaceMock implements ExtractUserDataInterface {
+    private static class ExtractUserDataInterfaceMock implements ExtractUserDataInterface {
 
         @Override
         public User getUserData(String email) {

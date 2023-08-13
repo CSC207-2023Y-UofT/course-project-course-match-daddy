@@ -34,15 +34,19 @@ public class UpdateSettingsTest extends TestCase {
         coursesTaken.add("ISP100");
         User userData = new LoggedInUser(USERNAME, EMAIL, PASSWORD);
 
+        //Creating use case instance
         SaveSurveyData settingsUpdate = new SaveSurveyData(userData);
 
+        //Creates mock interface for the database
         CreateUserAccountInterfaceMock db = new CreateUserAccountInterfaceMock();
 
+        //variables for construction of survey object
         String newUsername = "newUser";
         String newEmail = "newemail@gmail.com";
         String newPassword = "newPassword";
         String newProgram = "Mathematics";
 
+        //Information needed to call the tested method
         Map<String, Course> selectedCourses = new HashMap<>();
         Course tempCourse = new ArtsAndSciencesCourse("Writing", "ISP100", "Good", "/", new HashMap<>() );
         selectedCourses.put(tempCourse.getCourseTitle(), tempCourse);
@@ -51,10 +55,13 @@ public class UpdateSettingsTest extends TestCase {
         Program tempProgram = new Type1Program("English", "ENG", "good", "Nothing");
         selectedPrograms.put(tempProgram.getProgramTitle(), tempProgram);
 
+        //Creates the survey object (UserData)
         Survey surveyInfo = new UserData(newUsername, newEmail, newPassword, newProgram, numCredits, coursesTaken, completeData);
 
+        //Stores if method call is successful
         boolean success = settingsUpdate.updateSettings(newUsername, newEmail, newPassword, selectedCourses, selectedPrograms, surveyInfo, db);
 
+        //Checks changes made
         assertEquals(userData.getEmail(), newEmail);
         assertEquals(userData.getUserSurveyData(), surveyInfo);
         assertEquals(userData.getUsername(), newUsername);
