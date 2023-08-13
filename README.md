@@ -78,8 +78,6 @@ _____
 
 <a name="info"></a>
 ## General Information
-_____
-
 <a name="description"></a>
 ### Description
 Our software application’s domain is a course-matching application for students. Specifically, our application aims to match University of Toronto students with courses and programs based on students’ academic histories, preferences, and desired learning outcomes. We hope to streamline students’ course- and program-selection processes to reduce their cognitive load of navigating an overwhelming breadth and depth of the course and program offerings at the University of Toronto.
@@ -105,7 +103,7 @@ _____
 The following individuals were involved in the development of this software application:
 * [Uyiosa Iyekekpolor](https://github.com/uyoyo0)
   * **Role**: Data Specialist and Software Developer
-  * **Contributions**: Uyiosa was responsible for the first user story. Specifically, he handled the development of the application's code related to its sign-up and login features, and the development of the application's algorithm.
+  * **Contributions**: Uyiosa was responsible for the first user story. Specifically, he handled the development of the application's code related to its sign-up and login features, and the development of the application's algorithm. Additionally, Uyiosa spearheaded most of the views' design and corresponding activity files' implementation along with Dev.
 * [Gagandeep Singh Lubana](https://github.com/GagandeepLubana)
   * **Role**: Software Developer
   * **Contributions**: Gagan was responsible for the second user story. Specifically, he handled the development of the application's code related to collecting survey data from the user.
@@ -114,10 +112,10 @@ The following individuals were involved in the development of this software appl
   * **Contributions**: Lavya was responsible for the third user story. Specifically, he handled the development of the application's code related to displaying recommended courses and programs within the application's carousel.
 * [Dev Vora](https://github.com/realdevvora)
   * **Role**: Software Developer
-  * **Contributions**: Dev was responsible for the fourth user story. Specifically, he handled the development of the application's code related to courses and programs.
+  * **Contributions**: Dev was responsible for the fourth user story. Specifically, he handled the development of the application's code related to courses and programs. Additionally, Dev spearheaded most of the views' design and corresponding activity files' implementation along with Uyiosa and was a leader within the team.
 * [Manav Singh](https://github.com/M4N4VS1NGH)
   * **Role**: Data Specialist and Software Developer
-  * **Contributions**: Manav was responsible for the fifth user story. Specifically, he handled the development of the application's code related to displaying the user's saved courses and programs within the 'Courses' and 'Programs' views.
+  * **Contributions**: Manav was responsible for the fifth user story. Specifically, he handled the development of the application's code related to displaying the user's saved courses and programs within the 'Courses' and 'Programs' views. Manav's web-scraping of courses' and programs' data using a [Python script](https://github.com/M4N4VS1NGH/UofT-Scraper) was paramount to the success of this project.
 * [Jaspreet Khela](https://github.com/JaspreetKhela)
   * **Role**: Team Lead and Software Developer
   * **Contributions**: Jaspreet was responsible for the sixth user story. Specifically, he handled the development of the application's code related to updating the user's settings (including their survey data). Additionally, he was the team's 'Chief Solutions Architect' and 'Tech Lead' given that he had the most experience developing deployable software and, in particular, Android applications within the team. His contributions primarily were designing the application in adherence to Clean Architecture and SOLID Design Principles; creating application wireframes; teaching command-line interface Git usage processes, Android application development, and web scraping to his teammates; setting up the GitHub repository, including the application's packaging structure, project board, development milestones, development issues, and documentation seen within the README.md file; leading weekly team meetings, including solving application development issues; and crafting the project presentation.
@@ -155,8 +153,6 @@ _____
 
 <a name="design-information"></a>
 ## Application Design Information
-_____
-
 <a name="use-cases"></a>
 ### Application Use Cases
 Here are use cases for the given user stories:
@@ -833,8 +829,6 @@ _____
 
 <a name=""></a>
 ## Miscellaneous Information
-_____
-
 <a name="reflection"></a>
 ## Project Reflection
 ### Group Reflection
