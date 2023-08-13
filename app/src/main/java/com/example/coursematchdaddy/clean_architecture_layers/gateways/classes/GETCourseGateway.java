@@ -1,5 +1,6 @@
 package com.example.coursematchdaddy.clean_architecture_layers.gateways.classes;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Course;
@@ -17,33 +18,26 @@ import java.util.List;
  * The GETCourseGateway class represents a gateway responsible for retrieving course data
  * from a CSV file in the app's internal storage. It parses the CSV file containing course
  * information and provides a list of Course objects.
- *
  * The CSV file should be in the following format:
  * CourseName,CourseCode,CourseDescription,DistributionRequirements,
  * BreadthRequirements,Prerequisites,Corequisites,Hours
- *
  * Example:
  * "Introduction to Computer Science","CS108","An introductory course to programming",
  * "Mathematics","Natural Sciences","None","None","3 hours"
- *
  * The course data is extracted from the CSV file, and a list of Course objects is created
  * containing ArtsAndSciencesCourse objects. The course data is also stored in a HashMap
  * for easy retrieval.
- *
  * This class assumes that the CSV file is located at the specified path in the app's internal storage.
  */
 public class GETCourseGateway {
-    private List<Course> coursesListData;
-    private HashMap<String, Course> coursesListDataMap;
-    private File db;
-    private final String path = "/data/user/0/com.example.coursematchdaddy/files/artssci.csv";
-    private String imageURL;
+    private final File db;
 
     /**
      * Constructs a GETCourseGateway object.
      * Initializes the File object representing the CSV file in the app's internal storage.
      */
     public GETCourseGateway() {
+        @SuppressLint("SdCardPath") String path = "/data/user/0/com.example.coursematchdaddy/files/artssci.csv";
         db = new File(path);
     }
 
@@ -52,9 +46,10 @@ public class GETCourseGateway {
      *
      * @return A List of Course objects representing courses extracted from the CSV file.
      */
+    @SuppressLint("SdCardPath")
     public List<Course> getCoursesListData() {
-        this.coursesListData = new ArrayList<>();
-        this.coursesListDataMap = new HashMap<>();
+        List<Course> coursesListData = new ArrayList<>();
+        HashMap<String, Course> coursesListDataMap = new HashMap<>();
         BufferedReader br = null;
         try {
             br = new BufferedReader(new FileReader(this.db));
@@ -84,6 +79,7 @@ public class GETCourseGateway {
                     // Add other relevant data as needed
 
                     // Check breadth requirement and set the imageURL accordingly
+                    String imageURL;
                     if (breadthRequirements.contains("Creative and Cultural Representations (1)")) {
                         imageURL = "/data/user/0/com.example.coursematchdaddy/files/creative.png";
                     } else if (breadthRequirements.contains("Thought, Belief and Behaviour (2)")) {
@@ -101,8 +97,8 @@ public class GETCourseGateway {
                     // Create a new Course object with the extracted data
                     Course course = new ArtsAndSciencesCourse(courseName, courseCode, courseDescription,
                             imageURL, miscellaneousCourseData);
-                    this.coursesListData.add(course);
-                    this.coursesListDataMap.put(courseCode, course);
+                    coursesListData.add(course);
+                    coursesListDataMap.put(courseCode, course);
                 } else {
                     Log.e("LOG", "INVALID INPUT");
                 }
@@ -119,7 +115,7 @@ public class GETCourseGateway {
             }
         }
 
-        return this.coursesListData;
+        return coursesListData;
     }
 
     /**
@@ -128,7 +124,7 @@ public class GETCourseGateway {
      * @param line The CSV line to parse.
      * @return A List of String containing fields from the CSV line.
      */
-    private List<String> parseCSVLine(String line) {
+    public List<String> parseCSVLine(String line) {
         List<String> fields = new ArrayList<>();
         StringBuilder currentField = new StringBuilder();
         boolean withinQuotes = false;
@@ -149,3 +145,4 @@ public class GETCourseGateway {
         return fields;
     }
 }
+
