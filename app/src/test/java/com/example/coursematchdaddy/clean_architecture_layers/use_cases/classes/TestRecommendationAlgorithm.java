@@ -1,15 +1,11 @@
-package com.example.coursematchdaddy.UseCaseTests.RecommendationAlgorithm;
+package com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Course;
-import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.Program;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.course_subclasses.ArtsAndSciencesCourse;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.user_subclasses.GuestUser;
-import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.RecommendationAlgorithm;
 
 import org.junit.Test;
 
