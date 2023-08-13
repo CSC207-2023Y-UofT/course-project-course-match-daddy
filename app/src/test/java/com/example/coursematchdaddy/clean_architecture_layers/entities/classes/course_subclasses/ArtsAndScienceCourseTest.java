@@ -15,6 +15,8 @@ public class ArtsAndScienceCourseTest {
     ArtsAndSciencesCourse course;
 
     public void populate() {
+
+        // populating miscdata and course object
         this.miscData = new HashMap<>();
         miscData.put("ProgramArea", "Computer Science");
         miscData.put("Breadth", "The Physical and Mathematical Universes (5)");
@@ -29,6 +31,8 @@ public class ArtsAndScienceCourseTest {
     @Test
     public void testCreation() {
         populate();
+
+        // testing basic course info, and also miscdata hashmap
         assertEquals(course.getCourseTitle(), "Introduction to Computer Science");
         assertEquals(course.getCourseCode(), "CSC148");
         assertEquals(course.getCourseDescription(), "An introductory computer science course");
@@ -48,6 +52,8 @@ public class ArtsAndScienceCourseTest {
         User temp = new GuestUser();
         course.enroll(temp);
 
+        // testing that seats are being added and removed correctly, and also course is being
+        // successfully added to the user
         assertEquals(temp.getSelectedCourses().get("Introduction to Computer Science"), course);
         assertEquals(course.getRemainingSeats(), 39);
 
