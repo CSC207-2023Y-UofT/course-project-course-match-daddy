@@ -17,17 +17,12 @@ public class ProgramPresenter implements ViewProgramDataInterface {
         this.programDataList = programDataList;
     }
 
-    // Provide a method to retrieve the list of program data
-    public HashMap<String, Program> getProgramData() {
-        return programDataList;
-    }
-
     /**
      * return the list of programs to be displayed
      * @return List<Program> list of programs
      */
-    public HashMap<String, Program> getProgramList() {
-        return this.programDataList;
+    public HashMap<String, Program> getProgramData() {
+        return programDataList;
     }
 
 }

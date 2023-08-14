@@ -6,9 +6,6 @@ import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.u
 import com.example.coursematchdaddy.clean_architecture_layers.entities.interfaces.user_class_imports_implementations.AdministrationUserInterface;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.interfaces.user_class_imports_implementations.GuestUserInterface;
 import com.example.coursematchdaddy.clean_architecture_layers.entities.interfaces.user_class_imports_implementations.LoggedInUserInterface;
-import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations.CollectLoginDataInterface;
-import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations.CreateUserAccountInterface;
-import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations.ExtractUserDataInterface;
 
 import java.util.HashMap;
 
@@ -71,7 +68,6 @@ public abstract class Login implements LoggedInUserInterface, GuestUserInterface
         return this.user;
     }
 
-    @Override
     public HashMap<String, Object> getLoginCredentials() {
         HashMap<String, Object> credentials = new HashMap<>();
         credentials.put("username", this.username);
@@ -81,15 +77,7 @@ public abstract class Login implements LoggedInUserInterface, GuestUserInterface
     }
 
 
-    @Override
     public HashMap<String, Object> getUserData() {
-        HashMap<String, Object> userDataMap = new HashMap<>();
-        userDataMap.put(this.user.getUsername(), this.user);
-        return userDataMap;
-    }
-
-    @Override
-    public HashMap<String, Object> getUsersDataMap() {
         HashMap<String, Object> userDataMap = new HashMap<>();
         userDataMap.put(this.user.getUsername(), this.user);
         return userDataMap;

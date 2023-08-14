@@ -1,12 +1,8 @@
 package com.example.coursematchdaddy.clean_architecture_layers.entities.classes;
 
-import static org.junit.Assert.assertEquals;
-
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.course_subclasses.ArtsAndSciencesCourse;
 
 import junit.framework.TestCase;
-
-import org.junit.Test;
 
 import java.util.HashMap;
 

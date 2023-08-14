@@ -1,10 +1,5 @@
 package com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations;
 
-import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
-import com.example.coursematchdaddy.clean_architecture_layers.gateways.classes.DBUsersGateway;
-
-import java.util.HashMap;
-
 public interface VerifyLoginDataInterface {
     /**
      * Verifies the user's provided log in credentials.

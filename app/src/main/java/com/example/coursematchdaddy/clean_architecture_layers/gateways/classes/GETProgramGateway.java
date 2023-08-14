@@ -24,9 +24,6 @@ import java.util.List;
  */
 public class GETProgramGateway {
     private final File db;
-    private List<Program> programListData;
-    private HashMap<String, Program> programListDataMap;
-    private final String path = "/data/user/0/com.example.coursematchdaddy/files/programs.csv";
 
     /**
      * Constructs a GETProgramGateway object.

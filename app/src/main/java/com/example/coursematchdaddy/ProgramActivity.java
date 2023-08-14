@@ -85,7 +85,7 @@ public class ProgramActivity extends AppCompatActivity implements RecycleViewInt
 
         // add the programs to the program list
 
-        for (Program p: presenter.getProgramList().values()) {
+        for (Program p: presenter.getProgramData().values()) {
             programList.add(p.getProgramTitle());
         }
 

@@ -18,9 +18,9 @@ public class SurveyTest {
     @Before
     public void testCreator() {
         //Setting up Survey through subclass GenericData object
-        ArrayList<String> coursesTaken = new ArrayList<String>();
+        ArrayList<String> coursesTaken = new ArrayList<>();
         coursesTaken.add("ISP100");
-        HashMap<String, String> preferences = new HashMap<String, String>();
+        HashMap<String, String> preferences = new HashMap<>();
         preferences.put("interest", "objectivity");
         survey = new GenericData("Computer Science", (float) 3.0, coursesTaken, preferences);
     }
@@ -43,7 +43,7 @@ public class SurveyTest {
     @Test
     public void testGetCoursesTaken() {
         //Testing that the getter method works
-        List<String> expected = new ArrayList<String>();
+        List<String> expected = new ArrayList<>();
         expected.add("ISP100");
         assertEquals(expected, survey.getCoursesTaken());
     }
