@@ -2,7 +2,6 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/scrollView2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
@@ -33,7 +32,6 @@
             tools:ignore="HardcodedText" />
 
         <TextView
-            android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="81sp"
             android:background="#660000"
@@ -66,7 +64,6 @@
             tools:ignore="HardcodedText" />
 
         <TextView
-            android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -99,7 +96,6 @@
             android:importantForAutofill="no" />
 
         <TextView
-            android:id="@+id/textView12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Number of Credits:"
@@ -131,7 +127,6 @@
             android:importantForAutofill="no" />
 
         <TextView
-            android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Favourite Courses Taken:"
@@ -163,7 +158,6 @@
             android:scrollbarThumbVertical="@color/teal_700">
 
             <TextView
-                android:id="@+id/textView14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Preferences"
@@ -178,7 +172,6 @@
                 tools:ignore="HardcodedText" />
 
             <TextView
-                android:id="@+id/textView16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Course Specific Preferences"
@@ -193,7 +186,6 @@
                 tools:ignore="HardcodedText" />
 
             <TextView
-                android:id="@+id/textView15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Do you prefer:"
@@ -208,7 +200,6 @@
                 tools:ignore="HardcodedText" />
 
             <TextView
-                android:id="@+id/textView17"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Breadth Requirements:"
