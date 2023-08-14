@@ -5,6 +5,7 @@ import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.U
 
 import java.util.HashMap;
 
+@SuppressWarnings("ConstantConditions")
 public class ClosedEnrollmentCourse extends Course {
     /**
      * @param courseTitle             : String

@@ -3,6 +3,7 @@ package com.example.coursematchdaddy.clean_architecture_layers.entities.classes;
 import java.io.Serializable;
 import java.util.HashMap;
 
+@SuppressWarnings("ConstantConditions")
 public abstract class Course implements Serializable, Comparable<Course>  {
     private final String courseTitle;
     private final String courseCode;
