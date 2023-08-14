@@ -38,7 +38,7 @@ public class CourseActivity extends AppCompatActivity implements RecycleViewInte
 
         presenter = new CoursePresenter((HashMap<String, Course>) currentUser.getSelectedCourses());
 
-        Button toCarousel = (Button) findViewById(R.id.buttonCarousel);
+        Button toCarousel = findViewById(R.id.buttonCarousel);
         Log.d("LOG", "==================== " + currentUser.getSelectedCourses().values().size());
 
         // moving to carousel on button click
@@ -49,7 +49,7 @@ public class CourseActivity extends AppCompatActivity implements RecycleViewInte
             finish();
         });
 
-        Button toProgram = (Button) findViewById(R.id.buttonProgram);
+        Button toProgram = findViewById(R.id.buttonProgram);
 
         // moving to program tab on button click
         toProgram.setOnClickListener(view -> {
@@ -59,7 +59,7 @@ public class CourseActivity extends AppCompatActivity implements RecycleViewInte
             finish();
         });
 
-        ImageButton toSettings = (ImageButton) findViewById(R.id.buttonSettings);
+        ImageButton toSettings = findViewById(R.id.buttonSettings);
 
         toSettings.setOnClickListener(view -> {
             Intent intent = new Intent(CourseActivity.this, SettingActivity.class);
@@ -103,16 +103,16 @@ public class CourseActivity extends AppCompatActivity implements RecycleViewInte
         List<Course> courses = new ArrayList<>(presenter.getCourseData().values());
         Course selectedCourseData = courses.get(pos);
 
-        TextView tv1 = (TextView)findViewById(R.id.course_title);
+        TextView tv1 = findViewById(R.id.course_title);
         tv1.setText(selectedCourseData.getCourseTitle());
 
-        TextView tv2 = (TextView)findViewById(R.id.course_code);
+        TextView tv2 = findViewById(R.id.course_code);
         tv2.setText(selectedCourseData.getCourseCode());
 
-        TextView tv3 = (TextView)findViewById(R.id.course_description);
+        TextView tv3 = findViewById(R.id.course_description);
         tv3.setText(selectedCourseData.getCourseDescription());
 
-        TextView tv7 = (TextView)findViewById(R.id.textView7);
+        TextView tv7 = findViewById(R.id.textView7);
         //Remove textview
         if (tv7 != null) {
             ViewGroup parentView = (ViewGroup) tv7.getParent();

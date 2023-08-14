@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class OutputAdapter extends RecyclerView.Adapter<OutputAdapter.OutputViewHolder> {
 
-    private ArrayList<String> names;
+    private final ArrayList<String> names;
     private final RecycleViewInterface recycleViewInterface;
 
     public OutputAdapter(ArrayList<String> names, RecycleViewInterface recycleViewInterface) {

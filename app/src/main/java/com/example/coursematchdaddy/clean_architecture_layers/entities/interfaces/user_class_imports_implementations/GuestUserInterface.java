@@ -9,5 +9,5 @@ public interface GuestUserInterface {
      *
      * @return Retrieve a guest user's data.
      */
-    public HashMap<String, Object> getUserData();
+    HashMap<String, Object> getUserData();
 }

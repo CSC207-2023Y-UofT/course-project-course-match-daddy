@@ -55,7 +55,7 @@ public class ProgramActivity extends AppCompatActivity implements RecycleViewInt
         updateSelectedPrograms();
         presenter = new ProgramPresenter((HashMap<String, Program>) currentUser.getSelectedPrograms());
 
-        Button toCarousel1 = (Button) findViewById(R.id.buttonCarousel);
+        Button toCarousel1 = findViewById(R.id.buttonCarousel);
         // moving to carousel on button click
         toCarousel1.setOnClickListener(view -> {
             Intent intent = new Intent(ProgramActivity.this, CarouselActivity.class);
@@ -64,7 +64,7 @@ public class ProgramActivity extends AppCompatActivity implements RecycleViewInt
             finish();
         });
 
-        Button toCourse1 = (Button) findViewById(R.id.buttonCourse);
+        Button toCourse1 = findViewById(R.id.buttonCourse);
 
         // moving to program tab on button click
         toCourse1.setOnClickListener(view -> {
@@ -74,7 +74,7 @@ public class ProgramActivity extends AppCompatActivity implements RecycleViewInt
             finish();
         });
 
-        ImageButton toSettings = (ImageButton) findViewById(R.id.buttonSettings2);
+        ImageButton toSettings = findViewById(R.id.buttonSettings2);
 
         toSettings.setOnClickListener(view -> {
             Intent intent = new Intent(ProgramActivity.this, SettingActivity.class);
@@ -133,13 +133,13 @@ public class ProgramActivity extends AppCompatActivity implements RecycleViewInt
         List<Program> programs = new ArrayList<>(presenter.getProgramData().values());
         Program selectedProgramData = programs.get(pos);
 
-        TextView tv1 = (TextView)findViewById(R.id.program_title);
+        TextView tv1 = findViewById(R.id.program_title);
         tv1.setText(selectedProgramData.getProgramTitle());
 
-        TextView tv2 = (TextView)findViewById(R.id.program_code);
+        TextView tv2 = findViewById(R.id.program_code);
         tv2.setText(selectedProgramData.getProgramCode());
 
-        TextView tv3 = (TextView)findViewById(R.id.program_description);
+        TextView tv3 = findViewById(R.id.program_description);
         tv3.setText(selectedProgramData.getProgramDescription());
 
     }

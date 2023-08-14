@@ -23,7 +23,14 @@ import java.util.List;
  * "Computer Science Specialist", "A specialist program in Computer Science", "None", "None", "Computer Science"
  */
 public class GETProgramGateway {
+<<<<<<< HEAD
     private final File db;
+=======
+    private List<Program> programListData;
+    private final File db;
+    private HashMap<String, Program> programListDataMap;
+    private final String path = "/data/user/0/com.example.coursematchdaddy/files/programs.csv";
+>>>>>>> 4dcdc82 (Cleaned-up codebase)
 
     /**
      * Constructs a GETProgramGateway object.
@@ -69,9 +76,14 @@ public class GETProgramGateway {
                     String completionRequirements = programData.get(3);
 
                     // Instantiate a Program object and add it to the list of Program objects
+<<<<<<< HEAD
                     Program program = new Program(programName, programCode ,programDescription, completionRequirements);
                     programListData.add(program);
 
+=======
+                    Program program = new Program(programName,programName.substring(programName.length() - 9) ,programDescription, completionRequirements);
+                    this.programListData.add(program);
+>>>>>>> 4dcdc82 (Cleaned-up codebase)
                     // Map the program title to the Program object
                     programListDataMap.put(programName, program);
                 }

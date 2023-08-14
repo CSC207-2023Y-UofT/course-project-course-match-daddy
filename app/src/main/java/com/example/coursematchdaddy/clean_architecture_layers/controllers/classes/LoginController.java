@@ -15,9 +15,9 @@ public class LoginController implements CollectLoginDataInterface {
     private String username;
     private String email;
     private String password;
-    private LoginPresenter presenter;
-    private VerifyLoginDataInterface validateData;
-    private CreateUserAccountInterface createAccount;
+    private final LoginPresenter presenter;
+    private final VerifyLoginDataInterface validateData;
+    private final CreateUserAccountInterface createAccount;
 
 
     /**

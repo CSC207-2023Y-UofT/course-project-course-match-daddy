@@ -13,5 +13,5 @@ public interface ExtractProgramsRecommendationsInterface {
      *
      * @return A List of recommended Program objects.
      */
-    public List<Program> getProgramRecommendations();
+    List<Program> getProgramRecommendations();
 }

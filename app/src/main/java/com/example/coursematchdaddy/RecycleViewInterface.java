@@ -5,5 +5,5 @@ public interface RecycleViewInterface {
     /* handle click event
     /* param pos : the position of mouse
     /*/
-    public void onItemClick(int pos);
+    void onItemClick(int pos);
 }

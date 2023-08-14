@@ -9,19 +9,19 @@ public interface AdministrationUserInterface {
      *
      * @return Retrieve a user's login credentials.
      */
-    public HashMap<String, Object> getLoginCredentials();
+    HashMap<String, Object> getLoginCredentials();
 
     /**
      * Retrieve a user's data.
      *
      * @return Retrieve a user's data.
      */
-    public HashMap<String, Object> getUserData();
+    HashMap<String, Object> getUserData();
 
     /**
      * Retrieve a users' data.
      *
      * @return Retrieve a users' data.
      */
-    public HashMap<String, Object> getUsersDataMap();
+    HashMap<String, Object> getUsersDataMap();
 }

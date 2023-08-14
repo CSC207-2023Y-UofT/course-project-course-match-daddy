@@ -13,14 +13,14 @@ public interface VerifyLoginDataInterface {
      * @param providedPassword given password
      * @return true if the username is valid and matches an existing user account, false otherwise.
      */
-    public boolean verifyUserProvidedData(String providedUsername, String providedPassword);
+    boolean verifyUserProvidedData(String providedUsername, String providedPassword);
 
     /**
      * check if the email entered is unique in the database
      * @param providedEmail email entered
      * @return true if email is unique, false otherwise
      */
-    public boolean checkEmailUniqueness(String providedEmail);
+    boolean checkEmailUniqueness(String providedEmail);
 
     /**
      * check if the username entered is unique in the database
@@ -28,5 +28,5 @@ public interface VerifyLoginDataInterface {
      * @param providedUsername username entered
      * @return true if the username entered is unique, false otherwise
      */
-    public boolean checkUsernameUniqueness(String providedUsername);
+    boolean checkUsernameUniqueness(String providedUsername);
 }

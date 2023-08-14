@@ -9,5 +9,5 @@ public interface CollectSettingsDataInterface {
      *
      * @return Return true if the data was successfully collected.
      */
-    public boolean collectSettingsData();
+    boolean collectSettingsData();
 }

@@ -8,5 +8,5 @@ public interface UpdateSettingsDataInterface {
      * @param email This is a unique identifier of a user.
      * @return Return true if a user's data was successfully updated.
      */
-    public boolean updateUserData(String email);
+    boolean updateUserData(String email);
 }

@@ -9,19 +9,19 @@ public interface ExtractProgramDataInterface {
      * @param programData: Program
      * @return String
      */
-    public String getTitle(Program programData);
+    String getTitle(Program programData);
 
     /**
      * return program code from the database
      * @param programData: Program
      * @return String
      */
-    public String getCode(Program programData);
+    String getCode(Program programData);
 
     /**
      * return program description from the database
      * @param programData: Program
      * @return String
      */
-    public String getDescription(Program programData);
+    String getDescription(Program programData);
 }

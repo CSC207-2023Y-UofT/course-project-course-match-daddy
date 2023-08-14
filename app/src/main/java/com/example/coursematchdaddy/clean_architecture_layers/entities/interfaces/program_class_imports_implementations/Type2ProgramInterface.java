@@ -10,12 +10,12 @@ public interface Type2ProgramInterface {
      * @param hasRequirements: boolean
      * @return boolean
      */
-    public boolean enroll(User userData, boolean hasRequirements);
+    boolean enroll(User userData, boolean hasRequirements);
 
     /**
      * Unenroll userData
      * @param userData: User
      * @return boolean
      */
-    public boolean unenroll(User userData);
+    boolean unenroll(User userData);
 }

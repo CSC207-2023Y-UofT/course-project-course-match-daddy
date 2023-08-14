@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 public class VerifyLoginData extends Login {
 
-    private VerifyLoginDataInterface verifyLoginData;
+    private final VerifyLoginDataInterface verifyLoginData;
 
     /**
      * Creates a new VerifyLoginData instance with the specified login credentials and verification interface.

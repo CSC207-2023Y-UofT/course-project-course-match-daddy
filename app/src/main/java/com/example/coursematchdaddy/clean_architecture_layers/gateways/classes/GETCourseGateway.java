@@ -30,7 +30,15 @@ import java.util.List;
  * This class assumes that the CSV file is located at the specified path in the app's internal storage.
  */
 public class GETCourseGateway {
+<<<<<<< HEAD
     private final File db;
+=======
+    private List<Course> coursesListData;
+    private HashMap<String, Course> coursesListDataMap;
+    private final File db;
+    private final String path = "/data/user/0/com.example.coursematchdaddy/files/artssci.csv";
+    private String imageURL;
+>>>>>>> 4dcdc82 (Cleaned-up codebase)
 
     /**
      * Constructs a GETCourseGateway object.

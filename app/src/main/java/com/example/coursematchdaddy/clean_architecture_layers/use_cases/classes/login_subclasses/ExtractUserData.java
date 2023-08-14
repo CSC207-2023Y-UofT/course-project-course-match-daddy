@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 public class ExtractUserData extends Login {
 
-    private ExtractUserDataInterface extractUserData;
+    private final ExtractUserDataInterface extractUserData;
 
     /**
      * Creates a new ExtractUserData instance with the provided login credentials and user data extraction interface.

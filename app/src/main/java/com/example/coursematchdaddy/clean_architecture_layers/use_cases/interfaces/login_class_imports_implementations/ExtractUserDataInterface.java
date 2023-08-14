@@ -10,7 +10,7 @@ public interface ExtractUserDataInterface {
      * @param email This is a unique identifier for a user.
      * @return Return a user's data.
      */
-    public User getUserData(String email);
+    User getUserData(String email);
 
     /**
      * Retrieve a user's data from a database.
@@ -18,5 +18,5 @@ public interface ExtractUserDataInterface {
      * @param username This is a unique identifier for a user.
      * @return Return a user's data.
      */
-    public User getUserFromDB(String username);
+    User getUserFromDB(String username);
 }

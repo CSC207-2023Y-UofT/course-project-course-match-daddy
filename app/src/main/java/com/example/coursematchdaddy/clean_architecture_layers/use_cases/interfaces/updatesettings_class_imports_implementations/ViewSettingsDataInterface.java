@@ -12,5 +12,5 @@ public interface ViewSettingsDataInterface {
      * @param userData This is an instance of the User class.
      * @return Return a HashMap that contains attributes of an instance of the User class.
      */
-    public HashMap<String, Object> getUserData(User userData);
+    HashMap<String, Object> getUserData(User userData);
 }

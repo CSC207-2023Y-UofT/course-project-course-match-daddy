@@ -9,12 +9,12 @@ public interface Type1ProgramInterface {
      * @param userData: User
      * @return boolean
      */
-    public boolean enroll(User userData);
+    boolean enroll(User userData);
 
     /**
      * Remove this user from their selected programs
      * @param userData: User
      * @return boolean
      */
-    public boolean unenroll(User userData);
+    boolean unenroll(User userData);
 }

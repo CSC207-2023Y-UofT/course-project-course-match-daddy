@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 public class CollectLoginData extends Login {
 
-    private CollectLoginDataInterface collectLoginData;
+    private final CollectLoginDataInterface collectLoginData;
 
     /**
      * Creates a new CollectLoginData instance with the provided login credentials and data collection interface.

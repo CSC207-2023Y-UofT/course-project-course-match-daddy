@@ -27,7 +27,7 @@ import java.util.List;
 public class RecommendationAlgorithm implements ExtractCoursesRecommendationsInterface {
 
     protected User user;
-    private List<Course> courseList;
+    private final List<Course> courseList;
     private static final int COURSE_LIMIT = 100;
 
     /**

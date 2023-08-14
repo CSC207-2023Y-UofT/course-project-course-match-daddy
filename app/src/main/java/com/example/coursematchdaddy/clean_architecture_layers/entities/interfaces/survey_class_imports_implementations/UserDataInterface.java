@@ -11,6 +11,6 @@ import java.util.Map;
 
 
 public interface UserDataInterface {
-    public boolean updateSettings(String username, String email, String password, Map<String, Course> selectedCourses, Map<String, Program> selectedPrograms, Survey userSurvey, CreateUserAccountInterface db);
+    boolean updateSettings(String username, String email, String password, Map<String, Course> selectedCourses, Map<String, Program> selectedPrograms, Survey userSurvey, CreateUserAccountInterface db);
 
 }

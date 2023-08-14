@@ -14,10 +14,10 @@ import java.util.HashMap;
 
 public abstract class Login implements LoggedInUserInterface, GuestUserInterface, AdministrationUserInterface {
 
-    private String username;
-    private String password;
-    private String email;
-    private User user;
+    private final String username;
+    private final String password;
+    private final String email;
+    private final User user;
 
     /**
      * Constructs a new Login instance with the provided login credentials.
