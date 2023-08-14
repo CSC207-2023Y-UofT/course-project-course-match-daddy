@@ -306,6 +306,7 @@ In particular, Android Studio has the capacity to perform the following types of
 
 ![Screen Shot 2023-08-13 at 8 58 33 PM](https://github.com/CSC207-2023Y-UofT/course-project-course-match-daddy/assets/80941606/1e56d21d-a459-453e-926e-298c6ef2feb3)
 **Figure 4**: Application's unit test coverage report. Note that few tests were written for the gateway-, controller-, and presenter-layer classes and subclasses due to time constraints.
+*Furthermore, some tests which were required to interact with the database were done using Android, so they were not included in the coverage report. However, you will be able to see this information under the androidTest folder (adjacent to test folder).*
 
 Implementing unit tests is crucial to ensure the reliability and correctness of our Android application. Unit tests focus on testing individual units of code in isolation, such as methods, functions, or classes. Given the complexity of our application, it's important to have a solid unit testing strategy that covers various aspects of our user stories and architectural design. Each user story-related segment of the codebase was tested as followed: 
 1. **User Account Creation**:
