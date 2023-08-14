@@ -85,10 +85,11 @@ Our software application’s domain is a course-matching application for student
 
 ### Wireframes
 ![Application Wireframes](https://github.com/CSC207-2023Y-UofT/course-project-course-match-daddy/assets/80941606/3266b79c-7666-4d85-a523-6187841d6a90)
+**Figure 1**: Application wireframes.
 
 ### Screenshots
 ![Screenshots](https://github.com/CSC207-2023Y-UofT/course-project-course-match-daddy/assets/80941606/a639c999-805f-4723-bc67-89eb1650e328)
-
+**Figure 2**: Application screenshots.
 _____
 
 <a name='features'></a>
@@ -156,6 +157,7 @@ Classes and interfaces were packaged by their associated Clean Architecture laye
 The following Unified Modeling Language (UML) Diagram diagram depicts the high-level packaging of our application’s classes and interface based on Clean Architecture layers, with classes’ and interfaces’ details (i.e. data attributes, methods, etc.) described within the CRC cards below.
 
 ![Course Match Application's UML Design](https://github.com/CSC207-2023Y-UofT/course-project-course-match-daddy/assets/80941606/a02aebe9-e903-4d37-ad86-4a1c4c6e1792)
+**Figure 3**: Application high-level UML diagram.
 _____
 
 <a name='database'></a>
@@ -301,6 +303,9 @@ In particular, Android Studio has the capacity to perform the following types of
   * [Coming Soon]
 * **Compatibility Testing**:
   * [Coming Soon]
+
+![Screen Shot 2023-08-13 at 8 58 33 PM](https://github.com/CSC207-2023Y-UofT/course-project-course-match-daddy/assets/80941606/1e56d21d-a459-453e-926e-298c6ef2feb3)
+**Figure 4**: Application's unit test coverage report. Note that few tests were written for the gateway-, controller-, and presenter-layer classes and subclasses due to time constraints.
 
 Implementing unit tests is crucial to ensure the reliability and correctness of our Android application. Unit tests focus on testing individual units of code in isolation, such as methods, functions, or classes. Given the complexity of our application, it's important to have a solid unit testing strategy that covers various aspects of our user stories and architectural design. Each user story-related segment of the codebase was tested as followed: 
 1. **User Account Creation**:
