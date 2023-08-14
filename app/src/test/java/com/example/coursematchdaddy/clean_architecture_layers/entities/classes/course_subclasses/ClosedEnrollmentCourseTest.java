@@ -61,11 +61,8 @@ public class ClosedEnrollmentCourseTest {
 
         course.unenroll(temp);
 
-<<<<<<< HEAD
         // testing that seats are being added and removed correctly, and also course is being
         // successfully added to the user
-=======
->>>>>>> 4dcdc82 (Cleaned-up codebase)
         assertNull(temp.getSelectedCourses().get("Introduction to Computer Science"));
         assertEquals(course.getRemainingSeats(), 40);
     }
