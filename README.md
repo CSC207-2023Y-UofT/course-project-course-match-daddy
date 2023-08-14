@@ -50,14 +50,14 @@ _____
   * [Application Features](#features)
   * [Team, Roles, and Contributions](#team-roles-and-contributions)
   * [GitHub Repository Specifications](#github)
+  * [Application Installation and Usage](#installation-and-usage)
   * [Codebase Architecture Overview](#architecture-overview)
   * [Application Database Specifications](#database)
   * [Application Machine Learning Model Specifications](#machine-learning-model)
-  * [Application Installation and Usage](#installation-and-usage)
 * [Application Design Information](#design-information)
   * [Application Use Cases](#use-cases)
   * [Application User Stories](#user-stories)
-  * [Application Correctness](#program-correctness)
+  * [Application Correctness](#correctness)
   * [Application Testing](#testing)
   * [Application (Memory and Compute) Efficiency](#efficiency)
   * [Application Modularity](#modularity)
@@ -170,7 +170,7 @@ _____
 
 <a name='design-information'></a>
 ## Application Design Information
-The following application design topics were inspired by a previously-submitted ChatGPT-powered coding exercise.
+The following application design topics and some of their content were inspired by/referenced from a previously-submitted [ChatGPT](https://chat.openai.com/)-powered coding exercise in order to facilitate a deeper understanding of the design of our application.
 
 <a name='use-cases'></a>
 ### Application Use Cases
@@ -218,7 +218,7 @@ The following user stories breakdown the software usage scenarios specifications
 6. As a user, I want to be able to view my provided survey data so that I can update my preferences to get new course and program recommendations.
 _____
 
-<a name='Correctness'></a>
+<a name='correctness'></a>
 ### Application Correctness
 #### General Information
 In the context of software development, the correctness of an application refers to whether the application behaves as intended and meets its specified requirements. This concept encompasses various aspects that ensure the application's accuracy, reliability, and adherence to its intended purpose. Correctness is a fundamental quality attribute that developers and testers strive to achieve during the software development lifecycle.
