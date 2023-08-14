@@ -1,7 +1,6 @@
 package com.example.coursematchdaddy.clean_architecture_layers.controllers.classes;
 
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
-import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.user_subclasses.LoggedInUser;
 import com.example.coursematchdaddy.clean_architecture_layers.presenters.classes.LoginPresenter;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations.VerifyLoginDataInterface;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations.CreateUserAccountInterface;

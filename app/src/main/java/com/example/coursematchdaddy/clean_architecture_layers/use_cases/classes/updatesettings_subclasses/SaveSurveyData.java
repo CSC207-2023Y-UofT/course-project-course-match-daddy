@@ -3,8 +3,6 @@ package com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes
 import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.User;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.UpdateSettings;
 
-import java.util.HashMap;
-
 public class SaveSurveyData extends UpdateSettings {
     /**
      * Constructor method for the UpdateSettings class.

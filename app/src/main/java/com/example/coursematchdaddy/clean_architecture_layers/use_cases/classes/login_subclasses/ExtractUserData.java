@@ -30,7 +30,6 @@ public class ExtractUserData extends Login {
      *
      * @return A HashMap containing the extracted user data with appropriate keys.
      */
-    @Override
     public HashMap<String, Object> getUserData() {
         User user = extractUserData.getUserData(super.getEmail());
         Survey survey = user.getUserSurveyData();

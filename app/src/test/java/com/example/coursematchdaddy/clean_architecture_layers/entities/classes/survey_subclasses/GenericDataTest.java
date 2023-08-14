@@ -14,9 +14,9 @@ public class GenericDataTest {
     @Before
     public void testCreator() {
         //Setting up GenericData object
-        ArrayList<String> coursesTaken = new ArrayList<String>();
+        ArrayList<String> coursesTaken = new ArrayList<>();
         coursesTaken.add("ISP100");
-        HashMap<String, String> preferences = new HashMap<String, String>();
+        HashMap<String, String> preferences = new HashMap<>();
         preferences.put("interest", "objectivity");
         survey = new GenericData("Computer Science", (float) 3.0, coursesTaken, preferences);
     }
