@@ -4,8 +4,6 @@ package com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.classes.Login;
 import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfaces.login_class_imports_implementations.CollectLoginDataInterface;
 
-import java.util.HashMap;
-
 public class CollectLoginData extends Login {
 
     private final CollectLoginDataInterface collectLoginData;
