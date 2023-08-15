@@ -26,8 +26,8 @@ public class ExtractUserDataTest extends TestCase {
 
     // Mock implementation of ExtractUserDataInterface for testing
     private class ExtractUserDataInterfaceMock implements ExtractUserDataInterface {
-        User user;
-        HashMap<String, Object> expectedUserData = new HashMap<>();
+        final User user;
+        final HashMap<String, Object> expectedUserData = new HashMap<>();
 
         ExtractUserDataInterfaceMock() {
             // Create a sample User object with mock survey and data

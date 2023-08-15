@@ -16,7 +16,7 @@ import java.util.List;
 //TODO: Decouple this class to promote SRP by shifting some of its responsibilities to its subclasses
 public class RecommendationAlgorithm implements ExtractCoursesRecommendationsInterface {
 
-    protected User user;
+    protected final User user;
     private final List<Course> courseList;
     private static final int COURSE_LIMIT = 100;
 
