@@ -12,6 +12,11 @@ import org.junit.Test;
 
 import java.util.HashMap;
 
+/**
+ * Instrumented test, which will execute on an Android device.
+ *
+ * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
+ */
 public class CarouselControllerTest {
     private final String username = "username";
     private final String email = "email";
