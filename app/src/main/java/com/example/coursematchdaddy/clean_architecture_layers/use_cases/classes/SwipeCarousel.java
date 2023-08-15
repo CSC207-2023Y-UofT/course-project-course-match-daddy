@@ -13,7 +13,7 @@ import com.example.coursematchdaddy.clean_architecture_layers.use_cases.interfac
  */
 public abstract class SwipeCarousel implements CollectCarouselSwipeInterface {
 
-    protected User loggedInUser;
+    protected final User loggedInUser;
 
     /**
      * Constructor to initialize the SwipeCarousel.

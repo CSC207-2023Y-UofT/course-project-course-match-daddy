@@ -39,21 +39,18 @@ public class OutputAdapter extends RecyclerView.Adapter<OutputAdapter.OutputView
     }
 
     public static class OutputViewHolder extends RecyclerView.ViewHolder {
-        public TextView tvName;
+        public final TextView tvName;
 
         public OutputViewHolder(@NonNull View itemView, RecycleViewInterface recycleViewInterface) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tvName);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (recycleViewInterface != null) {
-                        int position = getAdapterPosition();
+            itemView.setOnClickListener(view -> {
+                if (recycleViewInterface != null) {
+                    int position = getAdapterPosition();
 
-                        if (position != RecyclerView.NO_POSITION) {
-                            recycleViewInterface.onItemClick(position);
-                        }
+                    if (position != RecyclerView.NO_POSITION) {
+                        recycleViewInterface.onItemClick(position);
                     }
                 }
             });

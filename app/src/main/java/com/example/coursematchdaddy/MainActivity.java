@@ -16,10 +16,6 @@ import java.io.*;
 
 public class MainActivity extends AppCompatActivity {
 
-    // Declare references to the UI elements
-    private TextView titleTextView;
-    private Button loginButton;
-    private Button signupButton;
     private EditText usernameEditText;
     private EditText passwordEditText;
     private EditText signupUsernameEditText;
@@ -30,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
     // Declare references to the presenter and controller
     private LoginPresenter presenter;
     private LoginController controller;
-    private UserDB gateway;
 
     /**
      * Copies a file from the "raw" folder to the internal storage directory of the app.
@@ -94,9 +89,10 @@ public class MainActivity extends AppCompatActivity {
         copySuccess = copyFileFromRawToInternalStorage(this, R.raw.thought, "thought.png");
 
         // Initialize references to the UI elements
-        titleTextView = findViewById(R.id.textView2);
-        loginButton = findViewById(R.id.loginButton);
-        signupButton = findViewById(R.id.signupButton);
+        // Declare references to the UI elements
+        TextView titleTextView = findViewById(R.id.textView2);
+        Button loginButton = findViewById(R.id.loginButton);
+        Button signupButton = findViewById(R.id.signupButton);
         usernameEditText = findViewById(R.id.editTextUsername);
         passwordEditText = findViewById(R.id.editTextPassword);
         signupUsernameEditText = findViewById(R.id.editTextSignupUsername);
@@ -106,59 +102,53 @@ public class MainActivity extends AppCompatActivity {
 
         // Initialize the presenter and controller
         presenter = new LoginPresenter();
-        gateway = new UserDB();
+        UserDB gateway = new UserDB();
         controller = new LoginController(presenter, gateway, gateway);
 
         // Set click listeners for the login and signup buttons
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Retrieve user input from the UI
-                String username = usernameEditText.getText().toString();
-                String password = passwordEditText.getText().toString();
+        loginButton.setOnClickListener(v -> {
+            // Retrieve user input from the UI
+            String username = usernameEditText.getText().toString();
+            String password = passwordEditText.getText().toString();
 
-                // Store the user input in the controller
-                controller.storeUsername(username);
-                controller.storePassword(password);
+            // Store the user input in the controller
+            controller.storeUsername(username);
+            controller.storePassword(password);
 
-                // Validate the login data
-                boolean loginSuccessful = controller.validateData();
+            // Validate the login data
+            boolean loginSuccessful = controller.validateData();
 
-                // Update the UI with the display message from the presenter
-                importantText.setText(presenter.getDisplayMessage());
+            // Update the UI with the display message from the presenter
+            importantText.setText(presenter.getDisplayMessage());
 
-                if (loginSuccessful) {
-                    Intent intent = new Intent(MainActivity.this, CourseActivity.class);
-                    intent.putExtra("username", username);
-                    startActivity(intent);
-                    finish(); // Close the current MainActivity if needed
-                }
+            if (loginSuccessful) {
+                Intent intent = new Intent(MainActivity.this, CourseActivity.class);
+                intent.putExtra("username", username);
+                startActivity(intent);
+                finish(); // Close the current MainActivity if needed
             }
         });
 
-        signupButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Retrieve user input from the UI
-                String signupUsername = signupUsernameEditText.getText().toString();
-                String email = emailEditText.getText().toString();
-                String signupPassword = signupPasswordEditText.getText().toString();
+        signupButton.setOnClickListener(v -> {
+            // Retrieve user input from the UI
+            String signupUsername = signupUsernameEditText.getText().toString();
+            String email = emailEditText.getText().toString();
+            String signupPassword = signupPasswordEditText.getText().toString();
 
-                // Store the user input in the controller
-                controller.storePassword(signupPassword);
-                controller.storeUsername(signupUsername);
-                controller.storeEmail(email);
+            // Store the user input in the controller
+            controller.storePassword(signupPassword);
+            controller.storeUsername(signupUsername);
+            controller.storeEmail(email);
 
-                // Create a new account and update the UI with the display message from the presenter
-                boolean accountCreated = controller.createAccount();
-                importantText.setText(presenter.getDisplayMessage());
+            // Create a new account and update the UI with the display message from the presenter
+            boolean accountCreated = controller.createAccount();
+            importantText.setText(presenter.getDisplayMessage());
 
-                if (accountCreated){
-                    Intent intent = new Intent(MainActivity.this, SurveyActivity.class);
-                    intent.putExtra("username", signupUsername);
-                    startActivity(intent);
-                    finish(); // Close the current MainActivity if needed
-                }
+            if (accountCreated){
+                Intent intent = new Intent(MainActivity.this, SurveyActivity.class);
+                intent.putExtra("username", signupUsername);
+                startActivity(intent);
+                finish(); // Close the current MainActivity if needed
             }
         });
     }

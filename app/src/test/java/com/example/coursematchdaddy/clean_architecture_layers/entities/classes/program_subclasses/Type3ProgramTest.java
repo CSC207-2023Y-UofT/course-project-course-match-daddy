@@ -6,7 +6,7 @@ import com.example.coursematchdaddy.clean_architecture_layers.entities.classes.u
 import junit.framework.TestCase;
 
 public class Type3ProgramTest extends TestCase {
-    Type3Program program = new Type3Program("Religion", "ERMAJ0151", "Religion major", "RLG101");
+    final Type3Program program = new Type3Program("Religion", "ERMAJ0151", "Religion major", "RLG101");
 
     public void testHasSpace() {
         assertTrue(program.hasSpace());
