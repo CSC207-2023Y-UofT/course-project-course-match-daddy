@@ -24,11 +24,11 @@ public class CarouselController{
      */
     public CarouselController(String username) {
         UserDB userDB = new UserDB();
-        User user = userDB.getUserFromDB(username);
+        User user = userDB.getUserFromDB(username); // Fetch the user data
         // Create instances of SwipeCardLeft and SwipeCardRight
         swipeCardLeft = new SwipeCardLeft(user);
         swipeCardRight = new SwipeCardRight(user);
-        this.presenter = new CarouselPresenter(username);
+        this.presenter = new CarouselPresenter(username); // Create instance of carousel presenter
     }
 
     /**
@@ -37,6 +37,7 @@ public class CarouselController{
      * @param courseData The course data associated with the swiped card.
      */
     public void onSwipeLeft(Course courseData) {
+       // Call CarouselPresenter's update method with the result of swipeCardLeft's processSwipe 
        presenter.update(swipeCardLeft.processSwipe(courseData));
     }
 
@@ -46,6 +47,7 @@ public class CarouselController{
      * @param courseData The course data associated with the swiped card.
      */
     public void onSwipeRight(Course courseData){
+        // Call CarouselPresenter's update method with the result of swipeCardRight's processSwipe
         presenter.update(swipeCardRight.processSwipe(courseData));
     }
 }
